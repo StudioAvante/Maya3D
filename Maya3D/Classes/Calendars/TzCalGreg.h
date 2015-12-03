@@ -48,15 +48,15 @@
 - (void)updateWithJulian:(int)j secs:(int)s;
 - (BOOL)amILeapYear;
 // Conversores (Class methods)
-+(int) convertGregToJulian:(int)d :(int)m: (int)y;
-+(int) validateGreg:(int)d :(int)m: (int)y;
++(int) convertGregToJulian:(int)d :(int)m :(int)y;
++(int) validateGreg:(int)d :(int)m :(int)y;
 +(BOOL) isLeapYear:(int)y;
 // Class methods
 //+(NSString*) makeDayNameFull:(int)j;
-+(NSString*) makeDayNameFull:(int)d :(int)m: (int)y;
-+(NSString*) makeDayNameShort:(int)d :(int)m: (int)y;
-+(NSString*) makeDayNameNum:(int)d :(int)m: (int)y;
-+(NSString*) makeHourName:(int)h:(int)m:(int)s;
++(NSString*) makeDayNameFull:(int)d :(int)m :(int)y;
++(NSString*) makeDayNameShort:(int)d :(int)m :(int)y;
++(NSString*) makeDayNameNum:(int)d :(int)m :(int)y;
++(NSString*) makeHourName:(int)h :(int)m :(int)s;
 +(NSString*) constNameOfMonth:(int)m;
 +(NSString*) constNameOfMonthShort:(int)m;
 +(NSString*) constNameOfWeekDay:(int)d;

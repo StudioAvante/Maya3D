@@ -255,7 +255,7 @@
 	else
 	{
 		typeTexture = TEXTURE_STRIP;
-		texname = [NSString stringWithFormat:@"gear_strip",gomos];
+		texname = @"gear_strip";
 	}
 	[glObject setTexture:texname alpha:NO];
 	
@@ -1585,7 +1585,7 @@
 	// Coluna zero = fora, coluna 1 = dentro
 	//
 	//   A2		< gomoAng
-	// /  \	
+	// /  \
 	//  ---A1	< gomoAng / 2.0
 	// \  /
 	//   A0		< 0.0
@@ -1827,13 +1827,13 @@
 // Retorna o angulo de inicio de um gomo ( n = 0 : primeiro gomo)
 //
 //   G1		< n=1 - CW
-// /  \	
+// /  \
 //  ---G0	< n=0 - CW
 // \  /
 //   G-1	< n=0 - CCW
 // ...
 //
-- (GLfloat)angInit:(int)n
+- (CGFloat)angInit:(int)n
 {
 	if (rotation == ROTATE_CW)
 		return ( gomoAng * n );
@@ -1842,14 +1842,14 @@
 }
 
 // Verifica se um ponto esta dentro da engrenagem
-- (BOOL)isInside:(CGFloat)x:(CGFloat)y
+- (BOOL)isInside:(CGFloat)x :(CGFloat)y
 {
 	CGFloat dist = DISTANCE_BETWEEN(centerX,centerY,x,y);
 	//AvLog(@"CENTER xy[%.3f/%.3f] to[%.3f/%.3f] radIO[%.3f/%.3f] dist[%.3f]",centerX,centerY,x,y,radiusIn,radiusOut,dist);
 	return ( ( dist >= radiusIn && dist <= radiusOut ) ? TRUE : FALSE );
 }
 // Verifica se um ponto esta proximo da engrenagem (sua largura p/ dentro e p/ fora)
-- (BOOL)isAround:(CGFloat)x:(CGFloat)y
+- (BOOL)isAround:(CGFloat)x :(CGFloat)y
 {
 	CGFloat dist = DISTANCE_BETWEEN(centerX,centerY,x,y);
 	return ( ( dist >= (radiusIn-gomoWidth) && dist <= (radiusOut+gomoWidth) ) ? TRUE : FALSE );
@@ -1858,14 +1858,14 @@
 // Verifica se um ponto esta dentro da engrenagem
 // ang = arctan (opposite / adjascent)
 // Retorna em GRAUS
-- (CGFloat)angTo:(CGFloat)x:(CGFloat)y
+- (CGFloat)angTo:(CGFloat)x :(CGFloat)y
 {
 	return ( atan2f(x-centerX,y-centerY) * RADIAN_ANGLES );
 }
 
 // Retorna a diferenca entre 2 angulos em GRAUS
 // Retorna em GRAUS
-- (CGFloat)angDiff:(CGFloat)ang1:(CGFloat)ang2
+- (CGFloat)angDiff:(CGFloat)ang1 :(CGFloat)ang2
 {
 	CGFloat diff;
 	// Depende da direcao da engrenagem

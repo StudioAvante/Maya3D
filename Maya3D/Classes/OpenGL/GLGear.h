@@ -81,18 +81,18 @@
 	int denteDownVertex;
 	int denteDownSideVertex;
 	// Circle
-	GLfloat	gomoAng;		// em radianos
-	GLfloat	arcAng;			// em radianos
-	GLfloat	arcOut;
-	GLfloat	arcIn;
-	GLfloat	circOut;
-	GLfloat	circIn;
-	GLfloat	diamOut;
-	GLfloat	diamIn;
-	GLfloat	radiusOut;
-	GLfloat	radiusIn;
-	GLfloat	radiusCenter;
-	GLfloat	radiusRow[2];
+	CGFloat	gomoAng;		// em radianos
+	CGFloat	arcAng;			// em radianos
+	CGFloat	arcOut;
+	CGFloat	arcIn;
+	CGFloat	circOut;
+	CGFloat	circIn;
+	CGFloat	diamOut;
+	CGFloat	diamIn;
+	CGFloat	radiusOut;
+	CGFloat	radiusIn;
+	CGFloat	radiusCenter;
+	CGFloat	radiusRow[2];
 	// GL Objects
 	GLObject *glObject;
 	GLElements *glSideOut;
@@ -102,7 +102,7 @@
 	GLElements *glLabels[2];
 	// Current data
 	int currentGomo;			// Gomo corrente (no centro)
-	GLfloat currentAng;			// Angulo corrente (no centro)
+	CGFloat currentAng;			// Angulo corrente (no centro)
 	int displaySizeMin;			// Quantos gomos na tela (minimo)
 	int displaySizeMax;			// Quantos gomos na tela (maximo)
 	int displaySize;			// Quantos gomos na tela (atual)
@@ -117,15 +117,15 @@
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic) BOOL isEnabled;
-@property (nonatomic) GLfloat gomoWidth;
-@property (nonatomic) GLfloat gomoAng;
-@property (nonatomic) GLfloat gomoLen;
-@property (nonatomic) GLfloat labelWidth;
-@property (nonatomic) GLfloat labelHeight;
-@property (nonatomic) GLfloat arcOut;
-@property (nonatomic) GLfloat arcIn;
-@property (nonatomic) GLfloat radiusOut;
-@property (nonatomic) GLfloat radiusIn;
+@property (nonatomic) CGFloat gomoWidth;
+@property (nonatomic) CGFloat gomoAng;
+@property (nonatomic) CGFloat gomoLen;
+@property (nonatomic) CGFloat labelWidth;
+@property (nonatomic) CGFloat labelHeight;
+@property (nonatomic) CGFloat arcOut;
+@property (nonatomic) CGFloat arcIn;
+@property (nonatomic) CGFloat radiusOut;
+@property (nonatomic) CGFloat radiusIn;
 @property (nonatomic, setter=setDisplaySizeMax:) int displaySizeMax;
 
 
@@ -150,7 +150,7 @@
 - (CGPoint)rotateXY:(GLfloat)x :(GLfloat)y ang:(GLfloat)ang;
 // Translations
 - (void)setTranslate:(GLfloat)cx :(GLfloat)cy :(GLfloat)cz;
-- (void)setRotate:(int)g:(GLfloat)dec;
+- (void)setRotate:(int)g :(GLfloat)dec;
 // Bind Data
 - (void)bindData;
 // Enable/Disable
@@ -161,11 +161,11 @@
 - (void)makeSoundBuffers:(int)oct;
 -(TzSoundBuffer*) currentSoundBuffer;
 // Math
-- (GLfloat)angInit:(int)n;
-- (BOOL)isInside:(CGFloat)x:(CGFloat)y;
-- (BOOL)isAround:(CGFloat)x:(CGFloat)y;
-- (CGFloat)angTo:(CGFloat)x:(CGFloat)y;
-- (CGFloat)angDiff:(CGFloat)ang1:(CGFloat)ang2;
+- (CGFloat)angInit:(int)n;
+- (BOOL)isInside:(CGFloat)x :(CGFloat)y;
+- (BOOL)isAround:(CGFloat)x :(CGFloat)y;
+- (CGFloat)angTo:(CGFloat)x :(CGFloat)y;
+- (CGFloat)angDiff:(CGFloat)ang1 :(CGFloat)ang2;
 
 
 @end

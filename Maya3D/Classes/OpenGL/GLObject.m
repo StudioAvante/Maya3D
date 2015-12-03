@@ -246,7 +246,7 @@
 	 */
 	
 	// stride: One full vertex data size (vertex + color + texture)
-	stride = (sizeBuffer / numVertex);
+	stride = (int)(sizeBuffer / numVertex);
 
 	// allocate a new vertex buffer
 	glGenBuffers(1, &vbo);
@@ -310,7 +310,7 @@
 #pragma mark DRAWING
 
 // Check if vertex is inside a inset
-- (BOOL)isVertexInsideInset:(CGFloat*)vertex:(UIEdgeInsets)inset;
+- (BOOL)isVertexInsideInset:(CGFloat*)vertex :(UIEdgeInsets)inset;
 {
 	return (vertex[0] >= inset.left && vertex[0] <= inset.right && vertex[1] >= inset.bottom && vertex[1] <= inset.top);
 }

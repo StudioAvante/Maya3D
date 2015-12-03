@@ -366,7 +366,7 @@
 #pragma mark TOUCHES
 
 // TOUCH BEGIN
-- (void)touchBegin:(CGPoint)pos:(NSString*)name
+- (void)touchBegin:(CGPoint)pos :(NSString*)name
 {
 	// Only if window is enabled
 	if (global.prefGearName == GEAR_NAME_OFF)
@@ -389,7 +389,7 @@
 	[self touchMove:pos:name];
 }
 // TOUCH MOVE
-- (void)touchMove:(CGPoint)pos:(NSString*)name
+- (void)touchMove:(CGPoint)pos :(NSString*)name
 {
 	// Only if window is enabled
 	if (global.prefGearName == GEAR_NAME_OFF)

@@ -43,7 +43,7 @@
 #pragma mark CONVERSORES
 
 // Converte data MAYA em memoria para JULIAN DAY NUMBER
-- (int)convertMayaToJulian:(int)b:(int)k:(int)t:(int)u:(int)i {
+- (int)convertMayaToJulian:(int)b :(int)k :(int)t :(int)u :(int)i {
 	return JULIAN_MIN + i + (u*20) + (t*20*18) + (k*20*18*20) + (b*20*18*20*20);
 }
 // Inicializa calendario a partir de um KIN MAYA absoluto

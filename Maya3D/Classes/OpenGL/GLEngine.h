@@ -64,7 +64,7 @@
 - (void)endRoll;
 - (void)updateNames;
 // Auto Zoom
-- (void)startAutoZoom:(CGFloat)i:(CGFloat)f;
+- (void)startAutoZoom:(CGFloat)i :(CGFloat)f;
 - (void)applyAutoZoom;
 - (void)stopAutoZoom;
 // Sounds

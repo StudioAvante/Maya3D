@@ -16,11 +16,6 @@
 #import "TzSoundManager.h"
 #import "AvanteTextLabel.h"
 #import "InfoVC.h"
-#import "SHK.h"
-#import "SHKMail.h"
-#import "SHKFacebook.h"
-#import "SHKTwitter.h"
-#import "SHKTumblr.h"
 
 @implementation TzGlobal
 
@@ -98,7 +93,7 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
 	// First Time?
-	int prefDejaVu = [defaults integerForKey:@"prefDejaVu"];
+	int prefDejaVu = (int)[defaults integerForKey:@"prefDejaVu"];
 	if (prefDejaVu == 0)
 	{
 		AvLog(@"PREFERENCES: FIRST TIME!");
@@ -127,19 +122,19 @@
 #endif // LITE
 	
 	// Read preferences
-	prefLangSetting = [defaults integerForKey:@"prefLangSetting"];
-	prefHemisphere = [defaults integerForKey:@"prefHemisphere"];
-	prefMayaDreamspell = [defaults integerForKey:@"prefMayaDreamspell"];
-	prefHemisphere = [defaults integerForKey:@"prefHemisphere"];
-	prefLastDate = [defaults integerForKey:@"prefLastDate"];
-	prefStartDate = [defaults integerForKey:@"prefStartDate"];
-	prefDateFormat = [defaults integerForKey:@"prefDateFormat"];
-	prefNumbering = [defaults integerForKey:@"prefNumbering"];
-	//prefClockStyle = [defaults integerForKey:@"prefClockStyle"];
-	prefClockStyle = CLOCK_STYLE_123;
-	prefGearName = [defaults integerForKey:@"prefGearName"];
-	prefGearSound = [defaults integerForKey:@"prefGearSound"];
-	prefInfoSeen = [defaults integerForKey:@"prefInfoSeen"];
+	prefLangSetting		= (int)[defaults integerForKey:@"prefLangSetting"];
+	prefHemisphere		= (int)[defaults integerForKey:@"prefHemisphere"];
+	prefMayaDreamspell	= (int)[defaults integerForKey:@"prefMayaDreamspell"];
+	prefHemisphere		= (int)[defaults integerForKey:@"prefHemisphere"];
+	prefLastDate		= (int)[defaults integerForKey:@"prefLastDate"];
+	prefStartDate		= (int)[defaults integerForKey:@"prefStartDate"];
+	prefDateFormat		= (int)[defaults integerForKey:@"prefDateFormat"];
+	prefNumbering		= (int)[defaults integerForKey:@"prefNumbering"];
+	//prefClockStyle	= [defaults integerForKey:@"prefClockStyle"];
+	prefClockStyle		= CLOCK_STYLE_123;
+	prefGearName		= (int)[defaults integerForKey:@"prefGearName"];
+	prefGearSound		= (int)[defaults integerForKey:@"prefGearSound"];
+	prefInfoSeen		= (int)[defaults integerForKey:@"prefInfoSeen"];
 	
 	// Force View mode?
 	if (MAYA_ONLY)
@@ -205,16 +200,31 @@
 	soundLib = [[TzSoundManager alloc] init];
 		
 	// Configure and start the accelerometer
-    //[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / kAccelerometerFrequency)];
-    [[UIAccelerometer sharedAccelerometer] setUpdateInterval:OPENGL_INTERVAL];
-    [[UIAccelerometer sharedAccelerometer] setDelegate:self];
-	
+	self.motionManager = [[CMMotionManager alloc] init];
+	self.motionManager.accelerometerUpdateInterval = OPENGL_INTERVAL;
+	self.motionManager.gyroUpdateInterval = OPENGL_INTERVAL;
+	[self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+											 withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error)
+	 {
+		 if(error) {
+			 NSLog(@"%@", error);
+		 }
+		 else {
+			 [self accelerometer:accelerometerData.acceleration];
+		 }
+	 }];
+	/*[self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
+									withHandler:^(CMGyroData *gyroData, NSError *error)
+	 {
+		 [self outputRotationData:gyroData.rotationRate];
+	 }];*/
+
 	// Finito!
 	return self;
 }
 
 
-// Finaliza, salvando 
+// Finaliza, salvando
 - (void)updatePreferences
 {
 	// Get defaults pointer
@@ -270,7 +280,7 @@
 
 
 // Log
-- (void)logTime:(id)obj:(NSString*)msg
+- (void)logTime:(id)obj :(NSString*)msg
 {
 	CFAbsoluteTime now = CFAbsoluteTimeGetCurrent();
 	CFAbsoluteTime diff = (now - lastLog);
@@ -288,7 +298,7 @@
 // ACCELEROMETER
 //
 // UIAccelerometerDelegate method, called when the device accelerates.
-- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
+- (void)accelerometer:(CMAcceleration)acceleration {
 	// Locked?
 	if (accelLocked)
 		return;
@@ -368,7 +378,7 @@
 // NSData *dataObj = UIImageJPEGRepresentation(self, 90);
 // [dataObj writeToFile:path atomically:NO];
 //
-- (void)shareView:(UIView*)view to:(NSInteger)shareOption withText:(NSString*)text withBody:(NSString*)body
+- (void)shareView:(UIView*)view vc:(UIViewController*)vc withText:(NSString*)text withBody:(NSString*)body
 {
 	UIImageView *rasterView;
 	UIImageView *trailerView;
@@ -424,21 +434,15 @@
 
 	// Save!
 	cameraLocked = NO;
-	switch (shareOption)
-	{
-		case SHARE_LOCAL:
-			[self saveImageToLibrary:image];
-			break;
-		case SHARE_EMAIL:
-			[self shareEmailImage:image withText:text withBody:body];
-			break;
-		case SHARE_FACEBOOK:
-			[self shareFacebookImage:image withText:text];
-			break;
-		case SHARE_TUMBLR:
-			[self shareTumblrImage:image withText:text];
-			break;
-	}
+	
+	// Share!
+	NSArray *activityItems = @[text, image];
+	UIActivityViewController *activityController =
+	[[UIActivityViewController alloc] initWithActivityItems:activityItems
+									  applicationActivities:nil];
+	[vc presentViewController:activityController
+					 animated:YES
+				   completion:nil];
 
 	// release all
 	[rasterView release];
@@ -574,7 +578,7 @@
 - (void)switchViewMode:(id)sender
 {
 	// Set preferences
-	int viewMode = ((UISegmentedControl*)sender).selectedSegmentIndex;
+	int viewMode = (int)((UISegmentedControl*)sender).selectedSegmentIndex;
 	prefMayaDreamspell = viewMode;
 	AvLog(@"SWITCH VIEW MODE [%d]", self.prefMayaDreamspell);
 	
@@ -722,29 +726,6 @@
 	[alert release];
 }
 
-//
-// UI - SHARING IMAGE
-// FACEBOOK DO SHAREKIT NAO FUNCIONA NO UIAlertView !!!!!
-// http://stackoverflow.com/questions/3859669/sharekit-for-iphone-randomly-crashing
-- (void)alertSharing:(id)delegate
-{
-	// Display alert
-	alertResp = -1;
-	UIActionSheet *action = [[UIActionSheet alloc]
-							 initWithTitle:LOCAL(@"SHARING")
-							 delegate:delegate
-							 cancelButtonTitle:LOCAL(@"BACK")
-							 destructiveButtonTitle:nil
-							 otherButtonTitles:LOCAL(@"SHARE_LOCAL"),
-												LOCAL(@"SHARE_EMAIL"),
-												LOCAL(@"SHARE_FACEBOOK"),
-												LOCAL(@"SHARE_TWITTER"), 
-												LOCAL(@"SHARE_TUMBLR"), nil];
-	
-	[action showFromTabBar:theTabBar.tabBar];
-	[action release];
-}
-
 // UI - LOCATION DETECTION
 - (void)alertLocation:(id)delegate
 {
@@ -823,47 +804,6 @@
 	if (i)
 		[global goLink:LINK_BUY_FULL];
 }
-
-
-#pragma mark SHAREKIT
-
-//
-// ShareKit integration
-//
-// http://www.getsharekit.com/install/
-// http://www.getsharekit.com/docs/
-//
-- (void)sharekitAction
-{
-	// EXAMPLE: Use an image in our resource bundle
-	UIImage *image = [UIImage imageNamed:@"gear7.png"];
-	SHKItem *item = [SHKItem image:image title:@"Testing..."];
-	// Share the item
-	//[SHK setRootViewController:global.theTabBar];
-	[SHKFacebook shareItem:item];
-}
-- (void)shareEmailImage:(UIImage*)image withText:(NSString*)text withBody:(NSString*)body
-{
-	SHKItem *item = [SHKItem image:image title:text];
-	item.text = body;
-	[SHKMail shareItem:item];
-	//[SHKMail shareImage:image title:text];
-}
-- (void)shareFacebookImage:(UIImage*)image withText:(NSString*)text
-{
-	//[SHKFacebook shareItem:[SHKItem image:image title:text]];
-	[SHKFacebook shareImage:image title:text];
-}
-- (void)shareTumblrImage:(UIImage*)image withText:(NSString*)text
-{
-	[SHKTumblr shareImage:image title:text];
-}
-- (void)shareTwitterText:(NSString*)text
-{
-	[SHKTwitter shareItem:[SHKItem text:text]];
-}
-
-
 
 
 @end

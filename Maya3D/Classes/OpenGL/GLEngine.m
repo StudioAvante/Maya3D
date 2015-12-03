@@ -743,7 +743,7 @@
 
 #define AUTO_ZOOM_DURATION	4.0
 
-- (void)startAutoZoom:(CGFloat)i:(CGFloat)f
+- (void)startAutoZoom:(CGFloat)i :(CGFloat)f
 {
 	autoZoom = YES;
 	autoZoomIni = i;

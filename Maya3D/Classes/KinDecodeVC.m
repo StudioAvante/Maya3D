@@ -99,31 +99,9 @@
 // Display Sharing alert
 - (IBAction)share:(id)sender
 {
-	[global alertSharing:self];
-}
-//
-// UIAlertView DELEGATE
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)option
-{
-	NSString *text, *body;
-	switch (option)
-	{
-		case SHARE_LOCAL:
-		case SHARE_FACEBOOK:
-		case SHARE_TUMBLR:
-			text = LOCAL(@"SHARE_FACEBOOK_KIN_DECODE");
-			[global shareView:kinView to:option withText:text withBody:nil];
-			break;
-		case SHARE_TWITTER:
-			text = LOCAL(@"SHARE_TWITTER_KIN_DECODE");
-			[global shareTwitterText:text];
-			break;
-		case SHARE_EMAIL:
-			text = LOCAL(@"SHARE_EMAIL_KIN_DECODE");
-			body = LOCAL(@"SHARE_EMAIL_BODY_KIN_DECODE");
-			[global shareView:kinView to:option withText:text withBody:body];
-			break;
-	}
+	NSString *text = LOCAL(@"SHARE_EMAIL_KIN_DECODE");
+	NSString *body = LOCAL(@"SHARE_EMAIL_BODY_KIN_DECODE");
+	[global shareView:kinView vc:self withText:text withBody:body];
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tzolkin.h"
 
 
 @interface AvanteTextLabel : UIView {
@@ -34,7 +35,7 @@
 - (void)update:(NSString*)str;
 - (void)update:(NSString*)str color:(UIColor*)c;
 // setters
-- (void)setAlign:(UITextAlignment)a;
+- (void)setAlign:(int)a;
 - (void)setWrap:(BOOL)wrap;
 - (void)setFit:(BOOL)fit;
 - (void)setBold:(BOOL)bold;

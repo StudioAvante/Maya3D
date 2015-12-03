@@ -43,8 +43,8 @@
 - (void)draw3DView:(NSTimer*)theTimer;
 - (void)draw3DView;
 - (void)drawUI:(NSTimer*)theTimer;
-- (void)touchBegin:(CGPoint)pos:(NSString*)name;
-- (void)touchMove:(CGPoint)pos:(NSString*)name;
+- (void)touchBegin:(CGPoint)pos :(NSString*)name;
+- (void)touchMove:(CGPoint)pos :(NSString*)name;
 - (void)touchEnd;
 // actions
 - (IBAction)goSettings:(id)sender;

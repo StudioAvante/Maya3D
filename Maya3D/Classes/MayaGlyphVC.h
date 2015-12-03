@@ -77,7 +77,6 @@
 - (IBAction)julianSub:(id)sender;
 - (void)goDecode:(AvanteKinButton*)but;
 - (IBAction)share:(id)sender;
-- (void)shareScreenshotTo:(NSInteger)shareOption withText:(NSString*)text withBody:(NSString*)body;
 // Alert / Action Delegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)option;
 @end

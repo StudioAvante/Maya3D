@@ -907,61 +907,26 @@
 // Display Sharing alert
 - (IBAction)share:(id)sender
 {
-	[global alertSharing:self];
-}
-//
-// UIAlertView DELEGATE
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)option
-{
-	//[global sharekitAction];
 	NSString *text, *body;
-	switch (option)
+	if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
 	{
-		case SHARE_LOCAL:
-		case SHARE_FACEBOOK:
-		case SHARE_TUMBLR:
-			if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
-				text = LOCAL(@"SHARE_FACEBOOK_MAYA_GLYPH");
-			else
-				text = LOCAL(@"SHARE_FACEBOOK_KIN_GLYPH");
-			[self shareScreenshotTo:option withText:text withBody:nil];
-			break;
-		case SHARE_TWITTER:
-			if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
-				text = LOCAL(@"SHARE_TWITTER_GLYPH_MAYA");
-			else
-				text = LOCAL(@"SHARE_TWITTER_GLYPH_DREAMSPELL");
-			[global shareTwitterText:text];
-			break;
-		case SHARE_EMAIL:
-			if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
-			{
-				text = LOCAL(@"SHARE_EMAIL_MAYA_GLYPH");
-				body = LOCAL(@"SHARE_EMAIL_BODY_MAYA_GLYPH");
-			}
-			else
-			{
-				text = LOCAL(@"SHARE_EMAIL_KIN_GLYPH");
-				body = LOCAL(@"SHARE_EMAIL_BODY_KIN_GLYPH");
-			}
-			[self shareScreenshotTo:option withText:text withBody:body];
-			break;
+		text = LOCAL(@"SHARE_EMAIL_MAYA_GLYPH");
+		body = LOCAL(@"SHARE_EMAIL_BODY_MAYA_GLYPH");
 	}
-}
+	else
+	{
+		text = LOCAL(@"SHARE_EMAIL_KIN_GLYPH");
+		body = LOCAL(@"SHARE_EMAIL_BODY_KIN_GLYPH");
+	}
 
-//
-// SAVE SCREENSHOT of current view
-//
-- (void)shareScreenshotTo:(NSInteger)shareOption withText:(NSString*)text withBody:(NSString*)body
-{
 	// show greg name
 	if (!DUAL_MODE && global.prefMayaDreamspell == VIEW_MODE_MAYA)
 		mayaGregName.hidden = FALSE;
 	// take shot
 	if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
-		[global shareView:contentViewMaya to:shareOption withText:text withBody:body];
+		[global shareView:contentViewMaya vc:self withText:text withBody:body];
 	else
-		[global shareView:contentViewDreamspell to:shareOption withText:text withBody:body];
+		[global shareView:contentViewDreamspell vc:self withText:text withBody:body];
 	// show greg name
 	if (!DUAL_MODE && global.prefMayaDreamspell == VIEW_MODE_MAYA)
 		mayaGregName.hidden = TRUE;

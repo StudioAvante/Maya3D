@@ -1480,53 +1480,18 @@
 // Display Sharing alert
 - (IBAction)share:(id)sender
 {
-	[global alertSharing:self];
-}
-//
-// UIAlertView DELEGATE
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)option
-{
 	NSString *text, *body;
-	switch (option)
+	if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
 	{
-		case SHARE_LOCAL:
-		case SHARE_FACEBOOK:
-		case SHARE_TUMBLR:
-			if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
-				text = LOCAL(@"SHARE_FACEBOOK_MAYA_ORACLE");
-			else
-				text = LOCAL(@"SHARE_FACEBOOK_KIN_ORACLE");
-			[self shareScreenshotTo:option withText:text withBody:nil];
-			break;
-		case SHARE_TWITTER:
-			if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
-				text = LOCAL(@"SHARE_TWITTER_ORACLE_MAYA");
-			else
-				text = LOCAL(@"SHARE_TWITTER_ORACLE_DREAMSPELL");
-			[global shareTwitterText:text];
-			break;
-		case SHARE_EMAIL:
-			if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
-			{
-				text = LOCAL(@"SHARE_EMAIL_MAYA_ORACLE");
-				body = LOCAL(@"SHARE_EMAIL_BODY_MAYA_ORACLE");
-			}
-			else
-			{
-				text = LOCAL(@"SHARE_EMAIL_KIN_ORACLE");
-				body = LOCAL(@"SHARE_EMAIL_BODY_KIN_ORACLE");
-			}
-			[self shareScreenshotTo:option withText:text withBody:body];
-			break;
+		text = LOCAL(@"SHARE_EMAIL_MAYA_ORACLE");
+		body = LOCAL(@"SHARE_EMAIL_BODY_MAYA_ORACLE");
 	}
-}
-
-
-//
-// SAVE SCREENSHOT of current view
-//
-- (void)shareScreenshotTo:(NSInteger)shareOption withText:(NSString*)text withBody:(NSString*)body
-{
+	else
+	{
+		text = LOCAL(@"SHARE_EMAIL_KIN_ORACLE");
+		body = LOCAL(@"SHARE_EMAIL_BODY_KIN_ORACLE");
+	}
+	
 	// Separa a view correta
 	UIScrollView *view;
 	UIEdgeInsets origInset = UIEdgeInsetsZero;
@@ -1560,8 +1525,10 @@
 	frame.size.height = view.contentSize.height;
 	view.frame = frame;
 	view.showsVerticalScrollIndicator = NO;
+
 	// Click!
-	[global shareView:view to:shareOption withText:text withBody:body];
+	[global shareView:view vc:self withText:text withBody:body];
+	
 	// Volta tamanho original
 	frame.size.height = h;
 	view.frame = frame;

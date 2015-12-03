@@ -22,7 +22,7 @@
     [super dealloc];
 }
 
-- (id)init:(CGFloat)x:(CGFloat)y
+- (id)init:(CGFloat)x :(CGFloat)y
 {
 	UIImageView *imgView;
 	UIImage *image;

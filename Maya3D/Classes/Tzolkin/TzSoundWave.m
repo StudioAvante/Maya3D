@@ -57,7 +57,7 @@
 	CFRelease (audioFileURL);
 	if (result != noErr || mAudioFile == nil) 
 	{
-		AvLog([NSString stringWithFormat:@"TzSoundWave: Error [%d] opening file [%@]",result,filename]);
+		AvLog([NSString stringWithFormat:@"TzSoundWave: Error [%d] opening file [%@]",(int)result,filename]);
 		return result;
 	}
 	
@@ -67,7 +67,7 @@
 	result = AudioFileGetProperty(mAudioFile, kAudioFilePropertyAudioDataPacketCount, &dataSize, &packetCount);
 	if (result != noErr || packetCount <= 0) 
 	{
-		AvLog([NSString stringWithFormat:@"TzSoundWave: Error [%d] No Packets!",result]);
+		AvLog([NSString stringWithFormat:@"TzSoundWave: Error [%d] No Packets!",(int)result]);
 		return result;
 	}
 	
@@ -81,7 +81,7 @@
 	result = AudioFileReadPackets (mAudioFile, false, &bytes, NULL, 0, &frames,  buffer);
 	if (result != noErr)
 	{
-		AvLog([NSString stringWithFormat:@"TzSoundWave: Error [%d] reading packets from [%@]",result,filename]);
+		AvLog([NSString stringWithFormat:@"TzSoundWave: Error [%d] reading packets from [%@]",(int)result,filename]);
 		return result;
 	}
 	
@@ -89,11 +89,11 @@
 	secs = ( frames / SAMPLE_RATE );
 	
 	// print out general info about  the file
-	AvLog([NSString stringWithFormat:@"TzSoundWave: Bytes:        [%d]\n", bytes]);
+	AvLog([NSString stringWithFormat:@"TzSoundWave: Bytes:        [%d]\n", (int)bytes]);
 	// for a stereo 32 bit per sample file this is ok
-	AvLog([NSString stringWithFormat:@"TzSoundWave: Sample count: [%d]\n", bytes / 2]);
+	AvLog([NSString stringWithFormat:@"TzSoundWave: Sample count: [%d]\n", (int)bytes / 2]);
 	// sample count
-	AvLog([NSString stringWithFormat:@"TzSoundWave: Packets:      [%d]\n", frames]);
+	AvLog([NSString stringWithFormat:@"TzSoundWave: Packets:      [%d]\n", (int)frames]);
 	// for a 32bit per stereo sample at 44100khz this is correct
 	AvLog([NSString stringWithFormat:@"TzSoundWave: Time (secs):  [%.4f]\n", secs]);
 	

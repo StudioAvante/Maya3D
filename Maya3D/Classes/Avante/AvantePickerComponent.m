@@ -128,7 +128,7 @@
 	for ( int row = 0 ; row < [data count] ; row++ )
 	{
 		value = [[data objectAtIndex:row] integerValue];
-		if ( abs(target-value) < abs(target-closerValue) || closerIndex == -1)
+		if ( abs((int)(target-value)) < abs((int)(target-closerValue)) || closerIndex == -1)
 		{
 			closerIndex = row;
 			closerValue = value;

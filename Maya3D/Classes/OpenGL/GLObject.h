@@ -105,6 +105,6 @@ typedef struct {
 - (void)transform:(glTransform)t;
 - (void)transform:(glTransform)t repeat:(int)r;
 - (void)disable;
-- (BOOL)isVertexInsideInset:(CGFloat*)vertex:(UIEdgeInsets)inset;
+- (BOOL)isVertexInsideInset:(CGFloat*)vertex :(UIEdgeInsets)inset;
 
 @end

@@ -97,17 +97,6 @@ enum {
 	HEMISPHERE_NORTH
 } enumHemisphere;
 
-// Sharing options
-// Must match order on [global alertSharing:]
-enum {
-	SHARE_LOCAL = 0,
-	SHARE_EMAIL,
-	SHARE_FACEBOOK,
-	SHARE_TWITTER,
-	SHARE_TUMBLR,
-	SHARE_CANCEL
-} enumSharing;
-
 // Direcoes
 // Bate com a cor do tzolkin, nesta ordem
 enum {

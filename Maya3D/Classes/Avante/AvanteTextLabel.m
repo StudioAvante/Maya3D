@@ -157,14 +157,14 @@
 //
 // SETTERS
 //
-- (void)setAlign:(UITextAlignment)a
+- (void)setAlign:(int)a
 {
 	if (a == ALIGN_LEFT)
-		theLabel.textAlignment = UITextAlignmentLeft;
+		theLabel.textAlignment = NSTextAlignmentLeft;
 	else if (a == ALIGN_RIGHT)
-		theLabel.textAlignment = UITextAlignmentRight;
+		theLabel.textAlignment = NSTextAlignmentRight;
 	else
-		theLabel.textAlignment = UITextAlignmentCenter;
+		theLabel.textAlignment = NSTextAlignmentCenter;
 }
 - (void)setWrap:(BOOL)wrap
 {

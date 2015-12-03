@@ -444,7 +444,7 @@
 // Mudou ano > Atualiza seculo
 - (void) didChangeYear
 {
-	int year = [[currentPicker selectedRowData:2] integerValue];
+	int year = (int)[[currentPicker selectedRowData:2] integerValue];
 	[self didChangeYear:year];
 }
 - (void) didChangeYear:(int)year
@@ -462,7 +462,7 @@
 // Mudou Seculo > Atualiza Ano
 - (void) didChangeCentury
 {
-	int century = [[currentPicker selectedRowData:3] integerValue];
+	int century = (int)[[currentPicker selectedRowData:3] integerValue];
 	NSString *year;
 	if ( century > 0 )
 		year = [NSString stringWithFormat:@"%d", ((century-1)*100) ];
@@ -502,8 +502,8 @@
 		NSInteger d = [[currentPicker selectedRowData:compDay] integerValue];
 		NSInteger m = [[currentPicker selectedRowData:compMonth] integerValue];
 		NSInteger y = [[currentPicker selectedRowData:2] integerValue];
-		str = [TzCalGreg makeDayNameShort:d:m:y];
-		valid = [TzCalGreg validateGreg:d:m:y];
+		str = [TzCalGreg makeDayNameShort:(int)d:(int)m:(int)y];
+		valid = [TzCalGreg validateGreg:(int)d:(int)m:(int)y];
 	}
 	else if ( type == DATE_PICKER_JULIAN )
 	{
@@ -514,7 +514,7 @@
 		NSInteger n3 = [[currentPicker selectedRowData:4] integerValue];
 		NSInteger n2 = [[currentPicker selectedRowData:5] integerValue];
 		NSInteger n1 = [[currentPicker selectedRowData:6] integerValue];
-		int j = n1 + n2*10 + n3*100 + n4*1000 + n5*10000 + n6*100000 + n7*1000000 ;
+		int j = (int)(n1 + n2*10 + n3*100 + n4*1000 + n5*10000 + n6*100000 + n7*1000000);
 		str = [NSString stringWithFormat:@"%07d",j];
 		valid = [global.cal validateJulian:j];
 	}
@@ -525,7 +525,7 @@
 		NSInteger t = [[currentPicker selectedRowData:2] integerValue];
 		NSInteger u = [[currentPicker selectedRowData:3] integerValue];
 		NSInteger i = [[currentPicker selectedRowData:4] integerValue];
-		str = [NSString stringWithFormat:@"%d.%d.%d.%d.%d",b,k,t,u,i];
+		str = [NSString stringWithFormat:@"%d.%d.%d.%d.%d",(int)b,(int)k,(int)t,(int)u,(int)i];
 	}
 	
 	// Atualiza label
@@ -563,7 +563,7 @@
 		NSInteger d = [[currentPicker selectedRowData:compDay] integerValue];
 		NSInteger m = [[currentPicker selectedRowData:compMonth] integerValue];
 		NSInteger y = [[currentPicker selectedRowData:2] integerValue];
-		valid = [global.cal updateWithGreg:d:m:y];
+		valid = [global.cal updateWithGreg:(int)d:(int)m:(int)y];
 		AvLog(@"PICKED GREG [%02d-%02d-%03d] valid[%d]",d,m,y,valid);
 	}
 	else if ( type == DATE_PICKER_JULIAN )
@@ -575,18 +575,18 @@
 		NSInteger n3 = [[currentPicker selectedRowData:4] integerValue];
 		NSInteger n2 = [[currentPicker selectedRowData:5] integerValue];
 		NSInteger n1 = [[currentPicker selectedRowData:6] integerValue];
-		int j = n1 + n2*10 + n3*100 + n4*1000 + n5*10000 + n6*100000 + n7*1000000 ;
+		int j = (int)(n1 + n2*10 + n3*100 + n4*1000 + n5*10000 + n6*100000 + n7*1000000);
 		valid = [global.cal updateWithJulian:j];
 		AvLog(@"PICKED JULIAN [%07d] valid[%d]",j,valid);
 	}
 	else if ( type == DATE_PICKER_LONG_COUNT )
 	{
 		valid = [global.cal updateWithMaya
-				 :[[currentPicker selectedRowData:0] integerValue]
-				 :[[currentPicker selectedRowData:1] integerValue]
-				 :[[currentPicker selectedRowData:2] integerValue]
-				 :[[currentPicker selectedRowData:3] integerValue]
-				 :[[currentPicker selectedRowData:4] integerValue] ];
+				 :(int)[[currentPicker selectedRowData:0] integerValue]
+				 :(int)[[currentPicker selectedRowData:1] integerValue]
+				 :(int)[[currentPicker selectedRowData:2] integerValue]
+				 :(int)[[currentPicker selectedRowData:3] integerValue]
+				 :(int)[[currentPicker selectedRowData:4] integerValue] ];
 		AvLog(@"PICKED LONG COUNT valid[%d]",valid);
 	}
 	

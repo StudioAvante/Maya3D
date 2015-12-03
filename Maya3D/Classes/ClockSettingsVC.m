@@ -179,7 +179,7 @@
 
 // DONE!
 - (IBAction)actionDone:(id)sender {
-	global.theClock.speed = [[speedPicker selectedRowData:0] integerValue];
+	global.theClock.speed = (int)[[speedPicker selectedRowData:0] integerValue];
 	[global.theClock.speedLabel update:(NSString*) [speedPicker selectedRowText:0]];
 	AvLog(@"NEW CLOCK SPEED [%d] secs [%@]",global.theClock.speed,global.theClock.speedLabel.theLabel.text);
 	// Volta para View anterior

@@ -109,7 +109,7 @@
 		return;
 	}
 	// Set Preference
-	global.prefHemisphere = [sender selectedSegmentIndex];
+	global.prefHemisphere = (int)[sender selectedSegmentIndex];
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:global.prefHemisphere forKey:@"prefHemisphere"];
 	[defaults synchronize];
@@ -119,17 +119,17 @@
 }
 - (IBAction)setStartDate:(id)sender {
 	// Set Preference
-	global.prefStartDate = [sender selectedSegmentIndex];
+	global.prefStartDate = (int)[sender selectedSegmentIndex];
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:global.prefStartDate forKey:@"prefStartDate"];
 	[defaults synchronize];
 	// debug
-	int value = [defaults integerForKey:@"prefStartDate"];
+	int value = (int)[defaults integerForKey:@"prefStartDate"];
 	AvLog(@"SET PLIST: global.prefStartDate=%d", value);
 }
 - (IBAction)setDateFormat:(id)sender {
 	// Set Preference
-	global.prefDateFormat = [sender selectedSegmentIndex];
+	global.prefDateFormat = (int)[sender selectedSegmentIndex];
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:global.prefDateFormat forKey:@"prefDateFormat"];
 	[defaults synchronize];
@@ -139,7 +139,7 @@
 }
 - (IBAction)setNumberting:(id)sender {
 	// Set Preference
-	global.prefNumbering = [sender selectedSegmentIndex];
+	global.prefNumbering = (int)[sender selectedSegmentIndex];
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:global.prefNumbering forKey:@"prefNumbering"];
 	[defaults synchronize];
@@ -149,33 +149,33 @@
 }
 - (IBAction)setGearSound:(id)sender {
 	// Set Preference
-	global.prefGearSound = [sender selectedSegmentIndex];
+	global.prefGearSound = (int)[sender selectedSegmentIndex];
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:global.prefGearSound forKey:@"prefGearSound"];
 	[defaults synchronize];
 	// debug
-	int value = [defaults integerForKey:@"prefGearSound"];
+	int value = (int)[defaults integerForKey:@"prefGearSound"];
 	AvLog(@"SET PLIST: global.prefGearSound=%d", value);
 }
 - (IBAction)setGearLabel:(id)sender {
 	// Set Preference
-	global.prefGearName = [sender selectedSegmentIndex];
+	global.prefGearName = (int)[sender selectedSegmentIndex];
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:global.prefGearName forKey:@"prefGearName"];
 	[defaults synchronize];
 	// debug
-	int value = [defaults integerForKey:@"prefGearName"];
+	int value = (int)[defaults integerForKey:@"prefGearName"];
 	AvLog(@"SET PLIST: global.prefGearName=%d", value);
 }
 - (IBAction)setLangSetting:(id)sender {
 	// Set Preference
-	global.prefLangSetting = [sender selectedSegmentIndex];
+	global.prefLangSetting = (int)[sender selectedSegmentIndex];
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:global.prefLangSetting forKey:@"prefLangSetting"];
 	[defaults synchronize];
 	[global setLang];
 	// debug
-	int value = [defaults integerForKey:@"prefLangSetting"];
+	int value = (int)[defaults integerForKey:@"prefLangSetting"];
 	AvLog(@"SET PLIST: global.prefLangSetting=%d", value);
 }
 

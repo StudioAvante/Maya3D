@@ -13,7 +13,7 @@
 TzGlobal *global;
 
 
-@interface AppDelegate : NSObject <UIApplicationDelegate, UINavigationControllerDelegate> {
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UINavigationControllerDelegate> {
 	UIWindow *window;
 	// No Interface Builder, o App Delegate eh associado a este TabBarControler...
 	UINavigationController *navigationController;
