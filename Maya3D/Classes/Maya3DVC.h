@@ -48,8 +48,8 @@
 - (void)touchEnd;
 // actions
 - (IBAction)goSettings:(id)sender;
-- (IBAction)goClock:(id)sender;
-- (IBAction)goInfo:(id)sender;
+- (void)goClock:(id)sender;
+- (void)goInfo:(id)sender;
 - (IBAction)goFullScreen:(id)sender;
 - (IBAction)pickGregorian:(id)sender;
 // SCREENSHOT

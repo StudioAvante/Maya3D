@@ -182,27 +182,11 @@
 		
 	}
 	
-	// CLOK BUTTON
-	/*
-	 clockButton = [UIButton buttonWithType:UIButtonTypeCustom]
-	 initWithImage:[UIImage imageNamed:@"icon_clock_play.png"]
-	 style:UIBarButtonItemStylePlain
-	 target:self action:@selector(goClock:)];
-	 self.navigationItem.titleView = clockButton;
-	 */
-	
-	// SETTINGS BUTTON
-	/*
-	 UIBarButtonItem *but;
-	 but = [[UIBarButtonItem alloc]
-	 initWithImage:[global imageFromFile:@"icon_settings"]
-	 style:UIBarButtonItemStylePlain
-		   target:self action:@selector(goSettings:)];
-	self.navigationItem.leftBarButtonItem = but;
-	self.navigationItem.leftBarButtonItem.enabled = TRUE;
-	[but release];
-*/
-	
+    
+//*********************
+//andreas 2015.12.10
+
+
 	// Alloc/Resize GL view
 	glFrame.origin.x = ((320.0-glFrame.size.width)/2.0);
 	glFrame.origin.y = ((GL_VIEW_HEIGHT-glFrame.size.height)/2.0);
@@ -210,8 +194,11 @@
 		glView = [[GLEngine alloc] initWithFrame:glFrame];
 	// Add to current VC
 	glView.myVC = self;
+    
+
 	[self.view addSubview:glView];
-	
+
+
 	// DATA GREGORIANA
 	CGFloat w = 180.0;
 	gregName = [[AvanteTextField alloc] init:@"" x:((320.0-w)/2.0) y:5.0 w:w h:22.0 size:16.0];
@@ -228,29 +215,38 @@
 	// Timers separados para o GL nao esperar ninguem
 	glTimer = [NSTimer scheduledTimerWithTimeInterval:OPENGL_INTERVAL target:self selector:@selector(draw3DView:) userInfo:nil repeats:YES];
 	uiTimer = [NSTimer scheduledTimerWithTimeInterval:UI_INTERVAL target:self selector:@selector(drawUI:) userInfo:nil repeats:YES];
+  
+//*********************
 	
+ 
 	// OS 3.0b5 BUG WORKAROUND - evita App CRASH
 	// https://devforums.apple.com/thread/15985
-	/*
-	CGAffineTransform cgCTM;
-	cgCTM = CGAffineTransformMakeRotation(0.001);
+	//
+	//CGAffineTransform cgCTM;
+	//cgCTM = CGAffineTransformMakeRotation(0.001);
 	//cgCTM = CGAffineTransformMakeScale(1.001,1.001);
-	self.view.transform = cgCTM;
-	 */
+	//self.view.transform = cgCTM;
+
+
 }
 - (void)viewWillAppear:(BOOL)animated {
 	// Usa View Mode atual
 	if (mayaMoonSelector)
 		mayaMoonSelector.selectedSegmentIndex = global.prefMayaDreamspell;
+    
 	// Update gear names
 	[glView updateNames];
+    
 	// Atualiza icone do relogio
 	[self updateClockIcon];
+    
 	// Remove LEAP DAY se estiver no modo DREAMSPELL
 	[global.cal removeLeap];
+    
 	// Back from Fullscreen: Add GL view
 	if (![glView isDescendantOfView:self.view])
 		[self.view addSubview:glView];
+    
 	fullImage.hidden = YES;
 	// Se ja esta criada
 	if (dejaVu)
@@ -269,8 +265,12 @@
 	//[global.soundLib play];
 	
 	// First time
+    
+
 	dejaVu = YES;
 	isAnimating = TRUE;
+
+    
 }
 - (void)viewWillDisappear:(BOOL)animated {
 	// Turn off sounds
@@ -423,21 +423,21 @@
 
 #pragma mark ACTIONS
 
-- (IBAction)goSettings:(id)sender {
+- (void)goSettings:(id)sender {
 	SettingsVC *vc = [[SettingsVC alloc] init];
 	//vc.title = LOCAL(@"SETTINGS");
 	vc.hidesBottomBarWhenPushed  = YES;
 	[[self navigationController] pushViewController:vc animated:YES];
 	[vc release];
 }
-- (IBAction)goClock:(id)sender {
+- (void)goClock:(id)sender {
 	ClockVC *vc = [[ClockVC alloc] init];
 	//vc.title = @"Clock";
 	vc.hidesBottomBarWhenPushed  = YES;
 	[[self navigationController] pushViewController:vc animated:YES];
 	[vc release];
 }
-- (IBAction)goInfo:(id)sender {
+- (void)goInfo:(id)sender {
 #ifdef LITE
 	[global goInfo:INFO_BASICS vc:self];
 #else

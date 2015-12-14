@@ -11,16 +11,16 @@
 
 int main(int argc, char *argv[])
 {
+/*
 	// NEW ios6
 	@autoreleasepool {
 	    return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
 	}
-
+*/
 	// Old iOS4
-	/*
+
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     int retVal = UIApplicationMain(argc, argv, nil, @"AppDelegate");
     [pool release];
 	return retVal;
-	 */
 }

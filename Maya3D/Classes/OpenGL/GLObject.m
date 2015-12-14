@@ -14,7 +14,7 @@
 
 
 #define USE_IBO		0
-
+//#define USE_IBO		1
 @implementation GLObject
 
 @synthesize primitiveType;
@@ -54,8 +54,8 @@
 		return nil;
 	
 	// Primitive type
-	primitiveType = GL_TRIANGLE_STRIP;
-
+	primitiveType = GL_TRIANGLE_STRIP; //
+	//primitiveType = GL_TRIANGLES; //  andreas
 	// set object data
 	undoTransform = TRUE;
 	numVertex = nv;
@@ -232,7 +232,7 @@
 {
 	// Check data
 	[self checkData];
-	if (!status)
+	if (!status)    //andreas
 	{
 		AvLog(@"bindData WARNING: !!!!!!!! OBJECT NOT BINDED !!!!!!");
 		return;
@@ -318,13 +318,14 @@
 // Activate and DRAW
 - (void)enable
 {
-	// If not ready, dont draw!!!
+	// If not ready, don't draw!!!
 	if (status == FALSE)
 		return;
 	
 	// Activate the VBOs to draw
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	// Enable Vertex array - FOI PRO 3D_VIEW
+//    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbo);  //andreas
+    // Enable Vertex array - FOI PRO 3D_VIEW
     //glEnableClientState(GL_VERTEX_ARRAY);
 	
 	// Describe to OpenGL where each data is in the buffer
@@ -434,7 +435,7 @@
 	global.texBound = texvbo;
 	
 	// Enable Texturing - FOI PRO 3D VIEW
-	//glEnable(GL_TEXTURE_2D);
+	//glEnable(GL_TEXTURE_2D);  // andreas
 	
 	// Set the texture parameters to use a minifying filter and a linear filer (weighted average)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -464,7 +465,8 @@
 	else
 	{
 		// Draw Elements - CLIENT
-		glDrawElements(primitiveType, numVertex, GL_UNSIGNED_SHORT, arrayIndex);
+		glDrawElements(primitiveType, numVertex, GL_UNSIGNED_SHORT, arrayIndex);  //andreas
+        
 	}
 }
 

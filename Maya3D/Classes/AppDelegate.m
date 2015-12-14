@@ -19,10 +19,12 @@
 
 - (void)dealloc {
 	// Roger
+    
 	[global release];
 	// system
     [window release];
     [super dealloc];
+
 }
 
 
@@ -45,15 +47,18 @@
 	// Configura nomes dos tabs
 	if (global.theTabBar)
 	{
+
 		UIViewController *vc;
 		vc = (UIViewController*) [global.theTabBar.viewControllers objectAtIndex:TAB_MAYA3D];
 		vc.tabBarItem.title = LOCAL(@"TAB_MAYA3D");
+
 		vc = (UIViewController*) [global.theTabBar.viewControllers objectAtIndex:TAB_ORACLE];
 		vc.tabBarItem.title = LOCAL(@"TAB_ORACLE");
 		vc = (UIViewController*) [global.theTabBar.viewControllers objectAtIndex:TAB_EXPLORER];
 		vc.tabBarItem.title = LOCAL(@"TAB_EXPLORER");
 		vc = (UIViewController*) [global.theTabBar.viewControllers objectAtIndex:TAB_DATEBOOK];
 		vc.tabBarItem.title = LOCAL(@"TAB_DATEBOOK");
+
 		// Oracle: depende de configuracoes
 		//[global switchViewMode: global.prefMayaDreamspell];
 		

@@ -91,13 +91,13 @@
 		return nil;
 	
 	// Given data
-	gomos = g;					// Gomos ou Dentes da roda
-	type = t;					// Tipo do disco
-	typeDenteIn = din;			// Tipo do dente de dentro
-	typeDenteOut = dout;		// Tipo do dente de fora
-	rotation = rot;				// Tipo de rotacao: CW / CCW
-	gomoLen = gl;				// Comprimento do arco do Gomo
-	gomoWidth = gw;				// Largura do Gomo
+	gomos = g;					// Gomos ou Dentes da roda // Buds or wheel teeth
+	type = t;					// Tipo do disco            // Disc Type
+	typeDenteIn = din;			// Tipo do dente de dentro  // Within Tooth type
+	typeDenteOut = dout;		// Tipo do dente de fora    // Tooth type out
+	rotation = rot;				// Tipo de rotacao: CW / CCW   // rotation type
+	gomoLen = gl;				// Comprimento do arco do Gomo   // Arc length of Gomo
+	gomoWidth = gw;				// Largura do Gomo        // Width Gomo
 	rows = r;					// Rows of labels
 	name = @"";
 	
@@ -126,11 +126,12 @@
 	arcs = ( ((GLfloat)gomos) * gomoArcs);		// Arcos geometricos do gomo
 	arcAng = ( (2.0*PI) / arcs);				// Em radianos
 	
-	// vertices do disco +2 para fechar no inicio
+	// vertices do disco +2 para fechar no inicio   // disc +2  vertices to close at the beginning
 	if ([self isStrip])
 		vertices = (gomos * 2) + 2;		
 	else
 		vertices = (arcs * 2) + 2;
+
 	
 	AvLog(@"GLGear[%d]gomos ang[%.3f] width[%.3f] arcs[%d] arcAng[%.3f]",gomos,gomoAng,gomoWidth,arcs,arcAng);
 	
@@ -154,7 +155,7 @@
 	radiusRow[0] = (radiusOut - LABEL_GAP - ( labelWidth * 0.5f ) );
 	radiusRow[1] = (radiusOut - LABEL_GAP - ( labelWidth * 1.5f ) );
 	
-	// Display Array dos dentes e lados - liga todos
+	// Display Array dos dentes e lados - liga todos  //Display Array of teeth and sides - all links
 	displaySizeMin = DISPLAY_SIZE_MIN;
 	displaySizeMax = gomos;
 	// Display all
@@ -163,8 +164,8 @@
 
 	// Create mesh
 	[self createObject];
-	[self createSidesOut];
-	[self createSidesIn];
+	[self createSidesOut];   //andreas
+//	[self createSidesIn];
 	
 	// Finito!
 	return self;
@@ -229,7 +230,7 @@
 	glTransform trans;
 	
 	// CREATE OBJECT
-	glObject = [[GLObject alloc] initVertices:(vertices)];
+	glObject = [[GLObject alloc] initVertices:(vertices+1)];
 	glObject.undoTransform = FALSE;
 	
 	// Se anti-horario, vira 180 graus
@@ -251,6 +252,12 @@
 	{
 		typeTexture = TEXTURE_RADIAL;
 		texname = [NSString stringWithFormat:@"gear%d",gomos];
+        
+        //andreas
+//        if( gomos == 20)
+//        {
+//            texname = @"gear13";
+//        }
 	}
 	else
 	{
@@ -265,9 +272,9 @@
 	else
 		[self createMeshPizza];
 
-	// Cria lados
-	[self createSidesOut];
-	[self createSidesIn];
+	// Cria lados    // create sides
+//	[self createSidesOut];   //andreas
+//	[self createSidesIn];
 
 	// Init Label Rows
 	for (int n = 0 ; n < rows ; n++)
@@ -281,7 +288,7 @@
 {
 	GLfloat ang, x, y;
 	GLfloat z = -LABEL_DEPTH;
-	GLfloat xd;			// Extensao da textura STRIP
+	GLfloat xd;			// Extensao da textura STRIP      //Extension of texture STRIP
 	int wheelArcs;		// Arcos por gomo
 	CGFloat wheelAng;	// Angulo de cada arco
 	int i;
@@ -302,8 +309,8 @@
 	// 1 textura a cada 8 gomos
 	xd = (1.0 / 8.0);
 	
-	// Desenha mesh
-	for ( int n = 0 ; n <= wheelArcs ; n++ )
+	// Desenha mesh // draw mesh
+	for ( int n = 0 ; n <= wheelArcs+1 ; n++ )   //andreas
 	{
 		// Se for anti-horario, inverte
 		if (rotation == ROTATE_CCW)
@@ -323,6 +330,7 @@
 		else
 			[glObject addTextureVertex:(radiusOut+x)/diamOut:(radiusOut+y)/diamOut];
 		
+        if( n == wheelArcs + 1 ) break;  //andreas;
 		// VERTICE OUT
 		x = radiusOut * cos(ang);
 		y = radiusOut * sin(ang);
@@ -362,13 +370,13 @@
 		// Alloc GL Objects
 		if (typeDenteOut == DENTE_UP)
 		{
-			glDenteOut = [[GLElements alloc] initElements:denteUpVertex el:gomos];
-			sideVertices = (denteUpSideVertex + 2);		// + 2 para fechar
+			glDenteOut = [[GLElements alloc] initElements:denteUpVertex+1 el:gomos];   // andreas
+			sideVertices = (denteUpSideVertex + 3);		// + 2 para fechar   //andreas
 		}
 		else
 		{
-			glDenteOut = [[GLElements alloc] initElements:denteDownVertex el:gomos];
-			sideVertices = (denteDownSideVertex + 2);	// + 2 para fechar
+			glDenteOut = [[GLElements alloc] initElements:denteDownVertex+1 el:gomos];  //andreas
+			sideVertices = (denteDownSideVertex + 3);	// + 2 para fechar
 		}
 		
 		// Set Textures
@@ -381,7 +389,7 @@
 	[glSideOut setTexture:@"gear_side" alpha:NO];
 
 	// Cria Meshes lados
-	if (gomoArcs == 2)
+	if (gomoArcs == 2)       //andreas
 		[self createMeshSideOut2];
 	else
 		[self createMeshSideOut3];
@@ -389,7 +397,8 @@
 	// Map side vertices
 	// 1 textura para cada gomo
 	int sidePoints = (sideVertices / 2);
-	CGFloat dx = 1.0 / (sidePoints-1);
+	//CGFloat dx = 1.0 / (sidePoints-1);
+    CGFloat dx = 1.0 / (sidePoints);   //andreas
 	for ( int n = 0 ; n < gomos ; n++ )
 	{
 		for ( int f = 0 ; f < sidePoints ; f++ )
@@ -398,6 +407,9 @@
 			[glSideOut addTextureVertex:(0.0+(f*dx)) :1.0];
 			[glSideOut addTextureVertex:(0.0+(f*dx)) :0.0];
 		}
+        
+        //andreas insert
+        [glSideOut addTextureVertex:(0.0+((sidePoints)*dx)) :1.0];
 	}
 }
 
@@ -484,9 +496,9 @@
 	GLfloat z2  = (z1 - DENTE_DEPTH);
 	GLfloat z22 = z2 + (DENTE_DEPTH*0.15);
 	
-	// Cria side para todos os gomos
-	// Cria dentes somente no primeiro gomo (os outros serao repetidos)
-	// ps: AGORA CRIA UM SO PARA OS LADOS TAMBEM
+	// Cria side para todos os gomos   // Creates side for all buds
+	// Cria dentes somente no primeiro gomo (os outros serao repetidos)  //Teeth creates only the first bud (the others will be repeated )
+    // ps: AGORA CRIA UM SO PARA OS LADOS TAMBEM  // GORA ESTABLISHMENT OF A SO FOR SIDES ALSO  DENTE
 	for ( int n = 0 ; n < gomos ; n++)
 	{
 		// Angulo deste gomo
@@ -560,7 +572,7 @@
 			y = y0 + ( ( y1-y0 ) * 0.5 );
 			[glSideOut addVertex:x :y :z1];
 			[glSideOut addVertex:x :y :z2];
-			//if (n == 0)		// Desenha dente apenas no 1o vertice
+//			if (n == 0)		// Desenha dente apenas no 1o vertice
 				[glDenteOut addVertex:x :y :z1];
 			// v2 + side
 			ang = ang0 + 0.0;
@@ -573,15 +585,16 @@
 			y = y0 + ( ( y1-y0 ) * 0.66 );
 			[glSideOut addVertex:x :y :z11];
 			[glSideOut addVertex:x :y :z22];
-			//if (n == 0)		// Desenha dente apenas no 1o vertice
+//			if (n == 0)		// Desenha dente apenas no 1o vertice
 				[glDenteOut addVertex:x :y :z11];
 			// A1
 			// v3
 			ang = ang0 + arcAng;
 			x = (radiusOut * cos(ang));
 			y = (radiusOut * sin(ang));
-			//if (n == 0)		// Desenha dente apenas no 1o vertice
-				[glDenteOut addVertex:x :y :z1];
+
+            //if (n == 0)		// Desenha dente apenas no 1o vertice
+				[glDenteOut addVertex:x :y :z1]; //andreas
 			// A1~A2
 			// v4
 			// Est vertice fica no meio do A1 e A2
@@ -595,7 +608,7 @@
 			y = y0 + ( ( y1-y0 ) * 0.33 );
 			[glSideOut addVertex:x :y :z11];
 			[glSideOut addVertex:x :y :z22];
-			//if (n == 0)		// Desenha dente apenas no 1o vertice
+//			if (n == 0)		// Desenha dente apenas no 1o vertice
 				[glDenteOut addVertex:x :y :z11];
 			// v5 + side
 			ang = ang0 + arcAng;
@@ -608,21 +621,42 @@
 			y = y0 + ( ( y1-y0 ) * 0.5 );
 			[glSideOut addVertex:x :y :z1];
 			[glSideOut addVertex:x :y :z2];
-			//if (n == 0)		// Desenha dente apenas no 1o vertice
+//			if (n == 0)		// Desenha dente apenas no 1o vertice
 				[glDenteOut addVertex:x :y :z1];
+            
+            // andreas insert
+            ang = ang0 + (arcAng * 2.0);
+            x0 = ((radiusOut+DENTE_WIDTH) * cos(ang));
+            y0 = ((radiusOut+DENTE_WIDTH) * sin(ang));
+            ang = ang0 + (arcAng * 3.0);
+            x1 = ((radiusOut+DENTE_WIDTH) * cos(ang));
+            y1 = ((radiusOut+DENTE_WIDTH) * sin(ang));
+            x = x0 + ( ( x1-x0 ) * 0.5 );
+            y = y0 + ( ( y1-y0 ) * 0.5 );
+            
+            [glDenteOut addVertex:x :y :z1];
+            /////////////
 			//
 			// DENTE UP - END
 			//
 			// A2
-			ang = ang0 + (gomoAng);
+			ang = ang0 + (gomoAng);     //andreas bug
 			x = (radiusOut * cos(ang));
 			y = (radiusOut * sin(ang));
 			[glSideOut addVertex:x :y :z1];
 			[glSideOut addVertex:x :y :z2];
+            
+            
+            //andreas
+            ang = ang0 + (2*gomoAng);     //andreas bug
+            x = (radiusOut * cos(ang));
+            y = (radiusOut * sin(ang));
+            [glSideOut addVertex:x :y :z1];
+
 		}
 		//
 		// DENTE OUT / DOWN
-		// Seseha a patir da 2o arco ate o 2o arco do gomo seguinte
+		// Seseha a patir da 2o arco ate o 2o arco do gomo seguinte  // Draw the patir the second arc until the second arc following bud
 		//
 		// A3			< arcAng * 3	<< termina aqui
 		//  |
@@ -648,14 +682,16 @@
 			ang = ang0 + arcAng;
 			x = (radiusOut * cos(ang));
 			y = (radiusOut * sin(ang));
-			[glSideOut addVertex:x :y :z1];
-			[glSideOut addVertex:x :y :z2];
+
+                [glSideOut addVertex:x :y :z1];
+                [glSideOut addVertex:x :y :z2];
+
 			//
 			// DENTE UP - BEGIN
 			//
 			// A1~A2
 			// v1 + side
-			// Este vertice fica no meio de A0 e A1 
+			// Este vertice fica no meio de A0 e A1    // This vertex is in the middle of A0 and A1
 			ang = ang0 + arcAng;
 			x0 = (radiusOut * cos(ang));
 			y0 = (radiusOut * sin(ang));
@@ -666,8 +702,8 @@
 			y = y0 + ( ( y1-y0 ) * 0.33 );
 			[glSideOut addVertex:x :y :z1];
 			[glSideOut addVertex:x :y :z2];
-			//if (n == 0)		// Desenha dente apenas no 1o vertice
-				[glDenteOut addVertex:x :y :z1];
+			//if (n == 0)		// Desenha dente apenas no 1o vertice  //Draws tooth only in the first vertex
+				[glDenteOut addVertex:x :y :z1];  //andreas
 			// v2 + side
 			ang = ang0 + arcAng;
 			x0 = ((radiusOut+DENTE_WIDTH) * cos(ang));
@@ -680,17 +716,17 @@
 			[glSideOut addVertex:x :y :z11];
 			[glSideOut addVertex:x :y :z22];
 			//if (n == 0)		// Desenha dente apenas no 1o vertice
-				[glDenteOut addVertex:x :y :z11];
+				[glDenteOut addVertex:x :y :z11];  // andreas
 			// A2
 			// v3
 			ang = ang0 + (arcAng * 2.0);
 			x = (radiusOut * cos(ang));
 			y = (radiusOut * sin(ang));
-			//if (n == 0)		// Desenha dente apenas no 1o vertice
-				[glDenteOut addVertex:x :y :z1];
+            //if (n == 0)		// Desenha dente apenas no 1o vertice
+				[glDenteOut addVertex:x :y :z1];  // andreas
 			// A2~A3
 			// v4
-			// Est vertice fica no meio do A1 e A2
+			// Est vertice fica no meio do A1 e A2   //This vertex is in the middle of A1 and A2
 			ang = ang0 + (arcAng * 2.0);
 			x0 = ((radiusOut+DENTE_WIDTH) * cos(ang));
 			y0 = ((radiusOut+DENTE_WIDTH) * sin(ang));
@@ -701,8 +737,8 @@
 			y = y0 + ( ( y1-y0 ) * 0.5 );
 			[glSideOut addVertex:x :y :z11];
 			[glSideOut addVertex:x :y :z22];
-			//if (n == 0)		// Desenha dente apenas no 1o vertice
-				[glDenteOut addVertex:x :y :z11];
+			//if (n == 0)		// Desenha dente apenas no 1o vertice  //Draws tooth only in the first vertex
+				[glDenteOut addVertex:x :y :z11];   //andreas
 			// v5 + side
 			ang = ang0 + (arcAng * 2.0);
 			x0 = (radiusOut * cos(ang));
@@ -715,31 +751,62 @@
 			[glSideOut addVertex:x :y :z1];
 			[glSideOut addVertex:x :y :z2];
 			//if (n == 0)		// Desenha dente apenas no 1o vertice
-				[glDenteOut addVertex:x :y :z1];
+				[glDenteOut addVertex:x :y :z1];  //andreas
+            
+            
+            ///  andreas insert
+            ang = ang0 + (arcAng * 2.0);
+            x0 = ((radiusOut+DENTE_WIDTH) * cos(ang));
+            y0 = ((radiusOut+DENTE_WIDTH) * sin(ang));
+            ang = ang0 + (arcAng * 3.0);
+            x1 = ((radiusOut+DENTE_WIDTH) * cos(ang));
+            y1 = ((radiusOut+DENTE_WIDTH) * sin(ang));
+            x = x0 + ( ( x1-x0 ) * 0.8 );
+            y = y0 + ( ( y1-y0 ) * 0.8 );
+            
+            [glDenteOut addVertex:x :y :z1];
+            ///
 			//
 			// DENTE UP - END
 			//
 			// A4
-			ang = ang0 + (arcAng * 3.0);
+			ang = ang0 + (arcAng * 3.0);    // andreas bug
 			x = (radiusOut * cos(ang));
 			y = (radiusOut * sin(ang));
-			[glSideOut addVertex:x :y :z1];
-			[glSideOut addVertex:x :y :z2];
+            
+           // if ( n < gomos - 1 ) {
+                [glSideOut addVertex:x :y :z1];
+                [glSideOut addVertex:x :y :z2];
+            //}
+            
+            // andreas insert
+            ang = ang0 + (arcAng * 4.0);
+            x = (radiusOut * cos(ang));
+            y = (radiusOut * sin(ang));
+            [glSideOut addVertex:x :y :z1];
+
 		}
 		
 		// Top Texture
-		// Uma textura ao longo do eixo X
-		// 1/2 textura ao longo do eixo Y
+		// Uma textura ao longo do eixo X   // A texture along the axis X
+		// 1/2 textura ao longo do eixo Y   // A texture along the axis Y
 		// v1    v3    v5
 		//  \   /  \  /
 		//    v2    v4
-		if (glDenteOut)
+		if (glDenteOut)    //andreas
 		{		
-			[glDenteOut addTextureVertex:0.0  :0.5];
-			[glDenteOut addTextureVertex:0.25 :1.0];
-			[glDenteOut addTextureVertex:0.5  :0.5];
-			[glDenteOut addTextureVertex:0.75 :1.0];
-			[glDenteOut addTextureVertex:1.0  :0.5];
+//			[glDenteOut addTextureVertex:0.0  :0.5];
+//			[glDenteOut addTextureVertex:0.25 :1.0];
+//			[glDenteOut addTextureVertex:0.5  :0.5];
+//			[glDenteOut addTextureVertex:0.75 :1.0];
+//			[glDenteOut addTextureVertex:1.0  :0.5];
+          
+            [glDenteOut addTextureVertex:0.0  :0.0];
+            [glDenteOut addTextureVertex:0.25 :1.0];
+            [glDenteOut addTextureVertex:0.5  :0.0];
+            [glDenteOut addTextureVertex:0.75 :1.0];
+            [glDenteOut addTextureVertex:1.0  :0];
+            [glDenteOut addTextureVertex:1.0  :1];  //andreas
 		}
 	}
 }
@@ -896,7 +963,7 @@
 		}
 		//
 		// DENTE IN / DOWN
-		// Seseha a patir da 2o arco ate o 2o arco do gomo seguinte
+		// Seseha a patir da 2o arco ate o 2o arco do gomo seguinte  //Draw the patir the second arc until the second arc following bud
 		//
 		// A3			< arcAng * 3	<< termina aqui
 		//  |
@@ -994,7 +1061,7 @@
 			// DENTE UP - END
 			//
 			// A4
-			 ang = ang0 + (arcAng * 3.0);
+			 ang = ang0 + (arcAng * 3.0);        // andreas bug
 			 x = (radiusIn * cos(ang));
 			 y = (radiusIn * sin(ang));
 			 [glSideIn addVertex:x :y :z1];
@@ -1002,7 +1069,7 @@
 		}
 		
 		// Top Texture
-		// Uma textura ao longo do eixo X
+		// Uma textura ao longo do eixo X //A texture along the axis X
 		// 1/2 textura ao longo do eixo Y
 		// v1    v3    v5
 		//  \   /  \  /

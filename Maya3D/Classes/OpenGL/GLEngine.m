@@ -71,7 +71,8 @@
 		return nil;
 	
 	// Create GL Objects
-	if (MAKE_SPLASH)
+//
+    if (MAKE_SPLASH)
 		[self setupGearsSplash];
 	else
 	{
@@ -80,12 +81,13 @@
 		if (ENABLE_DREAMSPELL)
 			[self setupGearsDreamspell];
 	}
-	
+//
 	// Start thread
 	//[NSThread detachNewThreadSelector:@selector(draw3DView:) toTarget:self withObject:nil];
 	
 	// Start Auto Zoom
-	[self startAutoZoom:CAMERA_WIDTH_MAX :CAMERA_WIDTH];
+
+	[self startAutoZoom:CAMERA_WIDTH_MAX :CAMERA_WIDTH];   //andreas
 
 	// Finito!
 	return self;
@@ -95,33 +97,51 @@
 // SETUP GEARS
 //
 - (void)setupGearsMaya {
+    
+   
 	CGFloat x;
 	
 	// Window Offset
 	mayaOffsetX = -1.0;
-	
-	//
+    //
 	// MAYA TZOLKN 20
 	//
-	maya20 = [[GLGear alloc] init:20 
+	maya20 = [[GLGear alloc] init:13//20
 								type:TYPE_WHEEL
 							denteOut:DENTE_DOWN 
 							 denteIn:DENTE_DOWN
 								 rot:ROTATE_CCW];
-	x = -( 0.2 + maya20.radiusOut );
+
+    x = -( 0.2 + maya20.radiusOut );
 	[maya20 setTranslate:x :0.0 :0.0];
 	maya20.name = LOCAL(@"GEAR_NAME_MAYA_20");
 	//[maya20 makeSoundBuffers:5];
 	// Labels
-	for (int n = 0 ; n < 20 ; n++ )
-		[maya20 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"tzday_map" map:n];
+	//for (int n = 0 ; n < 20 ; n++ )
+    //    [maya20 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"tzday_map" map:n];
+//	for (int n = 0 ; n < 13 ; n++ )
+//    {
+////        int row,pos;
+////        row = n / 16;
+////        pos = n - row * 16;
+////        [maya20 addLabelNew:row pos:pos align:LABEL_ALIGN_CENTER texname:@"tzday_map" map:n];
+//        if( n == 17 )
+//        {
+//            int ii = 0;
+//            ii = 1;
+//        }
+//        NSString *texname = [NSString stringWithFormat:@"tzday%02d",n+1 ];
+//        [maya20 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"tzday_map" map:n];
+//    }
+    
 	// Bind!
 	[maya20 bindData];
+
 
 	//
 	// MAYA TZOLKN 13
 	//
-	maya13 = [[GLGear alloc] init:13 
+	maya13 = [[GLGear alloc] init:13
 								type:TYPE_WHEEL
 							denteOut:DENTE_UP
 							 denteIn:DENTE_NOT
@@ -134,15 +154,20 @@
 	maya13.name = LOCAL(@"GEAR_NAME_MAYA_13");
 	//[maya13 makeSoundBuffers:6];
 	// Labels
-	for (int n = 0 ; n < 13 ; n++ )
-		[maya13 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"num_map" map:(n+1)];
-	// Bind!
+//	for (int n = 0 ; n < 13 ; n++ )
+//		[maya13 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"num_map" map:(n+1)];
+//    for (int n = 0 ; n < 13 ; n++ )
+//    {
+//        NSString* texname = [NSString stringWithFormat:@"num_map%02d",n+1 ];
+//        [maya13 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"num_map" map:(n+1)];
+//    }
+    // Bind!
 	[maya13 bindData];
 
 	//
 	// MAYA HAAB 365 - CCW
 	//
-	maya365 = [[GLGear alloc] init:365 
+	maya365 = [[GLGear alloc] init:365
 							  type:TYPE_WHEEL
 						  denteOut:DENTE_UP
 						   denteIn:DENTE_UP
@@ -157,38 +182,39 @@
 	maya365.name = LOCAL(@"GEAR_NAME_MAYA_365");
 	//[maya365 makeSoundBuffers:4];
 	// Labels Row 1
-	for (int n = 0 ; n < 365 ; n++ )
-		[maya365 addLabelNew:1 pos:n align:LABEL_ALIGN_ROW texname:@"uinal_map" map:(n/20)];
+//	for (int n = 0 ; n < 365 ; n++ )
+//		[maya365 addLabelNew:1 pos:n align:LABEL_ALIGN_ROW texname:@"uinal_map" map:(n/20)];
 	// Labels Row 0
 	maya365.labelWidth = maya13.labelWidth;
 	maya365.labelHeight = maya13.labelHeight;
-	for (int n = 0 ; n < 365 ; n++ )
-		[maya365 addLabelNew:0 pos:n align:LABEL_ALIGN_ROW texname:@"num_map" map:(n%20)];
+//	for (int n = 0 ; n < 365 ; n++ )
+//		[maya365 addLabelNew:0 pos:n align:LABEL_ALIGN_ROW texname:@"num_map" map:(n%20)];
 	// Bind!
 	[maya365 bindData];
 	
 	//
 	// MAYA 9 - LORDS
 	//
-	maya9 = [[GLGear alloc] init:9 
-							type:TYPE_WHEEL
-						denteOut:DENTE_DOWN
-						 denteIn:DENTE_NOT
-							 rot:ROTATE_CW
-						   gomol:maya20.gomoLen
-						   gomow:maya20.gomoWidth
-							rows:1 ];
-	x = ( 0.2 + maya365.gomoWidth + 0.4 + maya9.radiusOut);
-	[maya9 setTranslate:x :0.0 :0.0];
-	maya9.name = LOCAL(@"GEAR_NAME_MAYA_9");
-	//[maya9 makeSoundBuffers:3];
-	// Labels
-	maya9.labelWidth *= 0.9;
-	maya9.labelHeight *= 0.9;
-	for (int n = 0 ; n < 9 ; n++ )
-		[maya9 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"lords_map" map:n];
-	// Bind!
-	[maya9 bindData];
+//	maya9 = [[GLGear alloc] init:9//9       // andreas
+//							type:TYPE_WHEEL
+//						denteOut:DENTE_DOWN
+//						 denteIn:DENTE_NOT
+//							 rot:ROTATE_CW
+//						   gomol:maya20.gomoLen
+//						   gomow:maya20.gomoWidth
+//							rows:1 ];
+//	x = ( 0.2 + maya365.gomoWidth + 0.4 + maya9.radiusOut);
+//	[maya9 setTranslate:x :0.0 :0.0];
+//	maya9.name = LOCAL(@"GEAR_NAME_MAYA_9");
+//	//[maya9 makeSoundBuffers:3];
+//	// Labels
+//	maya9.labelWidth *= 0.9;
+//	maya9.labelHeight *= 0.9;
+//	//for (int n = 0 ; n < 9 ; n++ )
+//    for (int n = 0 ; n < 9 ; n++ )
+//		[maya9 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"lords_map" map:n];
+//	// Bind!
+//	[maya9 bindData];
 }
 
 

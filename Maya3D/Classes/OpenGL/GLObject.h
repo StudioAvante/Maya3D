@@ -95,7 +95,7 @@ typedef struct {
 - (void)addColor:(GLubyte)r :(GLubyte)g :(GLubyte)b :(GLubyte)a;
 - (void)setTexture:(NSString*)texname alpha:(BOOL)alpha;
 - (void)addTextureVertex:(GLfloat)x :(GLfloat)y;
-// Bind
+// Bind vertex and texture to gl
 - (void)bindData;
 // Drawing
 - (void)enable;

@@ -91,7 +91,7 @@
 	textField.textColor = [UIColor blackColor];
 	textField.placeholder = @"";
 	textField.backgroundColor = [UIColor whiteColor];
-	textField.textAlignment = UITextAlignmentCenter;
+	textField.textAlignment = NSTextAlignmentCenter;
 	textField.enabled = FALSE;
 	[self addSubview:textField];
 	[textField release];
