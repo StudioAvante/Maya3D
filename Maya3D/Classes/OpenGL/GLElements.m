@@ -26,12 +26,14 @@
 - (id)initElements:(GLsizei)nv el:(int)el
 {
 	// super init
-    if ((self = [super initVertices:(nv*el)]) == nil)
-		return nil;
-	
+//    if ((self = [super initVertices:(nv*el)]) == nil)
+//		return nil;
+    if ((self = [super initVertices:nv :el]) == nil)
+        return nil;
+    
 	// Elements
-	numElements = el;        // the number of elements.
-	numVertexElements = nv;  // the number of vertices of a element.
+	numElements = el;
+	numVertexElements = nv;
 	
 	// Array para a TEXTURAS
 	// opcionais - sera usado apenas se diferente ce Zero
@@ -39,6 +41,7 @@
 	arrayTex = (GLuint*) malloc((size_t)sz);
 	memset((void*)arrayTex, 0, (size_t)sz);
 	
+    self.blending = NO;
 	// Finito!
 	return self;
 }
@@ -79,13 +82,14 @@
 - (void)drawObject
 {
 	// Draw Elements
-	int i;
-	for ( int n = ini ; n < (ini+qtd) ; n++ )
-	{
-		// Draw Arrays
-		i = (n % numElements);
-		[self drawElement:i];
-	}
+//	int i;
+//	for ( int n = ini ; n < (ini+qtd) ; n++ )
+//	{
+//		// Draw Arrays
+//		i = (n % numElements);
+//		[self drawElement:i];
+//	}
+    [super drawObject];
 }
 
 //

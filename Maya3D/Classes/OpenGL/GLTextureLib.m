@@ -13,6 +13,7 @@
 
 @implementation GLTextureLib
 
+@synthesize vbos;
 // Destructor
 - (void)dealloc
 {
@@ -41,7 +42,7 @@
 {
 	// Find in Dictionary
 	GLTexture *tex;
-	tex = [vbos objectForKey:name];
+	tex = [vbos objectForKey:name];  
 	if (tex)
 		return tex.vbo;
 	
@@ -73,10 +74,19 @@
 	// Find in Dictionary
 	GLTexture *tex;
 	tex = [vbos objectForKey:name];
+    GLuint ii = tex.vbo;
+    
+    CGSize size;// = CGSizeMake(0.0,0.0);
+    size.width = 0;
+    size.height = 0;
 	if (tex)
-		return tex.size;
-	else
-		return CGSizeMake(0.0,0.0);
+    {
+        
+        size.width = tex.size.width;
+        size.height = tex.size.height;
+    }
+    
+    return size;
 }
 
 

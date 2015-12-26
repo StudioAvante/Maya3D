@@ -329,10 +329,10 @@
     //*********************
     //andreas 2015.12.10
     
-//    glFrame = self.view.bounds; //
+//    glFrame = self.view.bounds;
 //    // Alloc/Resize GL view
-    glFrame.origin.x = 0;//((kscreenWidth-glFrame.size.width)/2.0);  //
-    glFrame.origin.y = 0;//((GL_VIEW_HEIGHT-glFrame.size.height)/2.0);  \\
+    glFrame.origin.x = 0;//((kscreenWidth-glFrame.size.width)/2.0);
+    glFrame.origin.y = 0;//((GL_VIEW_HEIGHT-glFrame.size.height)/2.0);
     if (glView == nil && !fullScreen)
         glView = [[GLEngine alloc] initWithFrame:glFrame];
     // Add to current VC

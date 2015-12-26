@@ -63,6 +63,7 @@
 	
 	// Allocated memory needed for the bitmap context
 	texData = (GLubyte *) malloc(width * height * 4);
+    memset(texData, 0, width*height*4); 
 	// Uses the bitmatp creation function provided by the Core Graphics framework. 
 	texContext = CGBitmapContextCreate(texData, width, height, 8, width * 4, CGImageGetColorSpace(texImage), kCGImageAlphaPremultipliedLast);
 	// After you create the context, you can draw the sprite image to the context.

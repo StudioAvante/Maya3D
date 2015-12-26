@@ -47,7 +47,8 @@
 	[toolBar release];
 	
 	// Create Label
-	frame = CGRectMake(0.0, 0.0, kscreenWidth, kToolbarHeight);
+	//frame = CGRectMake(0.0, 0.0, kscreenWidth, kToolbarHeight);
+    frame = CGRectMake(0.0, y + 0.0, kscreenWidth, kToolbarHeight);
 	descLabel = [[AvanteTextLabel alloc] init:@"" frame:frame size:22.0 color:[UIColor whiteColor]];
 	[descLabel setNavigationBarStyle];
 	[self.view addSubview:descLabel];
@@ -59,7 +60,7 @@
 	// Cria picker correto
 	if ( type == DATE_PICKER_GREGORIAN )
 	{
-		y += 12.0;	// Labels
+		y += 30.0;	// 12.0 //Labels
 		self.title = LOCAL(@"GREGORIAN_PICKER");
 		gregPicker = [[AvantePicker alloc] init:0.0 y:y labels:YES];
 		[self initGregPicker];
@@ -74,7 +75,7 @@
 	}
 	else 	if ( type == DATE_PICKER_LONG_COUNT && global.prefNumbering == NUMBERING_123 )
 	{
-		y += 12.0;	// Labels
+		y += 30.0;	// 12.0 //Labels
 		self.title = LOCAL(@"LONG_COUNT_PICKER");
 		longCountPicker = [[AvantePicker alloc] init:0.0 y:y labels:YES];
 		[self initLongCountPicker];
@@ -82,7 +83,7 @@
 	}
 	else if ( type == DATE_PICKER_LONG_COUNT && global.prefNumbering == NUMBERING_MAYA )
 	{
-		y += 12.0;	// Labels
+        y += 30.0; //12.0;	// Labels
 		self.title = LOCAL(@"LONG_COUNT_PICKER");
 		longCountMayaPicker = [[AvantePickerImage alloc] init:0.0 y:y labels:YES];
 		[self initLongCountMayaPicker];
@@ -136,7 +137,48 @@
 	[self.view addSubview:toolBar];
 	[toolBar release];
 	y+= kToolbarHeight;
-	
+
+    //////////////////////
+    // YEAR/CENTURY Label 1
+    
+    if ( type == DATE_PICKER_GREGORIAN )
+    {
+        AvanteTextLabel *label;
+        
+        //   y+= 15;
+        CGFloat y1 = y;
+        
+        
+        y+= 40;
+        label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS1")
+                                            x:0.0 y:y w:kscreenWidth h:12.0 size:12.0 color:[UIColor whiteColor]];
+        [self.view addSubview:label];
+        [label release];
+        // YEAR/CENTURY Label 2
+        y += 14.0;
+        label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS2")
+                                            x:0.0 y:y w:kscreenWidth h:12.0 size:12.0 color:[UIColor whiteColor]];
+        [self.view addSubview:label];
+        [label release];
+        
+        // YEAR/CENTURY help
+#ifndef LITE
+        UIButton *yearInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
+        
+        float x = 275.0 * kscreenWidth / 320;
+        yearInfo.frame = CGRectMake(x, y1+40, 25.0, 25.0);
+        yearInfo.backgroundColor = [UIColor clearColor];
+        yearInfo.tintColor = [UIColor whiteColor];
+        [yearInfo setImage:[global imageFromFile:@"icon_info2"] forState:UIControlStateNormal];
+        [yearInfo addTarget:self action:@selector(infoGreg:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:yearInfo];
+#endif
+    
+    }
+
+    //////////////////////
+    
+    
 	// Finito
 	return self;
 }
@@ -187,33 +229,33 @@
 	CGFloat y;
 	int n, comp;
 	
-	// YEAR/CENTURY Label 1
-	y = (self.view.frame.size.height - 35.0);
-    
-    y+= 50;
-	label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS1") 
-											x:0.0 y:y w:kscreenWidth h:12.0 size:12.0 color:[UIColor whiteColor]];
-	[self.view addSubview:label];
-	[label release];
-	// YEAR/CENTURY Label 2
-	y += 14.0;
-	label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS2") 
-											x:0.0 y:y w:kscreenWidth h:12.0 size:12.0 color:[UIColor whiteColor]];
-	[self.view addSubview:label];
-	[label release];
-	
-	// YEAR/CENTURY help
-#ifndef LITE
-	UIButton *yearInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    
-    float x = 275.0 * kscreenWidth / 320;
-	yearInfo.frame = CGRectMake(x, 430.0, 25.0, 25.0);
-	yearInfo.backgroundColor = [UIColor clearColor];
-    yearInfo.tintColor = [UIColor whiteColor];
-	[yearInfo setImage:[global imageFromFile:@"icon_info2"] forState:UIControlStateNormal];
-	[yearInfo addTarget:self action:@selector(infoGreg:) forControlEvents:UIControlEventTouchUpInside];	
-	[self.view addSubview:yearInfo];
-#endif
+//	// YEAR/CENTURY Label 1
+//	y = (self.view.frame.size.height - 35.0);
+//    
+//    y+= 50;
+//	label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS1") 
+//											x:0.0 y:y w:kscreenWidth h:12.0 size:12.0 color:[UIColor whiteColor]];
+//	[self.view addSubview:label];
+//	[label release];
+//	// YEAR/CENTURY Label 2
+//	y += 14.0;
+//	label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS2") 
+//											x:0.0 y:y w:kscreenWidth h:12.0 size:12.0 color:[UIColor whiteColor]];
+//	[self.view addSubview:label];
+//	[label release];
+//	
+//	// YEAR/CENTURY help
+//#ifndef LITE
+//	UIButton *yearInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
+//    
+//    float x = 275.0 * kscreenWidth / 320;
+//	yearInfo.frame = CGRectMake(x, 430.0, 25.0, 25.0);
+//	yearInfo.backgroundColor = [UIColor clearColor];
+//    yearInfo.tintColor = [UIColor whiteColor];
+//	[yearInfo setImage:[global imageFromFile:@"icon_info2"] forState:UIControlStateNormal];
+//	[yearInfo addTarget:self action:@selector(infoGreg:) forControlEvents:UIControlEventTouchUpInside];	
+//	[self.view addSubview:yearInfo];
+//#endif
 	
 	// Monta D-M ou M-D ???
 	for ( comp = 0 ; comp <= 1 ; comp++)

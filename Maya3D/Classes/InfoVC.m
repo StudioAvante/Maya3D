@@ -156,7 +156,7 @@ INFO_ABOUT,
 	// load page
 	//[self loadPage];
 //    [self.navigationItem.leftBarButtonItem. setTitle:@"go"];
-//    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor whiteColor]];  //
+//    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor whiteColor]];
 
     
 //    but = [[UIBarButtonItem alloc]
@@ -187,7 +187,7 @@ INFO_ABOUT,
 {
     self.prevTitle = [[NSString alloc] initWithString:title];//[NSString stringWithString:title];
 }
-- (IBAction)goPrev:(id)sender   //
+- (IBAction)goPrev:(id)sender  
 {
     [self.navigationController popViewControllerAnimated:YES];
 }

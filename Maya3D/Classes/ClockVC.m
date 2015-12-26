@@ -103,7 +103,7 @@
 	// SPEED Tool Bar
 	//
 //	y += kUIPickerHeight;
-    y += clockPicker.bounds.size.height + 49;
+    y += clockPicker.frame.size.height+10;//clockPicker.bounds.size.height + 49;
 	frame = CGRectMake(0.0, y, kscreenWidth, kToolbarHeight);
 	toolBar = [[UIToolbar alloc] initWithFrame:frame];
 	toolBar.barStyle = UIBarStyleBlackOpaque;

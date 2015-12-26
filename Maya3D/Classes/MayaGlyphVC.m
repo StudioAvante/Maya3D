@@ -149,7 +149,7 @@
     
     // Create Content Views
     [self createContentMaya];
-    [self createContentDreamspell];  //
+    [self createContentDreamspell];
 
     ///////////////////
     
@@ -158,7 +158,7 @@
 	{
 		AvLog(@"MayaGlyphVC: RELOAD contentView...");
 		[self createContentMaya];
-//		[self createContentDreamspell];  //
+//		[self createContentDreamspell];
 	}
 	// Pause Clock
 	[global.theClock pause];
@@ -274,7 +274,7 @@
 		frame = CGRectMake(0.0, -8.0, kscreenWidth, (VIEW_HEIGHT+15.0));
 	else
 		frame = CGRectMake(0.0, 0.0, kscreenWidth, (VIEW_HEIGHT+15.0));
-    if( contentViewMaya )  //
+    if( contentViewMaya )
     {
         [contentViewMaya removeFromSuperview];
         contentViewMaya = nil;
@@ -930,6 +930,7 @@
 	// Create temporary vc
 	KinDecodeVC *vc = [[KinDecodeVC alloc] initWithType:but.kinType tz:but.tzolkin destinyKin:global.cal.tzolkinMoon.kin];
 	vc.hidesBottomBarWhenPushed  = YES;
+    vc.prevTitle = self.title;
 	[[self navigationController] pushViewController:vc animated:YES];
 	[vc release];
 }

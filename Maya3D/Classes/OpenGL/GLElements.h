@@ -12,8 +12,8 @@
 
 @interface GLElements : GLObject {
 	// Elements data
-	GLsizei		numElements;			// Quantidade de elementos dentro deste objeto   // the number of elements.
-	GLsizei		numVertexElements;		// Quantidade de vertices de cada elemento   // the number of vertices of each element.
+	GLsizei		numElements;			// Quantidade de elementos dentro deste objeto
+	GLsizei		numVertexElements;		// Quantidade de vertices de cada elemento
 	// Array de texturas - OPCIONAL - usado apenas se preenchido
 	GLuint		*arrayTex;				// textura de cada elemento
 	// Draw
