@@ -32,6 +32,7 @@
 	// Render Timer
     NSTimer *glTimer;
     NSTimer *uiTimer;
+    int GL_VIEW_HEIGHT;
 }
 
 // IB

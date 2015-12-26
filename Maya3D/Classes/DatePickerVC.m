@@ -38,15 +38,16 @@
 	CGRect frame;
 	CGFloat y = 0.0;
 	
+    y = 20+44;
 	// Create Tool Bar estetico para o label
-	frame = CGRectMake(0.0, y, 320.0, kToolbarHeight);
+	frame = CGRectMake(0.0, y, kscreenWidth, kToolbarHeight);
 	toolBar = [[UIToolbar alloc] initWithFrame:frame];
 	toolBar.barStyle = UIBarStyleBlackOpaque;
 	[self.view addSubview:toolBar];
 	[toolBar release];
 	
 	// Create Label
-	frame = CGRectMake(0.0, 0.0, 320.0, kToolbarHeight);
+	frame = CGRectMake(0.0, 0.0, kscreenWidth, kToolbarHeight);
 	descLabel = [[AvanteTextLabel alloc] init:@"" frame:frame size:22.0 color:[UIColor whiteColor]];
 	[descLabel setNavigationBarStyle];
 	[self.view addSubview:descLabel];
@@ -102,16 +103,22 @@
 	// Create ToolBar Items
 	// FLEX
 	UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    flex.tintColor = [UIColor whiteColor];
 	// TODAY button
     UIBarButtonItem *todayButton = [[UIBarButtonItem alloc]
 									initWithTitle:LOCAL(@"TODAY_BUTTON")
 									style:UIBarButtonItemStyleBordered
 									target:self action:@selector(actionToday:)];
+    
+    [todayButton setTintColor:[UIColor whiteColor]];
 	// SELECT button
     UIBarButtonItem *selectButton = [[UIBarButtonItem alloc]
 									 initWithTitle:LOCAL(@"SELECT")
 									 style:UIBarButtonSystemItemDone
 									 target:self action:@selector(actionSelect:)];
+    
+    [selectButton setTintColor:[UIColor whiteColor]];
 	selectButton.style = UIBarButtonItemStyleDone;
 	// Add Itens To Toolbar
 	NSArray *items = [NSArray arrayWithObjects: flex, todayButton, flex, selectButton, flex, nil];
@@ -120,7 +127,7 @@
 	[selectButton release];
 	
 	// Create the Tool Bar
-	frame = CGRectMake(0.0, y, 320.0, kToolbarHeight);
+	frame = CGRectMake(0.0, y, kscreenWidth, kToolbarHeight);
 	toolBar = [[UIToolbar alloc] initWithFrame:frame];
 	toolBar.barStyle = UIBarStyleBlackOpaque;
 	[toolBar setItems:items animated:NO];
@@ -133,7 +140,22 @@
 	// Finito
 	return self;
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    UIBarButtonItem *but = [[UIBarButtonItem alloc] initWithTitle:self.prevTitle style:UIBarButtonItemStyleDone target:self action:@selector(goPrev:)];
+    [but setTintColor:[UIColor whiteColor]];
+    self.navigationItem.leftBarButtonItem = but;
+    self.navigationItem.leftBarButtonItem.enabled = TRUE;
+    [but release];
+    
+}
 
+-(IBAction)goPrev:(id)sender
+{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)viewDidAppear:(BOOL)animated {
 	// Title
 	[self navigationController].navigationBar.topItem.title = self.title;
@@ -167,22 +189,27 @@
 	
 	// YEAR/CENTURY Label 1
 	y = (self.view.frame.size.height - 35.0);
+    
+    y+= 50;
 	label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS1") 
-											x:0.0 y:y w:320.0 h:12.0 size:12.0 color:[UIColor whiteColor]];
+											x:0.0 y:y w:kscreenWidth h:12.0 size:12.0 color:[UIColor whiteColor]];
 	[self.view addSubview:label];
 	[label release];
 	// YEAR/CENTURY Label 2
 	y += 14.0;
 	label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS2") 
-											x:0.0 y:y w:320.0 h:12.0 size:12.0 color:[UIColor whiteColor]];
+											x:0.0 y:y w:kscreenWidth h:12.0 size:12.0 color:[UIColor whiteColor]];
 	[self.view addSubview:label];
 	[label release];
 	
 	// YEAR/CENTURY help
 #ifndef LITE
 	UIButton *yearInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	yearInfo.frame = CGRectMake(275.0, 380.0, 25.0, 25.0);
+    
+    float x = 275.0 * kscreenWidth / 320;
+	yearInfo.frame = CGRectMake(x, 430.0, 25.0, 25.0);
 	yearInfo.backgroundColor = [UIColor clearColor];
+    yearInfo.tintColor = [UIColor whiteColor];
 	[yearInfo setImage:[global imageFromFile:@"icon_info2"] forState:UIControlStateNormal];
 	[yearInfo addTarget:self action:@selector(infoGreg:) forControlEvents:UIControlEventTouchUpInside];	
 	[self.view addSubview:yearInfo];
@@ -333,8 +360,15 @@
 	{
 		dt = [NSString stringWithFormat:@"%d", n];
 		mayaView = [[AvanteMayaNum alloc] init:n x:0.0 y:0.0 size:IMAGE_SIZE_BIG];
-		[longCountMayaPicker addRowToComponent:comp view:mayaView data:dt];
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, IMAGE_SIZE_BIG, IMAGE_SIZE_BIG)];
+//        [view addSubview:mayaView];
+////		[longCountMayaPicker addRowToComponent:comp view:mayaView data:dt];
+//        [longCountMayaPicker addRowToComponent:comp view:view data:dt];
+        
+        [longCountMayaPicker addRowToComponent:comp imageName:mayaView.imageName data:dt];
 		[mayaView release];
+//        [view release];
+        
 	}
 	// KATUN
 	comp++;
@@ -343,10 +377,17 @@
 	for ( n = 0 ; n < 20 ; n++ )
 	{
 		dt = [NSString stringWithFormat:@"%d",n];
+        
 		mayaView = [[AvanteMayaNum alloc] init:n x:0.0 y:0.0 size:IMAGE_SIZE_BIG];
-		[longCountMayaPicker addRowToComponent:comp view:mayaView data:dt];
-		[mayaView release];
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, IMAGE_SIZE_BIG, IMAGE_SIZE_BIG)];
+//        [view addSubview:mayaView];
+//        
+//		[longCountMayaPicker addRowToComponent:comp view:view data:dt];
+        [longCountMayaPicker addRowToComponent:comp imageName:mayaView.imageName data:dt];
+        [mayaView release];
+//        [view release];
 	}
+    
 	// TUN
 	comp++;
 	[longCountMayaPicker addComponent:LOCAL(@"LONG_TUN") w:50 h:40];
@@ -355,8 +396,13 @@
 	{
 		dt = [NSString stringWithFormat:@"%d",n];
 		mayaView = [[AvanteMayaNum alloc] init:n x:0.0 y:0.0 size:IMAGE_SIZE_BIG];
-		[longCountMayaPicker addRowToComponent:comp view:mayaView data:dt];
-		[mayaView release];
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, IMAGE_SIZE_BIG, IMAGE_SIZE_BIG)];
+//        [view addSubview:mayaView];
+//
+//		[longCountMayaPicker addRowToComponent:comp view:view data:dt];
+        [longCountMayaPicker addRowToComponent:comp imageName:mayaView.imageName data:dt];
+        [mayaView release];
+//        [view release];
 	}
 	// UINAL
 	comp++;
@@ -366,8 +412,13 @@
 	{
 		dt = [NSString stringWithFormat:@"%d",n];
 		mayaView = [[AvanteMayaNum alloc] init:n x:0.0 y:0.0 size:IMAGE_SIZE_BIG];
-		[longCountMayaPicker addRowToComponent:comp view:mayaView data:dt];
-		[mayaView release];
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, IMAGE_SIZE_BIG, IMAGE_SIZE_BIG)];
+//        [view addSubview:mayaView];
+//
+//		[longCountMayaPicker addRowToComponent:comp view:view data:dt];
+        [longCountMayaPicker addRowToComponent:comp imageName:mayaView.imageName data:dt];
+        [mayaView release];
+        //[view release];
 	}
 	// KIN
 	comp++;
@@ -377,8 +428,13 @@
 	{
 		dt = [NSString stringWithFormat:@"%d",n];
 		mayaView = [[AvanteMayaNum alloc] init:n x:0.0 y:0.0 size:IMAGE_SIZE_BIG];
-		[longCountMayaPicker addRowToComponent:comp view:mayaView data:dt];
-		[mayaView release];
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, IMAGE_SIZE_BIG, IMAGE_SIZE_BIG)];
+//        [view addSubview:mayaView];
+
+//		[longCountMayaPicker addRowToComponent:comp view:view data:dt];
+        [longCountMayaPicker addRowToComponent:comp imageName:mayaView.imageName data:dt];
+        [mayaView release];
+  //      [view release];
 	}
 }
 

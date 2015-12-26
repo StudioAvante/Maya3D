@@ -26,7 +26,7 @@
 	AvantePickerImage *longCountMayaPicker;
 	NSTimer *timer1,*timer2,*timer3,*timer4,*timer5;
 }
-
+@property(strong,nonatomic) NSString *prevTitle;
 // init
 - (id)initWithType:(int)t;
 - (void)initGregPicker;

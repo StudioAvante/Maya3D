@@ -59,31 +59,33 @@
 		return nil;
 	
 	// Create view components
-	CGFloat y = 0.0;
+	CGFloat y = 64;
 	
+    speedPicker = [[AvantePicker alloc] init:0.0 y:y labels:NO];
+    [self setupSpeedPicker];
+    [self.view addSubview:speedPicker];
+    [speedPicker release];
+    
 	// Create Tool Bar estetico
-	y = kUIPickerHeight;
-	UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, y, 320.0, kToolbarHeight)];
-	toolBar.barStyle = UIBarStyleBlackOpaque;
-	[self.view addSubview:toolBar];
-	[toolBar release];
-	
-	// Picker label
-	//y += (kToolbarHeight/2);
-	y = 0.0;
-	AvanteTextLabel *label = [[AvanteTextLabel alloc] init:LOCAL(@"CLOCK_SPEED")
-														 x:0.0  y:y+10.0 
-														 w:320.0 h:12.0
-													  size:12.0 color:[UIColor whiteColor]];
-	[self.view addSubview:label];
-	[label release];
+//	y = kUIPickerHeight;
+//	UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, y, kscreenWidth, kToolbarHeight)];
+//	toolBar.barStyle = UIBarStyleBlackOpaque;
+//	[self.view addSubview:toolBar];
+//	[toolBar release];
+//	
+//	// Picker label
+//	//y += (kToolbarHeight/2);
+//	//y = 0.0;
+//	AvanteTextLabel *label = [[AvanteTextLabel alloc] init:LOCAL(@"CLOCK_SPEED")
+//														 x:0.0  y:y+10.0 
+//														 w:kscreenWidth h:12.0
+//													  size:12.0 color:[UIColor whiteColor]];
+//	[self.view addSubview:label];
+//	[label release];
 	
 	// Create SPEED GREGORIANO picker view
 	// Create Picker
-	speedPicker = [[AvantePicker alloc] init:0.0 y:0.0 labels:NO];
-	[self setupSpeedPicker];
-	[self.view addSubview:speedPicker];
-	[speedPicker release];
+
 	
 	return self;
 }
@@ -111,6 +113,8 @@
 	//[self navigationController].navigationBar.topItem.leftBarButtonItem.style = UIBarButtonItemStyleDone;
 
 	UIBarButtonItem *but = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(actionDone:)];
+    
+    [but setTintColor:[UIColor whiteColor]];
 	[self navigationController].navigationBar.topItem.leftBarButtonItem = but;
 	[but release];
 }

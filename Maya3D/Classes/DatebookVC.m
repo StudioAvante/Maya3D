@@ -16,7 +16,7 @@
 
 @implementation DatebookVC
 
-
+@synthesize datebookPicker;
 #pragma mark UIPickerView - DatebookVC custom functions
 
 - (void)dealloc
@@ -39,6 +39,7 @@
 	// Corrige nome
 	self.title = LOCAL(@"TAB_DATEBOOK");
 	
+    datebookPicker.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	// 1a vez...
 	pickedItem = -1;
 		
@@ -48,6 +49,7 @@
 		   initWithImage:[global imageFromFile:@"icon_info"]
 		   style:UIBarButtonItemStylePlain
 		   target:self action:@selector(goInfo:)];
+    [but setTintColor:[UIColor whiteColor]];
 	self.navigationItem.leftBarButtonItem = but;
 	self.navigationItem.leftBarButtonItem.enabled = TRUE;
 	[but release];
@@ -106,12 +108,12 @@
 	global.lastTab = TAB_DATEBOOK;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	// if you want to only support portrait mode, do this
-	//return (interfaceOrientation == UIInterfaceOrientationPortrait);
-	return YES;
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//{
+//	// if you want to only support portrait mode, do this
+//	//return (interfaceOrientation == UIInterfaceOrientationPortrait);
+//	return YES;
+//}
 
 // ROGER
 // Encontra o TzDate de um componente
@@ -151,15 +153,18 @@
 {
 	//CustomView *viewToUse = [pickerViews objectAtIndex:0];
 	//return viewToUse.bounds.size.width;
-	return 280.0;
+    CGFloat width = 280.0 * kscreenWidth / 320;
+    
+//	return 280.0;
+    return width;
 }
 
 // Altura das linhas
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
 {
-	//CustomView *viewToUse = [pickerViews objectAtIndex:0];
-	//return viewToUse.bounds.size.height;
-	return 30.0;
+//	CustomView *viewToUse = [pickerViews objectAtIndex:0];
+//	return viewToUse.bounds.size.height;
+	return 25.0;
 }
 
 // Numero de linhas
@@ -188,26 +193,27 @@
 	TzDate *dt = (TzDate*)[global.datebook objectAtIndex:n];
 	//AvLog(@"TZOLKIN: GET TZDATE[%d] *[%d] %s", n, dt, [dt.desc UTF8String]);
 	// Data/celula encontrada
+    
 	return dt.desc;
 }
 // tell the picker which view to use for a given component and row, we have an array of color views to show
- - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row
-		  forComponent:(NSInteger)component reusingView:(UIView *)view
-{
-	int n = [self elementIndex:row:component];
-	//AvLog(@"TZOLKIN: GET VIEW row[%d] element[%d] index[%d]", row, component, n);
-	if (n < 0)
-		return nil;
-	// Recupera data
-	TzDate *dt = (TzDate*)[global.datebook objectAtIndex:n];
-	CustomPickerView *viewToUse = dt.pickerView;
-	//AvLog(@"TZOLKIN: GET VIEW[%d] *[%d]", n, viewToUse);
-	return viewToUse;
-}
+// - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row
+//		  forComponent:(NSInteger)component reusingView:(UIView *)view
+//{
+//	int n = [self elementIndex:row:component];
+//	//AvLog(@"TZOLKIN: GET VIEW row[%d] element[%d] index[%d]", row, component, n);
+//	if (n < 0)
+//		return nil;
+//	// Recupera data
+//	TzDate *dt = (TzDate*)[global.datebook objectAtIndex:n];
+//	CustomPickerView *viewToUse = dt.pickerView;
+//	//AvLog(@"TZOLKIN: GET VIEW[%d] *[%d]", n, viewToUse);
+//	return viewToUse;
+//}
 // SELECIONOU ALGO...
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-	int n = [self elementIndex:row:component];
+	int n = [self elementIndex:row:component];  
 	if (n < 0)
 		return;
 	// Data/celula encontrada

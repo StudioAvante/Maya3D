@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIApplication">
@@ -11,29 +10,19 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <customObject id="3" userLabel="App Delegate" customClass="AppDelegate">
+        <customObject id="3" customClass="AppDelegate">
             <connections>
-                <outlet property="tabBarController" destination="106" id="290"/>
-                <outlet property="window" destination="2" id="9"/>
+                <outlet property="tabBarController" destination="106" id="vHO-N6-G1h"/>
             </connections>
         </customObject>
-        <window opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" visibleAtLaunch="YES" resizesToFullScreen="NO" id="2">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <animations/>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-        </window>
-        <tabBarController autoresizesArchivedViewToFullSize="NO" id="106">
+        <tabBarController autoresizesArchivedViewToFullSize="NO" nibName="MainWindow" automaticallyAdjustsScrollViewInsets="NO" id="106">
             <extendedEdge key="edgesForExtendedLayout"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
             <nil key="simulatedBottomBarMetrics"/>
-            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-            <tabBar key="tabBar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectedItem="227" id="107">
-                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <size key="freeformSize" width="320" height="568"/>
+            <tabBar key="tabBar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="107">
+                <rect key="frame" x="129" y="330" width="163" height="49"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                <animations/>
                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
             </tabBar>
             <viewControllers>
@@ -43,7 +32,6 @@
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="black" id="216">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <viewControllers>
                         <viewController autoresizesArchivedViewToFullSize="NO" nibName="TzTabView" id="217" customClass="Maya3DVC">
@@ -63,10 +51,9 @@
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="black" id="162">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <viewControllers>
-                        <viewController nibName="TzTabView" id="160" customClass="MayaGlyphVC">
+                        <viewController autoresizesArchivedViewToFullSize="NO" nibName="TzTabView" id="160" customClass="MayaGlyphVC">
                             <extendedEdge key="edgesForExtendedLayout"/>
                             <navigationItem key="navigationItem" id="161">
                                 <nil key="title"/>
@@ -80,7 +67,6 @@
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="black" id="225">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <viewControllers>
                         <viewController autoresizesArchivedViewToFullSize="NO" nibName="TzTabView" id="226" customClass="MayaOracleVC">
@@ -100,7 +86,6 @@
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="black" id="273">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <viewControllers>
                         <viewController autoresizesArchivedViewToFullSize="NO" nibName="TzTabView" id="271" customClass="MayaExplorerVC">
@@ -120,7 +105,6 @@
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="black" id="278">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <viewControllers>
                         <viewController autoresizesArchivedViewToFullSize="NO" nibName="TzDatebookView" id="276" customClass="DatebookVC">
@@ -142,4 +126,9 @@
         <image name="icon_glyph.png" width="28" height="28"/>
         <image name="icon_hand.png" width="28" height="28"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

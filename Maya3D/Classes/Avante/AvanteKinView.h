@@ -12,7 +12,7 @@
 // GENERIC
 #define SPACER					2.0
 #define SPACER_GAP				6.0
-#define ACTUAL_VIEW_HEIGHT		(kActiveLessNavTab - kRollerVerticalHeight)
+//#define ACTUAL_VIEW_HEIGHT		(kActiveLessNavTab - kRollerVerticalHeight)
 #define FONT_SIZE_NAME			18.0
 #define FONT_SIZE_TEXT			14.0
 #define FONT_SIZE_AFFIRM		12.0

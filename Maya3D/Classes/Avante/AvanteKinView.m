@@ -80,7 +80,7 @@
 	//
 	// >>> OPEN KIN VIEW 1
 	//
-	kinView1 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 0.0)];
+	kinView1 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, kscreenWidth, 0.0)];
 	[self addSubview:kinView1];
 	[kinView1 release];
 	y = 0.0;
@@ -97,7 +97,7 @@
 			x = SPACER_GAP;
 			font = FONT_SIZE_NAME;
 			h = HEIGHT_FOR_LINES(font,1);
-			w = 320.0;
+			w = kscreenWidth;
 			frame = CGRectMake(x, y, w, h);
 			label = [[AvanteTextLabel alloc] init:@"label" frame:frame size:font color:[UIColor whiteColor]];
 			[kinView1 addSubview:label];
@@ -113,7 +113,7 @@
 		x = SPACER_GAP;
 		font = FONT_SIZE_TEXT;
 		h = HEIGHT_FOR_LINES(font,4);
-		w = (320.0 - x - SPACER_GAP);
+		w = (kscreenWidth - x - SPACER_GAP);
 		frame = CGRectMake(x, y, w, h);
 		label = [[AvanteTextLabel alloc] init:@"seal_desc" frame:frame size:font color:[UIColor whiteColor]];
 		[label setAlign:ALIGN_LEFT];
@@ -177,7 +177,7 @@
 	[kinView1 addSubview:dreamspellTzolkinKin];
 	[dreamspellTzolkinKin release];
 	// Kin: NAME 1
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	font = FONT_SIZE_NAME;
 	h = HEIGHT_FOR_LINES(font,2);
 	frame = CGRectMake(x, y, w, h);
@@ -188,7 +188,7 @@
 	[dreamspellTzolkinName release];
 	
 	// Kin: NEWS
-	xx = (320.0 - NEWS_SIZE - SPACER_GAP);
+	xx = (kscreenWidth - NEWS_SIZE - SPACER_GAP);
 	yy = y - 30.0;
 	w = NEWS_SIZE;
 	h = NEWS_SIZE;
@@ -216,7 +216,7 @@
 	[dreamspellTzolkinColor release];
 	// Tzolkin: PURPOSE
 	w = 200.0;
-	x = ((320.0 - w) / 2.0);
+	x = ((kscreenWidth - w) / 2.0);
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,1);
 	frame = CGRectMake(x, y, w, h);
@@ -225,7 +225,7 @@
 	[dreamspellColorPurpose release];
 	// Tzolkin: ELEMENT
 	w = NEWS_SIZE;
-	x = ( 320.0 - w - SPACER_GAP);
+	x = ( kscreenWidth - w - SPACER_GAP);
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,1);
 	frame = CGRectMake(x, y, w, h);
@@ -239,7 +239,7 @@
 	x = SPACER_GAP;
 	font = FONT_SIZE_LABEL;
 	h = HEIGHT_FOR_LINES(font, (global.prefLang == LANG_ES ? 2 : 1));
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	frame = CGRectMake(x, y, w, h);
 	dreamspellColorTags = [[AvanteTextLabel alloc] init:@"tags" frame:frame size:font color:[UIColor whiteColor]];
 	[dreamspellColorTags setAlign:ALIGN_LEFT];
@@ -281,7 +281,7 @@
 	font = FONT_SIZE_NAME;
 	h = HEIGHT_FOR_LINES(font,1);
 	y += TONE_SIZE - h;
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	frame = CGRectMake(x, y, w, h);
 	dreamspellTzolkinNumName = [[AvanteTextLabel alloc] init:@"tone" frame:frame size:font color:[UIColor whiteColor]];
 	[dreamspellTzolkinNumName setAlign:ALIGN_LEFT];
@@ -301,7 +301,7 @@
 	x = SPACER_GAP;
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,15);
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	frame = CGRectMake(x, y, w, h);
 	dreamspellTzolkinNumDesc = [[AvanteTextLabel alloc] init:@"tone_desc" frame:frame size:font color:[UIColor whiteColor]];
 	[dreamspellTzolkinNumDesc setAlign:ALIGN_LEFT];
@@ -314,7 +314,7 @@
 	//
 	// >>> OPEN KIN VIEW 2
 	//
-	kinView2 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 0.0)];
+	kinView2 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, kscreenWidth, 0.0)];
 	[self addSubview:kinView2];
 	[kinView2 release];
 	y = 0.0;
@@ -337,7 +337,7 @@
 	// Tzolkin: SEAL LABEL
 	font = FONT_SIZE_LABEL;
 	h = HEIGHT_FOR_LINES(font,1);
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	frame = CGRectMake(x, y, w, h);
 	dreamspellTzolkinGlyphLabel = [[AvanteTextLabel alloc] init:@"seal label" frame:frame size:font color:[UIColor whiteColor]];
 	[dreamspellTzolkinGlyphLabel setAlign:ALIGN_LEFT];
@@ -347,7 +347,7 @@
 	font = FONT_SIZE_NAME;
 	h = HEIGHT_FOR_LINES(font,1);
 	yy = y + SEAL_SIZE - h;
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	frame = CGRectMake(x, yy, w, h);
 	dreamspellTzolkinGlyphName = [[AvanteTextLabel alloc] init:@"seal name" frame:frame size:font color:[UIColor whiteColor]];
 	[dreamspellTzolkinGlyphName setAlign:ALIGN_LEFT];
@@ -366,7 +366,7 @@
 	x = SPACER_GAP;
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,2);
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	frame = CGRectMake(x, y, w, h);
 	dreamspellTzolkinGlyphFrase = [[AvanteTextLabel alloc] init:@"seal_frase" frame:frame size:font color:[UIColor whiteColor]];
 	[dreamspellTzolkinGlyphFrase setAlign:ALIGN_LEFT];
@@ -380,7 +380,7 @@
 	//
 	// >>> OPEN KIN VIEW 3
 	//
-	kinView3 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 0.0)];
+	kinView3 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, kscreenWidth, 0.0)];
 	[self addSubview:kinView3];
 	[kinView3 release];
 	y = 0.0;
@@ -391,7 +391,7 @@
 	x = SPACER_GAP;
 	font = FONT_SIZE_LABEL;
 	h = HEIGHT_FOR_LINES(font,2);
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	frame = CGRectMake(x, y, w, h);
 	dreamspellTzolkinGlyphTags = [[AvanteTextLabel alloc] init:@"seal_tags" frame:frame size:font color:[UIColor whiteColor]];
 	[dreamspellTzolkinGlyphTags setAlign:ALIGN_LEFT];
@@ -411,7 +411,7 @@
 	x = SPACER_GAP;
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,11);
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	frame = CGRectMake(x, y, w, h);
 	dreamspellTzolkinGlyphDesc = [[AvanteTextLabel alloc] init:@"seal_desc" frame:frame size:font color:[UIColor whiteColor]];
 	[dreamspellTzolkinGlyphDesc setAlign:ALIGN_LEFT];

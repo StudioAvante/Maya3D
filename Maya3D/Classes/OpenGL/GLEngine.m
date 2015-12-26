@@ -71,7 +71,7 @@
 		return nil;
 	
 	// Create GL Objects
-//
+/////////////////////////
     if (MAKE_SPLASH)
 		[self setupGearsSplash];
 	else
@@ -81,13 +81,13 @@
 		if (ENABLE_DREAMSPELL)
 			[self setupGearsDreamspell];
 	}
-//
+///////////////////////
 	// Start thread
 	//[NSThread detachNewThreadSelector:@selector(draw3DView:) toTarget:self withObject:nil];
 	
 	// Start Auto Zoom
 
-	[self startAutoZoom:CAMERA_WIDTH_MAX :CAMERA_WIDTH];   //andreas
+	[self startAutoZoom:CAMERA_WIDTH_MAX :CAMERA_WIDTH];   //  12/13
 
 	// Finito!
 	return self;
@@ -195,7 +195,7 @@
 	//
 	// MAYA 9 - LORDS
 	//
-//	maya9 = [[GLGear alloc] init:9//9       // andreas
+//	maya9 = [[GLGear alloc] init:9//9       
 //							type:TYPE_WHEEL
 //						denteOut:DENTE_DOWN
 //						 denteIn:DENTE_NOT

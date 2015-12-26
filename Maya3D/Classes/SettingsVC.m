@@ -86,6 +86,7 @@
 	global.currentVC = self;
 	// Muda estilo do botao de volta
 	UIBarButtonItem *but = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(actionDone:)];
+    but.tintColor = [UIColor whiteColor];
 	[self navigationController].navigationBar.topItem.leftBarButtonItem = but;
 	[but release];
 }

@@ -64,6 +64,8 @@
 	AvanteKinButton *oracleAnalogGlyph;
 	AvanteKinButton *oracleOccultGlyph;
 	AvanteTextLabel *affirmation1;
+    
+    int VIEW_HEIGHT;//				(kActiveLessNavTab - kRollerVerticalHeight)
 }
 
 - (void)createContentMaya;

@@ -15,6 +15,7 @@
 	BOOL inverted;
 }
 
+@property(nonatomic,retain) NSString* imageName;
 - (id)initInv:(int)n x:(CGFloat)x y:(CGFloat)y size:(CGFloat)sz;
 - (id)init:(int)n x:(CGFloat)x y:(CGFloat)y size:(CGFloat)sz;
 - (void)updateWithNum:(int)n;

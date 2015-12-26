@@ -24,6 +24,7 @@
 	NSString *defaultSpeedName;		// default speed text
 }
 
+@property(strong,nonatomic) NSString *prevTitle;
 - (id)init;
 - (void)setupClockPicker;
 - (void)updateClockPicker:(BOOL)animated;
@@ -34,5 +35,5 @@
 - (IBAction)actionPlayGear:(id)sender;
 - (IBAction)goSpeedSettings:(id)sender;
 - (IBAction)goInfo:(id)sender;
-
+-(IBAction)goPrev:(id)sender;
 @end

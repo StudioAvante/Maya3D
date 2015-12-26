@@ -65,14 +65,14 @@
 
 	// Create kin View
 	CGRect frame;
-	frame = CGRectMake(0.0, 0.0, 320.0, kActiveLessNav);
+	frame = CGRectMake(0.0, 0.0, kscreenWidth, kActiveLessNav);
 	kinView = [[AvanteKinView alloc] initWithFrame:frame destinyKin:dkin];
 	// Create view
 	[kinView setupView:kinType];
 	[kinView updateView:tz];
 	
 	// Create main ScrollView
-	frame = CGRectMake(0.0, 0.0, 320.0, kActiveLessNav);
+	frame = CGRectMake(0.0, 0.0, kscreenWidth, kActiveLessNav);
 	UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:frame];
 	scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 	// SCROLL: INSIDE view

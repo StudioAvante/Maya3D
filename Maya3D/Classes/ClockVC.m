@@ -52,6 +52,7 @@
 	CGRect frame;
 	CGFloat y = 0.0;
 	
+    y = (kStatusBarHeight+44);
 	// SETTINGS BUTTON
 	/*
 	 but = [[UIBarButtonItem alloc]
@@ -65,10 +66,15 @@
 	 */
 	
 	// HELP BUTTON
+//    but = self.navigationItem.leftBarButtonItem;
+//    [but setTintColor:[UIColor whiteColor]];
+//    self.navigationItem.leftBarButtonItem = but;
+    
 	but = [[UIBarButtonItem alloc]
 		   initWithImage:[global imageFromFile:@"icon_info"]
 		   style:UIBarButtonItemStylePlain
 		   target:self action:@selector(goInfo:)];
+    [but setTintColor:[UIColor whiteColor]];
 	self.navigationItem.rightBarButtonItem = but;
 	self.navigationItem.rightBarButtonItem.enabled = TRUE;
 	[but release];
@@ -76,17 +82,19 @@
 	//
 	// TOOL BAR estetico
 	//
-	toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, y, 320.0, kToolbarHeight)];
-	toolBar.barStyle = UIBarStyleBlackOpaque;
-	[self.view addSubview:toolBar];
-	[toolBar release];
-	
-	//
-	// PICKERS
-	//
+//	toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, y, kscreenWidth, kToolbarHeight)];
+//	toolBar.barStyle = UIBarStyleBlackOpaque;
+//	[self.view addSubview:toolBar];
+//	[toolBar release];
+//	
+//	//
+//	// PICKERS
+//	//
 	y += kToolbarHeight;
 	clockPicker = [[AvantePicker alloc] init:0.0 y:y labels:YES];
 	clockPicker.userInteractionEnabled = NO;
+    
+//    clockPicker.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |        UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	[self setupClockPicker];
 	[self.view addSubview:clockPicker];
 	[clockPicker release];
@@ -94,8 +102,9 @@
 	//
 	// SPEED Tool Bar
 	//
-	y += kUIPickerHeight;
-	frame = CGRectMake(0.0, y, 320.0, kToolbarHeight);
+//	y += kUIPickerHeight;
+    y += clockPicker.bounds.size.height + 49;
+	frame = CGRectMake(0.0, y, kscreenWidth, kToolbarHeight);
 	toolBar = [[UIToolbar alloc] initWithFrame:frame];
 	toolBar.barStyle = UIBarStyleBlackOpaque;
 	// Create ToolBar Items
@@ -104,11 +113,13 @@
 									initWithTitle:LOCAL(@"CLOCK_RESET")
 									style:UIBarButtonItemStyleBordered
 									target:self action:@selector(actionReset:)];
+    [resetButton setTintColor:[UIColor whiteColor]];
  	// SPEED BUTTON
 	UIBarButtonItem *speedButton = [[UIBarButtonItem alloc]
 									initWithTitle:LOCAL(@"CLOCK_SPEED")
 									style:UIBarButtonItemStyleBordered
 									target:self action:@selector(goSpeedSettings:)];
+    [speedButton setTintColor:[UIColor whiteColor]];
  	// SPACER
 	fixed.width = 160.0;
 	// Add Itens To Toolbar
@@ -132,7 +143,7 @@
 	// 1a vez que entra no clock
 	if (global.theClock.speedLabel == nil)
 	{
-		frame = CGRectMake(0.0, y, 320.0, kToolbarHeight);
+		frame = CGRectMake(0.0, y, kscreenWidth, kToolbarHeight);
 		AvanteTextLabel *label = [[AvanteTextLabel alloc] init:defaultSpeedName frame:frame size:20.0 color:[UIColor whiteColor]];
 		[label setNavigationBarStyle];
 		global.theClock.speedLabel = label;
@@ -145,7 +156,7 @@
 	//
 	y+= kToolbarHeight;
 	//y = kActiveLessNavTab;
-	frame = CGRectMake(0.0, y, 320.0, kToolbarHeight);
+	frame = CGRectMake(0.0, y, kscreenWidth, kToolbarHeight);
 	toolBar = [[UIToolbar alloc] initWithFrame:frame];
 	toolBar.barStyle = UIBarStyleBlackOpaque;
 	// Create ToolBar Items
@@ -154,16 +165,19 @@
 				   initWithImage:[global imageFromFile:@"icon_pause"]
 				   style:UIBarButtonItemStyleBordered
 				   target:self action:@selector(actionPause:)];
+    [pauseButton setTintColor:[UIColor whiteColor]];
 	// PLAY button
     playButton = [[UIBarButtonItem alloc]
 				  initWithImage:[global imageFromFile:@"icon_play"]
 				  style:UIBarButtonItemStyleBordered
 				  target:self action:@selector(actionPlay:)];
+    [playButton setTintColor:[UIColor whiteColor]];
 	// PLAY+GEAR button
     playGearButton = [[UIBarButtonItem alloc]
 					  initWithImage:[global imageFromFile:@"icon_play_gear"]
 					  style:UIBarButtonItemStyleBordered
 					  target:self action:@selector(actionPlayGear:)];
+    [playGearButton setTintColor:[UIColor whiteColor]];
 	// Add Itens To Toolbar
 	items = [NSArray arrayWithObjects: flex, pauseButton, playButton, playGearButton, flex, nil];
 	[toolBar setItems:items animated:NO];
@@ -186,9 +200,16 @@
 	//[self actionPlay:self];
 	
 	// ok!
+    
+
+
 	return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
 - (void)viewWillAppear:(BOOL)animated {
 	// super
     [super viewDidAppear:animated];
@@ -199,6 +220,13 @@
 	// Set title
 	self.title = [NSString stringWithString:LOCAL(@"CLOCK")];
 	
+    UIBarButtonItem *but = [[UIBarButtonItem alloc] initWithTitle:self.prevTitle style:UIBarButtonItemStyleDone target:self action:@selector(goPrev:)];
+    [but setTintColor:[UIColor whiteColor]];
+    self.navigationItem.leftBarButtonItem = but;
+    self.navigationItem.leftBarButtonItem.enabled = TRUE;
+    [but release];
+
+    //[self setupClockPicker];  
 	// update clock to timer
 	[self updateClockPicker:FALSE];
 }
@@ -221,6 +249,8 @@
 
 	// Turn on sounds
 	[global.soundLib play];
+    
+    
 }
 - (void)viewWillDisappear:(BOOL)animated {
 }
@@ -229,6 +259,11 @@
 }
 
 
+-(IBAction)goPrev:(id)sender
+{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 // Create Pickers
 - (void)setupClockPicker
 {
@@ -236,9 +271,13 @@
 	int comp, n;
 	NSString *str, *dt;
 	
+    float fact = (float)kscreenWidth / 320.0;
+    int width;
 	// Year
 	comp = 0;
-	[clockPicker addComponent:LOCAL(@"YEAR") w:70];
+    
+    width = (int)(70.0 * fact);
+	[clockPicker addComponent:LOCAL(@"YEAR") w:70];  //70
 	for ( n = -3113 ; n <= 4772 ; n++ )
 	{
 		str = [NSString stringWithFormat:@"%d",n];
@@ -246,7 +285,9 @@
 	}
 	// Month
 	comp++;
-	[clockPicker addComponent:LOCAL(@"MONTH") w:60];
+    
+    width = (int)(60.0 * fact);
+	[clockPicker addComponent:LOCAL(@"MONTH") w:60]; //60
 	for ( n = 1 ; n <= 12 ; n++ )
 	{
 		dt = [NSString stringWithFormat:@"%d",n];
@@ -255,7 +296,9 @@
 	}
 	// Day
 	comp++;
-	[clockPicker addComponent:LOCAL(@"DAY") w:40];
+    
+    width = (int)(40.0 * fact);
+	[clockPicker addComponent:LOCAL(@"DAY") w:40];  //40
 	for ( n = 1 ; n <= 31 ; n++ )
 	{
 		str = [NSString stringWithFormat:@"%d",n];

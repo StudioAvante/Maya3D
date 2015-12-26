@@ -30,8 +30,8 @@
 		return nil;
 	
 	// Elements
-	numElements = el;
-	numVertexElements = nv;
+	numElements = el;        // the number of elements.
+	numVertexElements = nv;  // the number of vertices of a element.
 	
 	// Array para a TEXTURAS
 	// opcionais - sera usado apenas se diferente ce Zero

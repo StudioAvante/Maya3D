@@ -186,6 +186,7 @@
 	AvLog(@"CR DR jdn[%d] Tzolkin[%d/%@] Moon[%d/%@] days from corr[%d]",DREAMSPELL_JULIAN,cal.tzolkinMoon.kin,cal.tzolkinMoon.dayName,cal.moon.kin,cal.moon.dayName,(DREAMSPELL_JULIAN-CORRELATION));
 	 */
 	
+    blendingEnabled = FALSE;
 	// Init Timer
 	// PS: depois de cal
 	theClock = [[TzClock alloc] init];
@@ -395,7 +396,7 @@
 	cameraLocked = YES;
 
 	// Define tamanho da view
-	w = (320.0 + SHOT_SIDE + SHOT_SIDE);
+	w = (kscreenWidth + SHOT_SIDE + SHOT_SIDE);
 	h = (view.frame.size.height + SHOT_HEADER + SHOT_TRAILER);
 	
 	// Cria uma view temporaria com header e trailer
@@ -411,7 +412,7 @@
 	UIGraphicsEndImageContext();
 	
 	// Adiciona imagem rasterizada da view
-	frame = CGRectMake(SHOT_SIDE, y, 320.0, view.frame.size.height);
+	frame = CGRectMake(SHOT_SIDE, y, kscreenWidth, view.frame.size.height);
 	rasterView = [[UIImageView alloc] initWithFrame:frame];
 	rasterView.image = image;
 	[shotView addSubview:rasterView];
@@ -420,7 +421,7 @@
 	
 	// Add Trailer
 	NSString *trailer_file = ( (ENABLE_MAYA) ? @"shot_trailer.png" : @"shot_trailer_dreamspell.png");
-	frame = CGRectMake(SHOT_SIDE, y, 320.0, SHOT_TRAILER);
+	frame = CGRectMake(SHOT_SIDE, y, kscreenWidth, SHOT_TRAILER);
 	trailerView = [[UIImageView alloc] initWithFrame:frame];
 	trailerView.image = [UIImage imageNamed:trailer_file];
 	[shotView addSubview:trailerView];
@@ -485,12 +486,12 @@
 		[self uncoverAll];
 	
 	// Cria cover
-	coverView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, kActiveLessNav)];
+	coverView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, kscreenWidth, kActiveLessNav)];
 	coverView.backgroundColor = [UIColor blackColor];
 	coverView.opaque = FALSE;
 	coverView.alpha = 0.85;
 	// Cover message
-	AvanteTextLabel *coverLabel = [[AvanteTextLabel alloc] init:msg x:0.0 y:120.0 w:320.0 h:30.0 size:16.0 color:[UIColor whiteColor]];
+	AvanteTextLabel *coverLabel = [[AvanteTextLabel alloc] init:msg x:0.0 y:120.0 w:kscreenWidth h:30.0 size:16.0 color:[UIColor whiteColor]];
 	[coverView addSubview:coverLabel];
 	[coverLabel release];
 	// Add cover
@@ -523,6 +524,8 @@
 	{
 		info = [[InfoVC alloc] initWithPage:pg];
 		info.hidesBottomBarWhenPushed  = YES;
+        
+        [info SetPrevTitle:topVC.title];
 		[[topVC navigationController] pushViewController:info animated:YES];
 		[info release];
 	}

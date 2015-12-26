@@ -20,12 +20,12 @@
 // MAYA GLYPH
 #define SPACER					2.0
 #define SPACER_GAP				16.0
-#define VIEW_HEIGHT				(kActiveLessNavTab - kRollerVerticalHeight)
+//#define VIEW_HEIGHT				(kActiveLessNavTab - kRollerVerticalHeight)
 #define GLYPH_HEIGHT			60.0
 #define GLYPH_WIDTH				60.0
 #define GLYPH_WIDTH_NUM			30.0
 #define ISIG_WIDTH				150.0
-#define GAP_LEFT				(ceil( ( 320.0 - (GLYPH_WIDTH_NUM*2) - (SPACER*3) - (GLYPH_WIDTH*2) ) / 2.0) )
+#define GAP_LEFT				(ceil( ( kscreenWidth - (GLYPH_WIDTH_NUM*2) - (SPACER*3) - (GLYPH_WIDTH*2) ) / 2.0) )
 #define GAP_TOP					(ceil( ( VIEW_HEIGHT - (GLYPH_HEIGHT*5.0) - (SPACER*4.0) ) / 2.0 ) )
 #define FONT_SIZE_MAYA_LABEL	12.0
 
@@ -89,12 +89,76 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
+    ///////////////////
+    UIBarButtonItem *but;
+    
+    // call super
+   // [super viewDidLoad];
+    
+    // Corrige nome
+    if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
+        self.title = LOCAL(@"TAB_GLYPH");
+    else
+        self.title = LOCAL(@"TAB_SIGNATURE");
+    
+    // Configura switch MAYA / DREAMSPELL
+    mayaMoonSelector = [global addViewModeSwitch:self];
+    if (mayaMoonSelector)
+        [mayaMoonSelector addTarget:self action:@selector(switchViewMode:) forControlEvents:UIControlEventValueChanged];
+    
+    // SETTINGS BUTTON
+    /*
+     UIBarButtonItem *but;
+     but = [[UIBarButtonItem alloc]
+		   initWithImage:[global imageFromFile:@"icon_settings"]
+		   style:UIBarButtonItemStylePlain
+		   target:self action:@selector(goSettings:)];
+     self.navigationItem.rightBarButtonItem = but;
+     self.navigationItem.rightBarButtonItem.enabled = TRUE;
+     [but release];
+     */
+    
+    // SCREENSHOT BUTTON
+    but = [[UIBarButtonItem alloc]
+           //initWithImage:[global imageFromFile:@"icon_save"]
+           //style:UIBarButtonItemStylePlain
+           initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+           target:self
+           action:@selector(share:)];
+    
+    [but setTintColor:[UIColor whiteColor]];
+    self.navigationItem.rightBarButtonItem = but;
+    self.navigationItem.rightBarButtonItem.enabled = TRUE;
+    [but release];
+    
+    // HELP BUTTON
+    but = [[UIBarButtonItem alloc]
+           initWithImage:[global imageFromFile:@"icon_info"]
+           style:UIBarButtonItemStylePlain
+           target:self action:@selector(goInfo:)];
+    [but setTintColor:[UIColor whiteColor]];
+    self.navigationItem.leftBarButtonItem = but;
+    self.navigationItem.leftBarButtonItem.enabled = TRUE;
+    [but release];
+    
+    // Roller
+    roller = [[AvanteRollerVertical alloc] init:0.0:VIEW_HEIGHT];
+    [roller addCallback:self dragLeft:@selector(julianSub:) dragRight:@selector(julianAdd:)];
+    [self.view addSubview:roller];
+    [roller release];
+    
+    // Create Content Views
+    [self createContentMaya];
+    [self createContentDreamspell];  //
+
+    ///////////////////
+    
 	// Redraw content view?
 	if (contentViewMaya == nil)
 	{
 		AvLog(@"MayaGlyphVC: RELOAD contentView...");
 		[self createContentMaya];
-		[self createContentDreamspell];
+//		[self createContentDreamspell];  //
 	}
 	// Pause Clock
 	[global.theClock pause];
@@ -127,63 +191,65 @@
 //
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	UIBarButtonItem *but;
-	
-	// call super
+//	UIBarButtonItem *but;
+//	
+//	// call super
     [super viewDidLoad];
-
-	// Corrige nome
-	if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
-		self.title = LOCAL(@"TAB_GLYPH");
-	else
-		self.title = LOCAL(@"TAB_SIGNATURE");
-	
-	// Configura switch MAYA / DREAMSPELL
-	mayaMoonSelector = [global addViewModeSwitch:self];
-	if (mayaMoonSelector)
-		[mayaMoonSelector addTarget:self action:@selector(switchViewMode:) forControlEvents:UIControlEventValueChanged];
-
-	// SETTINGS BUTTON
-	/*
-	UIBarButtonItem *but;
-	but = [[UIBarButtonItem alloc]
-		   initWithImage:[global imageFromFile:@"icon_settings"]
-		   style:UIBarButtonItemStylePlain
-		   target:self action:@selector(goSettings:)];
-	self.navigationItem.rightBarButtonItem = but;
-	self.navigationItem.rightBarButtonItem.enabled = TRUE;
-	[but release];
-	*/
-	
-	// SCREENSHOT BUTTON
-	but = [[UIBarButtonItem alloc]
-		   //initWithImage:[global imageFromFile:@"icon_save"]
-		   //style:UIBarButtonItemStylePlain
-		   initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-		   target:self
-		   action:@selector(share:)];
-	self.navigationItem.rightBarButtonItem = but;
-	self.navigationItem.rightBarButtonItem.enabled = TRUE;
-	[but release];
-
-	// HELP BUTTON
-	but = [[UIBarButtonItem alloc]
-		   initWithImage:[global imageFromFile:@"icon_info"]
-		   style:UIBarButtonItemStylePlain
-		   target:self action:@selector(goInfo:)];
-	self.navigationItem.leftBarButtonItem = but;
-	self.navigationItem.leftBarButtonItem.enabled = TRUE;
-	[but release];
-	
-	// Roller
-	roller = [[AvanteRollerVertical alloc] init:0.0:VIEW_HEIGHT];
-	[roller addCallback:self dragLeft:@selector(julianSub:) dragRight:@selector(julianAdd:)];
-	[self.view addSubview:roller];
-	[roller release];
-
-	// Create Content Views
-	[self createContentMaya];
-	[self createContentDreamspell];
+    
+    VIEW_HEIGHT		=		(kActiveLessNavTab - kRollerVerticalHeight);
+//
+//	// Corrige nome
+//	if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
+//		self.title = LOCAL(@"TAB_GLYPH");
+//	else
+//		self.title = LOCAL(@"TAB_SIGNATURE");
+//	
+//	// Configura switch MAYA / DREAMSPELL
+//	mayaMoonSelector = [global addViewModeSwitch:self];
+//	if (mayaMoonSelector)
+//		[mayaMoonSelector addTarget:self action:@selector(switchViewMode:) forControlEvents:UIControlEventValueChanged];
+//
+//	// SETTINGS BUTTON
+//	/*
+//	UIBarButtonItem *but;
+//	but = [[UIBarButtonItem alloc]
+//		   initWithImage:[global imageFromFile:@"icon_settings"]
+//		   style:UIBarButtonItemStylePlain
+//		   target:self action:@selector(goSettings:)];
+//	self.navigationItem.rightBarButtonItem = but;
+//	self.navigationItem.rightBarButtonItem.enabled = TRUE;
+//	[but release];
+//	*/
+//	
+//	// SCREENSHOT BUTTON
+//	but = [[UIBarButtonItem alloc]
+//		   //initWithImage:[global imageFromFile:@"icon_save"]
+//		   //style:UIBarButtonItemStylePlain
+//		   initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+//		   target:self
+//		   action:@selector(share:)];
+//	self.navigationItem.rightBarButtonItem = but;
+//	self.navigationItem.rightBarButtonItem.enabled = TRUE;
+//	[but release];
+//
+//	// HELP BUTTON
+//	but = [[UIBarButtonItem alloc]
+//		   initWithImage:[global imageFromFile:@"icon_info"]
+//		   style:UIBarButtonItemStylePlain
+//		   target:self action:@selector(goInfo:)];
+//	self.navigationItem.leftBarButtonItem = but;
+//	self.navigationItem.leftBarButtonItem.enabled = TRUE;
+//	[but release];
+//	
+//	// Roller
+//	roller = [[AvanteRollerVertical alloc] init:0.0:VIEW_HEIGHT];
+//	[roller addCallback:self dragLeft:@selector(julianSub:) dragRight:@selector(julianAdd:)];
+//	[self.view addSubview:roller];
+//	[roller release];
+//
+//	// Create Content Views
+//	[self createContentMaya];
+//	[self createContentDreamspell];
 }
 
 #pragma mark GLYPH DRAWING - ONCE
@@ -205,9 +271,14 @@
 	//
 	// add a bot to the height for screenshot
 	if (!DUAL_MODE)
-		frame = CGRectMake(0.0, -8.0, 320.0, (VIEW_HEIGHT+15.0));
+		frame = CGRectMake(0.0, -8.0, kscreenWidth, (VIEW_HEIGHT+15.0));
 	else
-		frame = CGRectMake(0.0, 0.0, 320.0, (VIEW_HEIGHT+15.0));
+		frame = CGRectMake(0.0, 0.0, kscreenWidth, (VIEW_HEIGHT+15.0));
+    if( contentViewMaya )  //
+    {
+        [contentViewMaya removeFromSuperview];
+        contentViewMaya = nil;
+    }
 	contentViewMaya = [[UIView alloc] initWithFrame:frame];
 	contentViewMaya.backgroundColor = [UIColor clearColor];
 	contentViewMaya.hidden = TRUE;
@@ -239,7 +310,7 @@
 	//
 	
 	// ISIG = HAAB UINAL
-	//x = (320.0 - ISIG_WIDTH) / 2.0;
+	//x = (kscreenWidth - ISIG_WIDTH) / 2.0;
 	x = GAP_LEFT + GLYPH_WIDTH_NUM + SPACER;
 	frame = CGRectMake(x, y, ISIG_WIDTH, GLYPH_HEIGHT);
 	mayaIsigGlyph = [[UIImageView alloc] initWithFrame:frame];
@@ -335,7 +406,7 @@
 	mayaUinalLabel = [[AvanteTextLabel alloc] init:@"uinal" frame:frame size:FONT_SIZE_MAYA_LABEL color:[UIColor whiteColor]];
 	[contentViewMaya addSubview:mayaUinalLabel];
 	[mayaUinalLabel release];
-	
+
 	//
 	// ROW 4
 	//
@@ -437,7 +508,12 @@
 	//
 	// Dreamspell CONTENT VIEW
 	//
-	frame = CGRectMake(0.0, 0.0, 320.0, VIEW_HEIGHT);
+	frame = CGRectMake(0.0, 0.0, kscreenWidth, VIEW_HEIGHT);
+    if( contentViewDreamspell)
+    {
+        [contentViewDreamspell removeFromSuperview];
+        contentViewDreamspell = nil;
+    }
 	contentViewDreamspell = [[UIView alloc] initWithFrame:frame];
 	contentViewDreamspell.backgroundColor = [UIColor blackColor];
 	contentViewDreamspell.hidden = TRUE;
@@ -472,7 +548,7 @@
 	// KIN NAME
 	//
 	x += (SEAL_SIZE + SPACER_GAP);
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,1);
 	y = 0.0 + TONE_SIZE - h;
@@ -570,7 +646,7 @@
 	//
 	//y = 0.0 + TONE_SIZE + SEAL_SIZE - PORTAL_SIZE;
 	y = SPACER_GAP;
-	x = 320.0 - PORTAL_SIZE - SPACER_GAP;
+	x = kscreenWidth - PORTAL_SIZE - SPACER_GAP;
 	// Moon Glyph
 	frame = CGRectMake(x, y, PORTAL_SIZE, PORTAL_SIZE);
 	portalGlyph = [[UIImageView alloc] initWithFrame:frame];
@@ -580,7 +656,7 @@
 	//            1
 	// ORACLE = 2 3 4
 	//            5
-	//int orax = ( 320.0 - (ORACLE_SIZE*3.0) - (SPACER*2.0) ) / 2.0;
+	//int orax = ( kscreenWidth - (ORACLE_SIZE*3.0) - (SPACER*2.0) ) / 2.0;
 	y = 80.0;
 	int orax = 190.0;
 	font = FONT_SIZE_ORACLE;
@@ -679,7 +755,7 @@
 	x = 0.0;
 	font = FONT_SIZE_AFFIRM;
 	h = HEIGHT_FOR_LINES(font,6);
-	w = 320.0;
+	w = kscreenWidth;
 	frame = CGRectMake(x, y, w, h);
 	affirmation1 = [[AvanteTextLabel alloc] init:@"affirmation1"frame:frame size:font color:[UIColor whiteColor]];
 	[affirmation1 setWrap:YES];

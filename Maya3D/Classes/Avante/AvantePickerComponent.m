@@ -37,6 +37,7 @@
 	text = [[NSMutableArray alloc] init];
 	data = [[NSMutableArray alloc] init];
 	views = [[NSMutableArray alloc] init];
+    imageNames = [[NSMutableArray alloc] init];
 	return self;
 }
 
@@ -60,6 +61,12 @@
 	return TRUE;
 }
 
+- (BOOL)addRowImageName:(NSString*)name data:(NSString*)dt
+{
+    [imageNames addObject:name];
+    [data addObject:dt];
+    return TRUE;
+}
 // Retorna numero de rows / elementos deste componente
 - (NSUInteger)count
 {
@@ -77,7 +84,7 @@
 	if ([views count] == 0)
 		return 35.0;
 	// senao devolve altura da view mas um poquito
-	return 35.0;
+//	return 35.0;   
 	UIView *viewToUse = [views objectAtIndex:0];
 	if (viewToUse == nil)
 		return 0;
@@ -108,6 +115,13 @@
 	return (UIView*) [views objectAtIndex:row];
 }
 
+- (NSString*)imageNameForRow:(NSInteger)row
+{
+    if ([imageNames count] < (row+1) )
+        return nil;
+    
+    return [imageNames objectAtIndex:row];
+}
 
 // Retorna a linha onde se encontra um dado
 - (NSInteger) indexOfData:(NSString*)str

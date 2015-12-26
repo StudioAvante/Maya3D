@@ -21,10 +21,10 @@
 	int				pickedItem;
 	TzDate			*pickedDate;
 	// Picker
-	UIPickerView	*datebookPicker;
+//	UIPickerView	*datebookPicker;
 }
 
-
+@property(strong,nonatomic) IBOutlet UIPickerView	*datebookPicker;
 // ROGER
 - (int)elementIndex:(NSInteger)row :(NSInteger)component;
 // ACTIONS

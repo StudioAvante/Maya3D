@@ -27,7 +27,7 @@
 #define INFO_GAP				8.0
 #define HEADER_HEIGHT			35.0
 #define TRAILER_HEIGHT			22.0
-#define CONTENT_HEIGHT			(kActiveLessNav - HEADER_HEIGHT - TRAILER_HEIGHT - kRollerVerticalHeight)
+//#define CONTENT_HEIGHT			(kActiveLessNav - HEADER_HEIGHT - TRAILER_HEIGHT - kRollerVerticalHeight)
 #define BUTTON_SIZE				20.0
 
 #define INFO_BACK_COLOR			([UIColor blackColor])
@@ -143,27 +143,63 @@ INFO_ABOUT,
 	[super didReceiveMemoryWarning];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
 
+
+    
+}
 - (void)viewWillAppear:(BOOL)animated
 {
 	// load page
 	//[self loadPage];
+//    [self.navigationItem.leftBarButtonItem. setTitle:@"go"];
+//    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor whiteColor]];  //
+
+    
+//    but = [[UIBarButtonItem alloc]
+//           //initWithImage: [global imageFromFile:@"icon_save"]
+//           //style:UIBarButtonItemStylePlain
+//           initWithBarButtonSystemItem:UIBarButtonSystemItemUndo
+//           target:self
+//           action:@selector(goPrev:)];
+    UIBarButtonItem *but;
+    but = [[UIBarButtonItem alloc] initWithTitle:self.prevTitle style:UIBarButtonItemStylePlain target:self action:@selector(goPrev:)];
+    
+    [but setTintColor:[UIColor whiteColor]];
+    self.navigationItem.leftBarButtonItem = but;
+    self.navigationItem.leftBarButtonItem.enabled = TRUE;
+    [but release];
+
 }
 - (void)viewDidAppear:(BOOL)animated
 {
 	// Title
 	[self navigationController].navigationBar.topItem.title = LOCAL(@"INFO_SCREEN");
+//    [[self navigationController].navigationBar.backItem.leftBarButtonItem setTintColor:[UIColor whiteColor]];
 	// Flash indicator
 	//[workPage flashScrollIndicators];
 }
 
+-(void)SetPrevTitle:(NSString *)title
+{
+    self.prevTitle = [[NSString alloc] initWithString:title];//[NSString stringWithString:title];
+}
+- (IBAction)goPrev:(id)sender   //
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 //
 // INIT
 //
 - (id)initWithPage:(int)pg
 {
-	// Suuuper
+    CONTENT_HEIGHT	=	(kActive - HEADER_HEIGHT - TRAILER_HEIGHT - kRollerVerticalHeight+kStatusBarHeight);
+//    CONTENT_HEIGHT	=	(kActiveLessNav  - kRollerVerticalHeight);
+    // Suuuper
 	if ( (self = [super initWithNibName:@"TzFullView" bundle:nil]) == nil)
 		return nil;
 	
@@ -179,14 +215,14 @@ INFO_ABOUT,
 	// Cria Header
 	font = FONT_SIZE_NAME;
 	h = HEIGHT_FOR_LINES(font,1);
-	frame = CGRectMake(0.0, INFO_GAP, 320.0, h);
+	frame = CGRectMake(0.0, INFO_GAP +kStatusBarHeight+44, kscreenWidth, h);
 	headerLabel = [[AvanteTextLabel alloc] init:@"header" frame:frame size:FONT_SIZE_NAME color:[UIColor whiteColor]];
 	[self.view addSubview:headerLabel ];
 	[headerLabel release];
 	
 	// Page control
-	y = (kActiveLessNav-kRollerVerticalHeight-kPageControlHeight);
-	frame = CGRectMake(0.0, y, 320.0, kPageControlHeight);
+	y = (kActive-kPageControlHeight-kRollerVerticalHeight+kStatusBarHeight);
+	frame = CGRectMake(0.0, y, kscreenWidth, kPageControlHeight);
 	pageNumbering = [[UIPageControl alloc] initWithFrame:frame];
 	pageNumbering.numberOfPages = pageCount;
 	pageNumbering.userInteractionEnabled = NO;
@@ -194,16 +230,19 @@ INFO_ABOUT,
 	[pageNumbering release];
 	
 	// Cria Roller
-	y += kPageControlHeight;
-	AvanteRollerVertical *roller = [[AvanteRollerVertical alloc] init:0.0:y];
-	[roller addCallback:self dragLeft:@selector(goPagePrev:) dragRight:@selector(goPageNext:)];
+	//y += kPageControlHeight;
+//    AvanteRollerVertical *roller = [[AvanteRollerVertical alloc] init:0.0:(kActiveLessNav - kRollerVerticalHeight)];//y];
+    AvanteRollerVertical *roller = [[AvanteRollerVertical alloc] init:0.0:(kActive-kRollerVerticalHeight+kStatusBarHeight)];//y];
+    [roller addCallback:self dragLeft:@selector(goPagePrev:) dragRight:@selector(goPageNext:)];
 	[self.view addSubview:roller];
 	[roller release];
 	
 	// load page
 	[self gotoPage:pg];
 	
+    //[self.navigationItem.leftBarButtonItem setTintColor:[UIColor whiteColor]];
 	// ok!
+    
 	return self;
 }
 
@@ -297,7 +336,7 @@ INFO_ABOUT,
 	AvLog(@"INFO Page loading...");
 	
 	// Ajusta Scroll View para o tamanho da imagem
-	CGRect frame = CGRectMake(0.0, HEADER_HEIGHT, 320.0, CONTENT_HEIGHT);
+	CGRect frame = CGRectMake(0.0, HEADER_HEIGHT, kscreenWidth, CONTENT_HEIGHT);
 	workPage = [[UIScrollView alloc] initWithFrame:frame];
 	workPage.backgroundColor = INFO_BACK_COLOR;
 	workPage.indicatorStyle = UIScrollViewIndicatorStyleWhite;
@@ -346,7 +385,7 @@ INFO_ABOUT,
 	CGFloat w, h;
 	
 	// Find text size
-	w = (320.0-x-INFO_GAP-INFO_GAP);
+	w = (kscreenWidth-x-INFO_GAP-INFO_GAP);
 	size = CGSizeMake(w, 500.0);
 	size = [text sizeWithFont:[UIFont systemFontOfSize:font] constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
 	h = size.height;
@@ -414,7 +453,7 @@ INFO_ABOUT,
 	
 	// Align
 	if (x == 0.0 && align == ALIGN_CENTER)
-		x = floor((320.0 - w) / 2.0);
+		x = floor((kscreenWidth - w) / 2.0);
 	
 	// Create view
 	frame = CGRectMake( x, y, w, h);
@@ -448,6 +487,7 @@ INFO_ABOUT,
 		[button setImage:[UIImage imageNamed:@"icon_info2.png"] forState:UIControlStateNormal];
 	button.frame = CGRectMake(35.0, y, BUTTON_SIZE, BUTTON_SIZE);
 	button.backgroundColor = [UIColor clearColor];
+    button.tintColor = [UIColor whiteColor];
 	[button addTarget:self action:func forControlEvents:UIControlEventTouchUpInside];	
 	[workPage addSubview:button];
 	//[button release];
@@ -465,11 +505,16 @@ INFO_ABOUT,
 	NSString *nameLoc;
 	NSString *str;
 	CGFloat y = 0.0;
-	CGFloat w = 320.0;
+	CGFloat w = kscreenWidth;
 	CGFloat h = 0.0;
 	CGFloat xx, yy;
 	
-	// Seta titulo e texto
+    CGFloat font;
+    
+    font = FONT_SIZE_NAME;
+    h = HEIGHT_FOR_LINES(font,1);
+    y += INFO_GAP +kStatusBarHeight+h ;
+    // Seta titulo e texto
 	switch (actualPage)
 	{
 			//
@@ -958,8 +1003,9 @@ INFO_ABOUT,
 			h = [self addImage:@"tzolkin_mini" y:y];
 			// Create button
 			button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-			button.frame = CGRectMake(((320.0-100.0)/2.0), y, 100.0, h);
+			button.frame = CGRectMake(((kscreenWidth-100.0)/2.0), y, 100.0, h);
 			button.backgroundColor = [UIColor clearColor];
+            button.tintColor = [UIColor whiteColor];
 			[button setImage:nil forState:UIControlStateNormal];
 			[button addTarget:self action:@selector(goPageHarmonicModule) forControlEvents:UIControlEventTouchUpInside];
 			// add
