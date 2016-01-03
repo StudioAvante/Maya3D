@@ -2349,9 +2349,9 @@
 			isa = PBXGroup;
 			children = (
 				84024AEF1C28726300046204 /* Default-568h@2x.png */,
-				842C76291C24E5E8006FFB61 /* Frameworks */,
 				842C75F71C24E41C006FFB61 /* Maya3D */,
 				842C76141C24E41E006FFB61 /* Maya3DTests */,
+				842C76291C24E5E8006FFB61 /* Frameworks */,
 				842C75F61C24E41C006FFB61 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -3229,8 +3229,12 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Avante;
 				TargetAttributes = {
+					84024AF11C2873E600046204 = {
+						DevelopmentTeam = N7372UPM43;
+					};
 					842C75F41C24E41C006FFB61 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = N7372UPM43;
 					};
 					842C76101C24E41E006FFB61 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -3255,9 +3259,9 @@
 			projectRoot = "";
 			targets = (
 				842C75F41C24E41C006FFB61 /* Maya3D */,
-				842C76101C24E41E006FFB61 /* Maya3DTests */,
 				84024AF11C2873E600046204 /* Kin3D */,
 				84024F451C28787200046204 /* Maya3DLite */,
+				842C76101C24E41E006FFB61 /* Maya3DTests */,
 			);
 		};
 /* End PBXProject section */
@@ -5025,13 +5029,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-5";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = KIN3D;
 				INFOPLIST_FILE = "Kin3D-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_MODULE_NAME = Kin3D;
 				PRODUCT_NAME = Kin3D;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -5041,12 +5047,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-5";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
 				INFOPLIST_FILE = "Kin3D-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_MODULE_NAME = Kin3D;
 				PRODUCT_NAME = Kin3D;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -5114,7 +5122,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -5150,7 +5158,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5163,11 +5171,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
 				INFOPLIST_FILE = Maya3D/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -5177,11 +5187,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
 				INFOPLIST_FILE = Maya3D/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
