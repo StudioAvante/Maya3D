@@ -453,7 +453,6 @@
 		84024CB21C2873E600046204 /* Icon512.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C780A1C24E6E9006FFB61 /* Icon512.png */; };
 		84024CB31C2873E600046204 /* long_count_days-es.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77971C24E6E8006FFB61 /* long_count_days-es.png */; };
 		84024CB41C2873E600046204 /* long_uinal.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C78221C24E6E9006FFB61 /* long_uinal.png */; };
-		84024CB51C2873E600046204 /* Maya3D-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A6A1C24E817006FFB61 /* Maya3D-Info.plist */; };
 		84024CB61C2873E600046204 /* seal02.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77F51C24E6E9006FFB61 /* seal02.png */; };
 		84024CB71C2873E600046204 /* kin_sig-en.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77921C24E6E8006FFB61 /* kin_sig-en.png */; };
 		84024CB81C2873E600046204 /* icon_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76D11C24E6E8006FFB61 /* icon_pause.png */; };
@@ -994,7 +993,6 @@
 		840251051C28787200046204 /* Icon512.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C780A1C24E6E9006FFB61 /* Icon512.png */; };
 		840251061C28787200046204 /* long_count_days-es.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77971C24E6E8006FFB61 /* long_count_days-es.png */; };
 		840251071C28787200046204 /* long_uinal.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C78221C24E6E9006FFB61 /* long_uinal.png */; };
-		840251081C28787200046204 /* Maya3D-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A6A1C24E817006FFB61 /* Maya3D-Info.plist */; };
 		840251091C28787200046204 /* seal02.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77F51C24E6E9006FFB61 /* seal02.png */; };
 		8402510A1C28787200046204 /* kin_sig-en.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77921C24E6E8006FFB61 /* kin_sig-en.png */; };
 		8402510B1C28787200046204 /* icon_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76D11C24E6E8006FFB61 /* icon_pause.png */; };
@@ -1609,7 +1607,6 @@
 		842C7A7C1C24E817006FFB61 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A671C24E817006FFB61 /* iTunesArtwork.png */; };
 		842C7A7D1C24E817006FFB61 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A681C24E817006FFB61 /* MainWindow.xib */; };
 		842C7A7E1C24E817006FFB61 /* MainWindowLite.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A691C24E817006FFB61 /* MainWindowLite.xib */; };
-		842C7A7F1C24E817006FFB61 /* Maya3D-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A6A1C24E817006FFB61 /* Maya3D-Info.plist */; };
 		842C7A801C24E817006FFB61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A6C1C24E817006FFB61 /* Localizable.strings */; };
 		842C7A811C24E817006FFB61 /* TzDatebookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A6E1C24E817006FFB61 /* TzDatebookView.xib */; };
 		842C7A821C24E817006FFB61 /* TzSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A701C24E817006FFB61 /* TzSettingsView.xib */; };
@@ -1677,11 +1674,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		84024AEF1C28726300046204 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		84024D191C2873E600046204 /* Kin3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kin3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8402516C1C28787200046204 /* Maya3DLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maya3DLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842C75F51C24E41C006FFB61 /* Maya3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maya3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		842C75F91C24E41C006FFB61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		842C75FA1C24E41C006FFB61 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		842C75FC1C24E41C006FFB61 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		842C75FD1C24E41C006FFB61 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -2252,7 +2247,6 @@
 		842C7A671C24E817006FFB61 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iTunesArtwork.png; path = Resources/iTunesArtwork.png; sourceTree = "<group>"; };
 		842C7A681C24E817006FFB61 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = Resources/MainWindow.xib; sourceTree = "<group>"; };
 		842C7A691C24E817006FFB61 /* MainWindowLite.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindowLite.xib; path = Resources/MainWindowLite.xib; sourceTree = "<group>"; };
-		842C7A6A1C24E817006FFB61 /* Maya3D-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Maya3D-Info.plist"; path = "Resources/Maya3D-Info.plist"; sourceTree = "<group>"; };
 		842C7A6D1C24E817006FFB61 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = Localizable.strings; sourceTree = "<group>"; };
 		842C7A6F1C24E817006FFB61 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = TzDatebookView.xib; sourceTree = "<group>"; };
 		842C7A711C24E817006FFB61 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = TzSettingsView.xib; sourceTree = "<group>"; };
@@ -2275,6 +2269,9 @@
 		846B65361C272B850013B0B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		846B6BD41C27406E0013B0B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen_Kin3D.xib; sourceTree = "<group>"; };
 		846B6BD61C27406E0013B0B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreenLite.xib; sourceTree = "<group>"; };
+		DB8859581C3989AA008EE7BD /* Kin3D-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Kin3D-Info.plist"; path = "Resources/Kin3D-Info.plist"; sourceTree = "<group>"; };
+		DB8859591C3989AA008EE7BD /* Maya3D-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Maya3D-Info.plist"; path = "Resources/Maya3D-Info.plist"; sourceTree = "<group>"; };
+		DB88595A1C3989AA008EE7BD /* Maya3DLite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Maya3DLite-Info.plist"; path = "Resources/Maya3DLite-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2348,7 +2345,6 @@
 		842C75EC1C24E41B006FFB61 = {
 			isa = PBXGroup;
 			children = (
-				84024AEF1C28726300046204 /* Default-568h@2x.png */,
 				842C75F71C24E41C006FFB61 /* Maya3D */,
 				842C76141C24E41E006FFB61 /* Maya3DTests */,
 				842C76291C24E5E8006FFB61 /* Frameworks */,
@@ -2371,6 +2367,10 @@
 		842C75F71C24E41C006FFB61 /* Maya3D */ = {
 			isa = PBXGroup;
 			children = (
+				842C7A9F1C24ED91006FFB61 /* Maya3D_Prefix.pch */,
+				842C75FA1C24E41C006FFB61 /* main.m */,
+				842C75FC1C24E41C006FFB61 /* AppDelegate.h */,
+				842C75FD1C24E41C006FFB61 /* AppDelegate.m */,
 				842C76211C24E541006FFB61 /* Classes */,
 				842C76221C24E553006FFB61 /* OpenGL */,
 				842C76231C24E56A006FFB61 /* Calendars */,
@@ -2379,11 +2379,6 @@
 				842C76261C24E5C1006FFB61 /* Images */,
 				842C76271C24E5CA006FFB61 /* Sounds */,
 				842C76281C24E5D5006FFB61 /* Resources */,
-				842C75FC1C24E41C006FFB61 /* AppDelegate.h */,
-				842C75FD1C24E41C006FFB61 /* AppDelegate.m */,
-				842C7A9F1C24ED91006FFB61 /* Maya3D_Prefix.pch */,
-				842C76081C24E41D006FFB61 /* Images.xcassets */,
-				842C75FF1C24E41C006FFB61 /* Maya3D.xcdatamodeld */,
 				842C75F81C24E41C006FFB61 /* Supporting Files */,
 			);
 			path = Maya3D;
@@ -2392,11 +2387,6 @@
 		842C75F81C24E41C006FFB61 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				846B6BD31C27406E0013B0B8 /* LaunchScreen_Kin3D.xib */,
-				846B6BD51C27406E0013B0B8 /* LaunchScreenLite.xib */,
-				846B65351C272B850013B0B8 /* LaunchScreen.xib */,
-				842C75F91C24E41C006FFB61 /* Info.plist */,
-				842C75FA1C24E41C006FFB61 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2572,20 +2562,27 @@
 		842C76281C24E5D5006FFB61 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				842C7A6B1C24E817006FFB61 /* pt.lproj */,
-				842C7A601C24E817006FFB61 /* es.lproj */,
-				842C7A581C24E816006FFB61 /* English.lproj */,
-				842C7A5F1C24E817006FFB61 /* Entitlements.plist */,
-				842C7A671C24E817006FFB61 /* iTunesArtwork.png */,
-				842C7A681C24E817006FFB61 /* MainWindow.xib */,
-				842C7A691C24E817006FFB61 /* MainWindowLite.xib */,
-				842C7A6A1C24E817006FFB61 /* Maya3D-Info.plist */,
-				842C7A721C24E817006FFB61 /* TzDateAddView.xib */,
-				842C7A731C24E817006FFB61 /* TzFullView.xib */,
-				842C7A741C24E817006FFB61 /* TzTabView.xib */,
 				842C7A4D1C24E7CA006FFB61 /* Maya3D */,
 				842C7A311C24E7C0006FFB61 /* Kin3D */,
 				842C7A391C24E7C0006FFB61 /* Maya3DLite */,
+				842C7A6B1C24E817006FFB61 /* pt.lproj */,
+				842C7A601C24E817006FFB61 /* es.lproj */,
+				842C7A581C24E816006FFB61 /* English.lproj */,
+				842C7A671C24E817006FFB61 /* iTunesArtwork.png */,
+				842C7A5F1C24E817006FFB61 /* Entitlements.plist */,
+				DB8859581C3989AA008EE7BD /* Kin3D-Info.plist */,
+				DB8859591C3989AA008EE7BD /* Maya3D-Info.plist */,
+				DB88595A1C3989AA008EE7BD /* Maya3DLite-Info.plist */,
+				846B6BD31C27406E0013B0B8 /* LaunchScreen_Kin3D.xib */,
+				846B6BD51C27406E0013B0B8 /* LaunchScreenLite.xib */,
+				846B65351C272B850013B0B8 /* LaunchScreen.xib */,
+				842C7A681C24E817006FFB61 /* MainWindow.xib */,
+				842C7A691C24E817006FFB61 /* MainWindowLite.xib */,
+				842C7A721C24E817006FFB61 /* TzDateAddView.xib */,
+				842C7A731C24E817006FFB61 /* TzFullView.xib */,
+				842C7A741C24E817006FFB61 /* TzTabView.xib */,
+				842C75FF1C24E41C006FFB61 /* Maya3D.xcdatamodeld */,
+				842C76081C24E41D006FFB61 /* Images.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -3656,7 +3653,6 @@
 				84024CB21C2873E600046204 /* Icon512.png in Resources */,
 				84024CB31C2873E600046204 /* long_count_days-es.png in Resources */,
 				84024CB41C2873E600046204 /* long_uinal.png in Resources */,
-				84024CB51C2873E600046204 /* Maya3D-Info.plist in Resources */,
 				84024CB61C2873E600046204 /* seal02.png in Resources */,
 				84024CB71C2873E600046204 /* kin_sig-en.png in Resources */,
 				84024CB81C2873E600046204 /* icon_pause.png in Resources */,
@@ -4143,7 +4139,6 @@
 				840251051C28787200046204 /* Icon512.png in Resources */,
 				840251061C28787200046204 /* long_count_days-es.png in Resources */,
 				840251071C28787200046204 /* long_uinal.png in Resources */,
-				840251081C28787200046204 /* Maya3D-Info.plist in Resources */,
 				840251091C28787200046204 /* seal02.png in Resources */,
 				8402510A1C28787200046204 /* kin_sig-en.png in Resources */,
 				8402510B1C28787200046204 /* icon_pause.png in Resources */,
@@ -4630,7 +4625,6 @@
 				842C79C11C24E6E9006FFB61 /* Icon512.png in Resources */,
 				842C79501C24E6E9006FFB61 /* long_count_days-es.png in Resources */,
 				842C79D91C24E6E9006FFB61 /* long_uinal.png in Resources */,
-				842C7A7F1C24E817006FFB61 /* Maya3D-Info.plist in Resources */,
 				842C79AD1C24E6E9006FFB61 /* seal02.png in Resources */,
 				842C794B1C24E6E9006FFB61 /* kin_sig-en.png in Resources */,
 				842C788B1C24E6E9006FFB61 /* icon_pause.png in Resources */,
@@ -5033,7 +5027,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = KIN3D;
-				INFOPLIST_FILE = "Kin3D-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Maya3D/Resources/Kin3D-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_MODULE_NAME = Kin3D;
 				PRODUCT_NAME = Kin3D;
@@ -5050,7 +5044,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
-				INFOPLIST_FILE = "Kin3D-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Maya3D/Resources/Kin3D-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_MODULE_NAME = Kin3D;
 				PRODUCT_NAME = Kin3D;
@@ -5067,7 +5061,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = LITE;
-				INFOPLIST_FILE = "Maya3DLite-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Maya3D/Resources/Maya3DLite-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Maya3DLite;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -5081,7 +5075,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
-				INFOPLIST_FILE = "Maya3DLite-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Maya3D/Resources/Maya3DLite-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Maya3DLite;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -5174,7 +5168,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
-				INFOPLIST_FILE = Maya3D/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Maya3D/Resources/Maya3D-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -5190,7 +5184,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
-				INFOPLIST_FILE = Maya3D/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Maya3D/Resources/Maya3D-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

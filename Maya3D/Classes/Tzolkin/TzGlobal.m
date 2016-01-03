@@ -111,7 +111,7 @@
 		// save
 		[defaults synchronize];
 	}
-    else if (prefDejaVu == 1)
+    else if (prefDejaVu == 1)   // New for iOS9
     {
         [defaults setInteger:HEMISPHERE_UNKNOWN	forKey:@"prefHemisphere"];
     }
