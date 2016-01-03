@@ -70,11 +70,23 @@
 //    [but setTintColor:[UIColor whiteColor]];
 //    self.navigationItem.leftBarButtonItem = but;
     
+    
+    /*
 	but = [[UIBarButtonItem alloc]
 		   initWithImage:[global imageFromFile:@"icon_info"]
 		   style:UIBarButtonItemStylePlain
 		   target:self action:@selector(goInfo:)];
     [but setTintColor:[UIColor whiteColor]];
+     */
+    
+    UIImage *helpImage = [UIImage imageNamed:@"icon_info2.png"];
+    UIButton *helpButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    helpButton.bounds = CGRectMake(0, 0, helpImage.size.width, helpImage.size.height);
+    [helpButton setImage:helpImage forState:UIControlStateNormal];
+    [helpButton addTarget:self action:@selector(goInfo:) forControlEvents:UIControlEventTouchUpInside];
+    
+    but = [[UIBarButtonItem alloc] initWithCustomView:helpButton];
+    
 	self.navigationItem.rightBarButtonItem = but;
 	self.navigationItem.rightBarButtonItem.enabled = TRUE;
 	[but release];
@@ -226,7 +238,7 @@
     self.navigationItem.leftBarButtonItem.enabled = TRUE;
     [but release];
 
-    //[self setupClockPicker];  
+    //[self setupClockPicker]; 
 	// update clock to timer
 	[self updateClockPicker:FALSE];
 }

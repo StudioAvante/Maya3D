@@ -84,7 +84,7 @@
 	if ([views count] == 0)
 		return 35.0;
 	// senao devolve altura da view mas um poquito
-//	return 35.0;   
+//	return 35.0;  
 	UIView *viewToUse = [views objectAtIndex:0];
 	if (viewToUse == nil)
 		return 0;

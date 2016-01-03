@@ -237,9 +237,12 @@
 	[dreamspell260 setDisplayZoom:super.zoomSize];
 	dreamspell260.name = LOCAL(@"GEAR_NAME_DREAMSPELL_260");
 	// Labels
-	for (int n = 0 ; n < 260 ; n++ )
-		[dreamspell260 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:(n<255?@"kin_map1":@"kin_map2") map:((n+1)%256)];
-	// Bind!
+//	for (int n = 0 ; n < 260 ; n++ )
+//		[dreamspell260 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:(n<255?@"kin_map1":@"kin_map2") map:((n+1)%256)];
+    for (int n = 0 ; n < 260 ; n++ )
+        [dreamspell260 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"kin_map1" map:(n+1)];
+
+    // Bind!
 	[dreamspell260 bindData];
 
 	//
@@ -419,7 +422,7 @@
 // Draw 3D view
 - (void)draw3DView {
 	// Esta fazendo auto-zoom?
-	if (autoZoom)   //
+	if (autoZoom)     
 		[self applyAutoZoom];
 	// Atualiza 3D View
 	[self drawView];

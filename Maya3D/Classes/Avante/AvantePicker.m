@@ -103,7 +103,7 @@
 		return;
 	// Select row
 	NSInteger row = [comp indexOfData:dt];
-	if ( row >= 0)   
+	if ( row >= 0) 
 		[self selectRow:row inComponent:component animated:anim];
 }
 - (void)selectRowWithDataCloser:(NSInteger)target inComponent:(NSInteger)component animated:(BOOL)anim

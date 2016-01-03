@@ -150,7 +150,7 @@
 
 }
 
-- (IBAction)goPrev:(id)sender   
+- (IBAction)goPrev:(id)sender  
 {
     [self.navigationController popViewControllerAnimated:YES];
 }

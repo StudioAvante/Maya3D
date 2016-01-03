@@ -479,15 +479,28 @@ INFO_ABOUT,
 - (CGFloat)addMoreButton:(NSString*)locTxt func:(SEL)func y:(CGFloat)y link:(BOOL)lnk
 {
 	UIButton *button;
+    UIImage *helpImg = [UIImage imageNamed:@"icon_info2.png"];
+    UIImage *linkImg = [UIImage imageNamed:@"icon_link.png"];
+    
 	// more button
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+    
 	if (lnk)
-		[button setImage:[UIImage imageNamed:@"icon_link.png"] forState:UIControlStateNormal];
+    {
+		[button setImage:linkImg forState:UIControlStateNormal];
+        button.frame = CGRectMake(35.0, y, linkImg.size.width, linkImg.size.height);
+    }
 	else
-		[button setImage:[UIImage imageNamed:@"icon_info2.png"] forState:UIControlStateNormal];
-	button.frame = CGRectMake(35.0, y, BUTTON_SIZE, BUTTON_SIZE);
+    {
+		[button setImage:helpImg forState:UIControlStateNormal];
+        button.frame = CGRectMake(35.0, y, helpImg.size.width, helpImg.size.width);
+    }
+	
+    /*
 	button.backgroundColor = [UIColor clearColor];
     button.tintColor = [UIColor whiteColor];
+     */
+     
 	[button addTarget:self action:func forControlEvents:UIControlEventTouchUpInside];	
 	[workPage addSubview:button];
 	//[button release];

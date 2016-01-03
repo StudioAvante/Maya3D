@@ -94,7 +94,7 @@
 
 // Implement viewDidLoad to do additional setup after loading the view.
 - (void)viewDidLoad {
-//	UIBarButtonItem *but;
+	UIBarButtonItem *but;
 	
 	// super
     [super viewDidLoad];
@@ -104,140 +104,6 @@
 #else
     GL_VIEW_HEIGHT	= kActiveLessNavTab;
 #endif
-//	// Corrige nome
-//	self.title = LOCAL(@"TAB_MAYA3D");
-//	
-//	// Tamanho da view
-//	if (SHOOTING)
-//	{
-//		// fotos quadradas
-//		glFrame.size.width = SHOOTING_SIZE;
-//		glFrame.size.height = SHOOTING_SIZE;
-//	}
-//	else
-//	{
-//		glFrame.size.width = kscreenWidth;
-//		glFrame.size.height = GL_VIEW_HEIGHT;
-//	}
-//
-//	// FULL SCREEN
-//	if (fullScreen)
-//	{
-//		// SCREENSHOT BUTTON - in fullscreen
-//		but = [[UIBarButtonItem alloc]
-//			   //initWithImage: [global imageFromFile:@"icon_save"]
-//			   //style:UIBarButtonItemStylePlain
-//			   initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-//			   target:self
-//			   action:@selector(saveScreenshot:)];
-//		self.navigationItem.rightBarButtonItem = but;
-//		self.navigationItem.rightBarButtonItem.enabled = TRUE;
-//		[but release];
-//	}
-//	// NORMAL - WINDOWED
-//	else
-//	{
-//		// Configura switch MAYA / DREAMSPELL
-//		mayaMoonSelector = [global addViewModeSwitch:self];
-//		
-//		// HELP BUTTON
-//		but = [[UIBarButtonItem alloc]
-//			   initWithImage: [global imageFromFile:@"icon_info"]
-//			   style:UIBarButtonItemStylePlain
-//			   target:self action:@selector(goInfo:)];
-//		self.navigationItem.leftBarButtonItem = but;
-//		self.navigationItem.leftBarButtonItem.enabled = TRUE;
-//		[but release];
-//		
-//#ifdef LITE
-//		// PICK DATE
-//		but = [[UIBarButtonItem alloc]
-//			   initWithImage:[global imageFromFile:@"icon_search"]
-//			   style:UIBarButtonItemStylePlain
-//			   target:self action:@selector(pickGregorian:)];
-//		self.navigationItem.rightBarButtonItem = but;
-//		self.navigationItem.rightBarButtonItem.enabled = TRUE;
-//		[but release];
-//#else
-//		// modo foto?
-//		if (SHOOTING)
-//		{
-//			// MODO DE FOTO
-//			// FULL SCREEN BUTTON
-//			but = [[UIBarButtonItem alloc]
-//				   initWithImage:[global imageFromFile:@"icon_fullscreen"]
-//				   style:UIBarButtonItemStylePlain
-//				   target:self action:@selector(goFullScreen:)];
-//			self.navigationItem.rightBarButtonItem = but;
-//			self.navigationItem.rightBarButtonItem.enabled = TRUE;
-//			[but release];
-//		}
-//		else
-//		{
-//			// CLOCK BUTTON
-//			clockButton = [[UIBarButtonItem alloc]
-//						   initWithImage:[UIImage imageNamed:@"icon_clock_play.png"]
-//						   style:UIBarButtonItemStylePlain
-//						   target:self action:@selector(goClock:)];
-//			self.navigationItem.rightBarButtonItem = clockButton;
-//			self.navigationItem.rightBarButtonItem.enabled = TRUE;
-//			[clockButton release];
-//		}
-//#endif // LITE
-//		
-//	}
-//	
-//    
-////*********************
-////andreas 2015.12.10
-//
-//
-//	// Alloc/Resize GL view
-//	glFrame.origin.x = ((kscreenWidth-glFrame.size.width)/2.0);
-//	glFrame.origin.y = ((GL_VIEW_HEIGHT-glFrame.size.height)/2.0);
-//	if (glView == nil && !fullScreen)
-//		glView = [[GLEngine alloc] initWithFrame:glFrame];
-//	// Add to current VC
-//	glView.myVC = self;
-//    
-//
-//	[self.view addSubview:glView];
-//
-//
-//	// DATA GREGORIANA
-//	CGFloat w = 180.0;
-//	gregName = [[AvanteTextField alloc] init:@"" x:((kscreenWidth-w)/2.0) y:5.0 w:w h:22.0 size:16.0];
-//	gregName.hidden = YES;
-//	[self.view addSubview:gregName];
-//	[gregName release];
-//	
-//	// Imagem para entrar/sair de full screen
-//	fullImage = [[UIImageView alloc] initWithFrame:glFrame];
-//	fullImage.hidden = YES;
-//	[self.view addSubview:fullImage];
-//	[fullImage release];
-//
-//	// Timers separados para o GL nao esperar ninguem
-//	glTimer = [NSTimer scheduledTimerWithTimeInterval:OPENGL_INTERVAL target:self selector:@selector(draw3DView:) userInfo:nil repeats:YES];
-//	uiTimer = [NSTimer scheduledTimerWithTimeInterval:UI_INTERVAL target:self selector:@selector(drawUI:) userInfo:nil repeats:YES];
-//  
-////*********************
-//	
-// 
-//	// OS 3.0b5 BUG WORKAROUND - evita App CRASH
-//	// https://devforums.apple.com/thread/15985
-//	//
-//	//CGAffineTransform cgCTM;
-//	//cgCTM = CGAffineTransformMakeRotation(0.001);
-//	//cgCTM = CGAffineTransformMakeScale(1.001,1.001);
-//	//self.view.transform = cgCTM;
-//
-
-}
-- (void)viewWillAppear:(BOOL)animated {
-///////////////////
-    UIBarButtonItem *but;
-    // Corrige nome
     self.title = LOCAL(@"TAB_MAYA3D");
     
     // Tamanho da view
@@ -257,6 +123,7 @@
     if (fullScreen)
     {
         // SCREENSHOT BUTTON - in fullscreen
+        
         but = [[UIBarButtonItem alloc]
                //initWithImage: [global imageFromFile:@"icon_save"]
                //style:UIBarButtonItemStylePlain
@@ -264,6 +131,8 @@
                target:self
                action:@selector(saveScreenshot:)];
         [but setTintColor:[UIColor whiteColor]];
+        
+         
         self.navigationItem.rightBarButtonItem = but;
         self.navigationItem.rightBarButtonItem.enabled = TRUE;
         [but release];
@@ -275,11 +144,23 @@
         mayaMoonSelector = [global addViewModeSwitch:self];
         
         // HELP BUTTON
+        
+        /*
         but = [[UIBarButtonItem alloc]
                initWithImage: [global imageFromFile:@"icon_info"]
                style:UIBarButtonItemStylePlain
                target:self action:@selector(goInfo:)];
         [but setTintColor:[UIColor whiteColor]];
+         */
+        
+        UIImage *helpImage = [UIImage imageNamed:@"icon_info2.png"];
+        UIButton *helpButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        helpButton.bounds = CGRectMake(0, 0, helpImage.size.width, helpImage.size.height);
+        [helpButton setImage:helpImage forState:UIControlStateNormal];
+        [helpButton addTarget:self action:@selector(goInfo:) forControlEvents:UIControlEventTouchUpInside];
+        
+        but = [[UIBarButtonItem alloc] initWithCustomView:helpButton];
+        
         self.navigationItem.leftBarButtonItem = but;
         self.navigationItem.leftBarButtonItem.enabled = TRUE;
         [but release];
@@ -329,8 +210,8 @@
     //*********************
     //andreas 2015.12.10
     
-//    glFrame = self.view.bounds;
-//    // Alloc/Resize GL view
+    //    glFrame = self.view.bounds;
+    //    // Alloc/Resize GL view
     glFrame.origin.x = 0;//((kscreenWidth-glFrame.size.width)/2.0);
     glFrame.origin.y = 0;//((GL_VIEW_HEIGHT-glFrame.size.height)/2.0);
     if (glView == nil && !fullScreen)
@@ -344,7 +225,7 @@
     
     // DATA GREGORIANA
     CGFloat w = 180.0;
-//    gregName = [[AvanteTextField alloc] init:@"" x:((kscreenWidth-w)/2.0) y:5.0 w:w h:22.0 size:16.0];
+    //    gregName = [[AvanteTextField alloc] init:@"" x:((kscreenWidth-w)/2.0) y:5.0 w:w h:22.0 size:16.0];
     gregName = [[AvanteTextField alloc] init:@"" x:((glFrame.size.width-w)/2.0) y:5.0 w:w h:22.0 size:16.0];
     gregName.hidden = YES;
     [self.view addSubview:gregName];
@@ -371,7 +252,11 @@
     //cgCTM = CGAffineTransformMakeScale(1.001,1.001);
     //self.view.transform = cgCTM;
     
-
+}
+- (void)viewWillAppear:(BOOL)animated {
+///////////////////
+//    UIBarButtonItem *but;
+    // Corrige nome
     
 //////////////////
     // Usa View Mode atual

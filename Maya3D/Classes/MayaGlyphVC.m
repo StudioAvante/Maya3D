@@ -90,67 +90,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     ///////////////////
-    UIBarButtonItem *but;
+//    UIBarButtonItem *but;
     
     // call super
    // [super viewDidLoad];
     
-    // Corrige nome
-    if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
-        self.title = LOCAL(@"TAB_GLYPH");
-    else
-        self.title = LOCAL(@"TAB_SIGNATURE");
-    
-    // Configura switch MAYA / DREAMSPELL
-    mayaMoonSelector = [global addViewModeSwitch:self];
-    if (mayaMoonSelector)
-        [mayaMoonSelector addTarget:self action:@selector(switchViewMode:) forControlEvents:UIControlEventValueChanged];
-    
-    // SETTINGS BUTTON
-    /*
-     UIBarButtonItem *but;
-     but = [[UIBarButtonItem alloc]
-		   initWithImage:[global imageFromFile:@"icon_settings"]
-		   style:UIBarButtonItemStylePlain
-		   target:self action:@selector(goSettings:)];
-     self.navigationItem.rightBarButtonItem = but;
-     self.navigationItem.rightBarButtonItem.enabled = TRUE;
-     [but release];
-     */
-    
-    // SCREENSHOT BUTTON
-    but = [[UIBarButtonItem alloc]
-           //initWithImage:[global imageFromFile:@"icon_save"]
-           //style:UIBarButtonItemStylePlain
-           initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-           target:self
-           action:@selector(share:)];
-    
-    [but setTintColor:[UIColor whiteColor]];
-    self.navigationItem.rightBarButtonItem = but;
-    self.navigationItem.rightBarButtonItem.enabled = TRUE;
-    [but release];
-    
-    // HELP BUTTON
-    but = [[UIBarButtonItem alloc]
-           initWithImage:[global imageFromFile:@"icon_info"]
-           style:UIBarButtonItemStylePlain
-           target:self action:@selector(goInfo:)];
-    [but setTintColor:[UIColor whiteColor]];
-    self.navigationItem.leftBarButtonItem = but;
-    self.navigationItem.leftBarButtonItem.enabled = TRUE;
-    [but release];
-    
-    // Roller
-    roller = [[AvanteRollerVertical alloc] init:0.0:VIEW_HEIGHT];
-    [roller addCallback:self dragLeft:@selector(julianSub:) dragRight:@selector(julianAdd:)];
-    [self.view addSubview:roller];
-    [roller release];
-    
-    // Create Content Views
-    [self createContentMaya];
-    [self createContentDreamspell];
-
     ///////////////////
     
 	// Redraw content view?
@@ -158,7 +102,7 @@
 	{
 		AvLog(@"MayaGlyphVC: RELOAD contentView...");
 		[self createContentMaya];
-//		[self createContentDreamspell];
+		[self createContentDreamspell];
 	}
 	// Pause Clock
 	[global.theClock pause];
@@ -191,65 +135,83 @@
 //
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-//	UIBarButtonItem *but;
+	UIBarButtonItem *but;
 //	
 //	// call super
     [super viewDidLoad];
     
     VIEW_HEIGHT		=		(kActiveLessNavTab - kRollerVerticalHeight);
 //
-//	// Corrige nome
-//	if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
-//		self.title = LOCAL(@"TAB_GLYPH");
-//	else
-//		self.title = LOCAL(@"TAB_SIGNATURE");
-//	
-//	// Configura switch MAYA / DREAMSPELL
-//	mayaMoonSelector = [global addViewModeSwitch:self];
-//	if (mayaMoonSelector)
-//		[mayaMoonSelector addTarget:self action:@selector(switchViewMode:) forControlEvents:UIControlEventValueChanged];
-//
-//	// SETTINGS BUTTON
-//	/*
-//	UIBarButtonItem *but;
-//	but = [[UIBarButtonItem alloc]
-//		   initWithImage:[global imageFromFile:@"icon_settings"]
-//		   style:UIBarButtonItemStylePlain
-//		   target:self action:@selector(goSettings:)];
-//	self.navigationItem.rightBarButtonItem = but;
-//	self.navigationItem.rightBarButtonItem.enabled = TRUE;
-//	[but release];
-//	*/
-//	
-//	// SCREENSHOT BUTTON
-//	but = [[UIBarButtonItem alloc]
-//		   //initWithImage:[global imageFromFile:@"icon_save"]
-//		   //style:UIBarButtonItemStylePlain
-//		   initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-//		   target:self
-//		   action:@selector(share:)];
-//	self.navigationItem.rightBarButtonItem = but;
-//	self.navigationItem.rightBarButtonItem.enabled = TRUE;
-//	[but release];
-//
-//	// HELP BUTTON
-//	but = [[UIBarButtonItem alloc]
-//		   initWithImage:[global imageFromFile:@"icon_info"]
-//		   style:UIBarButtonItemStylePlain
-//		   target:self action:@selector(goInfo:)];
-//	self.navigationItem.leftBarButtonItem = but;
-//	self.navigationItem.leftBarButtonItem.enabled = TRUE;
-//	[but release];
-//	
-//	// Roller
-//	roller = [[AvanteRollerVertical alloc] init:0.0:VIEW_HEIGHT];
-//	[roller addCallback:self dragLeft:@selector(julianSub:) dragRight:@selector(julianAdd:)];
-//	[self.view addSubview:roller];
-//	[roller release];
-//
-//	// Create Content Views
-//	[self createContentMaya];
-//	[self createContentDreamspell];
+    // Corrige nome
+    if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
+        self.title = LOCAL(@"TAB_GLYPH");
+    else
+        self.title = LOCAL(@"TAB_SIGNATURE");
+    
+    // Configura switch MAYA / DREAMSPELL
+    mayaMoonSelector = [global addViewModeSwitch:self];
+    if (mayaMoonSelector)
+        [mayaMoonSelector addTarget:self action:@selector(switchViewMode:) forControlEvents:UIControlEventValueChanged];
+    
+    // SETTINGS BUTTON
+    /*
+     UIBarButtonItem *but;
+     but = [[UIBarButtonItem alloc]
+		   initWithImage:[global imageFromFile:@"icon_settings"]
+		   style:UIBarButtonItemStylePlain
+		   target:self action:@selector(goSettings:)];
+     self.navigationItem.rightBarButtonItem = but;
+     self.navigationItem.rightBarButtonItem.enabled = TRUE;
+     [but release];
+     */
+    
+    // SCREENSHOT BUTTON
+    
+    but = [[UIBarButtonItem alloc]
+           //initWithImage:[global imageFromFile:@"icon_save"]
+           //style:UIBarButtonItemStylePlain
+           initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+           target:self
+           action:@selector(share:)];
+    
+    [but setTintColor:[UIColor whiteColor]];
+    
+    self.navigationItem.rightBarButtonItem = but;
+    self.navigationItem.rightBarButtonItem.enabled = TRUE;
+    [but release];
+    
+    // HELP BUTTON
+    
+    /*
+    but = [[UIBarButtonItem alloc]
+           initWithImage:[global imageFromFile:@"icon_info"]
+           style:UIBarButtonItemStylePlain
+           target:self action:@selector(goInfo:)];
+    [but setTintColor:[UIColor whiteColor]];
+     */
+    
+    UIImage *helpImage = [UIImage imageNamed:@"icon_info2.png"];
+    UIButton *helpButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    helpButton.bounds = CGRectMake(0, 0, helpImage.size.width, helpImage.size.height);
+    [helpButton setImage:helpImage forState:UIControlStateNormal];
+    [helpButton addTarget:self action:@selector(goInfo:) forControlEvents:UIControlEventTouchUpInside];
+    
+    but = [[UIBarButtonItem alloc] initWithCustomView:helpButton];
+    
+    self.navigationItem.leftBarButtonItem = but;
+    self.navigationItem.leftBarButtonItem.enabled = TRUE;
+    [but release];
+    
+    // Roller
+    roller = [[AvanteRollerVertical alloc] init:0.0:VIEW_HEIGHT];
+    [roller addCallback:self dragLeft:@selector(julianSub:) dragRight:@selector(julianAdd:)];
+    [self.view addSubview:roller];
+    [roller release];
+    
+    // Create Content Views
+    [self createContentMaya];
+    [self createContentDreamspell];
+    
 }
 
 #pragma mark GLYPH DRAWING - ONCE
@@ -274,7 +236,7 @@
 		frame = CGRectMake(0.0, -8.0, kscreenWidth, (VIEW_HEIGHT+15.0));
 	else
 		frame = CGRectMake(0.0, 0.0, kscreenWidth, (VIEW_HEIGHT+15.0));
-    if( contentViewMaya )
+    if( contentViewMaya ) 
     {
         [contentViewMaya removeFromSuperview];
         contentViewMaya = nil;

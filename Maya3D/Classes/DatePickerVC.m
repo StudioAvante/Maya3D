@@ -163,13 +163,13 @@
         
         // YEAR/CENTURY help
 #ifndef LITE
-        UIButton *yearInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
+        UIButton *yearInfo = [UIButton buttonWithType:UIButtonTypeCustom];
         
         float x = 275.0 * kscreenWidth / 320;
         yearInfo.frame = CGRectMake(x, y1+40, 25.0, 25.0);
-        yearInfo.backgroundColor = [UIColor clearColor];
-        yearInfo.tintColor = [UIColor whiteColor];
-        [yearInfo setImage:[global imageFromFile:@"icon_info2"] forState:UIControlStateNormal];
+        //yearInfo.backgroundColor = [UIColor clearColor];
+        //yearInfo.tintColor = [UIColor whiteColor];
+        [yearInfo setImage:[UIImage imageNamed:@"icon_info2.png"] forState:UIControlStateNormal];
         [yearInfo addTarget:self action:@selector(infoGreg:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:yearInfo];
 #endif

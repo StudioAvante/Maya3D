@@ -218,7 +218,7 @@
 	
 	// Cria botao do tipo UIButtonTypeDetailDisclosure para pegar sua imagem
 	// pois crio usando o tipo UIButtonTypeInfoLight que tem uma area de toque maior
-	UIImage *questionImg = [global imageFromFile:@"icon_info2"];
+	UIImage *questionImg = [UIImage imageNamed:@"icon_info2.png"];
 	UIImage *searchImg = [global imageFromFile:@"icon_search"];
 	
 	// MOON FASE IMAGE
@@ -236,10 +236,12 @@
 	// INFO BUTTON
 	x += SPACER;
 	y += SPACER;
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
-    button.tintColor  =[UIColor whiteColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+    
+	//button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
+    
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoGreg:) forControlEvents:UIControlEventTouchUpInside];
 	[contentView addSubview:button];
@@ -300,10 +302,11 @@
 	// INFO BUTTON
 	x = SPACER;
 	y += h + (SPACER/2);
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
-    button.tintColor  =[UIColor whiteColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	//button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoJulian:) forControlEvents:UIControlEventTouchUpInside];	
 	[contentView addSubview:button];
@@ -344,10 +347,10 @@
 	//
 	x = SPACER;
 	y += h + (SPACER/2);
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
-    button.tintColor  =[UIColor whiteColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	//button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoLongCount:) forControlEvents:UIControlEventTouchUpInside];	
 	[contentView addSubview:button];
@@ -588,10 +591,10 @@
 	// INFO BUTTON
 	y = 0.0;
 	x = SPACER;
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
-    button.tintColor  =[UIColor whiteColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	//button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoHaab:) forControlEvents:UIControlEventTouchUpInside];	
 	[mayaView addSubview:button];
@@ -687,10 +690,10 @@
 	// INFO BUTTON
 	y += h + (SPACER/2);
 	x = SPACER;
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
-    button.tintColor  =[UIColor whiteColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	//button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoTzolkin:) forControlEvents:UIControlEventTouchUpInside];	
 	[mayaView addSubview:button];
@@ -788,10 +791,10 @@
 	// INFO BUTTON
 	y += h + (SPACER/2);
 	x = SPACER;
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
-    button.tintColor  =[UIColor whiteColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	//button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoCalendarRound:) forControlEvents:UIControlEventTouchUpInside];	
 	[mayaView addSubview:button];
@@ -847,11 +850,11 @@
 	// INFO BUTTON
 	y = 0.0;
 	x = SPACER;
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	//button.backgroundColor = [UIColor clearColor];
     
-    button.tintColor  =[UIColor whiteColor];
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoMoon:) forControlEvents:UIControlEventTouchUpInside];	
 	[dreamspellView addSubview:button];
@@ -955,10 +958,11 @@
 	// INFO BUTTON
 	y += h + (SPACER/2);
 	x = SPACER;
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
-    button.tintColor  =[UIColor whiteColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	
+    //button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoTzolkin2:) forControlEvents:UIControlEventTouchUpInside];	
 	[dreamspellView addSubview:button];
