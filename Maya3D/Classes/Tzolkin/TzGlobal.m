@@ -113,6 +113,7 @@
 	}
     else if (prefDejaVu == 1)   // New for iOS9
     {
+        AvLog(@"PREFERENCES: FIRST TIME on iOS9 version!");
         [defaults setInteger:HEMISPHERE_UNKNOWN	forKey:@"prefHemisphere"];
     }
     [defaults setInteger:2					forKey:@"prefDejaVu"];
@@ -664,7 +665,8 @@
 //
 - (UIImage*)imageFromFile:(NSString*)file
 {
-	return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:@"png"]];
+	return [[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:@"png"]]
+            imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
 #pragma mark UI

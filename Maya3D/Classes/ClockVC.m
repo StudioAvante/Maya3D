@@ -56,7 +56,7 @@
 	// SETTINGS BUTTON
 	/*
 	 but = [[UIBarButtonItem alloc]
-	 //initWithImage:[global imageFromFile:@"icon_settings"]
+	 //initWithImage:[global imageFromFile:@"icon_settings2"]
 	 initWithImage:[global imageFromFile:@"icon_clock_play"]
 	 style:UIBarButtonItemStylePlain
 	 target:self action:@selector(goSettings:)];
@@ -79,7 +79,7 @@
     [but setTintColor:[UIColor whiteColor]];
      */
     
-    UIImage *helpImage = [UIImage imageNamed:@"icon_info2.png"];
+    UIImage *helpImage = [UIImage imageNamed:@"icon_info3.png"];
     UIButton *helpButton = [UIButton buttonWithType:UIButtonTypeCustom];
     helpButton.bounds = CGRectMake(0, 0, helpImage.size.width, helpImage.size.height);
     [helpButton setImage:helpImage forState:UIControlStateNormal];

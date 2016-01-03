@@ -1628,6 +1628,18 @@
 		846B65371C272B850013B0B8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B65351C272B850013B0B8 /* LaunchScreen.xib */; };
 		846B6BD71C27406E0013B0B8 /* LaunchScreen_Kin3D.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B6BD31C27406E0013B0B8 /* LaunchScreen_Kin3D.xib */; };
 		846B6BD81C27406E0013B0B8 /* LaunchScreenLite.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B6BD51C27406E0013B0B8 /* LaunchScreenLite.xib */; };
+		DB88595C1C399AA9008EE7BD /* icon_info3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88595B1C399AA9008EE7BD /* icon_info3.png */; };
+		DB88595D1C399AA9008EE7BD /* icon_info3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88595B1C399AA9008EE7BD /* icon_info3.png */; };
+		DB88595E1C399AA9008EE7BD /* icon_info3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88595B1C399AA9008EE7BD /* icon_info3.png */; };
+		DB8859601C399BF0008EE7BD /* icon_settings2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88595F1C399BF0008EE7BD /* icon_settings2.png */; };
+		DB8859611C399BF0008EE7BD /* icon_settings2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88595F1C399BF0008EE7BD /* icon_settings2.png */; };
+		DB8859621C399BF0008EE7BD /* icon_settings2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88595F1C399BF0008EE7BD /* icon_settings2.png */; };
+		DB8859641C399EB2008EE7BD /* icon_link2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859631C399EB2008EE7BD /* icon_link2.png */; };
+		DB8859651C399EB2008EE7BD /* icon_link2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859631C399EB2008EE7BD /* icon_link2.png */; };
+		DB8859661C399EB2008EE7BD /* icon_link2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859631C399EB2008EE7BD /* icon_link2.png */; };
+		DB8859681C39A362008EE7BD /* icon_search2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859671C39A362008EE7BD /* icon_search2.png */; };
+		DB8859691C39A362008EE7BD /* icon_search2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859671C39A362008EE7BD /* icon_search2.png */; };
+		DB88596A1C39A362008EE7BD /* icon_search2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859671C39A362008EE7BD /* icon_search2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2272,6 +2284,10 @@
 		DB8859581C3989AA008EE7BD /* Kin3D-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Kin3D-Info.plist"; path = "Resources/Kin3D-Info.plist"; sourceTree = "<group>"; };
 		DB8859591C3989AA008EE7BD /* Maya3D-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Maya3D-Info.plist"; path = "Resources/Maya3D-Info.plist"; sourceTree = "<group>"; };
 		DB88595A1C3989AA008EE7BD /* Maya3DLite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Maya3DLite-Info.plist"; path = "Resources/Maya3DLite-Info.plist"; sourceTree = "<group>"; };
+		DB88595B1C399AA9008EE7BD /* icon_info3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_info3.png; sourceTree = "<group>"; };
+		DB88595F1C399BF0008EE7BD /* icon_settings2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_settings2.png; sourceTree = "<group>"; };
+		DB8859631C399EB2008EE7BD /* icon_link2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_link2.png; sourceTree = "<group>"; };
+		DB8859671C39A362008EE7BD /* icon_search2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_search2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2633,7 +2649,9 @@
 				842C76CB1C24E6E8006FFB61 /* icon_hand.png */,
 				842C76CC1C24E6E8006FFB61 /* icon_info.png */,
 				842C76CD1C24E6E8006FFB61 /* icon_info2.png */,
+				DB88595B1C399AA9008EE7BD /* icon_info3.png */,
 				842C76CE1C24E6E8006FFB61 /* icon_link.png */,
+				DB8859631C399EB2008EE7BD /* icon_link2.png */,
 				842C76CF1C24E6E8006FFB61 /* icon_next.png */,
 				842C76D01C24E6E8006FFB61 /* icon_oracle.png */,
 				842C76D11C24E6E8006FFB61 /* icon_pause.png */,
@@ -2646,7 +2664,9 @@
 				842C76D81C24E6E8006FFB61 /* icon_rewind.png */,
 				842C76D91C24E6E8006FFB61 /* icon_save.png */,
 				842C76DA1C24E6E8006FFB61 /* icon_search.png */,
+				DB8859671C39A362008EE7BD /* icon_search2.png */,
 				842C76DB1C24E6E8006FFB61 /* icon_settings.png */,
+				DB88595F1C399BF0008EE7BD /* icon_settings2.png */,
 				842C76DC1C24E6E8006FFB61 /* icon_signature.png */,
 				842C76DD1C24E6E8006FFB61 /* iphone_ruler.png */,
 				842C76DE1C24E6E8006FFB61 /* moon01.png */,
@@ -3333,6 +3353,7 @@
 				84024B711C2873E600046204 /* numbig15.png in Resources */,
 				84024B721C2873E600046204 /* uinal08.png in Resources */,
 				84024B731C2873E600046204 /* moon18.png in Resources */,
+				DB8859691C39A362008EE7BD /* icon_search2.png in Resources */,
 				84024B741C2873E600046204 /* maya_glyph-en.png in Resources */,
 				84024B751C2873E600046204 /* moon01.png in Resources */,
 				84024B761C2873E600046204 /* long_count_days-pt.png in Resources */,
@@ -3462,6 +3483,7 @@
 				84024BF31C2873E600046204 /* moon22.png in Resources */,
 				84024BF41C2873E600046204 /* but_clock_play.png in Resources */,
 				84024BF51C2873E600046204 /* buts_screenshot-pt.png in Resources */,
+				DB8859611C399BF0008EE7BD /* icon_settings2.png in Resources */,
 				84024BF61C2873E600046204 /* news_dreamspell_L.png in Resources */,
 				84024BF71C2873E600046204 /* tones-en.png in Resources */,
 				84024BF81C2873E600046204 /* but_select-pt.png in Resources */,
@@ -3492,6 +3514,7 @@
 				84024C111C2873E600046204 /* explorer-pt.png in Resources */,
 				84024C121C2873E600046204 /* numglyph14.png in Resources */,
 				84024C131C2873E600046204 /* num00.png in Resources */,
+				DB8859651C399EB2008EE7BD /* icon_link2.png in Resources */,
 				84024C141C2873E600046204 /* uinals.png in Resources */,
 				84024C151C2873E600046204 /* long_count.png in Resources */,
 				84024C161C2873E600046204 /* icon_gear_big.png in Resources */,
@@ -3724,6 +3747,7 @@
 				84024CFB1C2873E600046204 /* isig17.png in Resources */,
 				84024CFC1C2873E600046204 /* seal03.png in Resources */,
 				84024CFD1C2873E600046204 /* tzday14.png in Resources */,
+				DB88595D1C399AA9008EE7BD /* icon_info3.png in Resources */,
 				84024CFE1C2873E600046204 /* but_select-en.png in Resources */,
 				84024CFF1C2873E600046204 /* moon25.png in Resources */,
 				84024D001C2873E600046204 /* tab_datebook-en.png in Resources */,
@@ -3819,6 +3843,7 @@
 				84024FC41C28787200046204 /* numbig15.png in Resources */,
 				84024FC51C28787200046204 /* uinal08.png in Resources */,
 				84024FC61C28787200046204 /* moon18.png in Resources */,
+				DB88596A1C39A362008EE7BD /* icon_search2.png in Resources */,
 				84024FC71C28787200046204 /* maya_glyph-en.png in Resources */,
 				84024FC81C28787200046204 /* moon01.png in Resources */,
 				84024FC91C28787200046204 /* long_count_days-pt.png in Resources */,
@@ -3948,6 +3973,7 @@
 				840250461C28787200046204 /* moon22.png in Resources */,
 				840250471C28787200046204 /* but_clock_play.png in Resources */,
 				840250481C28787200046204 /* buts_screenshot-pt.png in Resources */,
+				DB8859621C399BF0008EE7BD /* icon_settings2.png in Resources */,
 				840250491C28787200046204 /* news_dreamspell_L.png in Resources */,
 				8402504A1C28787200046204 /* tones-en.png in Resources */,
 				8402504B1C28787200046204 /* but_select-pt.png in Resources */,
@@ -3978,6 +4004,7 @@
 				840250641C28787200046204 /* explorer-pt.png in Resources */,
 				840250651C28787200046204 /* numglyph14.png in Resources */,
 				840250661C28787200046204 /* num00.png in Resources */,
+				DB8859661C399EB2008EE7BD /* icon_link2.png in Resources */,
 				840250671C28787200046204 /* uinals.png in Resources */,
 				840250681C28787200046204 /* long_count.png in Resources */,
 				840250691C28787200046204 /* icon_gear_big.png in Resources */,
@@ -4210,6 +4237,7 @@
 				8402514E1C28787200046204 /* isig17.png in Resources */,
 				8402514F1C28787200046204 /* seal03.png in Resources */,
 				840251501C28787200046204 /* tzday14.png in Resources */,
+				DB88595E1C399AA9008EE7BD /* icon_info3.png in Resources */,
 				840251511C28787200046204 /* but_select-en.png in Resources */,
 				840251521C28787200046204 /* moon25.png in Resources */,
 				840251531C28787200046204 /* tab_datebook-en.png in Resources */,
@@ -4305,6 +4333,7 @@
 				842C78E91C24E6E9006FFB61 /* numbig15.png in Resources */,
 				842C7A1B1C24E6E9006FFB61 /* uinal08.png in Resources */,
 				842C78A91C24E6E9006FFB61 /* moon18.png in Resources */,
+				DB8859681C39A362008EE7BD /* icon_search2.png in Resources */,
 				842C79561C24E6E9006FFB61 /* maya_glyph-en.png in Resources */,
 				842C78981C24E6E9006FFB61 /* moon01.png in Resources */,
 				842C79511C24E6E9006FFB61 /* long_count_days-pt.png in Resources */,
@@ -4434,6 +4463,7 @@
 				842C78AD1C24E6E9006FFB61 /* moon22.png in Resources */,
 				842C79161C24E6E9006FFB61 /* but_clock_play.png in Resources */,
 				842C79371C24E6E9006FFB61 /* buts_screenshot-pt.png in Resources */,
+				DB8859601C399BF0008EE7BD /* icon_settings2.png in Resources */,
 				842C799C1C24E6E9006FFB61 /* news_dreamspell_L.png in Resources */,
 				842C798C1C24E6E9006FFB61 /* tones-en.png in Resources */,
 				842C79211C24E6E9006FFB61 /* but_select-pt.png in Resources */,
@@ -4464,6 +4494,7 @@
 				842C793D1C24E6E9006FFB61 /* explorer-pt.png in Resources */,
 				842C79F81C24E6E9006FFB61 /* numglyph14.png in Resources */,
 				842C78B41C24E6E9006FFB61 /* num00.png in Resources */,
+				DB8859641C399EB2008EE7BD /* icon_link2.png in Resources */,
 				842C79951C24E6E9006FFB61 /* uinals.png in Resources */,
 				842C794E1C24E6E9006FFB61 /* long_count.png in Resources */,
 				842C78831C24E6E9006FFB61 /* icon_gear_big.png in Resources */,
@@ -4696,6 +4727,7 @@
 				842C79D31C24E6E9006FFB61 /* isig17.png in Resources */,
 				842C79AE1C24E6E9006FFB61 /* seal03.png in Resources */,
 				842C7A0B1C24E6E9006FFB61 /* tzday14.png in Resources */,
+				DB88595C1C399AA9008EE7BD /* icon_info3.png in Resources */,
 				842C791F1C24E6E9006FFB61 /* but_select-en.png in Resources */,
 				842C78B01C24E6E9006FFB61 /* moon25.png in Resources */,
 				842C79761C24E6E9006FFB61 /* tab_datebook-en.png in Resources */,

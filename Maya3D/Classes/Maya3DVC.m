@@ -153,7 +153,7 @@
         [but setTintColor:[UIColor whiteColor]];
          */
         
-        UIImage *helpImage = [UIImage imageNamed:@"icon_info2.png"];
+        UIImage *helpImage = [UIImage imageNamed:@"icon_info3.png"];
         UIButton *helpButton = [UIButton buttonWithType:UIButtonTypeCustom];
         helpButton.bounds = CGRectMake(0, 0, helpImage.size.width, helpImage.size.height);
         [helpButton setImage:helpImage forState:UIControlStateNormal];
@@ -168,7 +168,7 @@
 #ifdef LITE
         // PICK DATE
         but = [[UIBarButtonItem alloc]
-               initWithImage:[global imageFromFile:@"icon_search"]
+               initWithImage:[global imageFromFile:@"icon_search2"]
                style:UIBarButtonItemStylePlain
                target:self action:@selector(pickGregorian:)];
         [but setTintColor:[UIColor whiteColor]];

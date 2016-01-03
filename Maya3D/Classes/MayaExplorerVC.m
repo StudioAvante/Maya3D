@@ -135,8 +135,9 @@
 	// SETTINGS BUTTON
 	UIBarButtonItem *but;
 	but = [[UIBarButtonItem alloc]
-		   initWithImage:[global imageFromFile:@"icon_settings"]
-		   style:UIBarButtonItemStylePlain
+//           initWithImage:[UIImage imageNamed:@"icon_settings2.png"]
+		   initWithImage:[global imageFromFile:@"icon_settings2"]
+		   style:UIBarButtonItemStyleDone
 		   target:self action:@selector(goSettings:)];
     [but setTintColor:[UIColor whiteColor]];
 	self.navigationItem.leftBarButtonItem = but;
@@ -218,8 +219,8 @@
 	
 	// Cria botao do tipo UIButtonTypeDetailDisclosure para pegar sua imagem
 	// pois crio usando o tipo UIButtonTypeInfoLight que tem uma area de toque maior
-	UIImage *questionImg = [UIImage imageNamed:@"icon_info2.png"];
-	UIImage *searchImg = [global imageFromFile:@"icon_search"];
+	UIImage *questionImg = [UIImage imageNamed:@"icon_info3.png"];
+	UIImage *searchImg = [global imageFromFile:@"icon_search2"];
 	
 	// MOON FASE IMAGE
 	if (MAYA_ONLY)
@@ -292,7 +293,7 @@
 	[button setImage:searchImg forState:UIControlStateNormal];
 	button.frame = CGRectMake(x, y+BUTTON_GAP, BUTTON_SIZE, BUTTON_SIZE);
 	button.backgroundColor = [UIColor clearColor];    //
-    button.tintColor  =[UIColor whiteColor];
+    button.tintColor = [UIColor whiteColor];
 	[button addTarget:self action:@selector(pickGregorian:) forControlEvents:UIControlEventTouchUpInside];	
 	[contentView addSubview:button];
 	

@@ -479,8 +479,8 @@ INFO_ABOUT,
 - (CGFloat)addMoreButton:(NSString*)locTxt func:(SEL)func y:(CGFloat)y link:(BOOL)lnk
 {
 	UIButton *button;
-    UIImage *helpImg = [UIImage imageNamed:@"icon_info2.png"];
-    UIImage *linkImg = [UIImage imageNamed:@"icon_link.png"];
+    UIImage *helpImg = [UIImage imageNamed:@"icon_info3.png"];
+    UIImage *linkImg = [UIImage imageNamed:@"icon_link2.png"];
     
 	// more button
 	button = [UIButton buttonWithType:UIButtonTypeCustom];

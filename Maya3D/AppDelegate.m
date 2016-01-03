@@ -55,6 +55,8 @@
     // Configura nomes dos tabs
     if (global.theTabBar)
     {
+//        global.theTabBar.tabBar.tintColor = [UIColor colorWithRed:0.98 green:0.92 blue:0.68 alpha:1];
+        global.theTabBar.tabBar.tintColor = [UIColor colorWithRed:1 green:0.95 blue:0.87 alpha:1];
         
         UIViewController *vc;
         vc = (UIViewController*) [global.theTabBar.viewControllers objectAtIndex:TAB_MAYA3D];
