@@ -3243,7 +3243,7 @@
 		842C75ED1C24E41B006FFB61 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Avante;
 				TargetAttributes = {
 					84024AF11C2873E600046204 = {
@@ -5061,6 +5061,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = KIN3D;
 				INFOPLIST_FILE = "$(SRCROOT)/Maya3D/Resources/Kin3D-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Kin3D;
 				PRODUCT_MODULE_NAME = Kin3D;
 				PRODUCT_NAME = Kin3D;
 				PROVISIONING_PROFILE = "";
@@ -5078,6 +5079,7 @@
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/Maya3D/Resources/Kin3D-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Kin3D;
 				PRODUCT_MODULE_NAME = Kin3D;
 				PRODUCT_NAME = Kin3D;
 				PROVISIONING_PROFILE = "";
@@ -5095,6 +5097,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = LITE;
 				INFOPLIST_FILE = "$(SRCROOT)/Maya3D/Resources/Maya3DLite-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Maya3DLite;
 				PRODUCT_NAME = Maya3DLite;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -5109,6 +5112,7 @@
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/Maya3D/Resources/Maya3DLite-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Maya3DLite;
 				PRODUCT_NAME = Maya3DLite;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -5134,6 +5138,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -5202,6 +5207,7 @@
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/Maya3D/Resources/Maya3D-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Maya3D;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -5218,6 +5224,7 @@
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/Maya3D/Resources/Maya3D-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Maya3D;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -5238,6 +5245,7 @@
 				);
 				INFOPLIST_FILE = Maya3DTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Avante.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maya3D.app/Maya3D";
 			};
@@ -5253,6 +5261,7 @@
 				);
 				INFOPLIST_FILE = Maya3DTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Avante.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maya3D.app/Maya3D";
 			};

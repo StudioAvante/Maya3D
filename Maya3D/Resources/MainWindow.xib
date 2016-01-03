@@ -16,7 +16,7 @@
                 <outlet property="tabBarController" destination="106" id="vHO-N6-G1h"/>
             </connections>
         </customObject>
-        <tabBarController autoresizesArchivedViewToFullSize="NO" nibName="MainWindow" automaticallyAdjustsScrollViewInsets="NO" id="106">
+        <tabBarController autoresizesArchivedViewToFullSize="NO" nibName="" automaticallyAdjustsScrollViewInsets="NO" id="106">
             <extendedEdge key="edgesForExtendedLayout"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
