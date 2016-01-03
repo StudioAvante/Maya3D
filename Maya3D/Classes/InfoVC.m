@@ -387,7 +387,7 @@ INFO_ABOUT,
 	// Find text size
 	w = (kscreenWidth-x-INFO_GAP-INFO_GAP);
 	size = CGSizeMake(w, 500.0);
-	size = [text sizeWithFont:[UIFont systemFontOfSize:font] constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
+	size = [text sizeWithFont:[UIFont systemFontOfSize:font] constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
 	h = size.height;
 	
 	// Add text view

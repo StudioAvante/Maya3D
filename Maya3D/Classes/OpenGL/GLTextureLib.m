@@ -74,7 +74,7 @@
 	// Find in Dictionary
 	GLTexture *tex;
 	tex = [vbos objectForKey:name];
-    GLuint ii = tex.vbo;
+//    GLuint ii = tex.vbo;
     
     CGSize size;// = CGSizeMake(0.0,0.0);
     size.width = 0;

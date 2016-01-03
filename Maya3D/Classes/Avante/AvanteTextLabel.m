@@ -72,7 +72,7 @@
 	theLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 	theLabel.backgroundColor = [UIColor clearColor];
 	theLabel.font = [UIFont systemFontOfSize:sz];
-	theLabel.textAlignment = UITextAlignmentCenter;
+	theLabel.textAlignment = NSTextAlignmentCenter;
 	theLabel.shadowOffset = CGSizeMake(0.0, 1.0);
 	
 	// Set text & frame + add!
@@ -109,14 +109,14 @@
 	else if (wrapped == YES)
 	{
 		// Get new frame size
-		size = [theLabel.text sizeWithFont:theLabel.font constrainedToSize:sizeOrig lineBreakMode:UILineBreakModeWordWrap];
+		size = [theLabel.text sizeWithFont:theLabel.font constrainedToSize:sizeOrig lineBreakMode:NSLineBreakByWordWrapping];
 		// Use new size
 		width = size.width;
 		height = size.height;
 	}
 	
 	// v1.2: centraliza
-	CGFloat x = ceil( (framed == YES && theLabel.textAlignment == UITextAlignmentCenter) ? (sizeOrig.width-width) / 2.0 : 0.0);
+	CGFloat x = ceil( (framed == YES && theLabel.textAlignment == NSTextAlignmentCenter) ? (sizeOrig.width-width) / 2.0 : 0.0);
 	
 	// Atualiza posicao dentro do pai de acordo com tamanho do texto
 	theLabel.frame = CGRectMake(x, 0.0, width, height);
@@ -171,12 +171,12 @@
 	wrapped = wrap;
 	if (wrapped)
 	{
-		theLabel.lineBreakMode = UILineBreakModeWordWrap;
+		theLabel.lineBreakMode = NSLineBreakByWordWrapping;
 		theLabel.numberOfLines = 100;
 	}
 	else
 	{
-		theLabel.lineBreakMode = UILineBreakModeTailTruncation;
+		theLabel.lineBreakMode = NSLineBreakByTruncatingTail;
 		theLabel.numberOfLines = 1;
 	}
 }
@@ -186,7 +186,7 @@
 }
 - (void)setBold:(BOOL)b
 {
-	if (bold)
+	if (b)
 		theLabel.font = [UIFont boldSystemFontOfSize:theLabel.font.pointSize];
 	else
 		theLabel.font = [UIFont systemFontOfSize:theLabel.font.pointSize];

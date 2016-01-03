@@ -80,5 +80,5 @@
 - (void)goDecode:(AvanteKinButton*)but;
 - (IBAction)share:(id)sender;
 // Alert / Action Delegate
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)option;
+//-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)option;
 @end

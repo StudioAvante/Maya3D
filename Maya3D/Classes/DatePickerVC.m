@@ -116,7 +116,7 @@
 	// SELECT button
     UIBarButtonItem *selectButton = [[UIBarButtonItem alloc]
 									 initWithTitle:LOCAL(@"SELECT")
-									 style:UIBarButtonSystemItemDone
+									 style:UIBarButtonItemStyleDone
 									 target:self action:@selector(actionSelect:)];
     
     [selectButton setTintColor:[UIColor whiteColor]];
@@ -169,7 +169,7 @@
         yearInfo.frame = CGRectMake(x, y1+40, 25.0, 25.0);
         //yearInfo.backgroundColor = [UIColor clearColor];
         //yearInfo.tintColor = [UIColor whiteColor];
-        [yearInfo setImage:[UIImage imageNamed:@"icon_info2.png"] forState:UIControlStateNormal];
+        [yearInfo setImage:[UIImage imageNamed:@"icon_info3.png"] forState:UIControlStateNormal];
         [yearInfo addTarget:self action:@selector(infoGreg:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:yearInfo];
 #endif
@@ -224,9 +224,9 @@
 //
 - (void)initGregPicker
 {
-	AvanteTextLabel *label;
+//	AvanteTextLabel *label;
 	NSString *str, *dt;
-	CGFloat y;
+//	CGFloat y;
 	int n, comp;
 	
 //	// YEAR/CENTURY Label 1
@@ -252,7 +252,7 @@
 //	yearInfo.frame = CGRectMake(x, 430.0, 25.0, 25.0);
 //	yearInfo.backgroundColor = [UIColor clearColor];
 //    yearInfo.tintColor = [UIColor whiteColor];
-//	[yearInfo setImage:[global imageFromFile:@"icon_info2"] forState:UIControlStateNormal];
+//	[yearInfo setImage:[global imageFromFile:@"icon_info3"] forState:UIControlStateNormal];
 //	[yearInfo addTarget:self action:@selector(infoGreg:) forControlEvents:UIControlEventTouchUpInside];	
 //	[self.view addSubview:yearInfo];
 //#endif
@@ -591,7 +591,7 @@
 }
 - (void)updateLabel
 {
-	NSString *str;
+	NSString *str = @"";
 	BOOL valid = 0;
 	
 	// Usa data selecionada

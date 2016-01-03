@@ -137,7 +137,8 @@
 // Retorna a linha cujo dado se aproxima mais de um valor
 - (NSInteger) indexOfDataCloser:(NSInteger)target
 {
-	NSInteger value, closerValue;
+    NSInteger value = 0;
+    NSInteger closerValue = 0;
 	NSInteger closerIndex = -1;
 	for ( int row = 0 ; row < [data count] ; row++ )
 	{

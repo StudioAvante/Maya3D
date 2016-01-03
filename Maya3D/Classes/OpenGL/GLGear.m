@@ -1643,8 +1643,7 @@
     {
         GLTexture *tex;
         tex = [global.texLib.vbos objectForKey:texname];
-        GLuint iii = tex.vbo;
-        
+//        GLuint iii = tex.vbo;
     }
 
 	//AvLog(@"ADD LABEL NEW row[%d][%d] ang[%.2f] x0y0[%.2f/%.2f] tex[%@][%d]",row,n,(ang0*RADIAN_ANGLES),x0, y0,texname,map);

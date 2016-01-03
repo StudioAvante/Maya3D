@@ -50,9 +50,4 @@
 - (void)playSine:(CGFloat)hz length:(CGFloat)secs fade:(BOOL)fade;
 
 
-// REMOTE I/O Callbacks
-static OSStatus playbackCallback(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, 
-								 const AudioTimeStamp *inTimeStamp,UInt32 inBusNumber,
-								 UInt32 inNumberFrames, AudioBufferList *ioData);
-
 @end
