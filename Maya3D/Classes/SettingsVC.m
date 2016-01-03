@@ -103,20 +103,21 @@
 
 // ROGER
 - (IBAction)setHemisphere:(id)sender {
-	// Detect
-	if (controlHemisphere.selectedSegmentIndex == HEMISPHERE_UNKNOWN)
-	{
-		[global locationSet:HEMISPHERE_UNKNOWN];
-		return;
-	}
+    int h = (int)[sender selectedSegmentIndex];
+//	// Detect
+//	if (controlHemisphere.selectedSegmentIndex == HEMISPHERE_UNKNOWN)
+//	{
+//		[global locationSet:HEMISPHERE_UNKNOWN];
+//		return;
+//	}
 	// Set Preference
-	global.prefHemisphere = (int)[sender selectedSegmentIndex];
+	global.prefHemisphere = h;
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:global.prefHemisphere forKey:@"prefHemisphere"];
 	[defaults synchronize];
 	// debug
-	//int value = [defaults integerForKey:@"prefHemisphere"];
-	//AvLog(@"SET PLIST: global.prefHemisphere=%d", value);
+	int value = (int)[defaults integerForKey:@"prefHemisphere"];
+	AvLog(@"SET PLIST: h=%d global.prefHemisphere=%d defaults=%d", h, global.prefHemisphere, value);
 }
 - (IBAction)setStartDate:(id)sender {
 	// Set Preference

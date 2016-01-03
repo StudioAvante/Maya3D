@@ -72,7 +72,7 @@
 {
 	if (0)
 	{
-		AvLog(@"SIZEOF: int     = [%d]", sizeof(int));
+		AvLog(@"SIZEOF: int       = [%d]", sizeof(int));
 		AvLog(@"SIZEOF: int       = [%d]", sizeof(int));
 		AvLog(@"SIZEOF: long      = [%d]", sizeof(long));
 		AvLog(@"SIZEOF: NSInteger = [%d]", sizeof(NSInteger));
@@ -108,10 +108,14 @@
 		[defaults setInteger:GEAR_NAME_ON		forKey:@"prefGearName"];
 		[defaults setInteger:GEAR_SOUND_TICK	forKey:@"prefGearSound"];
 		[defaults setInteger:0					forKey:@"prefInfoSeen"];
-		[defaults setInteger:1					forKey:@"prefDejaVu"];
 		// save
 		[defaults synchronize];
 	}
+    else if (prefDejaVu == 1)
+    {
+        [defaults setInteger:HEMISPHERE_UNKNOWN	forKey:@"prefHemisphere"];
+    }
+    [defaults setInteger:2					forKey:@"prefDejaVu"];
 	
 #ifdef LITE
 	// LITE preferences
@@ -125,7 +129,6 @@
 	prefLangSetting		= (int)[defaults integerForKey:@"prefLangSetting"];
 	prefHemisphere		= (int)[defaults integerForKey:@"prefHemisphere"];
 	prefMayaDreamspell	= (int)[defaults integerForKey:@"prefMayaDreamspell"];
-	prefHemisphere		= (int)[defaults integerForKey:@"prefHemisphere"];
 	prefLastDate		= (int)[defaults integerForKey:@"prefLastDate"];
 	prefStartDate		= (int)[defaults integerForKey:@"prefStartDate"];
 	prefDateFormat		= (int)[defaults integerForKey:@"prefDateFormat"];
@@ -145,7 +148,7 @@
 	// debug
 	AvLog(@"PREFERENCES: prefLangSetting     = [%d]", prefLangSetting);
 	AvLog(@"PREFERENCES: prefMayaDreamspell  = [%d]", prefMayaDreamspell);
-	AvLog(@"PREFERENCES: prefHemisphere       = [%d]", prefHemisphere);
+	AvLog(@"PREFERENCES: prefHemisphere      = [%d]", prefHemisphere);
 	AvLog(@"PREFERENCES: prefLastDate        = [%d]", prefLastDate);
 	AvLog(@"PREFERENCES: prefStartDate       = [%d]", prefStartDate);
 	AvLog(@"PREFERENCES: prefDateFormat      = [%d]", prefDateFormat);
@@ -737,7 +740,8 @@
 						  initWithTitle:@""
 						  message:LOCAL(@"DETECT_LOCATION")
 						  delegate:delegate
-						  cancelButtonTitle:LOCAL(@"DETECT_AUTO")
+//                          cancelButtonTitle:LOCAL(@"DETECT_AUTO")
+                          cancelButtonTitle:nil
 						  otherButtonTitles:LOCAL(@"DETECT_SOUTH"),LOCAL(@"DETECT_NORTH"), nil];
 	[alert show];
 	[alert release];
@@ -745,7 +749,7 @@
 - (void)locationSet:(int)hemisphere
 {
 	// Detect
-	if (hemisphere == 0)
+	if (hemisphere == HEMISPHERE_UNKNOWN)
 	{
 		AvLog(@"MODEL [%@]",[UIDevice currentDevice].model);
 		// MODEL [iPod touch]
@@ -774,22 +778,27 @@
 }
 // Delegate method from the CLLocationManagerDelegate protocol...
 - (void)locationManager:(CLLocationManager *)manager
-	didUpdateToLocation:(CLLocation *)newLocation
-		   fromLocation:(CLLocation *)oldLocation
+     didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
-	AvLog(@"LOCATION: latitude[%+.6f] longitude[%+.6f]\n",
-		  newLocation.coordinate.latitude,newLocation.coordinate.longitude);
+    AvLog(@"LOCATION: FOUND %d\n",locations.count);
+    if (locations.count > 0)
+    {
+        CLLocation *newLocation = locations[0];
+        AvLog(@"LOCATION: latitude[%+.6f] longitude[%+.6f]\n",
+              newLocation.coordinate.latitude,newLocation.coordinate.longitude);
+        // save location
+        [self locationSet: ( (newLocation.coordinate.latitude >= 0.0) ? HEMISPHERE_NORTH : HEMISPHERE_SOUTH) ];
+    }
 	// stop updating
 	[manager stopUpdatingLocation];
-	// save location
-	[self locationSet: ( (newLocation.coordinate.latitude >= 0.0) ? HEMISPHERE_NORTH : HEMISPHERE_SOUTH) ];
 	// update view
 	[currentVC viewWillAppear:FALSE];
 	// Uncover view
 	[self uncoverAll];
 }
 // Location error....
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error
 {
 	AvLog(@"LOCATION ERROR!!!\n");
 	// stop updating

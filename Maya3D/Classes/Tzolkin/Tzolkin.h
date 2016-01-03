@@ -92,7 +92,7 @@ enum {
 
 // Localização
 enum {
-	HEMISPHERE_UNKNOWN,
+	HEMISPHERE_UNKNOWN = -1,
 	HEMISPHERE_SOUTH,
 	HEMISPHERE_NORTH
 } enumHemisphere;
@@ -182,7 +182,7 @@ enum {
 #define OPENGL_INTERVAL			(1.0/60.0)	// OpenGL optimum FPS
 #define UI_INTERVAL				(1.0/13.0)	// UI update interval
 #define ACCELEROMETER			1			// << CHECK FOR PROD : 1
-#define DISPLAY_FPS				1
+#define DISPLAY_FPS				0
 // Finger swipe (move camera)
 #define ALLOW_SWIPE				0			// Pode mover camera com os dedos? << CHECK FOR PROD : 0
 #define ALLOW_ROTATE			0			// Pode rodar camera com os dedos? << CHECK FOR PROD : 0
