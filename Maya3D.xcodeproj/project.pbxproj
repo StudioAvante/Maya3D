@@ -128,7 +128,6 @@
 		84024B6D1C2873E600046204 /* moon02.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76DF1C24E6E8006FFB61 /* moon02.png */; };
 		84024B6E1C2873E600046204 /* num20.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C770E1C24E6E8006FFB61 /* num20.png */; };
 		84024B6F1C2873E600046204 /* uinal16.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C786C1C24E6E9006FFB61 /* uinal16.png */; };
-		84024B701C2873E600046204 /* 3D_Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A4E1C24E7E4006FFB61 /* 3D_Default.png */; };
 		84024B711C2873E600046204 /* numbig15.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C772F1C24E6E8006FFB61 /* numbig15.png */; };
 		84024B721C2873E600046204 /* uinal08.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C78641C24E6E9006FFB61 /* uinal08.png */; };
 		84024B731C2873E600046204 /* moon18.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76EF1C24E6E8006FFB61 /* moon18.png */; };
@@ -185,7 +184,7 @@
 		84024BA81C2873E600046204 /* seal19.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C78061C24E6E9006FFB61 /* seal19.png */; };
 		84024BA91C2873E600046204 /* tab_datebook-es.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77BE1C24E6E8006FFB61 /* tab_datebook-es.png */; };
 		84024BAA1C2873E600046204 /* tab_kin.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77C61C24E6E8006FFB61 /* tab_kin.png */; };
-		84024BAB1C2873E600046204 /* Kin3D_Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A321C24E7C0006FFB61 /* Kin3D_Default.png */; };
+		84024BAB1C2873E600046204 /* Kin3D_320x480_(1x).png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A321C24E7C0006FFB61 /* Kin3D_320x480_(1x).png */; };
 		84024BAC1C2873E600046204 /* numbig08.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77211C24E6E8006FFB61 /* numbig08.png */; };
 		84024BAD1C2873E600046204 /* icon_fullscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76C81C24E6E8006FFB61 /* icon_fullscreen.png */; };
 		84024BAE1C2873E600046204 /* plasma5.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77EE1C24E6E9006FFB61 /* plasma5.png */; };
@@ -229,7 +228,7 @@
 		84024BD51C2873E600046204 /* tzday08.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C784E1C24E6E9006FFB61 /* tzday08.png */; };
 		84024BD61C2873E600046204 /* icon_clock_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76C21C24E6E7006FFB61 /* icon_clock_pause.png */; };
 		84024BD71C2873E600046204 /* maya_glyph-es.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C779E1C24E6E8006FFB61 /* maya_glyph-es.png */; };
-		84024BD81C2873E600046204 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B65351C272B850013B0B8 /* LaunchScreen.xib */; };
+		84024BD81C2873E600046204 /* LaunchScreen_Maya3D.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B65351C272B850013B0B8 /* LaunchScreen_Maya3D.xib */; };
 		84024BD91C2873E600046204 /* icon_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76DA1C24E6E8006FFB61 /* icon_search.png */; };
 		84024BDA1C2873E600046204 /* numbig03i.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77181C24E6E8006FFB61 /* numbig03i.png */; };
 		84024BDB1C2873E600046204 /* seal10.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77FD1C24E6E9006FFB61 /* seal10.png */; };
@@ -284,7 +283,6 @@
 		84024C0D1C2873E600046204 /* roller.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77B81C24E6E8006FFB61 /* roller.png */; };
 		84024C0E1C2873E600046204 /* gear_dente_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76BE1C24E6E7006FFB61 /* gear_dente_top.png */; };
 		84024C0F1C2873E600046204 /* TzDateAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A721C24E817006FFB61 /* TzDateAddView.xib */; };
-		84024C101C2873E600046204 /* Icon~ipad@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A361C24E7C0006FFB61 /* Icon~ipad@x2.png */; };
 		84024C111C2873E600046204 /* explorer-pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77841C24E6E8006FFB61 /* explorer-pt.png */; };
 		84024C121C2873E600046204 /* numglyph14.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C78411C24E6E9006FFB61 /* numglyph14.png */; };
 		84024C131C2873E600046204 /* num00.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76FA1C24E6E8006FFB61 /* num00.png */; };
@@ -300,7 +298,6 @@
 		84024C1D1C2873E600046204 /* seal11.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77FE1C24E6E9006FFB61 /* seal11.png */; };
 		84024C1E1C2873E600046204 /* tab_glyph-en.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77C31C24E6E8006FFB61 /* tab_glyph-en.png */; };
 		84024C1F1C2873E600046204 /* oracle_seal-pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77B01C24E6E8006FFB61 /* oracle_seal-pt.png */; };
-		84024C201C2873E600046204 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A671C24E817006FFB61 /* iTunesArtwork.png */; };
 		84024C211C2873E600046204 /* numside19.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C774E1C24E6E8006FFB61 /* numside19.png */; };
 		84024C221C2873E600046204 /* tzday16.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C78561C24E6E9006FFB61 /* tzday16.png */; };
 		84024C231C2873E600046204 /* tzday02.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C78481C24E6E9006FFB61 /* tzday02.png */; };
@@ -320,7 +317,6 @@
 		84024C311C2873E600046204 /* but_clock_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C775B1C24E6E8006FFB61 /* but_clock_pause.png */; };
 		84024C321C2873E600046204 /* kin_oracle-es.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C778D1C24E6E8006FFB61 /* kin_oracle-es.png */; };
 		84024C331C2873E600046204 /* tabs_explorer-pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77CF1C24E6E8006FFB61 /* tabs_explorer-pt.png */; };
-		84024C341C2873E600046204 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A501C24E7E4006FFB61 /* Icon@2x.png */; };
 		84024C351C2873E600046204 /* but_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77621C24E6E8006FFB61 /* but_edit.png */; };
 		84024C361C2873E600046204 /* shot_trailer.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77521C24E6E8006FFB61 /* shot_trailer.png */; };
 		84024C371C2873E600046204 /* kin_oracle-en.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C778C1C24E6E8006FFB61 /* kin_oracle-en.png */; };
@@ -338,19 +334,15 @@
 		84024C431C2873E600046204 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A5F1C24E817006FFB61 /* Entitlements.plist */; };
 		84024C441C2873E600046204 /* tabs_dreamspell-pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77CC1C24E6E8006FFB61 /* tabs_dreamspell-pt.png */; };
 		84024C451C2873E600046204 /* tzday07.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C784D1C24E6E9006FFB61 /* tzday07.png */; };
-		84024C461C2873E600046204 /* Icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A351C24E7C0006FFB61 /* Icon~ipad.png */; };
 		84024C471C2873E600046204 /* buts_fullscreen-pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C777B1C24E6E8006FFB61 /* buts_fullscreen-pt.png */; };
 		84024C481C2873E600046204 /* uinal11.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C78671C24E6E9006FFB61 /* uinal11.png */; };
 		84024C491C2873E600046204 /* numbig16.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77311C24E6E8006FFB61 /* numbig16.png */; };
 		84024C4A1C2873E600046204 /* but_picker.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77641C24E6E8006FFB61 /* but_picker.png */; };
 		84024C4B1C2873E600046204 /* tabs_maya-es.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77D11C24E6E8006FFB61 /* tabs_maya-es.png */; };
-		84024C4C1C2873E600046204 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842C76081C24E41D006FFB61 /* Images.xcassets */; };
 		84024C4D1C2873E600046204 /* kin_plasma-pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77911C24E6E8006FFB61 /* kin_plasma-pt.png */; };
 		84024C4E1C2873E600046204 /* tzolkin_days.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77D61C24E6E8006FFB61 /* tzolkin_days.png */; };
 		84024C4F1C2873E600046204 /* moon19.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76F01C24E6E8006FFB61 /* moon19.png */; };
-		84024C501C2873E600046204 /* Icon~ipad@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A521C24E7E4006FFB61 /* Icon~ipad@x2.png */; };
 		84024C511C2873E600046204 /* num01.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76FB1C24E6E8006FFB61 /* num01.png */; };
-		84024C521C2873E600046204 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A4F1C24E7E4006FFB61 /* Icon.png */; };
 		84024C531C2873E600046204 /* maya_numbers.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77A11C24E6E8006FFB61 /* maya_numbers.png */; };
 		84024C541C2873E600046204 /* num06.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77001C24E6E8006FFB61 /* num06.png */; };
 		84024C551C2873E600046204 /* kin_plasma-en.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C778F1C24E6E8006FFB61 /* kin_plasma-en.png */; };
@@ -424,7 +416,6 @@
 		84024C9C1C2873E600046204 /* uinal01.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C785D1C24E6E9006FFB61 /* uinal01.png */; };
 		84024C9D1C2873E600046204 /* num04.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76FE1C24E6E8006FFB61 /* num04.png */; };
 		84024C9E1C2873E600046204 /* maya_oracle_year-es.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77A61C24E6E8006FFB61 /* maya_oracle_year-es.png */; };
-		84024C9F1C2873E600046204 /* Icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A511C24E7E4006FFB61 /* Icon~ipad.png */; };
 		84024CA01C2873E600046204 /* 3d_dreamspell.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77581C24E6E8006FFB61 /* 3d_dreamspell.png */; };
 		84024CA11C2873E600046204 /* numbig10i.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77261C24E6E8006FFB61 /* numbig10i.png */; };
 		84024CA21C2873E600046204 /* uinal05.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C78611C24E6E9006FFB61 /* uinal05.png */; };
@@ -472,7 +463,6 @@
 		84024CCD1C2873E600046204 /* numglyph09.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C783C1C24E6E9006FFB61 /* numglyph09.png */; };
 		84024CCE1C2873E600046204 /* LaunchScreen_Kin3D.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B6BD31C27406E0013B0B8 /* LaunchScreen_Kin3D.xib */; };
 		84024CCF1C2873E600046204 /* news_maya_W.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C78321C24E6E9006FFB61 /* news_maya_W.png */; };
-		84024CD01C2873E600046204 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A341C24E7C0006FFB61 /* Icon@2x.png */; };
 		84024CD11C2873E600046204 /* tones-pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77D51C24E6E8006FFB61 /* tones-pt.png */; };
 		84024CD21C2873E600046204 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A681C24E817006FFB61 /* MainWindow.xib */; };
 		84024CD31C2873E600046204 /* tick-loud.wav in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A2A1C24E727006FFB61 /* tick-loud.wav */; };
@@ -543,7 +533,6 @@
 		842C75FB1C24E41C006FFB61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 842C75FA1C24E41C006FFB61 /* main.m */; };
 		842C75FE1C24E41C006FFB61 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 842C75FD1C24E41C006FFB61 /* AppDelegate.m */; };
 		842C76011C24E41C006FFB61 /* Maya3D.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 842C75FF1C24E41C006FFB61 /* Maya3D.xcdatamodeld */; };
-		842C76091C24E41D006FFB61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842C76081C24E41D006FFB61 /* Images.xcassets */; };
 		842C76181C24E41E006FFB61 /* Maya3DTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 842C76171C24E41E006FFB61 /* Maya3DTests.m */; };
 		842C76421C24E64C006FFB61 /* ClockSettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 842C762B1C24E64B006FFB61 /* ClockSettingsVC.m */; };
 		842C76431C24E64C006FFB61 /* ClockVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 842C762D1C24E64B006FFB61 /* ClockVC.m */; };
@@ -1035,16 +1024,8 @@
 		842C7A2E1C24E727006FFB61 /* saved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A291C24E727006FFB61 /* saved.wav */; };
 		842C7A2F1C24E727006FFB61 /* tick-loud.wav in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A2A1C24E727006FFB61 /* tick-loud.wav */; };
 		842C7A301C24E727006FFB61 /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A2B1C24E727006FFB61 /* tick.wav */; };
-		842C7A401C24E7C0006FFB61 /* Kin3D_Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A321C24E7C0006FFB61 /* Kin3D_Default.png */; };
+		842C7A401C24E7C0006FFB61 /* Kin3D_320x480_(1x).png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A321C24E7C0006FFB61 /* Kin3D_320x480_(1x).png */; };
 		842C7A411C24E7C0006FFB61 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A331C24E7C0006FFB61 /* Icon.png */; };
-		842C7A421C24E7C0006FFB61 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A341C24E7C0006FFB61 /* Icon@2x.png */; };
-		842C7A431C24E7C0006FFB61 /* Icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A351C24E7C0006FFB61 /* Icon~ipad.png */; };
-		842C7A441C24E7C0006FFB61 /* Icon~ipad@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A361C24E7C0006FFB61 /* Icon~ipad@x2.png */; };
-		842C7A531C24E7E4006FFB61 /* 3D_Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A4E1C24E7E4006FFB61 /* 3D_Default.png */; };
-		842C7A541C24E7E4006FFB61 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A4F1C24E7E4006FFB61 /* Icon.png */; };
-		842C7A551C24E7E4006FFB61 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A501C24E7E4006FFB61 /* Icon@2x.png */; };
-		842C7A561C24E7E4006FFB61 /* Icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A511C24E7E4006FFB61 /* Icon~ipad.png */; };
-		842C7A571C24E7E4006FFB61 /* Icon~ipad@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A521C24E7E4006FFB61 /* Icon~ipad@x2.png */; };
 		842C7A751C24E817006FFB61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A591C24E816006FFB61 /* Localizable.strings */; };
 		842C7A761C24E817006FFB61 /* TzDatebookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A5B1C24E816006FFB61 /* TzDatebookView.xib */; };
 		842C7A771C24E817006FFB61 /* TzSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A5D1C24E816006FFB61 /* TzSettingsView.xib */; };
@@ -1052,7 +1033,6 @@
 		842C7A791C24E817006FFB61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A611C24E817006FFB61 /* Localizable.strings */; };
 		842C7A7A1C24E817006FFB61 /* TzDatebookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A631C24E817006FFB61 /* TzDatebookView.xib */; };
 		842C7A7B1C24E817006FFB61 /* TzSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A651C24E817006FFB61 /* TzSettingsView.xib */; };
-		842C7A7C1C24E817006FFB61 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A671C24E817006FFB61 /* iTunesArtwork.png */; };
 		842C7A7D1C24E817006FFB61 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A681C24E817006FFB61 /* MainWindow.xib */; };
 		842C7A801C24E817006FFB61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A6C1C24E817006FFB61 /* Localizable.strings */; };
 		842C7A811C24E817006FFB61 /* TzDatebookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A6E1C24E817006FFB61 /* TzDatebookView.xib */; };
@@ -1072,7 +1052,7 @@
 		842C7A991C24E8C0006FFB61 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842C7A981C24E8C0006FFB61 /* MessageUI.framework */; };
 		842C7A9B1C24E8CD006FFB61 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842C7A9A1C24E8CD006FFB61 /* Security.framework */; };
 		842C7A9D1C24E8DB006FFB61 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842C7A9C1C24E8DB006FFB61 /* SystemConfiguration.framework */; };
-		846B65371C272B850013B0B8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B65351C272B850013B0B8 /* LaunchScreen.xib */; };
+		846B65371C272B850013B0B8 /* LaunchScreen_Maya3D.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B65351C272B850013B0B8 /* LaunchScreen_Maya3D.xib */; };
 		846B6BD71C27406E0013B0B8 /* LaunchScreen_Kin3D.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B6BD31C27406E0013B0B8 /* LaunchScreen_Kin3D.xib */; };
 		DB88595C1C399AA9008EE7BD /* icon_info3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88595B1C399AA9008EE7BD /* icon_info3.png */; };
 		DB88595D1C399AA9008EE7BD /* icon_info3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88595B1C399AA9008EE7BD /* icon_info3.png */; };
@@ -1082,6 +1062,40 @@
 		DB8859651C399EB2008EE7BD /* icon_link2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859631C399EB2008EE7BD /* icon_link2.png */; };
 		DB8859681C39A362008EE7BD /* icon_search2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859671C39A362008EE7BD /* icon_search2.png */; };
 		DB8859691C39A362008EE7BD /* icon_search2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859671C39A362008EE7BD /* icon_search2.png */; };
+		DB8859701C39B75A008EE7BD /* Maya3D_320x480_(1x).png in Resources */ = {isa = PBXBuildFile; fileRef = DB88596B1C39B75A008EE7BD /* Maya3D_320x480_(1x).png */; };
+		DB8859711C39B75A008EE7BD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88596C1C39B75A008EE7BD /* Icon.png */; };
+		DB88597C1C39BB7C008EE7BD /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859791C39BB7C008EE7BD /* Icon-Small.png */; };
+		DB88597D1C39BB7C008EE7BD /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88597A1C39BB7C008EE7BD /* Icon-Small@2x.png */; };
+		DB88597E1C39BB7C008EE7BD /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88597B1C39BB7C008EE7BD /* Icon-Small@3x.png */; };
+		DB8859821C39BB86008EE7BD /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88597F1C39BB86008EE7BD /* Icon-Small.png */; };
+		DB8859831C39BB86008EE7BD /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859801C39BB86008EE7BD /* Icon-Small@2x.png */; };
+		DB8859841C39BB86008EE7BD /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859811C39BB86008EE7BD /* Icon-Small@3x.png */; };
+		DB8859871C39BCA2008EE7BD /* Icon-Small-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859851C39BCA2008EE7BD /* Icon-Small-40@2x.png */; };
+		DB8859881C39BCA2008EE7BD /* Icon-Small-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859861C39BCA2008EE7BD /* Icon-Small-40@3x.png */; };
+		DB88598B1C39BCAC008EE7BD /* Icon-Small-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859891C39BCAC008EE7BD /* Icon-Small-40@2x.png */; };
+		DB88598C1C39BCAC008EE7BD /* Icon-Small-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88598A1C39BCAC008EE7BD /* Icon-Small-40@3x.png */; };
+		DB88598F1C39BD29008EE7BD /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88598D1C39BD29008EE7BD /* Icon-60@2x.png */; };
+		DB8859901C39BD29008EE7BD /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88598E1C39BD29008EE7BD /* Icon-60@3x.png */; };
+		DB8859931C39BD59008EE7BD /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859911C39BD59008EE7BD /* Icon-60@2x.png */; };
+		DB8859941C39BD59008EE7BD /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859921C39BD59008EE7BD /* Icon-60@3x.png */; };
+		DB8859951C39C22C008EE7BD /* Images-Kin3D.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB8859751C39B915008EE7BD /* Images-Kin3D.xcassets */; };
+		DB8859961C39C22F008EE7BD /* Images-Maya3D.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842C76081C24E41D006FFB61 /* Images-Maya3D.xcassets */; };
+		DB8859981C39C79B008EE7BD /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859971C39C79B008EE7BD /* Icon@2x.png */; };
+		DB88599A1C39C7BC008EE7BD /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859991C39C7BC008EE7BD /* Icon@2x.png */; };
+		DB88599F1C39CD24008EE7BD /* Kin3D_640_960_(2x).png in Resources */ = {isa = PBXBuildFile; fileRef = DB88599B1C39CD24008EE7BD /* Kin3D_640_960_(2x).png */; };
+		DB8859A01C39CD24008EE7BD /* Kin3D_640_1136_(R4).png in Resources */ = {isa = PBXBuildFile; fileRef = DB88599C1C39CD24008EE7BD /* Kin3D_640_1136_(R4).png */; };
+		DB8859A11C39CD24008EE7BD /* Kin3D_750_1334_(4.7).png in Resources */ = {isa = PBXBuildFile; fileRef = DB88599D1C39CD24008EE7BD /* Kin3D_750_1334_(4.7).png */; };
+		DB8859A21C39CD24008EE7BD /* Kin3D_1242_2208_(5.5).png in Resources */ = {isa = PBXBuildFile; fileRef = DB88599E1C39CD24008EE7BD /* Kin3D_1242_2208_(5.5).png */; };
+		DB8859A81C39CD32008EE7BD /* Maya3D_640_960_(2x).png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859A31C39CD32008EE7BD /* Maya3D_640_960_(2x).png */; };
+		DB8859A91C39CD32008EE7BD /* Maya3D_640_1136_(R4).png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859A41C39CD32008EE7BD /* Maya3D_640_1136_(R4).png */; };
+		DB8859AA1C39CD32008EE7BD /* Maya3D_750_1334_(4.7).png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859A51C39CD32008EE7BD /* Maya3D_750_1334_(4.7).png */; };
+		DB8859AB1C39CD32008EE7BD /* Maya3D_1242_2208_(5.5).png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859A61C39CD32008EE7BD /* Maya3D_1242_2208_(5.5).png */; };
+		DB8859AE1C39D880008EE7BD /* tabbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859AD1C39D880008EE7BD /* tabbar_bg.png */; };
+		DB8859AF1C39D880008EE7BD /* tabbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859AD1C39D880008EE7BD /* tabbar_bg.png */; };
+		DB8859B11C39DF03008EE7BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8859B01C39DF03008EE7BD /* LaunchScreen.storyboard */; };
+		DB8859B21C39DF03008EE7BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8859B01C39DF03008EE7BD /* LaunchScreen.storyboard */; };
+		DBC649731C39EE8D00D3EE87 /* avante_1024_black.png in Resources */ = {isa = PBXBuildFile; fileRef = DBC649721C39EE8D00D3EE87 /* avante_1024_black.png */; };
+		DBC649741C39EE8D00D3EE87 /* avante_1024_black.png in Resources */ = {isa = PBXBuildFile; fileRef = DBC649721C39EE8D00D3EE87 /* avante_1024_black.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1124,7 +1138,7 @@
 		842C75FC1C24E41C006FFB61 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		842C75FD1C24E41C006FFB61 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		842C76001C24E41C006FFB61 /* Maya3D.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Maya3D.xcdatamodel; sourceTree = "<group>"; };
-		842C76081C24E41D006FFB61 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		842C76081C24E41D006FFB61 /* Images-Maya3D.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-Maya3D.xcassets"; sourceTree = "<group>"; };
 		842C76111C24E41E006FFB61 /* Maya3DTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Maya3DTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		842C76161C24E41E006FFB61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		842C76171C24E41E006FFB61 /* Maya3DTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Maya3DTests.m; sourceTree = "<group>"; };
@@ -1665,16 +1679,8 @@
 		842C7A291C24E727006FFB61 /* saved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = saved.wav; path = Sounds/saved.wav; sourceTree = "<group>"; };
 		842C7A2A1C24E727006FFB61 /* tick-loud.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "tick-loud.wav"; path = "Sounds/tick-loud.wav"; sourceTree = "<group>"; };
 		842C7A2B1C24E727006FFB61 /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = tick.wav; path = Sounds/tick.wav; sourceTree = "<group>"; };
-		842C7A321C24E7C0006FFB61 /* Kin3D_Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kin3D_Default.png; sourceTree = "<group>"; };
+		842C7A321C24E7C0006FFB61 /* Kin3D_320x480_(1x).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kin3D_320x480_(1x).png"; sourceTree = "<group>"; };
 		842C7A331C24E7C0006FFB61 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		842C7A341C24E7C0006FFB61 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		842C7A351C24E7C0006FFB61 /* Icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon~ipad.png"; sourceTree = "<group>"; };
-		842C7A361C24E7C0006FFB61 /* Icon~ipad@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon~ipad@x2.png"; sourceTree = "<group>"; };
-		842C7A4E1C24E7E4006FFB61 /* 3D_Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3D_Default.png; path = Resources/3D_Default.png; sourceTree = "<group>"; };
-		842C7A4F1C24E7E4006FFB61 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
-		842C7A501C24E7E4006FFB61 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
-		842C7A511C24E7E4006FFB61 /* Icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon~ipad.png"; path = "Resources/Icon~ipad.png"; sourceTree = "<group>"; };
-		842C7A521C24E7E4006FFB61 /* Icon~ipad@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon~ipad@x2.png"; path = "Resources/Icon~ipad@x2.png"; sourceTree = "<group>"; };
 		842C7A5A1C24E816006FFB61 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = Localizable.strings; sourceTree = "<group>"; };
 		842C7A5C1C24E816006FFB61 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = TzDatebookView.xib; sourceTree = "<group>"; };
 		842C7A5E1C24E816006FFB61 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = TzSettingsView.xib; sourceTree = "<group>"; };
@@ -1682,7 +1688,6 @@
 		842C7A621C24E817006FFB61 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		842C7A641C24E817006FFB61 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = TzDatebookView.xib; sourceTree = "<group>"; };
 		842C7A661C24E817006FFB61 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = TzSettingsView.xib; sourceTree = "<group>"; };
-		842C7A671C24E817006FFB61 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iTunesArtwork.png; path = Resources/iTunesArtwork.png; sourceTree = "<group>"; };
 		842C7A681C24E817006FFB61 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = Resources/MainWindow.xib; sourceTree = "<group>"; };
 		842C7A6D1C24E817006FFB61 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = Localizable.strings; sourceTree = "<group>"; };
 		842C7A6F1C24E817006FFB61 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = TzDatebookView.xib; sourceTree = "<group>"; };
@@ -1703,7 +1708,7 @@
 		842C7A9A1C24E8CD006FFB61 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		842C7A9C1C24E8DB006FFB61 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		842C7A9F1C24ED91006FFB61 /* Maya3D_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Maya3D_Prefix.pch; sourceTree = SOURCE_ROOT; };
-		846B65361C272B850013B0B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		846B65361C272B850013B0B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen_Maya3D.xib; sourceTree = "<group>"; };
 		846B6BD41C27406E0013B0B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen_Kin3D.xib; sourceTree = "<group>"; };
 		DB8859581C3989AA008EE7BD /* Kin3D-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Kin3D-Info.plist"; path = "Resources/Kin3D-Info.plist"; sourceTree = "<group>"; };
 		DB8859591C3989AA008EE7BD /* Maya3D-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Maya3D-Info.plist"; path = "Resources/Maya3D-Info.plist"; sourceTree = "<group>"; };
@@ -1711,6 +1716,36 @@
 		DB88595F1C399BF0008EE7BD /* icon_settings2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_settings2.png; sourceTree = "<group>"; };
 		DB8859631C399EB2008EE7BD /* icon_link2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_link2.png; sourceTree = "<group>"; };
 		DB8859671C39A362008EE7BD /* icon_search2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_search2.png; sourceTree = "<group>"; };
+		DB88596B1C39B75A008EE7BD /* Maya3D_320x480_(1x).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Maya3D_320x480_(1x).png"; path = "Maya3D/Maya3D_320x480_(1x).png"; sourceTree = "<group>"; };
+		DB88596C1C39B75A008EE7BD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Maya3D/Icon.png; sourceTree = "<group>"; };
+		DB8859751C39B915008EE7BD /* Images-Kin3D.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-Kin3D.xcassets"; sourceTree = "<group>"; };
+		DB8859791C39BB7C008EE7BD /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		DB88597A1C39BB7C008EE7BD /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		DB88597B1C39BB7C008EE7BD /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
+		DB88597F1C39BB86008EE7BD /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Maya3D/Icon-Small.png"; sourceTree = "<group>"; };
+		DB8859801C39BB86008EE7BD /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Maya3D/Icon-Small@2x.png"; sourceTree = "<group>"; };
+		DB8859811C39BB86008EE7BD /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@3x.png"; path = "Maya3D/Icon-Small@3x.png"; sourceTree = "<group>"; };
+		DB8859851C39BCA2008EE7BD /* Icon-Small-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40@2x.png"; sourceTree = "<group>"; };
+		DB8859861C39BCA2008EE7BD /* Icon-Small-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40@3x.png"; sourceTree = "<group>"; };
+		DB8859891C39BCAC008EE7BD /* Icon-Small-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-40@2x.png"; path = "Maya3D/Icon-Small-40@2x.png"; sourceTree = "<group>"; };
+		DB88598A1C39BCAC008EE7BD /* Icon-Small-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-40@3x.png"; path = "Maya3D/Icon-Small-40@3x.png"; sourceTree = "<group>"; };
+		DB88598D1C39BD29008EE7BD /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60@2x.png"; path = "Maya3D/Icon-60@2x.png"; sourceTree = "<group>"; };
+		DB88598E1C39BD29008EE7BD /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60@3x.png"; path = "Maya3D/Icon-60@3x.png"; sourceTree = "<group>"; };
+		DB8859911C39BD59008EE7BD /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		DB8859921C39BD59008EE7BD /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
+		DB8859971C39C79B008EE7BD /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Maya3D/Icon@2x.png"; sourceTree = "<group>"; };
+		DB8859991C39C7BC008EE7BD /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		DB88599B1C39CD24008EE7BD /* Kin3D_640_960_(2x).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kin3D_640_960_(2x).png"; sourceTree = "<group>"; };
+		DB88599C1C39CD24008EE7BD /* Kin3D_640_1136_(R4).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kin3D_640_1136_(R4).png"; sourceTree = "<group>"; };
+		DB88599D1C39CD24008EE7BD /* Kin3D_750_1334_(4.7).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kin3D_750_1334_(4.7).png"; sourceTree = "<group>"; };
+		DB88599E1C39CD24008EE7BD /* Kin3D_1242_2208_(5.5).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kin3D_1242_2208_(5.5).png"; sourceTree = "<group>"; };
+		DB8859A31C39CD32008EE7BD /* Maya3D_640_960_(2x).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Maya3D_640_960_(2x).png"; path = "Maya3D/Maya3D_640_960_(2x).png"; sourceTree = "<group>"; };
+		DB8859A41C39CD32008EE7BD /* Maya3D_640_1136_(R4).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Maya3D_640_1136_(R4).png"; path = "Maya3D/Maya3D_640_1136_(R4).png"; sourceTree = "<group>"; };
+		DB8859A51C39CD32008EE7BD /* Maya3D_750_1334_(4.7).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Maya3D_750_1334_(4.7).png"; path = "Maya3D/Maya3D_750_1334_(4.7).png"; sourceTree = "<group>"; };
+		DB8859A61C39CD32008EE7BD /* Maya3D_1242_2208_(5.5).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Maya3D_1242_2208_(5.5).png"; path = "Maya3D/Maya3D_1242_2208_(5.5).png"; sourceTree = "<group>"; };
+		DB8859AD1C39D880008EE7BD /* tabbar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_bg.png; sourceTree = "<group>"; };
+		DB8859B01C39DF03008EE7BD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DBC649721C39EE8D00D3EE87 /* avante_1024_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avante_1024_black.png; path = Images/avante_1024_black.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1798,16 +1833,8 @@
 				842C76261C24E5C1006FFB61 /* Images */,
 				842C76271C24E5CA006FFB61 /* Sounds */,
 				842C76281C24E5D5006FFB61 /* Resources */,
-				842C75F81C24E41C006FFB61 /* Supporting Files */,
 			);
 			path = Maya3D;
-			sourceTree = "<group>";
-		};
-		842C75F81C24E41C006FFB61 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		842C76141C24E41E006FFB61 /* Maya3DTests */ = {
@@ -1981,23 +2008,25 @@
 		842C76281C24E5D5006FFB61 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DBC649721C39EE8D00D3EE87 /* avante_1024_black.png */,
 				842C7A4D1C24E7CA006FFB61 /* Maya3D */,
 				842C7A311C24E7C0006FFB61 /* Kin3D */,
 				842C7A6B1C24E817006FFB61 /* pt.lproj */,
 				842C7A601C24E817006FFB61 /* es.lproj */,
 				842C7A581C24E816006FFB61 /* English.lproj */,
-				842C7A671C24E817006FFB61 /* iTunesArtwork.png */,
 				842C7A5F1C24E817006FFB61 /* Entitlements.plist */,
 				DB8859581C3989AA008EE7BD /* Kin3D-Info.plist */,
 				DB8859591C3989AA008EE7BD /* Maya3D-Info.plist */,
+				DB8859B01C39DF03008EE7BD /* LaunchScreen.storyboard */,
+				846B65351C272B850013B0B8 /* LaunchScreen_Maya3D.xib */,
 				846B6BD31C27406E0013B0B8 /* LaunchScreen_Kin3D.xib */,
-				846B65351C272B850013B0B8 /* LaunchScreen.xib */,
 				842C7A681C24E817006FFB61 /* MainWindow.xib */,
 				842C7A721C24E817006FFB61 /* TzDateAddView.xib */,
 				842C7A731C24E817006FFB61 /* TzFullView.xib */,
 				842C7A741C24E817006FFB61 /* TzTabView.xib */,
 				842C75FF1C24E41C006FFB61 /* Maya3D.xcdatamodeld */,
-				842C76081C24E41D006FFB61 /* Images.xcassets */,
+				842C76081C24E41D006FFB61 /* Images-Maya3D.xcassets */,
+				DB8859751C39B915008EE7BD /* Images-Kin3D.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2187,6 +2216,7 @@
 				842C77521C24E6E8006FFB61 /* shot_trailer.png */,
 				842C77531C24E6E8006FFB61 /* shot_trailer_dreamspell.png */,
 				842C77541C24E6E8006FFB61 /* splash_map.png */,
+				DB8859AD1C39D880008EE7BD /* tabbar_bg.png */,
 				842C77551C24E6E8006FFB61 /* thumbs_down.png */,
 				842C77561C24E6E8006FFB61 /* thumbs_up.png */,
 			);
@@ -2495,11 +2525,20 @@
 		842C7A311C24E7C0006FFB61 /* Kin3D */ = {
 			isa = PBXGroup;
 			children = (
-				842C7A321C24E7C0006FFB61 /* Kin3D_Default.png */,
+				842C7A321C24E7C0006FFB61 /* Kin3D_320x480_(1x).png */,
+				DB88599B1C39CD24008EE7BD /* Kin3D_640_960_(2x).png */,
+				DB88599C1C39CD24008EE7BD /* Kin3D_640_1136_(R4).png */,
+				DB88599D1C39CD24008EE7BD /* Kin3D_750_1334_(4.7).png */,
+				DB88599E1C39CD24008EE7BD /* Kin3D_1242_2208_(5.5).png */,
+				DB8859791C39BB7C008EE7BD /* Icon-Small.png */,
+				DB88597A1C39BB7C008EE7BD /* Icon-Small@2x.png */,
+				DB88597B1C39BB7C008EE7BD /* Icon-Small@3x.png */,
+				DB8859851C39BCA2008EE7BD /* Icon-Small-40@2x.png */,
+				DB8859861C39BCA2008EE7BD /* Icon-Small-40@3x.png */,
 				842C7A331C24E7C0006FFB61 /* Icon.png */,
-				842C7A341C24E7C0006FFB61 /* Icon@2x.png */,
-				842C7A351C24E7C0006FFB61 /* Icon~ipad.png */,
-				842C7A361C24E7C0006FFB61 /* Icon~ipad@x2.png */,
+				DB8859991C39C7BC008EE7BD /* Icon@2x.png */,
+				DB8859911C39BD59008EE7BD /* Icon-60@2x.png */,
+				DB8859921C39BD59008EE7BD /* Icon-60@3x.png */,
 			);
 			path = Kin3D;
 			sourceTree = "<group>";
@@ -2507,11 +2546,20 @@
 		842C7A4D1C24E7CA006FFB61 /* Maya3D */ = {
 			isa = PBXGroup;
 			children = (
-				842C7A4E1C24E7E4006FFB61 /* 3D_Default.png */,
-				842C7A4F1C24E7E4006FFB61 /* Icon.png */,
-				842C7A501C24E7E4006FFB61 /* Icon@2x.png */,
-				842C7A511C24E7E4006FFB61 /* Icon~ipad.png */,
-				842C7A521C24E7E4006FFB61 /* Icon~ipad@x2.png */,
+				DB88596B1C39B75A008EE7BD /* Maya3D_320x480_(1x).png */,
+				DB8859A31C39CD32008EE7BD /* Maya3D_640_960_(2x).png */,
+				DB8859A41C39CD32008EE7BD /* Maya3D_640_1136_(R4).png */,
+				DB8859A51C39CD32008EE7BD /* Maya3D_750_1334_(4.7).png */,
+				DB8859A61C39CD32008EE7BD /* Maya3D_1242_2208_(5.5).png */,
+				DB88597F1C39BB86008EE7BD /* Icon-Small.png */,
+				DB8859801C39BB86008EE7BD /* Icon-Small@2x.png */,
+				DB8859811C39BB86008EE7BD /* Icon-Small@3x.png */,
+				DB8859891C39BCAC008EE7BD /* Icon-Small-40@2x.png */,
+				DB88598A1C39BCAC008EE7BD /* Icon-Small-40@3x.png */,
+				DB88596C1C39B75A008EE7BD /* Icon.png */,
+				DB8859971C39C79B008EE7BD /* Icon@2x.png */,
+				DB88598D1C39BD29008EE7BD /* Icon-60@2x.png */,
+				DB88598E1C39BD29008EE7BD /* Icon-60@3x.png */,
 			);
 			name = Maya3D;
 			sourceTree = "<group>";
@@ -2716,7 +2764,6 @@
 				84024B6D1C2873E600046204 /* moon02.png in Resources */,
 				84024B6E1C2873E600046204 /* num20.png in Resources */,
 				84024B6F1C2873E600046204 /* uinal16.png in Resources */,
-				84024B701C2873E600046204 /* 3D_Default.png in Resources */,
 				84024B711C2873E600046204 /* numbig15.png in Resources */,
 				84024B721C2873E600046204 /* uinal08.png in Resources */,
 				84024B731C2873E600046204 /* moon18.png in Resources */,
@@ -2728,9 +2775,12 @@
 				84024B781C2873E600046204 /* num16.png in Resources */,
 				84024B791C2873E600046204 /* tzolkin_module-es.png in Resources */,
 				84024B7A1C2873E600046204 /* moon21.png in Resources */,
+				DB88597C1C39BB7C008EE7BD /* Icon-Small.png in Resources */,
 				84024B7B1C2873E600046204 /* Icon.png in Resources */,
 				84024B7C1C2873E600046204 /* numside03.png in Resources */,
+				DB8859881C39BCA2008EE7BD /* Icon-Small-40@3x.png in Resources */,
 				84024B7D1C2873E600046204 /* buts_settings-en.png in Resources */,
+				DB8859941C39BD59008EE7BD /* Icon-60@3x.png in Resources */,
 				84024B7E1C2873E600046204 /* 3d_maya.png in Resources */,
 				84024B7F1C2873E600046204 /* numside11.png in Resources */,
 				84024B801C2873E600046204 /* moon26.png in Resources */,
@@ -2774,7 +2824,7 @@
 				84024BA81C2873E600046204 /* seal19.png in Resources */,
 				84024BA91C2873E600046204 /* tab_datebook-es.png in Resources */,
 				84024BAA1C2873E600046204 /* tab_kin.png in Resources */,
-				84024BAB1C2873E600046204 /* Kin3D_Default.png in Resources */,
+				84024BAB1C2873E600046204 /* Kin3D_320x480_(1x).png in Resources */,
 				84024BAC1C2873E600046204 /* numbig08.png in Resources */,
 				84024BAD1C2873E600046204 /* icon_fullscreen.png in Resources */,
 				84024BAE1C2873E600046204 /* plasma5.png in Resources */,
@@ -2818,7 +2868,7 @@
 				84024BD51C2873E600046204 /* tzday08.png in Resources */,
 				84024BD61C2873E600046204 /* icon_clock_pause.png in Resources */,
 				84024BD71C2873E600046204 /* maya_glyph-es.png in Resources */,
-				84024BD81C2873E600046204 /* LaunchScreen.xib in Resources */,
+				84024BD81C2873E600046204 /* LaunchScreen_Maya3D.xib in Resources */,
 				84024BD91C2873E600046204 /* icon_search.png in Resources */,
 				84024BDA1C2873E600046204 /* numbig03i.png in Resources */,
 				84024BDB1C2873E600046204 /* seal10.png in Resources */,
@@ -2834,6 +2884,7 @@
 				84024BE61C2873E600046204 /* long_count_long-es.png in Resources */,
 				84024BE71C2873E600046204 /* TzDatebookView.xib in Resources */,
 				84024BE81C2873E600046204 /* but_clock_playgear.png in Resources */,
+				DB8859AF1C39D880008EE7BD /* tabbar_bg.png in Resources */,
 				84024BE91C2873E600046204 /* num19.png in Resources */,
 				84024BEA1C2873E600046204 /* moon05.png in Resources */,
 				84024BEB1C2873E600046204 /* buts_clock_play-en.png in Resources */,
@@ -2874,7 +2925,6 @@
 				84024C0D1C2873E600046204 /* roller.png in Resources */,
 				84024C0E1C2873E600046204 /* gear_dente_top.png in Resources */,
 				84024C0F1C2873E600046204 /* TzDateAddView.xib in Resources */,
-				84024C101C2873E600046204 /* Icon~ipad@x2.png in Resources */,
 				84024C111C2873E600046204 /* explorer-pt.png in Resources */,
 				84024C121C2873E600046204 /* numglyph14.png in Resources */,
 				84024C131C2873E600046204 /* num00.png in Resources */,
@@ -2891,7 +2941,6 @@
 				84024C1D1C2873E600046204 /* seal11.png in Resources */,
 				84024C1E1C2873E600046204 /* tab_glyph-en.png in Resources */,
 				84024C1F1C2873E600046204 /* oracle_seal-pt.png in Resources */,
-				84024C201C2873E600046204 /* iTunesArtwork.png in Resources */,
 				84024C211C2873E600046204 /* numside19.png in Resources */,
 				84024C221C2873E600046204 /* tzday16.png in Resources */,
 				84024C231C2873E600046204 /* tzday02.png in Resources */,
@@ -2911,12 +2960,12 @@
 				84024C311C2873E600046204 /* but_clock_pause.png in Resources */,
 				84024C321C2873E600046204 /* kin_oracle-es.png in Resources */,
 				84024C331C2873E600046204 /* tabs_explorer-pt.png in Resources */,
-				84024C341C2873E600046204 /* Icon@2x.png in Resources */,
 				84024C351C2873E600046204 /* but_edit.png in Resources */,
 				84024C361C2873E600046204 /* shot_trailer.png in Resources */,
 				84024C371C2873E600046204 /* kin_oracle-en.png in Resources */,
 				84024C381C2873E600046204 /* seals-en.png in Resources */,
 				84024C391C2873E600046204 /* plasma0.png in Resources */,
+				DB88599F1C39CD24008EE7BD /* Kin3D_640_960_(2x).png in Resources */,
 				84024C3A1C2873E600046204 /* numside01.png in Resources */,
 				84024C3B1C2873E600046204 /* numbig13.png in Resources */,
 				84024C3C1C2873E600046204 /* isig09.png in Resources */,
@@ -2929,19 +2978,15 @@
 				84024C431C2873E600046204 /* Entitlements.plist in Resources */,
 				84024C441C2873E600046204 /* tabs_dreamspell-pt.png in Resources */,
 				84024C451C2873E600046204 /* tzday07.png in Resources */,
-				84024C461C2873E600046204 /* Icon~ipad.png in Resources */,
 				84024C471C2873E600046204 /* buts_fullscreen-pt.png in Resources */,
 				84024C481C2873E600046204 /* uinal11.png in Resources */,
 				84024C491C2873E600046204 /* numbig16.png in Resources */,
 				84024C4A1C2873E600046204 /* but_picker.png in Resources */,
 				84024C4B1C2873E600046204 /* tabs_maya-es.png in Resources */,
-				84024C4C1C2873E600046204 /* Images.xcassets in Resources */,
 				84024C4D1C2873E600046204 /* kin_plasma-pt.png in Resources */,
 				84024C4E1C2873E600046204 /* tzolkin_days.png in Resources */,
 				84024C4F1C2873E600046204 /* moon19.png in Resources */,
-				84024C501C2873E600046204 /* Icon~ipad@x2.png in Resources */,
 				84024C511C2873E600046204 /* num01.png in Resources */,
-				84024C521C2873E600046204 /* Icon.png in Resources */,
 				84024C531C2873E600046204 /* maya_numbers.png in Resources */,
 				84024C541C2873E600046204 /* num06.png in Resources */,
 				84024C551C2873E600046204 /* kin_plasma-en.png in Resources */,
@@ -2975,11 +3020,13 @@
 				84024C721C2873E600046204 /* kin_affirm-es.png in Resources */,
 				84024C731C2873E600046204 /* iphone_ruler.png in Resources */,
 				84024C741C2873E600046204 /* numglyph19.png in Resources */,
+				DB8859B21C39DF03008EE7BD /* LaunchScreen.storyboard in Resources */,
 				84024C751C2873E600046204 /* oracle_color-es.png in Resources */,
 				84024C761C2873E600046204 /* numbig20.png in Resources */,
 				84024C771C2873E600046204 /* news_dreamspell_O.png in Resources */,
 				84024C781C2873E600046204 /* tab_oracle-es.png in Resources */,
 				84024C791C2873E600046204 /* uinal15.png in Resources */,
+				DB88599A1C39C7BC008EE7BD /* Icon@2x.png in Resources */,
 				84024C7A1C2873E600046204 /* gear_strip.png in Resources */,
 				84024C7B1C2873E600046204 /* numbig07.png in Resources */,
 				84024C7C1C2873E600046204 /* isig10.png in Resources */,
@@ -2996,6 +3043,7 @@
 				84024C881C2873E600046204 /* maya_oracle_year-en.png in Resources */,
 				84024C891C2873E600046204 /* inter-grav.png in Resources */,
 				84024C8A1C2873E600046204 /* kin_map2.png in Resources */,
+				DB8859A01C39CD24008EE7BD /* Kin3D_640_1136_(R4).png in Resources */,
 				84024C8B1C2873E600046204 /* isig04.png in Resources */,
 				84024C8C1C2873E600046204 /* buts_datebook_add-en.png in Resources */,
 				84024C8D1C2873E600046204 /* numbig01.png in Resources */,
@@ -3007,6 +3055,7 @@
 				84024C931C2873E600046204 /* roller_cell.png in Resources */,
 				84024C941C2873E600046204 /* numbig06i.png in Resources */,
 				84024C951C2873E600046204 /* long_count_long-pt.png in Resources */,
+				DB8859871C39BCA2008EE7BD /* Icon-Small-40@2x.png in Resources */,
 				84024C961C2873E600046204 /* seal17.png in Resources */,
 				84024C971C2873E600046204 /* news_maya_O.png in Resources */,
 				84024C981C2873E600046204 /* but_settings.png in Resources */,
@@ -3015,7 +3064,6 @@
 				84024C9C1C2873E600046204 /* uinal01.png in Resources */,
 				84024C9D1C2873E600046204 /* num04.png in Resources */,
 				84024C9E1C2873E600046204 /* maya_oracle_year-es.png in Resources */,
-				84024C9F1C2873E600046204 /* Icon~ipad.png in Resources */,
 				84024CA01C2873E600046204 /* 3d_dreamspell.png in Resources */,
 				84024CA11C2873E600046204 /* numbig10i.png in Resources */,
 				84024CA21C2873E600046204 /* uinal05.png in Resources */,
@@ -3023,7 +3071,9 @@
 				84024CA41C2873E600046204 /* plasma6.png in Resources */,
 				84024CA51C2873E600046204 /* numbig08i.png in Resources */,
 				84024CA61C2873E600046204 /* portal_on.png in Resources */,
+				DB88597E1C39BB7C008EE7BD /* Icon-Small@3x.png in Resources */,
 				84024CA71C2873E600046204 /* moon16.png in Resources */,
+				DB8859951C39C22C008EE7BD /* Images-Kin3D.xcassets in Resources */,
 				84024CA81C2873E600046204 /* TzSettingsView.xib in Resources */,
 				84024CA91C2873E600046204 /* moon04.png in Resources */,
 				84024CAA1C2873E600046204 /* moon03.png in Resources */,
@@ -3046,6 +3096,7 @@
 				84024CBC1C2873E600046204 /* tzday19.png in Resources */,
 				84024CBD1C2873E600046204 /* moon12.png in Resources */,
 				84024CBE1C2873E600046204 /* numside17.png in Resources */,
+				DB88597D1C39BB7C008EE7BD /* Icon-Small@2x.png in Resources */,
 				84024CBF1C2873E600046204 /* num07.png in Resources */,
 				84024CC01C2873E600046204 /* numbig17.png in Resources */,
 				84024CC11C2873E600046204 /* numside10.png in Resources */,
@@ -3063,16 +3114,17 @@
 				84024CCD1C2873E600046204 /* numglyph09.png in Resources */,
 				84024CCE1C2873E600046204 /* LaunchScreen_Kin3D.xib in Resources */,
 				84024CCF1C2873E600046204 /* news_maya_W.png in Resources */,
-				84024CD01C2873E600046204 /* Icon@2x.png in Resources */,
 				84024CD11C2873E600046204 /* tones-pt.png in Resources */,
 				84024CD21C2873E600046204 /* MainWindow.xib in Resources */,
 				84024CD31C2873E600046204 /* tick-loud.wav in Resources */,
 				84024CD41C2873E600046204 /* tzday05.png in Resources */,
+				DB8859A21C39CD24008EE7BD /* Kin3D_1242_2208_(5.5).png in Resources */,
 				84024CD51C2873E600046204 /* tzolkin_module-en.png in Resources */,
 				84024CD61C2873E600046204 /* lords_map.png in Resources */,
 				84024CD71C2873E600046204 /* num18.png in Resources */,
 				84024CD81C2873E600046204 /* icon_playback.png in Resources */,
 				84024CD91C2873E600046204 /* uinal07.png in Resources */,
+				DB8859A11C39CD24008EE7BD /* Kin3D_750_1334_(4.7).png in Resources */,
 				84024CDA1C2873E600046204 /* numbig05i.png in Resources */,
 				84024CDB1C2873E600046204 /* uinal12.png in Resources */,
 				84024CDC1C2873E600046204 /* numside05.png in Resources */,
@@ -3084,6 +3136,7 @@
 				84024CE31C2873E600046204 /* tab_glyph-es.png in Resources */,
 				84024CE41C2873E600046204 /* oracle_tone-pt.png in Resources */,
 				84024CE51C2873E600046204 /* numglyph04.png in Resources */,
+				DB8859931C39BD59008EE7BD /* Icon-60@2x.png in Resources */,
 				84024CE61C2873E600046204 /* but_select-es.png in Resources */,
 				84024CE71C2873E600046204 /* icon_oracle.png in Resources */,
 				84024CE81C2873E600046204 /* numbig14.png in Resources */,
@@ -3118,6 +3171,7 @@
 				84024D041C2873E600046204 /* oracle_moon-en.png in Resources */,
 				84024D051C2873E600046204 /* numbig02i.png in Resources */,
 				84024D061C2873E600046204 /* tzday01.png in Resources */,
+				DBC649741C39EE8D00D3EE87 /* avante_1024_black.png in Resources */,
 				84024D071C2873E600046204 /* news_dreamspell_S.png in Resources */,
 				84024D081C2873E600046204 /* seal09.png in Resources */,
 				84024D091C2873E600046204 /* plasmas.png in Resources */,
@@ -3179,7 +3233,9 @@
 				842C79F21C24E6E9006FFB61 /* numglyph08.png in Resources */,
 				842C789F1C24E6E9006FFB61 /* moon08.png in Resources */,
 				842C78DD1C24E6E9006FFB61 /* numbig09.png in Resources */,
+				DB8859901C39BD29008EE7BD /* Icon-60@3x.png in Resources */,
 				842C79DA1C24E6E9006FFB61 /* lord_G1.png in Resources */,
+				DB88598B1C39BCAC008EE7BD /* Icon-Small-40@2x.png in Resources */,
 				842C79491C24E6E9006FFB61 /* kin_plasma-es.png in Resources */,
 				842C79B31C24E6E9006FFB61 /* seal08.png in Resources */,
 				842C787B1C24E6E9006FFB61 /* icon_clock.png in Resources */,
@@ -3199,7 +3255,6 @@
 				842C78991C24E6E9006FFB61 /* moon02.png in Resources */,
 				842C78C81C24E6E9006FFB61 /* num20.png in Resources */,
 				842C7A231C24E6E9006FFB61 /* uinal16.png in Resources */,
-				842C7A531C24E7E4006FFB61 /* 3D_Default.png in Resources */,
 				842C78E91C24E6E9006FFB61 /* numbig15.png in Resources */,
 				842C7A1B1C24E6E9006FFB61 /* uinal08.png in Resources */,
 				842C78A91C24E6E9006FFB61 /* moon18.png in Resources */,
@@ -3228,6 +3283,7 @@
 				842C797B1C24E6E9006FFB61 /* tab_explorer-pt.png in Resources */,
 				842C790F1C24E6E9006FFB61 /* thumbs_down.png in Resources */,
 				842C78951C24E6E9006FFB61 /* icon_settings.png in Resources */,
+				DB8859B11C39DF03008EE7BD /* LaunchScreen.storyboard in Resources */,
 				842C79031C24E6E9006FFB61 /* numside14.png in Resources */,
 				842C78DE1C24E6E9006FFB61 /* numbig09i.png in Resources */,
 				842C79A21C24E6E9006FFB61 /* plasma1.png in Resources */,
@@ -3257,7 +3313,7 @@
 				842C79BE1C24E6E9006FFB61 /* seal19.png in Resources */,
 				842C79771C24E6E9006FFB61 /* tab_datebook-es.png in Resources */,
 				842C797F1C24E6E9006FFB61 /* tab_kin.png in Resources */,
-				842C7A401C24E7C0006FFB61 /* Kin3D_Default.png in Resources */,
+				842C7A401C24E7C0006FFB61 /* Kin3D_320x480_(1x).png in Resources */,
 				842C78DB1C24E6E9006FFB61 /* numbig08.png in Resources */,
 				842C78821C24E6E9006FFB61 /* icon_fullscreen.png in Resources */,
 				842C79A61C24E6E9006FFB61 /* plasma5.png in Resources */,
@@ -3270,6 +3326,7 @@
 				842C79EA1C24E6E9006FFB61 /* numglyph00.png in Resources */,
 				842C79F61C24E6E9006FFB61 /* numglyph12.png in Resources */,
 				842C78D51C24E6E9006FFB61 /* numbig05.png in Resources */,
+				DB88598F1C39BD29008EE7BD /* Icon-60@2x.png in Resources */,
 				842C793E1C24E6E9006FFB61 /* gregorian-en.png in Resources */,
 				842C78BD1C24E6E9006FFB61 /* num09.png in Resources */,
 				842C78871C24E6E9006FFB61 /* icon_info2.png in Resources */,
@@ -3281,6 +3338,7 @@
 				842C78711C24E6E9006FFB61 /* buttonTemplateUp.png in Resources */,
 				842C79E41C24E6E9006FFB61 /* news_maya_E.png in Resources */,
 				842C79F41C24E6E9006FFB61 /* numglyph10.png in Resources */,
+				DB88598C1C39BCAC008EE7BD /* Icon-Small-40@3x.png in Resources */,
 				842C79681C24E6E9006FFB61 /* oracle_seal-es.png in Resources */,
 				842C788C1C24E6E9006FFB61 /* icon_pause_big.png in Resources */,
 				842C79021C24E6E9006FFB61 /* numside13.png in Resources */,
@@ -3301,9 +3359,11 @@
 				842C7A051C24E6E9006FFB61 /* tzday08.png in Resources */,
 				842C787C1C24E6E9006FFB61 /* icon_clock_pause.png in Resources */,
 				842C79571C24E6E9006FFB61 /* maya_glyph-es.png in Resources */,
-				846B65371C272B850013B0B8 /* LaunchScreen.xib in Resources */,
+				846B65371C272B850013B0B8 /* LaunchScreen_Maya3D.xib in Resources */,
 				842C78941C24E6E9006FFB61 /* icon_search.png in Resources */,
 				842C78D21C24E6E9006FFB61 /* numbig03i.png in Resources */,
+				DB8859A91C39CD32008EE7BD /* Maya3D_640_1136_(R4).png in Resources */,
+				DB8859831C39BB86008EE7BD /* Icon-Small@2x.png in Resources */,
 				842C79B51C24E6E9006FFB61 /* seal10.png in Resources */,
 				842C79271C24E6E9006FFB61 /* buts_clock_play-es.png in Resources */,
 				842C7A031C24E6E9006FFB61 /* tzday06.png in Resources */,
@@ -3318,7 +3378,9 @@
 				842C7A761C24E817006FFB61 /* TzDatebookView.xib in Resources */,
 				842C79171C24E6E9006FFB61 /* but_clock_playgear.png in Resources */,
 				842C78C71C24E6E9006FFB61 /* num19.png in Resources */,
+				DB8859AB1C39CD32008EE7BD /* Maya3D_1242_2208_(5.5).png in Resources */,
 				842C789C1C24E6E9006FFB61 /* moon05.png in Resources */,
+				DB8859711C39B75A008EE7BD /* Icon.png in Resources */,
 				842C79261C24E6E9006FFB61 /* buts_clock_play-en.png in Resources */,
 				842C79D01C24E6E9006FFB61 /* isig14.png in Resources */,
 				842C79C01C24E6E9006FFB61 /* seal_map.png in Resources */,
@@ -3333,6 +3395,7 @@
 				DB8859601C399BF0008EE7BD /* icon_settings2.png in Resources */,
 				842C799C1C24E6E9006FFB61 /* news_dreamspell_L.png in Resources */,
 				842C798C1C24E6E9006FFB61 /* tones-en.png in Resources */,
+				DB8859A81C39CD32008EE7BD /* Maya3D_640_960_(2x).png in Resources */,
 				842C79211C24E6E9006FFB61 /* but_select-pt.png in Resources */,
 				842C78A21C24E6E9006FFB61 /* moon11.png in Resources */,
 				842C79741C24E6E9006FFB61 /* seals-pt.png in Resources */,
@@ -3357,7 +3420,6 @@
 				842C79711C24E6E9006FFB61 /* roller.png in Resources */,
 				842C78781C24E6E9006FFB61 /* gear_dente_top.png in Resources */,
 				842C7A831C24E817006FFB61 /* TzDateAddView.xib in Resources */,
-				842C7A441C24E7C0006FFB61 /* Icon~ipad@x2.png in Resources */,
 				842C793D1C24E6E9006FFB61 /* explorer-pt.png in Resources */,
 				842C79F81C24E6E9006FFB61 /* numglyph14.png in Resources */,
 				842C78B41C24E6E9006FFB61 /* num00.png in Resources */,
@@ -3374,7 +3436,6 @@
 				842C79B61C24E6E9006FFB61 /* seal11.png in Resources */,
 				842C797C1C24E6E9006FFB61 /* tab_glyph-en.png in Resources */,
 				842C79691C24E6E9006FFB61 /* oracle_seal-pt.png in Resources */,
-				842C7A7C1C24E817006FFB61 /* iTunesArtwork.png in Resources */,
 				842C79081C24E6E9006FFB61 /* numside19.png in Resources */,
 				842C7A0D1C24E6E9006FFB61 /* tzday16.png in Resources */,
 				842C79FF1C24E6E9006FFB61 /* tzday02.png in Resources */,
@@ -3394,7 +3455,6 @@
 				842C79141C24E6E9006FFB61 /* but_clock_pause.png in Resources */,
 				842C79461C24E6E9006FFB61 /* kin_oracle-es.png in Resources */,
 				842C79881C24E6E9006FFB61 /* tabs_explorer-pt.png in Resources */,
-				842C7A551C24E7E4006FFB61 /* Icon@2x.png in Resources */,
 				842C791B1C24E6E9006FFB61 /* but_edit.png in Resources */,
 				842C790C1C24E6E9006FFB61 /* shot_trailer.png in Resources */,
 				842C79451C24E6E9006FFB61 /* kin_oracle-en.png in Resources */,
@@ -3412,19 +3472,15 @@
 				842C7A781C24E817006FFB61 /* Entitlements.plist in Resources */,
 				842C79851C24E6E9006FFB61 /* tabs_dreamspell-pt.png in Resources */,
 				842C7A041C24E6E9006FFB61 /* tzday07.png in Resources */,
-				842C7A431C24E7C0006FFB61 /* Icon~ipad.png in Resources */,
 				842C79341C24E6E9006FFB61 /* buts_fullscreen-pt.png in Resources */,
 				842C7A1E1C24E6E9006FFB61 /* uinal11.png in Resources */,
 				842C78EB1C24E6E9006FFB61 /* numbig16.png in Resources */,
 				842C791D1C24E6E9006FFB61 /* but_picker.png in Resources */,
 				842C798A1C24E6E9006FFB61 /* tabs_maya-es.png in Resources */,
-				842C76091C24E41D006FFB61 /* Images.xcassets in Resources */,
 				842C794A1C24E6E9006FFB61 /* kin_plasma-pt.png in Resources */,
 				842C798F1C24E6E9006FFB61 /* tzolkin_days.png in Resources */,
 				842C78AA1C24E6E9006FFB61 /* moon19.png in Resources */,
-				842C7A571C24E7E4006FFB61 /* Icon~ipad@x2.png in Resources */,
 				842C78B51C24E6E9006FFB61 /* num01.png in Resources */,
-				842C7A541C24E7E4006FFB61 /* Icon.png in Resources */,
 				842C795A1C24E6E9006FFB61 /* maya_numbers.png in Resources */,
 				842C78BA1C24E6E9006FFB61 /* num06.png in Resources */,
 				842C79481C24E6E9006FFB61 /* kin_plasma-en.png in Resources */,
@@ -3456,6 +3512,7 @@
 				842C79991C24E6E9006FFB61 /* kin_map1.png in Resources */,
 				842C797E1C24E6E9006FFB61 /* tab_glyph-pt.png in Resources */,
 				842C79431C24E6E9006FFB61 /* kin_affirm-es.png in Resources */,
+				DB8859841C39BB86008EE7BD /* Icon-Small@3x.png in Resources */,
 				842C78971C24E6E9006FFB61 /* iphone_ruler.png in Resources */,
 				842C79FD1C24E6E9006FFB61 /* numglyph19.png in Resources */,
 				842C79621C24E6E9006FFB61 /* oracle_color-es.png in Resources */,
@@ -3493,12 +3550,12 @@
 				842C79BC1C24E6E9006FFB61 /* seal17.png in Resources */,
 				842C79E71C24E6E9006FFB61 /* news_maya_O.png in Resources */,
 				842C79221C24E6E9006FFB61 /* but_settings.png in Resources */,
+				DBC649731C39EE8D00D3EE87 /* avante_1024_black.png in Resources */,
 				842C798B1C24E6E9006FFB61 /* tabs_maya-pt.png in Resources */,
 				842C78BC1C24E6E9006FFB61 /* num08.png in Resources */,
 				842C7A141C24E6E9006FFB61 /* uinal01.png in Resources */,
 				842C78B81C24E6E9006FFB61 /* num04.png in Resources */,
 				842C795F1C24E6E9006FFB61 /* maya_oracle_year-es.png in Resources */,
-				842C7A561C24E7E4006FFB61 /* Icon~ipad.png in Resources */,
 				842C79111C24E6E9006FFB61 /* 3d_dreamspell.png in Resources */,
 				842C78E01C24E6E9006FFB61 /* numbig10i.png in Resources */,
 				842C7A181C24E6E9006FFB61 /* uinal05.png in Resources */,
@@ -3531,6 +3588,7 @@
 				842C79061C24E6E9006FFB61 /* numside17.png in Resources */,
 				842C78BB1C24E6E9006FFB61 /* num07.png in Resources */,
 				842C78ED1C24E6E9006FFB61 /* numbig17.png in Resources */,
+				DB8859AA1C39CD32008EE7BD /* Maya3D_750_1334_(4.7).png in Resources */,
 				842C78FF1C24E6E9006FFB61 /* numside10.png in Resources */,
 				842C79C71C24E6E9006FFB61 /* isig05.png in Resources */,
 				842C79981C24E6E9006FFB61 /* doot-pt.png in Resources */,
@@ -3546,7 +3604,6 @@
 				842C79F31C24E6E9006FFB61 /* numglyph09.png in Resources */,
 				846B6BD71C27406E0013B0B8 /* LaunchScreen_Kin3D.xib in Resources */,
 				842C79E91C24E6E9006FFB61 /* news_maya_W.png in Resources */,
-				842C7A421C24E7C0006FFB61 /* Icon@2x.png in Resources */,
 				842C798E1C24E6E9006FFB61 /* tones-pt.png in Resources */,
 				842C7A7D1C24E817006FFB61 /* MainWindow.xib in Resources */,
 				842C7A2F1C24E727006FFB61 /* tick-loud.wav in Resources */,
@@ -3566,6 +3623,7 @@
 				842C78CE1C24E6E9006FFB61 /* numbig01i.png in Resources */,
 				842C797D1C24E6E9006FFB61 /* tab_glyph-es.png in Resources */,
 				842C796F1C24E6E9006FFB61 /* oracle_tone-pt.png in Resources */,
+				DB8859981C39C79B008EE7BD /* Icon@2x.png in Resources */,
 				842C79EE1C24E6E9006FFB61 /* numglyph04.png in Resources */,
 				842C79201C24E6E9006FFB61 /* but_select-es.png in Resources */,
 				842C788A1C24E6E9006FFB61 /* icon_oracle.png in Resources */,
@@ -3576,8 +3634,10 @@
 				842C78A61C24E6E9006FFB61 /* moon15.png in Resources */,
 				842C789D1C24E6E9006FFB61 /* moon06.png in Resources */,
 				842C788D1C24E6E9006FFB61 /* icon_play.png in Resources */,
+				DB8859701C39B75A008EE7BD /* Maya3D_320x480_(1x).png in Resources */,
 				842C78E31C24E6E9006FFB61 /* numbig12.png in Resources */,
 				842C78B71C24E6E9006FFB61 /* num03.png in Resources */,
+				DB8859AE1C39D880008EE7BD /* tabbar_bg.png in Resources */,
 				842C79A81C24E6E9006FFB61 /* plasma7.png in Resources */,
 				842C79191C24E6E9006FFB61 /* but_date_add.png in Resources */,
 				842C7A251C24E6E9006FFB61 /* uinal18.png in Resources */,
@@ -3600,6 +3660,7 @@
 				842C7A011C24E6E9006FFB61 /* tzday04.png in Resources */,
 				842C79641C24E6E9006FFB61 /* oracle_moon-en.png in Resources */,
 				842C78D01C24E6E9006FFB61 /* numbig02i.png in Resources */,
+				DB8859821C39BB86008EE7BD /* Icon-Small.png in Resources */,
 				842C79FE1C24E6E9006FFB61 /* tzday01.png in Resources */,
 				842C799F1C24E6E9006FFB61 /* news_dreamspell_S.png in Resources */,
 				842C79B41C24E6E9006FFB61 /* seal09.png in Resources */,
@@ -3612,6 +3673,7 @@
 				842C78F91C24E6E9006FFB61 /* numside04.png in Resources */,
 				842C7A0F1C24E6E9006FFB61 /* tzday18.png in Resources */,
 				842C792E1C24E6E9006FFB61 /* buts_datebook_edit-pt.png in Resources */,
+				DB8859961C39C22F008EE7BD /* Images-Maya3D.xcassets in Resources */,
 				842C78B61C24E6E9006FFB61 /* num02.png in Resources */,
 				842C788E1C24E6E9006FFB61 /* icon_play_big.png in Resources */,
 				842C7A071C24E6E9006FFB61 /* tzday10.png in Resources */,
@@ -3831,12 +3893,12 @@
 			name = TzSettingsView.xib;
 			sourceTree = "<group>";
 		};
-		846B65351C272B850013B0B8 /* LaunchScreen.xib */ = {
+		846B65351C272B850013B0B8 /* LaunchScreen_Maya3D.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				846B65361C272B850013B0B8 /* Base */,
 			);
-			name = LaunchScreen.xib;
+			name = LaunchScreen_Maya3D.xib;
 			sourceTree = "<group>";
 		};
 		846B6BD31C27406E0013B0B8 /* LaunchScreen_Kin3D.xib */ = {
@@ -3853,7 +3915,8 @@
 		84024D171C2873E600046204 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-5";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Kin3D";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-Kin3D";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -3872,7 +3935,8 @@
 		84024D181C2873E600046204 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-5";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Kin3D";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-Kin3D";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -3969,7 +4033,8 @@
 		842C761C1C24E41E006FFB61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Maya3D";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-Maya3D";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -3986,7 +4051,8 @@
 		842C761D1C24E41E006FFB61 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Maya3D";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-Maya3D";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

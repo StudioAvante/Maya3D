@@ -16,12 +16,12 @@
                 <outlet property="tabBarController" destination="106" id="vHO-N6-G1h"/>
             </connections>
         </customObject>
-        <tabBarController autoresizesArchivedViewToFullSize="NO" nibName="" automaticallyAdjustsScrollViewInsets="NO" id="106">
+        <tabBarController autoresizesArchivedViewToFullSize="NO" nibName="" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="106">
             <extendedEdge key="edgesForExtendedLayout"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <size key="freeformSize" width="320" height="568"/>
-            <tabBar key="tabBar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" id="107">
+            <tabBar key="tabBar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" backgroundImage="tabbar_bg.png" id="107">
                 <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -126,5 +126,6 @@
         <image name="icon_gear_big.png" width="28" height="28"/>
         <image name="icon_glyph.png" width="28" height="28"/>
         <image name="icon_hand.png" width="28" height="28"/>
+        <image name="tabbar_bg.png" width="640" height="50"/>
     </resources>
 </document>
