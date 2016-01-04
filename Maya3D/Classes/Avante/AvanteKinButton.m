@@ -35,7 +35,7 @@
 	self.userInteractionEnabled = YES;
 	
 	// Create button
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    button = [[UIButton alloc] init];//[UIButton buttonWithType:UIButtonTypeInfoLight];
 	frame.origin.x = 0.0;
 	frame.origin.y = 0.0;
 	button.frame = frame;

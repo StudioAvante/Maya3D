@@ -106,7 +106,7 @@
 	
 	// Calcula quantos segundos deve avancar/retroceder
 	CFAbsoluteTime now = CFAbsoluteTimeGetCurrent();
-	double secs;
+    double secs = 0;
 	// Get current accleration (can return 0.0!)
 	if (accelerating)
 		secs = [self getAcceleration];

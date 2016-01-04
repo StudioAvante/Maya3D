@@ -42,6 +42,13 @@
 		free(arrayColor);
 	if (arrayTexture)
 		free(arrayTexture);
+    
+    
+    if( mpFistIndexOfSegment)
+        free(mpFistIndexOfSegment);
+    
+    if( mpSizeOfSegment)
+        free(mpSizeOfSegment);
 	// Super
     [super dealloc];
 }
@@ -58,7 +65,7 @@
 
 	// set object data
 	undoTransform = TRUE;
-	numVertex = nv;
+	numVertex = nv ;
 	numVertexComponents = NUM_VERTEX_COMP;
 	numTexComponents    = NUM_TEXTURE_COMP;
 	numColorComponents  = NUM_COLOR_COMP;
@@ -72,12 +79,12 @@
 	//AvLog(@"GLObject nc[%d] ncc[%d] sizeof[%d] size[%d]",numVertex,numVertexComponents,sizeof(GLubyte),sizeColor);
 	
 	// Alloc arrays
-	arrayIndex     = (GLushort*) malloc((size_t)sizeIndex);
-	memset((void*)arrayIndex, 0, (size_t)sizeIndex);
-	arrayVertex    = (GLfloat*) malloc((size_t)sizeVertex);
-	memset((void*)arrayVertex, 0, (size_t)sizeVertex);
-	arrayTexture = (GLfloat*) malloc((size_t)sizeTexture);
-	memset((void*)arrayTexture, 0, (size_t)sizeTexture);
+	arrayIndex     = (GLushort*) malloc((size_t)sizeIndex+SIZEOF_INDEX_DATA);
+	memset((void*)arrayIndex, 0, (size_t)sizeIndex+SIZEOF_INDEX_DATA);
+	arrayVertex    = (GLfloat*) malloc((size_t)sizeVertex+SIZEOF_VERTEX_DATA);
+	memset((void*)arrayVertex, 0, (size_t)sizeVertex+SIZEOF_VERTEX_DATA);
+	arrayTexture = (GLfloat*) malloc((size_t)sizeTexture+SIZEOF_TEXTURE_DATA);
+	memset((void*)arrayTexture, 0, (size_t)sizeTexture+SIZEOF_TEXTURE_DATA);
 	/* COLORS DISABLED
 	arrayColor     = (GLubyte*) malloc((size_t)sizeColor);
 	memset((void*)arrayColor, 0, (size_t)sizeColor);
@@ -103,6 +110,23 @@
 	return self;
 }
 
+-(id)initVertices:(GLsizei) sizeOfSegment  // the number of elements of a segment
+                 :(GLint)numOfSegments     // the number of segments.
+{
+    if( [self initVertices:sizeOfSegment*numOfSegments ] == nil )
+        return nil;
+    mNumOfSegments = numOfSegments;
+    mpFistIndexOfSegment = (GLint*)malloc(numOfSegments * sizeof(GLint));
+    memset(mpFistIndexOfSegment, 0, numOfSegments * sizeof(GLint));
+    mpSizeOfSegment = (GLint*)malloc(numOfSegments*sizeof(GLint));
+    memset(mpSizeOfSegment, 0, numOfSegments*sizeof(GLint));
+    for(int i = 0; i < mNumOfSegments ; i++)
+    {
+        mpFistIndexOfSegment[i] = i * sizeOfSegment;
+        mpSizeOfSegment[i] = sizeOfSegment;
+    }
+    return self;
+}
 
 //
 // Add VERTEX to array
@@ -246,14 +270,15 @@
 	 */
 	
 	// stride: One full vertex data size (vertex + color + texture)
-	stride = (sizeBuffer / numVertex);
+	stride = (int)(sizeBuffer / numVertex);
 
 	// allocate a new vertex buffer
 	glGenBuffers(1, &vbo);
 	// bind the buffer object to use
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	// allocate enough space for the VBO
-	glBufferData(GL_ARRAY_BUFFER, sizeBuffer, 0, GL_STATIC_DRAW);
+//	glBufferData(GL_ARRAY_BUFFER, sizeBuffer, 0, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeBuffer, 0, GL_STATIC_DRAW);
 	//AvLog(@"GL_OBJECT vbo[%d] nv[%d]",vbo,numVertex);
 
 	// Get allocated buffer to copy data
@@ -310,7 +335,7 @@
 #pragma mark DRAWING
 
 // Check if vertex is inside a inset
-- (BOOL)isVertexInsideInset:(CGFloat*)vertex:(UIEdgeInsets)inset;
+- (BOOL)isVertexInsideInset:(CGFloat*)vertex :(UIEdgeInsets)inset;
 {
 	return (vertex[0] >= inset.left && vertex[0] <= inset.right && vertex[1] >= inset.bottom && vertex[1] <= inset.top);
 }
@@ -340,6 +365,8 @@
 	 */
 	
 	// Bind Texture if needed!
+    //glBindTexture(GL_TEXTURE_2D, 0);
+    
 	[self bindTexture];
 	
 	/* COLORS DISABLED
@@ -359,7 +386,8 @@
 		global.blendingEnabled = TRUE;
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);	// Pure alpha blending
-		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+//        glBlendFunc(GL_DST_ALPHA, GL_ONE_MINUS_DST_ALPHA);
 		//glBlendFunc(GL_SRC_COLOR, GL_ZERO);
 	}
 	else if (!blending && global.blendingEnabled)
@@ -407,6 +435,8 @@
 		glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, mat_specular);
 		glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, mat_emission);
 	}
+    
+    
 }
 
 //
@@ -428,6 +458,7 @@
 	// Enable Texture Array - FOI PRO 3D VIEW
 	//glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	
+   // glActiveTexture(texvbo);
 	// Bind Texture!
 	glBindTexture(GL_TEXTURE_2D, texvbo);
 	// Set currently bound texture
@@ -439,11 +470,11 @@
 	// Set the texture parameters to use a minifying filter and a linear filer (weighted average)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	// PERFORMANCE SUGGESTION by Apple - mas fica tudo zoado!
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 	// Repeat texture
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);  
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 }
 
@@ -453,19 +484,29 @@
 	// Draw Arrays
 	//glDrawArrays(primitiveType, 0, numVertex);
 	
-	if (ibo)
-	{
-		// Draw Elements - SERVER
-		// ???: Bind ibo > perde 8 fps!
-		// ???: Elements em Client > perde 1 fps!
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-		glDrawElements(primitiveType, numVertex, GL_UNSIGNED_SHORT, (GLvoid*)((char*)NULL));
-	}
-	else
-	{
-		// Draw Elements - CLIENT
-		glDrawElements(primitiveType, numVertex, GL_UNSIGNED_SHORT, arrayIndex);
-	}
+//	if (ibo)
+//	{
+//		// Draw Elements - SERVER
+//		// ???: Bind ibo > perde 8 fps!
+//		// ???: Elements em Client > perde 1 fps!
+//		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+//		glDrawElements(primitiveType, numVertex, GL_UNSIGNED_SHORT, (GLvoid*)((char*)NULL));
+//	}
+//	else
+//	{
+//		// Draw Elements - CLIENT
+//		glDrawElements(primitiveType, numVertex, GL_UNSIGNED_SHORT, arrayIndex);
+//	}
+    
+    [self drawMultiArrays:primitiveType first:mpFistIndexOfSegment count:mpSizeOfSegment arraySize:mNumOfSegments];
+}
+
+-(void)drawMultiArrays:(GLenum)mode first:(GLint*)first count:(GLint*)count arraySize:(GLsizei)primcount
+{
+    for(int i = 0 ; i < primcount ; i++)
+    {
+        glDrawArrays(mode, first[i], count[i]);
+    }
 }
 
 // Deactivate for drawing

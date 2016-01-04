@@ -36,7 +36,7 @@
 - (void)update:(NSString*)str;
 - (void)updateMayaNum:(int)n type:(int)t;
 - (void)resizeToText;
-- (void)resize:(CGFloat)w:(CGFloat)h;
+- (void)resize:(CGFloat)w :(CGFloat)h;
 
 
 @end

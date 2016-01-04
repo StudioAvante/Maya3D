@@ -91,7 +91,7 @@
 	textField.textColor = [UIColor blackColor];
 	textField.placeholder = @"";
 	textField.backgroundColor = [UIColor whiteColor];
-	textField.textAlignment = UITextAlignmentCenter;
+	textField.textAlignment = NSTextAlignmentCenter;
 	textField.enabled = FALSE;
 	[self addSubview:textField];
 	[textField release];
@@ -169,7 +169,7 @@
 	[self resize:(size.width + 16.0):(size.height + 8.0)];
 }
 // Resize textField
-- (void)resize:(CGFloat)w:(CGFloat)h
+- (void)resize:(CGFloat)w :(CGFloat)h
 {
 	// Resize textField
 	CGRect f = textField.frame;

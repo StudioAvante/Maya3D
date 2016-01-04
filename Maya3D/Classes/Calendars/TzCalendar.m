@@ -204,7 +204,7 @@
 #pragma mark NEW DATE
 
 // Inicializa calendario a partir de uma data GREGORIANA
-- (int)updateWithGreg:(int)d:(int)m:(int)y {
+- (int)updateWithGreg:(int)d :(int)m :(int)y {
 	int valid;
 	// Validate Gregorian date
 	if ( (valid = [TzCalGreg validateGreg:d:m:y]) != 0)
@@ -219,7 +219,7 @@
 
 
 // Inicializa calendario a partir de uma data MAYA
-- (int)updateWithMaya:(int)b:(int)k:(int)t:(int)u:(int)i {
+- (int)updateWithMaya:(int)b :(int)k :(int)t :(int)u :(int)i {
 	// Calcula JDN
 	int j = [longCount convertMayaToJulian:b:k:t:u:i];
 	// Inicializa com Julian

@@ -124,8 +124,7 @@
 - (IBAction)goInfo:(id)sender;
 - (void)goDecode:(AvanteKinButton*)but;
 - (IBAction)share:(id)sender;
-- (void)shareScreenshotTo:(NSInteger)shareOption withText:(NSString*)text withBody:(NSString*)body;
 // Alert Delegate
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)option;
+//-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)option;
 
 @end

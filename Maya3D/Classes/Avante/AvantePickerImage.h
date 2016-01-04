@@ -16,6 +16,7 @@
 
 }
 
-- (BOOL)addRowToComponent:(int)c view:(UIView*)view data:(NSString*)dt;
 
+- (BOOL)addRowToComponent:(int)c view:(UIView*)view data:(NSString*)dt;
+- (BOOL)addRowToComponent:(int)c imageName:(NSString*)name data:(NSString*)dt;
 @end

@@ -112,6 +112,7 @@
 		}
 	}
 	[theDatebook addObject:(id)dt];
+    
 }
 
 // EDIT: Atualiza uma data (descricao)
@@ -199,7 +200,7 @@
 	{
 		value =  [dict objectForKey:key];
 		//AvLog(@"READ XML: key[%@] value[%@]", key, value);
-		TzDate *dt =  (TzDate*)[[TzDate alloc] initJulian:[key integerValue]:value];
+		TzDate *dt =  (TzDate*)[[TzDate alloc] initJulian:(int)[key integerValue]:value];
 		dt.fixed = FALSE;
 		dt.pickerView.highlighted = TRUE;
 		[self addDate:dt];
@@ -271,7 +272,7 @@
 #pragma mark NSMutableArray primitive methods
 
 - (unsigned)count {
-	return [theDatebook count];
+	return (unsigned)[theDatebook count];
 }
 - (id)objectAtIndex:(unsigned)index {
 	return [theDatebook objectAtIndex:index];

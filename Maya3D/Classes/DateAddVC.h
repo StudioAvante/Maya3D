@@ -14,13 +14,17 @@
 
 @interface DateAddVC : UIViewController <UITextFieldDelegate> {
 	// UI
-	AvanteTextLabel *dateField;
+	//AvanteTextLabel *dateField;
 	UITextField *descField;
 	// EDIT
 	int editItem;
 	int julian;
 }
 
+@property(nonatomic,assign) IBOutlet UILabel *dateField;
+@property(nonatomic,assign) IBOutlet UILabel *noteField;
+
+@property(nonatomic,retain) NSString* prevTitle;
 // IB
 @property (nonatomic, assign) IBOutlet UITextField *descField;
 
@@ -29,5 +33,5 @@
 - (void)setup;
 - (BOOL)saveDate;
 - (IBAction)done:(id)sender;
-
+- (IBAction)goPrev:(id)sender;
 @end

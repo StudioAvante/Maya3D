@@ -18,6 +18,6 @@
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic) BOOL highlighted;
 
-//- (id)init:(BOOL)h;
+- (id)init:(BOOL)h;
 
 @end

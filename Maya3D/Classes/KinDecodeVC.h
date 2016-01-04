@@ -16,9 +16,10 @@
 	AvanteKinView *kinView;
 }
 
+@property( nonatomic,retain) NSString* prevTitle;
 - (id)initWithType:(int)t tz:(TzCalTzolkinMoon*)tz destinyKin:(int)dkin;
 - (IBAction)share:(id)sender;
 // Alert Delegate
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)option;
-
+//-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)option;
+-(IBAction)goPrev:(id)sender;
 @end

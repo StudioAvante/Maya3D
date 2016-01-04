@@ -76,6 +76,12 @@ typedef struct {
     GLfloat mat_emission[4];
     GLfloat mat_specular[4];
     GLfloat mat_diffuse[4];
+    
+    
+    GLint *mpFistIndexOfSegment; //
+    GLint *mpSizeOfSegment; // the number of elements of a segment
+    int mNumOfSegments;   // the number of segments
+
 }
 
 @property (nonatomic) GLenum primitiveType;
@@ -87,8 +93,13 @@ typedef struct {
 @property (nonatomic) glTransform transOffset;
 @property (nonatomic) glTransform trans;
 @property (nonatomic) GLuint tex;
+//@property (nonatomic) GLint* mpFistIndexOfSegment; //
+//@property (nonatomic) GLint* mpSizeOfSegment; // the number of elements of a segment
+//@property (nonatomic) int mNumOfSegments;   // the number of segments
+
 
 - (id)initVertices:(GLsizei)nv;
+-(id)initVertices:(GLsizei) sizeOfSegment :(GLint)numOfSegments;
 - (void)addVertex:(GLfloat)x :(GLfloat)y;
 - (void)addVertex:(GLfloat)x :(GLfloat)y :(GLfloat)z;
 - (void)addColor:(GLubyte)r :(GLubyte)g :(GLubyte)b;
@@ -102,9 +113,10 @@ typedef struct {
 - (void)bindTexture;
 - (void)bindTexture:(GLuint)tex;
 - (void)drawObject;
+-(void)drawMultiArrays:(GLenum)mode first:(GLint*)first count:(GLint*)count arraySize:(GLsizei)primcount; 
 - (void)transform:(glTransform)t;
 - (void)transform:(glTransform)t repeat:(int)r;
 - (void)disable;
-- (BOOL)isVertexInsideInset:(CGFloat*)vertex:(UIEdgeInsets)inset;
+- (BOOL)isVertexInsideInset:(CGFloat*)vertex :(UIEdgeInsets)inset;
 
 @end

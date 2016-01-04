@@ -68,6 +68,8 @@
 	else
 		str = [NSString stringWithFormat:@"num%02d.png", num];
 	self.image = [UIImage imageNamed:str];
+    
+    self.imageName = [NSString stringWithString:str];
 	//AvLog(@"NEW MAYA NUM[%d] *image[%d] [%@]", num, image,str);
 	// Finito!
 	//[self setNeedsDisplay];

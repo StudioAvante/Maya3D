@@ -12,7 +12,7 @@
 #import "AvanteTextLabel.h"
 
 
-@interface AvantePicker : UIPickerView <UIPickerViewDelegate> {
+@interface AvantePicker : UIPickerView <UIPickerViewDelegate,UIPickerViewDataSource> {
 	NSMutableArray* components;		// Array of AvantePickerComponent
 	id parent;
 	BOOL drawLabels;

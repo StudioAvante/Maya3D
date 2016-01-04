@@ -22,20 +22,20 @@
     [super dealloc];
 }
 
-- (id)init:(CGFloat)x:(CGFloat)y
+- (id)init:(CGFloat)x :(CGFloat)y
 {
 	UIImageView *imgView;
 	UIImage *image;
 	
 	// Init View
-	CGRect frame = CGRectMake(x, y, 320.0, CELL_HEIGHT);
+	CGRect frame = CGRectMake(x, y, kscreenWidth, CELL_HEIGHT);
     if ((self = [super initWithFrame:frame]) == nil)
 		return nil;
 	//self.bounds = frame;
 	self.userInteractionEnabled = YES;
 
 	// Roller cells
-	frame = CGRectMake(0.0, 0.0, 320.0, CELL_HEIGHT);
+	frame = CGRectMake(0.0, 0.0, kscreenWidth, CELL_HEIGHT);
 	scrollView = [[UIScrollView alloc] initWithFrame:frame];
 	scrollView.delegate = self;
 	scrollView.userInteractionEnabled = YES;
@@ -60,7 +60,7 @@
 	
 	// Top
 	image = [global imageFromFile:@"roller_top"];
-	frame = CGRectMake(0.0, 0.0, 320.0, CELL_HEIGHT);
+	frame = CGRectMake(0.0, 0.0, kscreenWidth, CELL_HEIGHT);
 	imgView = [[UIImageView alloc] initWithImage:image];
 	imgView.frame = frame;
 	[self addSubview:imgView];

@@ -69,6 +69,7 @@
 	UIView *mayaView;
 	UIView *dreamspellView;
 	AvanteRollerVertical *roller;
+    
 }
 
 - (void)createContentView;

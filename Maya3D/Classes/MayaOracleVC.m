@@ -234,6 +234,7 @@
 			   initWithBarButtonSystemItem:UIBarButtonSystemItemAction
 			   target:self
 			   action:@selector(share:)];
+        [but setTintColor:[UIColor whiteColor]];
 		self.navigationItem.rightBarButtonItem = but;
 		self.navigationItem.rightBarButtonItem.enabled = TRUE;
 		[but release];
@@ -272,16 +273,32 @@
 				   initWithBarButtonSystemItem:UIBarButtonSystemItemAction
 				   target:self
 				   action:@selector(share:)];
+            
+                [but setTintColor:[UIColor whiteColor]];
 			self.navigationItem.rightBarButtonItem = but;
 			self.navigationItem.rightBarButtonItem.enabled = TRUE;
 			[but release];
 		}
 		
 		// HELP BUTTON
+        /*
 		but = [[UIBarButtonItem alloc]
 			   initWithImage:[global imageFromFile:@"icon_info"]
 			   style:UIBarButtonItemStylePlain
 			   target:self action:@selector(goInfo:)];
+        
+            [but setTintColor:[UIColor whiteColor]];
+         */
+        
+        UIImage *helpImage = [UIImage imageNamed:@"icon_info3.png"];
+        UIButton *helpButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        helpButton.bounds = CGRectMake(0, 0, helpImage.size.width, helpImage.size.height);
+        [helpButton setImage:helpImage forState:UIControlStateNormal];
+        [helpButton addTarget:self action:@selector(goInfo:) forControlEvents:UIControlEventTouchUpInside];
+        
+        but = [[UIBarButtonItem alloc] initWithCustomView:helpButton];
+
+        
 		self.navigationItem.leftBarButtonItem = but;
 		self.navigationItem.leftBarButtonItem.enabled = TRUE;
 		[but release];
@@ -317,7 +334,7 @@
 	//
 	// MAYA CONTENT / SCROLL VIEW 1
 	//
-	frame = CGRectMake(0.0, 0.0, 320.0, contentViewSize);
+	frame = CGRectMake(0.0, 0.0, kscreenWidth, contentViewSize);
 	mayaContentView = [[UIScrollView alloc] initWithFrame:frame];
 	mayaContentView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 	mayaContentView.hidden = YES;
@@ -333,7 +350,7 @@
 	//
 	// >>> OPEN MAYA VIEW 3
 	//
-	mayaView3 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 500.0)];
+	mayaView3 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, kscreenWidth, 500.0)];
 	[mayaContentView addSubview:mayaView3];
 	[mayaView3 release];
 	y = 0.0;
@@ -344,7 +361,7 @@
 	font = FONT_SIZE_TEXT;
 	h = (HEIGHT_FOR_LINES(font,1));
 	x = SPACER_GAP;
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	frame = CGRectMake(x, y, w, h);
 	mayaGregName = [[AvanteTextLabel alloc] init:@"greg_name" frame:frame size:font color:[UIColor whiteColor]];
 	[mayaGregName setAlign:ALIGN_LEFT];
@@ -396,7 +413,7 @@
 	[label release];
 	// Year Bearer: NAME
 	xx = x + w;
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	font = FONT_SIZE_NAME;
 	h = HEIGHT_FOR_LINES(font,1);
 	frame = CGRectMake(xx, y, w, h);
@@ -405,7 +422,7 @@
 	[mayaView3 addSubview:mayaYearName];
 	[mayaYearName release];
 	// Year Bearer: DESC
-	w = ( 320.0 - x - SPACER_GAP);
+	w = ( kscreenWidth - x - SPACER_GAP);
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,1);
 	yy = y + GLYPH_SIZE_SMALL - h;
@@ -430,7 +447,7 @@
 	//
 	// >>> OPEN MAYA VIEW 2
 	//
-	mayaView2 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 500.0)];
+	mayaView2 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, kscreenWidth, 500.0)];
 	[mayaContentView addSubview:mayaView2];
 	[mayaView2 release];
 	y = 0.0;
@@ -469,7 +486,7 @@
 	[label release];
 	// Haab: NAME
 	xx = x + w;
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	font = FONT_SIZE_NAME;
 	h = HEIGHT_FOR_LINES(font,1);
 	frame = CGRectMake(xx, y, w, h);
@@ -479,7 +496,7 @@
 	[mayaHaabName release];
 	// Haab: DESC
 	//x = SPACER_GAP;
-	w = ( 320.0 - x - SPACER_GAP);
+	w = ( kscreenWidth - x - SPACER_GAP);
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,1);
 	yy = y + GLYPH_SIZE_SMALL - h;
@@ -506,7 +523,7 @@
 	//
 	// OPEN MAYA VIEW 1
 	//
-	mayaView1 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 500.0)];
+	mayaView1 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, kscreenWidth, 500.0)];
 	[mayaContentView addSubview:mayaView1];
 	[mayaView1 release];
 	y = 0.0;
@@ -549,7 +566,7 @@
 	
 	// Tzolkin: NAME
 	xx = x + w;
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	font = FONT_SIZE_NAME;
 	h = HEIGHT_FOR_LINES(font,1); 
 	frame = CGRectMake(xx, y, w, h);
@@ -561,7 +578,7 @@
 	
 	// Tzolkin: NEWS
 	yy = y + ( (GLYPH_SIZE_MED - NEWS_SIZE) / 2.0 ) - SPACER_GAP;
-	xx = (320.0 - NEWS_SIZE - SPACER_GAP);
+	xx = (kscreenWidth - NEWS_SIZE - SPACER_GAP);
 	w = NEWS_SIZE;
 	h = NEWS_SIZE;
 	frame = CGRectMake(xx, yy, w, h);
@@ -581,7 +598,7 @@
 	
 	// Tzolkin: ANIMAL
 	font = FONT_SIZE_NAME;
-	w = ( 320.0 - x - SPACER_GAP);
+	w = ( kscreenWidth - x - SPACER_GAP);
 	h = HEIGHT_FOR_LINES(font,1);
 	yy = y + GLYPH_SIZE_MED - h;
 	frame = CGRectMake(x, yy, w, h);
@@ -599,7 +616,7 @@
 	/*
 	// Tzolkin: DESC
 	x = SPACER_GAP;
-	w = ( 320.0 - x - SPACER_GAP);
+	w = ( kscreenWidth - x - SPACER_GAP);
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,1);
 	frame = CGRectMake(x, y, w, h);
@@ -611,7 +628,7 @@
 
 	// Tzolkin: ENERGY
 	x = (SPACER_GAP*2.0);
-	w = ( 320.0 - x - SPACER_GAP);
+	w = ( kscreenWidth - x - SPACER_GAP);
 	font = FONT_SIZE_NAME;
 	h = HEIGHT_FOR_LINES(font,1);
 	frame = CGRectMake(x, y, w, h);
@@ -621,7 +638,7 @@
 	[mayaTzolkinEnergy release];
 	// Tzolkin: ELEMENT
 	w = NEWS_SIZE;
-	x = ( 320.0 - w - SPACER_GAP);
+	x = ( kscreenWidth - w - SPACER_GAP);
 	font = FONT_SIZE_NAME;
 	h = HEIGHT_FOR_LINES(font,1);
 	frame = CGRectMake(x, y, w, h);
@@ -637,7 +654,7 @@
 	// Tzolkin: GOOD DAY TO...
 	//y += SPACER_GAP;
 	x = SPACER_GAP;
-	w = ( 320.0 - x - SPACER_GAP);
+	w = ( kscreenWidth - x - SPACER_GAP);
 	font = FONT_SIZE_LABEL;
 	h = HEIGHT_FOR_LINES(font,1);
 	str = LOCAL(@"GOOD_DAY_TO");
@@ -650,7 +667,7 @@
 	// Tzolkin: GOOD DAY TO 1
 	y += h;
 	x = 10.0;
-	w = ( 320.0 - x - SPACER_GAP);
+	w = ( kscreenWidth - x - SPACER_GAP);
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,1);
 	frame = CGRectMake(x, y, w, h);
@@ -692,7 +709,7 @@
 	// -LINE
 	// Tzolkin: PERSONALITY
 	x = SPACER_GAP;
-	w = ( 320.0 - x - SPACER_GAP);
+	w = ( kscreenWidth - x - SPACER_GAP);
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,12);
 	frame = CGRectMake(x, y, w, h);
@@ -719,7 +736,7 @@
 	// RESIZE  CONTENT / SCROLL VIEW 1
 	//
 	// quado fizer update...
-	//[mayaContentView setContentSize:CGSizeMake(320.0,mayaStack.heightSum)];
+	//[mayaContentView setContentSize:CGSizeMake(kscreenWidth,mayaStack.heightSum)];
 }
 
 
@@ -742,7 +759,7 @@
 	//
 	// MAYA CONTENT / SCROLL VIEW 1
 	//
-	frame = CGRectMake(0.0, 0.0, 320.0, contentViewSize);
+	frame = CGRectMake(0.0, 0.0, kscreenWidth, contentViewSize);
 	dreamspellContentView = [[UIScrollView alloc] initWithFrame:frame];
 	dreamspellContentView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 	dreamspellContentView.hidden = YES;
@@ -756,7 +773,7 @@
 	//
 	// OPEN DREAMSPELL VIEW 1
 	//
-	dreamspellView1 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 500.0)];
+	dreamspellView1 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, kscreenWidth, 500.0)];
 	[dreamspellContentView addSubview:dreamspellView1];
 	[dreamspellView1 release];
 	y = 0.0;
@@ -767,7 +784,7 @@
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,1);
 	x = SPACER_GAP;
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	frame = CGRectMake(x, y, w, h);
 	dreamspellGregName = [[AvanteTextLabel alloc] init:@"greg_name" frame:frame size:font color:[UIColor whiteColor]];
 	[dreamspellGregName setAlign:ALIGN_LEFT];
@@ -822,7 +839,7 @@
 	[dreamspellView1 addSubview:label];
 	[label release];
 	// Year: NAME
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	font = FONT_SIZE_NAME;
 	h = HEIGHT_FOR_LINES(font,1);
 	frame = CGRectMake(x, y, w, h);
@@ -834,7 +851,7 @@
 	yy = y + h;
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,1);
-	w = ( 320.0 - x - SPACER_GAP);
+	w = ( kscreenWidth - x - SPACER_GAP);
 	frame = CGRectMake(x, yy, w, h);
 	dreamspellYearPeriod = [[AvanteTextLabel alloc] init:@"period" frame:frame size:font color:[UIColor whiteColor]];
 	[dreamspellYearPeriod setAlign:ALIGN_LEFT];
@@ -855,7 +872,7 @@
 	//
 	// >>> OPEN DREAMSPELL VIEW 2
 	//
-	dreamspellView2 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 500.0)];
+	dreamspellView2 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, kscreenWidth, 500.0)];
 	[dreamspellContentView addSubview:dreamspellView2];
 	[dreamspellView2 release];
 	y = 0.0;
@@ -898,7 +915,7 @@
 	[dreamspellView2 addSubview:dreamspellMonthLabel];
 	[dreamspellMonthLabel release];
 	// Month: NAME
-	w = (320.0 - x - PLASMA_SIZE - SPACER_GAP - SPACER_GAP);
+	w = (kscreenWidth - x - PLASMA_SIZE - SPACER_GAP - SPACER_GAP);
 	font = FONT_SIZE_NAME;
 	h = HEIGHT_FOR_LINES(font,1);
 	frame = CGRectMake(x, y, w, h);
@@ -909,7 +926,7 @@
 	[dreamspellMonthName release];
 	// Month: DAY NAME
 	yy = y + h - 5.0;
-	w = (320.0 - x);
+	w = (kscreenWidth - x);
 	font = FONT_SIZE_NAME;
 	h = HEIGHT_FOR_LINES(font,1);
 	frame = CGRectMake(x, yy, w, h);
@@ -918,7 +935,7 @@
 	[dreamspellView2 addSubview:dreamspellMonthDayName];
 	[dreamspellMonthDayName release];
 	// Moon: PLASMA
-	x = (320.0 - PLASMA_SIZE - SPACER_GAP - SPACER_GAP);
+	x = (kscreenWidth - PLASMA_SIZE - SPACER_GAP - SPACER_GAP);
 	h = PLASMA_SIZE;
 	w = PLASMA_SIZE;
 	yy = y - 5.0;
@@ -969,7 +986,7 @@
 	// Month: PURPOSE
 	/*
 	x = SPACER_GAP;
-	w = ( 320.0 - x);
+	w = ( kscreenWidth - x);
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,1);
 	frame = CGRectMake(x, y, w, h);
@@ -989,7 +1006,7 @@
 	
 	// Month: QUESTION
 	x = SPACER_GAP;
-	w = ( 320.0 - x);
+	w = ( kscreenWidth - x);
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,2);
 	frame = CGRectMake(x, y, w, h);
@@ -1004,7 +1021,7 @@
 	//
 	// >>> OPEN DREAMSPELL 3 - KIN VIEW
 	//
-	kinView = [[AvanteKinView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 500.0)];
+	kinView = [[AvanteKinView alloc] initWithFrame:CGRectMake(0.0, 0.0, kscreenWidth, 500.0)];
 	[dreamspellContentView addSubview:kinView];
 	[kinView release];
 	// Get actual size
@@ -1016,7 +1033,7 @@
 	//
 	// >>> OPEN DREAMSPELL VIEW 4
 	//
-	dreamspellView4 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 500.0)];
+	dreamspellView4 = [[AvanteView alloc] initWithFrame:CGRectMake(0.0, 0.0, kscreenWidth, 500.0)];
 	[dreamspellContentView addSubview:dreamspellView4];
 	[dreamspellView4 release];
 	y = 0.0;
@@ -1029,7 +1046,7 @@
 	x = 0.0;
 	font = FONT_SIZE_TEXT;
 	h = HEIGHT_FOR_LINES(font,1);
-	w = 320.0;
+	w = kscreenWidth;
 	str = LOCAL(@"DREAMSPELL_AFFIRM");
 	frame = CGRectMake(x, y, w, h);
 	label = [[AvanteTextLabel alloc] init:str frame:frame size:font color:[UIColor whiteColor]];
@@ -1040,7 +1057,7 @@
 	x = 0.0;
 	font = FONT_SIZE_AFFIRM;
 	h = HEIGHT_FOR_LINES(font,6);
-	w = 320.0;
+	w = kscreenWidth;
 	frame = CGRectMake(x, y, w, h);
 	affirmation1 = [[AvanteTextLabel alloc] init:@"affirmation1" frame:frame size:font color:[UIColor whiteColor]];
 	[affirmation1 setWrap:YES];
@@ -1079,7 +1096,7 @@
 	//            1
 	// ORACLE = 2 3 4
 	//            5
-	x = ( 320.0 - (ORACLE_SIZE*3.0) - (SPACER*2.0) ) / 2.0;
+	x = ( kscreenWidth - (ORACLE_SIZE*3.0) - (SPACER*2.0) ) / 2.0;
 	font = FONT_SIZE_LABEL;
 	h = HEIGHT_FOR_LINES(font,1);
 	//
@@ -1228,7 +1245,7 @@
 	// RESIZE  CONTENT / SCROLL VIEW 1
 	//
 	// quado fizer update...
-	//[dreamspellContentView setContentSize:CGSizeMake(320.0,dreamspellStack.heightSum)];
+	//[dreamspellContentView setContentSize:CGSizeMake(kscreenWidth,dreamspellStack.heightSum)];
 }
 
 
@@ -1306,7 +1323,7 @@
 	[mayaStack resize];
 	
 	// Resize SCROLL View
-	[mayaContentView setContentSize:CGSizeMake(320.0,mayaStack.heightSum)];
+	[mayaContentView setContentSize:CGSizeMake(kscreenWidth,mayaStack.heightSum)];
 }
 
 
@@ -1374,7 +1391,7 @@
 	[dreamspellStack resize];
 	
 	// Resize SCROLL View
-	[dreamspellContentView setContentSize:CGSizeMake(320.0,dreamspellStack.heightSum)];
+	[dreamspellContentView setContentSize:CGSizeMake(kscreenWidth,dreamspellStack.heightSum)];
 }
 
 
@@ -1480,53 +1497,18 @@
 // Display Sharing alert
 - (IBAction)share:(id)sender
 {
-	[global alertSharing:self];
-}
-//
-// UIAlertView DELEGATE
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)option
-{
 	NSString *text, *body;
-	switch (option)
+	if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
 	{
-		case SHARE_LOCAL:
-		case SHARE_FACEBOOK:
-		case SHARE_TUMBLR:
-			if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
-				text = LOCAL(@"SHARE_FACEBOOK_MAYA_ORACLE");
-			else
-				text = LOCAL(@"SHARE_FACEBOOK_KIN_ORACLE");
-			[self shareScreenshotTo:option withText:text withBody:nil];
-			break;
-		case SHARE_TWITTER:
-			if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
-				text = LOCAL(@"SHARE_TWITTER_ORACLE_MAYA");
-			else
-				text = LOCAL(@"SHARE_TWITTER_ORACLE_DREAMSPELL");
-			[global shareTwitterText:text];
-			break;
-		case SHARE_EMAIL:
-			if (global.prefMayaDreamspell == VIEW_MODE_MAYA)
-			{
-				text = LOCAL(@"SHARE_EMAIL_MAYA_ORACLE");
-				body = LOCAL(@"SHARE_EMAIL_BODY_MAYA_ORACLE");
-			}
-			else
-			{
-				text = LOCAL(@"SHARE_EMAIL_KIN_ORACLE");
-				body = LOCAL(@"SHARE_EMAIL_BODY_KIN_ORACLE");
-			}
-			[self shareScreenshotTo:option withText:text withBody:body];
-			break;
+		text = LOCAL(@"SHARE_EMAIL_MAYA_ORACLE");
+		body = LOCAL(@"SHARE_EMAIL_BODY_MAYA_ORACLE");
 	}
-}
-
-
-//
-// SAVE SCREENSHOT of current view
-//
-- (void)shareScreenshotTo:(NSInteger)shareOption withText:(NSString*)text withBody:(NSString*)body
-{
+	else
+	{
+		text = LOCAL(@"SHARE_EMAIL_KIN_ORACLE");
+		body = LOCAL(@"SHARE_EMAIL_BODY_KIN_ORACLE");
+	}
+	
 	// Separa a view correta
 	UIScrollView *view;
 	UIEdgeInsets origInset = UIEdgeInsetsZero;
@@ -1560,8 +1542,10 @@
 	frame.size.height = view.contentSize.height;
 	view.frame = frame;
 	view.showsVerticalScrollIndicator = NO;
+
 	// Click!
-	[global shareView:view to:shareOption withText:text withBody:body];
+	[global shareView:view vc:self withText:text withBody:body];
+	
 	// Volta tamanho original
 	frame.size.height = h;
 	view.frame = frame;

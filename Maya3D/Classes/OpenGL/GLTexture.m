@@ -63,6 +63,7 @@
 	
 	// Allocated memory needed for the bitmap context
 	texData = (GLubyte *) malloc(width * height * 4);
+    memset(texData, 0, width*height*4);  
 	// Uses the bitmatp creation function provided by the Core Graphics framework. 
 	texContext = CGBitmapContextCreate(texData, width, height, 8, width * 4, CGImageGetColorSpace(texImage), kCGImageAlphaPremultipliedLast);
 	// After you create the context, you can draw the sprite image to the context.
@@ -77,7 +78,7 @@
 	// Specify a 2D texture image, providing the a pointer to the image data in memory
 	// void glTexImage2D (GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, const GLvoid *pixels);
 	if (1)
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texData);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (int)width, (int)height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texData);
 	else
 	{
 		// Remove alpha data

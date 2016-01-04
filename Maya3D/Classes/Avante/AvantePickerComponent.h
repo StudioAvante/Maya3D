@@ -17,6 +17,7 @@
 	NSMutableArray* text;		// Data of each component (NSString)
 	NSMutableArray* data;		// Data of each component (NSString)
 	NSMutableArray* views;		// Views (UIView)
+    NSMutableArray* imageNames;
 	SEL callback;				// Selection Callback
 }
 
@@ -28,12 +29,14 @@
 - (id)init:(NSString*)t w:(int)w h:(int)h;
 - (BOOL)addRow:(NSString*)str;
 - (BOOL)addRow:(NSString*)str data:(NSString*)dt;
+- (BOOL)addRowImageName:(NSString*)name data:(NSString*)dt;
 - (BOOL)addRowView:(UIView*)view data:(NSString*)dt;
 - (NSUInteger)count;
 - (CGFloat)smartHeight;
 - (NSString*)dataForRow:(NSInteger)row;
 - (NSString*)textForRow:(NSInteger)row;
 - (UIView*)viewForRow:(NSInteger)row;
+- (NSString*)imageNameForRow:(NSInteger)row;
 - (NSInteger)indexOfData:(NSString*)str;
 - (NSInteger)indexOfDataCloser:(NSInteger)target;
 - (NSInteger)indexOfText:(NSString*)str;

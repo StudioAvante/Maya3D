@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <CoreMotion/CoreMotion.h>
 
 @class TzDate;
 @class TzCalendar;
@@ -21,7 +22,7 @@
 // GLOBAIS
 //
 
-@interface TzGlobal : NSObject <UIAccelerometerDelegate, CLLocationManagerDelegate> {
+@interface TzGlobal : NSObject <CLLocationManagerDelegate> {
 	CLLocationManager *locMan;
 	// Preferencias
 	int prefLang;
@@ -89,6 +90,7 @@
 @property (nonatomic) int prefGearName;
 @property (nonatomic) int prefGearSound;
 @property (nonatomic) int prefInfoSeen;
+@property (strong, nonatomic) CMMotionManager *motionManager;
 @property (nonatomic) double accelX;
 @property (nonatomic) double accelY;
 @property (nonatomic) double accelZ;
@@ -113,12 +115,12 @@
 - (id)init;
 - (void)updatePreferences;
 - (void)setLang;
-- (void)logTime:(id)obj:(NSString*)msg;
+- (void)logTime:(id)obj :(NSString*)msg;
 // Accelerometer
 - (void)stopAccelerometer;
 - (void)startAccelerometer;
 // Screenshot
-- (void)shareView:(UIView*)view to:(NSInteger)shareOption withText:(NSString*)text withBody:(NSString*)body;
+- (void)shareView:(UIView*)view vc:(UIViewController*)vc withText:(NSString*)text withBody:(NSString*)body;
 - (void)saveImageToLibrary:(UIImage*)image;
 - (void)screenshotSaved:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
 - (void)coverAll:(NSString*)msg;
@@ -137,19 +139,11 @@
 - (void)alertYesNo:(NSString*)msg delegate:(id)delegate;
 - (void)alertOKBack:(NSString*)msg delegate:(id)delegate;
 - (void)alertLite:(NSString*)msg;
-- (void)alertSharing:(id)delegate;
 - (void)alertLocation:(id)delegate;
 // misc
 - (void)goLink:(int)link;
 - (UIImage*)imageFromFile:(NSString*)file;
 - (void)locationSet:(int)hemisphere;
-// ShareKit
-- (void)sharekitAction;
-- (void)shareEmailImage:(UIImage*)image withText:(NSString*)text withBody:(NSString*)body;
-- (void)shareFacebookImage:(UIImage*)image withText:(NSString*)text;
-- (void)shareTumblrImage:(UIImage*)image withText:(NSString*)text;
-- (void)shareTwitterText:(NSString*)text;
-
 
 
 @end

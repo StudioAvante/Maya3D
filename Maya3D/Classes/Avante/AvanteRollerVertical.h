@@ -17,7 +17,7 @@
 	NSInteger lastCell;
 }
 
-- (id)init:(CGFloat)x:(CGFloat)y;
+- (id)init:(CGFloat)x :(CGFloat)y;
 - (void)addCallback:(id)obj dragLeft:(SEL)action dragRight:(SEL)action;
 - (void)scrollBackToCenter;
 - (void)stop;

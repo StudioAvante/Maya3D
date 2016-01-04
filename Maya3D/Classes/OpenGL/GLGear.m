@@ -13,6 +13,7 @@
 #import "Tzolkin.h"
 #import "TzGlobal.h"
 #import "TzSoundSine.h"
+#import "GLTexture.h"
 
 @implementation GLGear
 
@@ -106,10 +107,12 @@
 	{
 		// 3 Arcos por Gomo
 		gomoArcs = 3;
-		denteUpVertex = 6;
+        denteUpVertex = 6;
 		denteUpSideVertex = (5*2);
 		denteDownVertex = 5;
 		denteDownSideVertex = (4*2);
+//        denteDownSideVertex = (5*2);
+
 	}
 	else
 	{
@@ -229,7 +232,8 @@
 	glTransform trans;
 	
 	// CREATE OBJECT
-	glObject = [[GLObject alloc] initVertices:(vertices)];
+	//glObject = [[GLObject alloc] initVertices:(vertices)];
+    glObject = [[GLObject alloc] initVertices:(vertices) :1];
 	glObject.undoTransform = FALSE;
 	
 	// Se anti-horario, vira 180 graus
@@ -255,19 +259,19 @@
 	else
 	{
 		typeTexture = TEXTURE_STRIP;
-		texname = [NSString stringWithFormat:@"gear_strip",gomos];
+		texname = @"gear_strip";
 	}
 	[glObject setTexture:texname alpha:NO];
 	
 	// Create Gear mesh
 	if (type == TYPE_WHEEL)
 		[self createMeshWheel];
-	else
+//	else
 		[self createMeshPizza];
 
 	// Cria lados
-	[self createSidesOut];
-	[self createSidesIn];
+//	[self createSidesOut];
+//	[self createSidesIn];
 
 	// Init Label Rows
 	for (int n = 0 ; n < rows ; n++)
@@ -1555,11 +1559,7 @@
 //     | / |
 //    v2  v4
 //
-- (void)addLabelNew:(int)row 
-				pos:(int)n 
-			  align:(int)align 
-			texname:(NSString*)texname
-				map:(int)map
+- (void)addLabelNew:(int)row pos:(int)n align:(int)align texname:(NSString*)texname map:(int)map
 {
 	GLfloat ang0, ang, x0, y0, x, y, w, h;
 	GLfloat z = 0.0;
@@ -1567,25 +1567,30 @@
 	CGSize texsize;
 	CGPoint pos;
 	
+
+    
 	// Alloc?
 	if (glLabels[row] == nil)
 	{
 		glLabels[row] = [[GLElements alloc] initElements:4 el:gomos];
 		glLabels[row].blending = TRUE;
+        [glLabels[row] setTexture:texname alpha:YES];
 	}
 	
 	// Set texture
-	[glLabels[row] setTexture:texname alpha:YES toElement:n];
-	
+	//[glLabels[row] setTexture:texname alpha:YES toElement:n];
+	//if( n == 0 )
+    
 	// Recupera angulo de inicio deste gomo
 	//ang0 = [self angInit:(n+1)];
 	ang0 = [self angInit:n];
-	
+
+
 	// Origem = Centro do gomo
 	// Coluna zero = fora, coluna 1 = dentro
 	//
 	//   A2		< gomoAng
-	// /  \	
+	// /  \
 	//  ---A1	< gomoAng / 2.0
 	// \  /
 	//   A0		< 0.0
@@ -1606,6 +1611,8 @@
 	w = (labelWidth/2.0);	// dx
 	h = (labelHeight/2.0);	// dy
 	
+
+    
 	// v1 - Inner Vertice
 	pos = [self rotateXY:(-w) :(h) ang:ang];
 	x = x0 + pos.x;
@@ -1616,16 +1623,29 @@
 	x = x0 + pos.x;
 	y = y0 + pos.y;
 	[glLabels[row] addVertex:x :y :z];
+    
+
 	// v3 - Inner Vertice
 	pos = [self rotateXY:(w) :(h) ang:ang];
 	x = x0 + pos.x;
 	y = y0 + pos.y;
 	[glLabels[row] addVertex:x :y :z];
+    
+ 
 	// v4 - Outer Vertice
 	pos = [self rotateXY:(w) :(-h) ang:ang];
 	x = x0 + pos.x;
 	y = y0 + pos.y;
+
 	[glLabels[row] addVertex:x :y :z];
+    
+    if( n == 19 )
+    {
+        GLTexture *tex;
+        tex = [global.texLib.vbos objectForKey:texname];
+//        GLuint iii = tex.vbo;
+    }
+
 	//AvLog(@"ADD LABEL NEW row[%d][%d] ang[%.2f] x0y0[%.2f/%.2f] tex[%@][%d]",row,n,(ang0*RADIAN_ANGLES),x0, y0,texname,map);
 
 	// Texture Mapping
@@ -1636,6 +1656,8 @@
 	// Texture Atlas
 	// Mapa de 16x16 texturas de 64x64 pixels
 	// Ordenadas em ordem de leitura (esq->dir / cima->baixo)
+
+    
 	texsize = [global.texLib getSize:texname];
 	w = (1.0 / (texsize.width / 64.0)) * (labelWidth/labelHeight);	// Considera proporcoes entre alt/larg
 	h = (1.0 / (texsize.height / 64.0));
@@ -1760,12 +1782,12 @@
 	[glObject enable];
 	// Dentes
 	if (glDenteOut)
-		[glDenteOut enable:gomoIni :displaySize];
+        [glDenteOut enable];//:gomoIni :displaySize];
 	if (glDenteIn)
-		[glDenteIn enable:gomoIni :displaySize];
+        [glDenteIn enable ];//:gomoIni :displaySize];
 	// Sides
-	[glSideOut enable:gomoIni :displaySize];
-	[glSideIn enable:gomoIni :displaySize];
+    [glSideOut enable] ;//]:gomoIni :displaySize];   
+    [glSideIn enable];//:gomoIni :displaySize];
 	//[glSideOut enable:sideIniOut :displaySideOut];
 	//[glSideIn enable:sideIniIn :displaySideIn];
 
@@ -1773,7 +1795,7 @@
 	// PERFORMANCE: Desenhar quem usa alpha blending por ultimo
 	for (int n = 0 ; n < rows ; n++)
 		if (glLabels[n])
-			[glLabels[n] enable:gomoIni :displaySize];
+            [glLabels[n] enable];// :gomoIni :displaySize];
 
 	// retrieve main projection / undo gear transforms - FOI PRO 3D VIEW
 	//glMatrixMode(GL_MODELVIEW);
@@ -1827,13 +1849,13 @@
 // Retorna o angulo de inicio de um gomo ( n = 0 : primeiro gomo)
 //
 //   G1		< n=1 - CW
-// /  \	
+// /  \
 //  ---G0	< n=0 - CW
 // \  /
 //   G-1	< n=0 - CCW
 // ...
 //
-- (GLfloat)angInit:(int)n
+- (CGFloat)angInit:(int)n
 {
 	if (rotation == ROTATE_CW)
 		return ( gomoAng * n );
@@ -1842,14 +1864,14 @@
 }
 
 // Verifica se um ponto esta dentro da engrenagem
-- (BOOL)isInside:(CGFloat)x:(CGFloat)y
+- (BOOL)isInside:(CGFloat)x :(CGFloat)y
 {
 	CGFloat dist = DISTANCE_BETWEEN(centerX,centerY,x,y);
 	//AvLog(@"CENTER xy[%.3f/%.3f] to[%.3f/%.3f] radIO[%.3f/%.3f] dist[%.3f]",centerX,centerY,x,y,radiusIn,radiusOut,dist);
 	return ( ( dist >= radiusIn && dist <= radiusOut ) ? TRUE : FALSE );
 }
 // Verifica se um ponto esta proximo da engrenagem (sua largura p/ dentro e p/ fora)
-- (BOOL)isAround:(CGFloat)x:(CGFloat)y
+- (BOOL)isAround:(CGFloat)x :(CGFloat)y
 {
 	CGFloat dist = DISTANCE_BETWEEN(centerX,centerY,x,y);
 	return ( ( dist >= (radiusIn-gomoWidth) && dist <= (radiusOut+gomoWidth) ) ? TRUE : FALSE );
@@ -1858,14 +1880,14 @@
 // Verifica se um ponto esta dentro da engrenagem
 // ang = arctan (opposite / adjascent)
 // Retorna em GRAUS
-- (CGFloat)angTo:(CGFloat)x:(CGFloat)y
+- (CGFloat)angTo:(CGFloat)x :(CGFloat)y
 {
 	return ( atan2f(x-centerX,y-centerY) * RADIAN_ANGLES );
 }
 
 // Retorna a diferenca entre 2 angulos em GRAUS
 // Retorna em GRAUS
-- (CGFloat)angDiff:(CGFloat)ang1:(CGFloat)ang2
+- (CGFloat)angDiff:(CGFloat)ang1 :(CGFloat)ang2
 {
 	CGFloat diff;
 	// Depende da direcao da engrenagem

@@ -16,11 +16,6 @@
 #import "TzSoundManager.h"
 #import "AvanteTextLabel.h"
 #import "InfoVC.h"
-#import "SHK.h"
-#import "SHKMail.h"
-#import "SHKFacebook.h"
-#import "SHKTwitter.h"
-#import "SHKTumblr.h"
 
 @implementation TzGlobal
 
@@ -77,7 +72,7 @@
 {
 	if (0)
 	{
-		AvLog(@"SIZEOF: int     = [%d]", sizeof(int));
+		AvLog(@"SIZEOF: int       = [%d]", sizeof(int));
 		AvLog(@"SIZEOF: int       = [%d]", sizeof(int));
 		AvLog(@"SIZEOF: long      = [%d]", sizeof(long));
 		AvLog(@"SIZEOF: NSInteger = [%d]", sizeof(NSInteger));
@@ -98,7 +93,7 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
 	// First Time?
-	int prefDejaVu = [defaults integerForKey:@"prefDejaVu"];
+	int prefDejaVu = (int)[defaults integerForKey:@"prefDejaVu"];
 	if (prefDejaVu == 0)
 	{
 		AvLog(@"PREFERENCES: FIRST TIME!");
@@ -113,10 +108,15 @@
 		[defaults setInteger:GEAR_NAME_ON		forKey:@"prefGearName"];
 		[defaults setInteger:GEAR_SOUND_TICK	forKey:@"prefGearSound"];
 		[defaults setInteger:0					forKey:@"prefInfoSeen"];
-		[defaults setInteger:1					forKey:@"prefDejaVu"];
 		// save
 		[defaults synchronize];
 	}
+    else if (prefDejaVu == 1)   // New for iOS9
+    {
+        AvLog(@"PREFERENCES: FIRST TIME on iOS9 version!");
+        [defaults setInteger:HEMISPHERE_UNKNOWN	forKey:@"prefHemisphere"];
+    }
+    [defaults setInteger:2					forKey:@"prefDejaVu"];
 	
 #ifdef LITE
 	// LITE preferences
@@ -127,19 +127,18 @@
 #endif // LITE
 	
 	// Read preferences
-	prefLangSetting = [defaults integerForKey:@"prefLangSetting"];
-	prefHemisphere = [defaults integerForKey:@"prefHemisphere"];
-	prefMayaDreamspell = [defaults integerForKey:@"prefMayaDreamspell"];
-	prefHemisphere = [defaults integerForKey:@"prefHemisphere"];
-	prefLastDate = [defaults integerForKey:@"prefLastDate"];
-	prefStartDate = [defaults integerForKey:@"prefStartDate"];
-	prefDateFormat = [defaults integerForKey:@"prefDateFormat"];
-	prefNumbering = [defaults integerForKey:@"prefNumbering"];
-	//prefClockStyle = [defaults integerForKey:@"prefClockStyle"];
-	prefClockStyle = CLOCK_STYLE_123;
-	prefGearName = [defaults integerForKey:@"prefGearName"];
-	prefGearSound = [defaults integerForKey:@"prefGearSound"];
-	prefInfoSeen = [defaults integerForKey:@"prefInfoSeen"];
+	prefLangSetting		= (int)[defaults integerForKey:@"prefLangSetting"];
+	prefHemisphere		= (int)[defaults integerForKey:@"prefHemisphere"];
+	prefMayaDreamspell	= (int)[defaults integerForKey:@"prefMayaDreamspell"];
+	prefLastDate		= (int)[defaults integerForKey:@"prefLastDate"];
+	prefStartDate		= (int)[defaults integerForKey:@"prefStartDate"];
+	prefDateFormat		= (int)[defaults integerForKey:@"prefDateFormat"];
+	prefNumbering		= (int)[defaults integerForKey:@"prefNumbering"];
+	//prefClockStyle	= [defaults integerForKey:@"prefClockStyle"];
+	prefClockStyle		= CLOCK_STYLE_123;
+	prefGearName		= (int)[defaults integerForKey:@"prefGearName"];
+	prefGearSound		= (int)[defaults integerForKey:@"prefGearSound"];
+	prefInfoSeen		= (int)[defaults integerForKey:@"prefInfoSeen"];
 	
 	// Force View mode?
 	if (MAYA_ONLY)
@@ -150,7 +149,7 @@
 	// debug
 	AvLog(@"PREFERENCES: prefLangSetting     = [%d]", prefLangSetting);
 	AvLog(@"PREFERENCES: prefMayaDreamspell  = [%d]", prefMayaDreamspell);
-	AvLog(@"PREFERENCES: prefHemisphere       = [%d]", prefHemisphere);
+	AvLog(@"PREFERENCES: prefHemisphere      = [%d]", prefHemisphere);
 	AvLog(@"PREFERENCES: prefLastDate        = [%d]", prefLastDate);
 	AvLog(@"PREFERENCES: prefStartDate       = [%d]", prefStartDate);
 	AvLog(@"PREFERENCES: prefDateFormat      = [%d]", prefDateFormat);
@@ -191,6 +190,7 @@
 	AvLog(@"CR DR jdn[%d] Tzolkin[%d/%@] Moon[%d/%@] days from corr[%d]",DREAMSPELL_JULIAN,cal.tzolkinMoon.kin,cal.tzolkinMoon.dayName,cal.moon.kin,cal.moon.dayName,(DREAMSPELL_JULIAN-CORRELATION));
 	 */
 	
+    blendingEnabled = FALSE;
 	// Init Timer
 	// PS: depois de cal
 	theClock = [[TzClock alloc] init];
@@ -205,16 +205,31 @@
 	soundLib = [[TzSoundManager alloc] init];
 		
 	// Configure and start the accelerometer
-    //[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / kAccelerometerFrequency)];
-    [[UIAccelerometer sharedAccelerometer] setUpdateInterval:OPENGL_INTERVAL];
-    [[UIAccelerometer sharedAccelerometer] setDelegate:self];
-	
+	self.motionManager = [[CMMotionManager alloc] init];
+	self.motionManager.accelerometerUpdateInterval = OPENGL_INTERVAL;
+	self.motionManager.gyroUpdateInterval = OPENGL_INTERVAL;
+	[self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+											 withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error)
+	 {
+		 if(error) {
+			 NSLog(@"%@", error);
+		 }
+		 else {
+			 [self accelerometer:accelerometerData.acceleration];
+		 }
+	 }];
+	/*[self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
+									withHandler:^(CMGyroData *gyroData, NSError *error)
+	 {
+		 [self outputRotationData:gyroData.rotationRate];
+	 }];*/
+
 	// Finito!
 	return self;
 }
 
 
-// Finaliza, salvando 
+// Finaliza, salvando
 - (void)updatePreferences
 {
 	// Get defaults pointer
@@ -270,7 +285,7 @@
 
 
 // Log
-- (void)logTime:(id)obj:(NSString*)msg
+- (void)logTime:(id)obj :(NSString*)msg
 {
 	CFAbsoluteTime now = CFAbsoluteTimeGetCurrent();
 	CFAbsoluteTime diff = (now - lastLog);
@@ -288,7 +303,7 @@
 // ACCELEROMETER
 //
 // UIAccelerometerDelegate method, called when the device accelerates.
-- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
+- (void)accelerometer:(CMAcceleration)acceleration {
 	// Locked?
 	if (accelLocked)
 		return;
@@ -368,7 +383,7 @@
 // NSData *dataObj = UIImageJPEGRepresentation(self, 90);
 // [dataObj writeToFile:path atomically:NO];
 //
-- (void)shareView:(UIView*)view to:(NSInteger)shareOption withText:(NSString*)text withBody:(NSString*)body
+- (void)shareView:(UIView*)view vc:(UIViewController*)vc withText:(NSString*)text withBody:(NSString*)body
 {
 	UIImageView *rasterView;
 	UIImageView *trailerView;
@@ -385,7 +400,7 @@
 	cameraLocked = YES;
 
 	// Define tamanho da view
-	w = (320.0 + SHOT_SIDE + SHOT_SIDE);
+	w = (kscreenWidth + SHOT_SIDE + SHOT_SIDE);
 	h = (view.frame.size.height + SHOT_HEADER + SHOT_TRAILER);
 	
 	// Cria uma view temporaria com header e trailer
@@ -401,7 +416,7 @@
 	UIGraphicsEndImageContext();
 	
 	// Adiciona imagem rasterizada da view
-	frame = CGRectMake(SHOT_SIDE, y, 320.0, view.frame.size.height);
+	frame = CGRectMake(SHOT_SIDE, y, kscreenWidth, view.frame.size.height);
 	rasterView = [[UIImageView alloc] initWithFrame:frame];
 	rasterView.image = image;
 	[shotView addSubview:rasterView];
@@ -410,7 +425,7 @@
 	
 	// Add Trailer
 	NSString *trailer_file = ( (ENABLE_MAYA) ? @"shot_trailer.png" : @"shot_trailer_dreamspell.png");
-	frame = CGRectMake(SHOT_SIDE, y, 320.0, SHOT_TRAILER);
+	frame = CGRectMake(SHOT_SIDE, y, kscreenWidth, SHOT_TRAILER);
 	trailerView = [[UIImageView alloc] initWithFrame:frame];
 	trailerView.image = [UIImage imageNamed:trailer_file];
 	[shotView addSubview:trailerView];
@@ -424,21 +439,15 @@
 
 	// Save!
 	cameraLocked = NO;
-	switch (shareOption)
-	{
-		case SHARE_LOCAL:
-			[self saveImageToLibrary:image];
-			break;
-		case SHARE_EMAIL:
-			[self shareEmailImage:image withText:text withBody:body];
-			break;
-		case SHARE_FACEBOOK:
-			[self shareFacebookImage:image withText:text];
-			break;
-		case SHARE_TUMBLR:
-			[self shareTumblrImage:image withText:text];
-			break;
-	}
+	
+	// Share!
+	NSArray *activityItems = @[text, image];
+	UIActivityViewController *activityController =
+	[[UIActivityViewController alloc] initWithActivityItems:activityItems
+									  applicationActivities:nil];
+	[vc presentViewController:activityController
+					 animated:YES
+				   completion:nil];
 
 	// release all
 	[rasterView release];
@@ -481,12 +490,12 @@
 		[self uncoverAll];
 	
 	// Cria cover
-	coverView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, kActiveLessNav)];
+	coverView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, kscreenWidth, kActiveLessNav)];
 	coverView.backgroundColor = [UIColor blackColor];
 	coverView.opaque = FALSE;
 	coverView.alpha = 0.85;
 	// Cover message
-	AvanteTextLabel *coverLabel = [[AvanteTextLabel alloc] init:msg x:0.0 y:120.0 w:320.0 h:30.0 size:16.0 color:[UIColor whiteColor]];
+	AvanteTextLabel *coverLabel = [[AvanteTextLabel alloc] init:msg x:0.0 y:120.0 w:kscreenWidth h:30.0 size:16.0 color:[UIColor whiteColor]];
 	[coverView addSubview:coverLabel];
 	[coverLabel release];
 	// Add cover
@@ -519,6 +528,8 @@
 	{
 		info = [[InfoVC alloc] initWithPage:pg];
 		info.hidesBottomBarWhenPushed  = YES;
+        
+        [info SetPrevTitle:topVC.title];
 		[[topVC navigationController] pushViewController:info animated:YES];
 		[info release];
 	}
@@ -574,7 +585,7 @@
 - (void)switchViewMode:(id)sender
 {
 	// Set preferences
-	int viewMode = ((UISegmentedControl*)sender).selectedSegmentIndex;
+	int viewMode = (int)((UISegmentedControl*)sender).selectedSegmentIndex;
 	prefMayaDreamspell = viewMode;
 	AvLog(@"SWITCH VIEW MODE [%d]", self.prefMayaDreamspell);
 	
@@ -654,7 +665,8 @@
 //
 - (UIImage*)imageFromFile:(NSString*)file
 {
-	return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:@"png"]];
+	return [[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:@"png"]]
+            imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
 #pragma mark UI
@@ -722,29 +734,6 @@
 	[alert release];
 }
 
-//
-// UI - SHARING IMAGE
-// FACEBOOK DO SHAREKIT NAO FUNCIONA NO UIAlertView !!!!!
-// http://stackoverflow.com/questions/3859669/sharekit-for-iphone-randomly-crashing
-- (void)alertSharing:(id)delegate
-{
-	// Display alert
-	alertResp = -1;
-	UIActionSheet *action = [[UIActionSheet alloc]
-							 initWithTitle:LOCAL(@"SHARING")
-							 delegate:delegate
-							 cancelButtonTitle:LOCAL(@"BACK")
-							 destructiveButtonTitle:nil
-							 otherButtonTitles:LOCAL(@"SHARE_LOCAL"),
-												LOCAL(@"SHARE_EMAIL"),
-												LOCAL(@"SHARE_FACEBOOK"),
-												LOCAL(@"SHARE_TWITTER"), 
-												LOCAL(@"SHARE_TUMBLR"), nil];
-	
-	[action showFromTabBar:theTabBar.tabBar];
-	[action release];
-}
-
 // UI - LOCATION DETECTION
 - (void)alertLocation:(id)delegate
 {
@@ -753,7 +742,8 @@
 						  initWithTitle:@""
 						  message:LOCAL(@"DETECT_LOCATION")
 						  delegate:delegate
-						  cancelButtonTitle:LOCAL(@"DETECT_AUTO")
+//                          cancelButtonTitle:LOCAL(@"DETECT_AUTO")
+                          cancelButtonTitle:nil
 						  otherButtonTitles:LOCAL(@"DETECT_SOUTH"),LOCAL(@"DETECT_NORTH"), nil];
 	[alert show];
 	[alert release];
@@ -761,7 +751,7 @@
 - (void)locationSet:(int)hemisphere
 {
 	// Detect
-	if (hemisphere == 0)
+	if (hemisphere == HEMISPHERE_UNKNOWN)
 	{
 		AvLog(@"MODEL [%@]",[UIDevice currentDevice].model);
 		// MODEL [iPod touch]
@@ -790,22 +780,27 @@
 }
 // Delegate method from the CLLocationManagerDelegate protocol...
 - (void)locationManager:(CLLocationManager *)manager
-	didUpdateToLocation:(CLLocation *)newLocation
-		   fromLocation:(CLLocation *)oldLocation
+     didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
-	AvLog(@"LOCATION: latitude[%+.6f] longitude[%+.6f]\n",
-		  newLocation.coordinate.latitude,newLocation.coordinate.longitude);
+    AvLog(@"LOCATION: FOUND %d\n",locations.count);
+    if (locations.count > 0)
+    {
+        CLLocation *newLocation = locations[0];
+        AvLog(@"LOCATION: latitude[%+.6f] longitude[%+.6f]\n",
+              newLocation.coordinate.latitude,newLocation.coordinate.longitude);
+        // save location
+        [self locationSet: ( (newLocation.coordinate.latitude >= 0.0) ? HEMISPHERE_NORTH : HEMISPHERE_SOUTH) ];
+    }
 	// stop updating
 	[manager stopUpdatingLocation];
-	// save location
-	[self locationSet: ( (newLocation.coordinate.latitude >= 0.0) ? HEMISPHERE_NORTH : HEMISPHERE_SOUTH) ];
 	// update view
 	[currentVC viewWillAppear:FALSE];
 	// Uncover view
 	[self uncoverAll];
 }
 // Location error....
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error
 {
 	AvLog(@"LOCATION ERROR!!!\n");
 	// stop updating
@@ -823,47 +818,6 @@
 	if (i)
 		[global goLink:LINK_BUY_FULL];
 }
-
-
-#pragma mark SHAREKIT
-
-//
-// ShareKit integration
-//
-// http://www.getsharekit.com/install/
-// http://www.getsharekit.com/docs/
-//
-- (void)sharekitAction
-{
-	// EXAMPLE: Use an image in our resource bundle
-	UIImage *image = [UIImage imageNamed:@"gear7.png"];
-	SHKItem *item = [SHKItem image:image title:@"Testing..."];
-	// Share the item
-	//[SHK setRootViewController:global.theTabBar];
-	[SHKFacebook shareItem:item];
-}
-- (void)shareEmailImage:(UIImage*)image withText:(NSString*)text withBody:(NSString*)body
-{
-	SHKItem *item = [SHKItem image:image title:text];
-	item.text = body;
-	[SHKMail shareItem:item];
-	//[SHKMail shareImage:image title:text];
-}
-- (void)shareFacebookImage:(UIImage*)image withText:(NSString*)text
-{
-	//[SHKFacebook shareItem:[SHKItem image:image title:text]];
-	[SHKFacebook shareImage:image title:text];
-}
-- (void)shareTumblrImage:(UIImage*)image withText:(NSString*)text
-{
-	[SHKTumblr shareImage:image title:text];
-}
-- (void)shareTwitterText:(NSString*)text
-{
-	[SHKTwitter shareItem:[SHKItem text:text]];
-}
-
-
 
 
 @end

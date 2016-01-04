@@ -43,7 +43,7 @@
 // Gregoriano > Maya
 - (id)init;
 - (id)initJulian:(int)j;
-- (id)initJulian:(int)j:(NSString*)d;
+- (id)initJulian:(int)j :(NSString*)d;
 - (void)setDescription:(NSString*)d;
 
 @end

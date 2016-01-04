@@ -92,21 +92,10 @@ enum {
 
 // Localização
 enum {
-	HEMISPHERE_UNKNOWN,
+	HEMISPHERE_UNKNOWN = -1,
 	HEMISPHERE_SOUTH,
 	HEMISPHERE_NORTH
 } enumHemisphere;
-
-// Sharing options
-// Must match order on [global alertSharing:]
-enum {
-	SHARE_LOCAL = 0,
-	SHARE_EMAIL,
-	SHARE_FACEBOOK,
-	SHARE_TWITTER,
-	SHARE_TUMBLR,
-	SHARE_CANCEL
-} enumSharing;
 
 // Direcoes
 // Bate com a cor do tzolkin, nesta ordem
@@ -193,7 +182,7 @@ enum {
 #define OPENGL_INTERVAL			(1.0/60.0)	// OpenGL optimum FPS
 #define UI_INTERVAL				(1.0/13.0)	// UI update interval
 #define ACCELEROMETER			1			// << CHECK FOR PROD : 1
-#define DISPLAY_FPS				1
+#define DISPLAY_FPS				0
 // Finger swipe (move camera)
 #define ALLOW_SWIPE				0			// Pode mover camera com os dedos? << CHECK FOR PROD : 0
 #define ALLOW_ROTATE			0			// Pode rodar camera com os dedos? << CHECK FOR PROD : 0
@@ -278,17 +267,31 @@ enum {
 
 // control dimensions
 // verified
-#define kscreenWidth			320.0
-#define kscreenHeight			480.0
+//#define kscreenWidth			320.0
+//#define kscreenHeight			480.0
+//#define kActive					460.0	// 480 - 20 = 460
+//#define kActiveLessNav			416.0	// 480 - 20 - 44 = 416
+//#define kActiveLessTab			411.0	// 480 - 20 - 49 = 411
+//#define kActiveLessNavTab		367.0	// 480 - 20 - 44 - 49 = 367
+
+extern int kscreenWidth;//			320.0
+extern int kscreenHeight;//			480.0
+extern int kActive;//					460.0	// 480 - 20 = 460
+extern int kActiveLessNav;//			416.0	// 480 - 20 - 44 = 416
+extern int kActiveLessTab;//			411.0	// 480 - 20 - 49 = 411
+extern int kActiveLessNavTab;//		367.0	// 480 - 20 - 44 - 49 = 367
+
+extern int ACTUAL_VIEW_HEIGHT;//		(kActiveLessNavTab - kRollerVerticalHeight)
+
+extern int kUIPickerHeight;//			216.0
+
+
 #define kStatusBarHeight		20.0
 #define kToolbarHeight			44.0
 #define kToolBarButtonHeight	30.0
 #define kTabBarHeight			49.0
-#define kActive					460.0	// 480 - 20 = 460
-#define kActiveLessNav			416.0	// 480 - 20 - 44 = 416
-#define kActiveLessTab			411.0	// 480 - 20 - 49 = 411
-#define kActiveLessNavTab		367.0	// 480 - 20 - 44 - 49 = 367
-#define kUIPickerHeight			216.0
+
+//#define kUIPickerHeight			216.0
 #define kPageControlHeight		24.0
 // Avante
 #define kRollerVerticalHeight	kToolbarHeight
@@ -318,5 +321,6 @@ extern TzGlobal *global;
 //
 void AvLog(NSString *format, ...);
 void AvLogMemory(NSString *msg);
+void setSize(int screenWidth,int screenHeight);
 
 

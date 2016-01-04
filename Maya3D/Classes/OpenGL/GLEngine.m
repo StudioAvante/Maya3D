@@ -85,7 +85,9 @@
 	//[NSThread detachNewThreadSelector:@selector(draw3DView:) toTarget:self withObject:nil];
 	
 	// Start Auto Zoom
+
 	[self startAutoZoom:CAMERA_WIDTH_MAX :CAMERA_WIDTH];
+
 
 	// Finito!
 	return self;
@@ -95,6 +97,8 @@
 // SETUP GEARS
 //
 - (void)setupGearsMaya {
+    
+   
 	CGFloat x;
 	
 	// Window Offset
@@ -103,20 +107,32 @@
 	//
 	// MAYA TZOLKN 20
 	//
-	maya20 = [[GLGear alloc] init:20 
+	maya20 = [[GLGear alloc] init:20
 								type:TYPE_WHEEL
 							denteOut:DENTE_DOWN 
 							 denteIn:DENTE_DOWN
 								 rot:ROTATE_CCW];
 	x = -( 0.2 + maya20.radiusOut );
+//    x = -( 0.2 );
 	[maya20 setTranslate:x :0.0 :0.0];
 	maya20.name = LOCAL(@"GEAR_NAME_MAYA_20");
 	//[maya20 makeSoundBuffers:5];
 	// Labels
-	for (int n = 0 ; n < 20 ; n++ )
-		[maya20 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"tzday_map" map:n];
+//    NSString* texname = @"tzday_map";
+//    CGSize texsize; //=  [global.texLib getSize];  //[global.texLib getSize:texname];
+//    texsize = CGSizeMake(1024,128);
+    for (int n = 0 ; n < 20 ; n++ ){
+        if ( n == 19 ) {
+            int ii = 0;
+            ii =1;
+        }
+        
+        [maya20 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"tzday_map" map:n];  //tzday_map
+    }
+		
 	// Bind!
 	[maya20 bindData];
+
 
 	//
 	// MAYA TZOLKN 13
@@ -130,17 +146,19 @@
 							   gomow:2.0
 								rows:1 ];
 	x = -( 0.2 + maya20.gomoWidth + 0.4 + maya13.radiusOut );
-	[maya13 setTranslate:x :0.0 :0.0];
+    
+    [maya13 setTranslate:x :0.0 :0.0];
 	maya13.name = LOCAL(@"GEAR_NAME_MAYA_13");
 	//[maya13 makeSoundBuffers:6];
 	// Labels
+    
 	for (int n = 0 ; n < 13 ; n++ )
 		[maya13 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"num_map" map:(n+1)];
 	// Bind!
 	[maya13 bindData];
 
 	//
-	// MAYA HAAB 365 - CCW
+	// MAYA HAAB 365 - CW
 	//
 	maya365 = [[GLGear alloc] init:365 
 							  type:TYPE_WHEEL
@@ -159,18 +177,20 @@
 	// Labels Row 1
 	for (int n = 0 ; n < 365 ; n++ )
 		[maya365 addLabelNew:1 pos:n align:LABEL_ALIGN_ROW texname:@"uinal_map" map:(n/20)];
-	// Labels Row 0
+
+    // Labels Row 0
 	maya365.labelWidth = maya13.labelWidth;
 	maya365.labelHeight = maya13.labelHeight;
 	for (int n = 0 ; n < 365 ; n++ )
 		[maya365 addLabelNew:0 pos:n align:LABEL_ALIGN_ROW texname:@"num_map" map:(n%20)];
-	// Bind!
+
+    // Bind!
 	[maya365 bindData];
 	
 	//
 	// MAYA 9 - LORDS
 	//
-	maya9 = [[GLGear alloc] init:9 
+	maya9 = [[GLGear alloc] init:9//9
 							type:TYPE_WHEEL
 						denteOut:DENTE_DOWN
 						 denteIn:DENTE_NOT
@@ -185,8 +205,9 @@
 	// Labels
 	maya9.labelWidth *= 0.9;
 	maya9.labelHeight *= 0.9;
+//	for (int n = 0 ; n < 9 ; n++ )
 	for (int n = 0 ; n < 9 ; n++ )
-		[maya9 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"lords_map" map:n];
+        [maya9 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"lords_map" map:n];  //lords_map
 	// Bind!
 	[maya9 bindData];
 }
@@ -216,9 +237,12 @@
 	[dreamspell260 setDisplayZoom:super.zoomSize];
 	dreamspell260.name = LOCAL(@"GEAR_NAME_DREAMSPELL_260");
 	// Labels
-	for (int n = 0 ; n < 260 ; n++ )
-		[dreamspell260 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:(n<255?@"kin_map1":@"kin_map2") map:((n+1)%256)];
-	// Bind!
+//	for (int n = 0 ; n < 260 ; n++ )
+//		[dreamspell260 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:(n<255?@"kin_map1":@"kin_map2") map:((n+1)%256)];
+    for (int n = 0 ; n < 260 ; n++ )
+        [dreamspell260 addLabelNew:0 pos:n align:LABEL_ALIGN_CENTER texname:@"kin_map1" map:(n+1)];
+
+    // Bind!
 	[dreamspell260 bindData];
 
 	//
@@ -398,10 +422,10 @@
 // Draw 3D view
 - (void)draw3DView {
 	// Esta fazendo auto-zoom?
-	if (autoZoom)
+	if (autoZoom)     
 		[self applyAutoZoom];
 	// Atualiza 3D View
-	[super drawView];
+	[self drawView];
 }
 
 
@@ -430,11 +454,11 @@
 			glTranslatef(mayaOffsetX, 0.0, 0.0);
 			
 			// MAYA GEARS
-			[maya13 setRotate:(global.cal.tzolkin.number-1) :global.cal.decSecs];
-			[maya13 enable];
 			[maya20 setRotate:(global.cal.tzolkin.day-1) :global.cal.decSecs];
 			[maya20 enable];
-			[maya365 setRotate:(global.cal.haab.kin-1) :global.cal.decSecs];
+            [maya13 setRotate:(global.cal.tzolkin.number-1) :global.cal.decSecs];
+            [maya13 enable];
+            [maya365 setRotate:(global.cal.haab.kin-1) :global.cal.decSecs];
 			[maya365 enable];
 			[maya9 setRotate:(global.cal.haab.lord-1) :global.cal.decSecs];
 			[maya9 enable];
@@ -743,7 +767,7 @@
 
 #define AUTO_ZOOM_DURATION	4.0
 
-- (void)startAutoZoom:(CGFloat)i:(CGFloat)f
+- (void)startAutoZoom:(CGFloat)i :(CGFloat)f
 {
 	autoZoom = YES;
 	autoZoomIni = i;

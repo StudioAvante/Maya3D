@@ -16,7 +16,7 @@
 	NSUInteger				numVBO;
 	NSMutableDictionary		*vbos;
 }
-
+@property(nonatomic,retain) NSMutableDictionary		*vbos;
 - (id)initWithCapacity:(NSUInteger)i;
 - (GLuint)getVBO:(NSString*)filename alpha:(BOOL)alpha;
 - (CGSize)getSize:(NSString*)filename;

@@ -34,9 +34,9 @@ Note that setting the view non-opaque will only work if the EAGL surface has an 
 	GLuint depthRenderbuffer;
 	
 	// Constants
-	GLfloat zNear;
-	GLfloat zPlane;
-	GLfloat zFar;
+	CGFloat zNear;
+	CGFloat zPlane;
+	CGFloat zFar;
 	
 	// View
 	CGFloat viewRatio;				// Largura / Altura da view

@@ -121,7 +121,7 @@
 	
 	// ADD RULER
 	//UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"iphone_ruler.png"]];
-	//iv.frame = CGRectMake(0.0, 0.0, 320.0, 480.0);
+	//iv.frame = CGRectMake(0.0, 0.0, kscreenWidth, 480.0);
 	//[self.view addSubview:iv];
 	
 	// Corrige nome 
@@ -135,9 +135,11 @@
 	// SETTINGS BUTTON
 	UIBarButtonItem *but;
 	but = [[UIBarButtonItem alloc]
-		   initWithImage:[global imageFromFile:@"icon_settings"]
-		   style:UIBarButtonItemStylePlain
+//           initWithImage:[UIImage imageNamed:@"icon_settings2.png"]
+		   initWithImage:[global imageFromFile:@"icon_settings2"]
+		   style:UIBarButtonItemStyleDone
 		   target:self action:@selector(goSettings:)];
+    [but setTintColor:[UIColor whiteColor]];
 	self.navigationItem.leftBarButtonItem = but;
 	self.navigationItem.leftBarButtonItem.enabled = TRUE;
 	[but release];
@@ -147,6 +149,7 @@
 		   initWithImage:[global imageFromFile:@"icon_datebook_add"]
 		   style:UIBarButtonItemStylePlain
 		   target:self action:@selector(addDate:)];
+    [but setTintColor:[UIColor whiteColor]];    
 	self.navigationItem.rightBarButtonItem = but;
 	self.navigationItem.rightBarButtonItem.enabled = TRUE;
 	[but release];
@@ -159,6 +162,7 @@
 		todayButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 		todayButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
 		todayButton.backgroundColor = [UIColor clearColor];
+        todayButton.tintColor = [UIColor whiteColor];
 		// iPhone OS 2.2.1 (deprecated)
 		//todayButton.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
 		todayButton.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
@@ -197,7 +201,14 @@
 	//
 	// CONTENT VIEW
 	//
-	frame = CGRectMake(0.0, 0.0, 320.0, self.view.frame.size.height-kRollerVerticalHeight);
+	frame = CGRectMake(0.0, 0.0, kscreenWidth, (kActiveLessNavTab - kRollerVerticalHeight));
+    
+    if( contentView)
+    {
+        [contentView removeFromSuperview];
+        contentView = nil;
+    }
+    
 	contentView = [[UIScrollView alloc] initWithFrame:frame];
 	contentView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 	contentView.userInteractionEnabled = YES;
@@ -208,8 +219,8 @@
 	
 	// Cria botao do tipo UIButtonTypeDetailDisclosure para pegar sua imagem
 	// pois crio usando o tipo UIButtonTypeInfoLight que tem uma area de toque maior
-	UIImage *questionImg = [global imageFromFile:@"icon_info2"];
-	UIImage *searchImg = [global imageFromFile:@"icon_search"];
+	UIImage *questionImg = [UIImage imageNamed:@"icon_info3.png"];
+	UIImage *searchImg = [global imageFromFile:@"icon_search2"];
 	
 	// MOON FASE IMAGE
 	if (MAYA_ONLY)
@@ -226,9 +237,12 @@
 	// INFO BUTTON
 	x += SPACER;
 	y += SPACER;
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+    
+	//button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
+    
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoGreg:) forControlEvents:UIControlEventTouchUpInside];
 	[contentView addSubview:button];
@@ -278,7 +292,8 @@
 	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
 	[button setImage:searchImg forState:UIControlStateNormal];
 	button.frame = CGRectMake(x, y+BUTTON_GAP, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
+	button.backgroundColor = [UIColor clearColor];    //
+    button.tintColor = [UIColor whiteColor];
 	[button addTarget:self action:@selector(pickGregorian:) forControlEvents:UIControlEventTouchUpInside];	
 	[contentView addSubview:button];
 	
@@ -288,9 +303,11 @@
 	// INFO BUTTON
 	x = SPACER;
 	y += h + (SPACER/2);
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	//button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoJulian:) forControlEvents:UIControlEventTouchUpInside];	
 	[contentView addSubview:button];
@@ -320,6 +337,7 @@
 	[button setImage:searchImg forState:UIControlStateNormal];
 	button.frame = CGRectMake(x, y+BUTTON_GAP, BUTTON_SIZE, BUTTON_SIZE);
 	button.backgroundColor = [UIColor clearColor];
+    button.tintColor  =[UIColor whiteColor];
 	[button addTarget:self action:@selector(pickJulian:) forControlEvents:UIControlEventTouchUpInside];	
 	[contentView addSubview:button];
 	
@@ -330,9 +348,10 @@
 	//
 	x = SPACER;
 	y += h + (SPACER/2);
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	//button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoLongCount:) forControlEvents:UIControlEventTouchUpInside];	
 	[contentView addSubview:button];
@@ -487,6 +506,7 @@
 	[button setImage:searchImg forState:UIControlStateNormal];
 	button.frame = CGRectMake(x, y+BUTTON_GAP, BUTTON_SIZE, BUTTON_SIZE);
 	button.backgroundColor = [UIColor clearColor];
+    button.tintColor  =[UIColor whiteColor];
 	[button addTarget:self action:@selector(pickLongCount:) forControlEvents:UIControlEventTouchUpInside];	
 	[contentView addSubview:button];
 	
@@ -534,7 +554,7 @@
 	CGFloat adicional = 45.0;
 	y += h + (SPACER/2);
 #if (ENABLE_MAYA)
-	frame = CGRectMake(0.0, y, 320.0, 200.0 + adicional);
+	frame = CGRectMake(0.0, y, kscreenWidth, 200.0 + adicional);
 	mayaView = [[UIView alloc] initWithFrame:frame];
 	mayaView.hidden = TRUE;
 	[contentView addSubview:mayaView];
@@ -546,7 +566,7 @@
 	//
 #if (ENABLE_DREAMSPELL)
 	adicional = 0.0;
-	frame = CGRectMake(0.0, y, 320.0, 200.0);
+	frame = CGRectMake(0.0, y, kscreenWidth, 200.0);
 	dreamspellView = [[UIView alloc] initWithFrame:frame];
 	dreamspellView.hidden = TRUE;
 	[contentView addSubview:dreamspellView];
@@ -572,9 +592,10 @@
 	// INFO BUTTON
 	y = 0.0;
 	x = SPACER;
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	//button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoHaab:) forControlEvents:UIControlEventTouchUpInside];	
 	[mayaView addSubview:button];
@@ -670,9 +691,10 @@
 	// INFO BUTTON
 	y += h + (SPACER/2);
 	x = SPACER;
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	//button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoTzolkin:) forControlEvents:UIControlEventTouchUpInside];	
 	[mayaView addSubview:button];
@@ -770,9 +792,10 @@
 	// INFO BUTTON
 	y += h + (SPACER/2);
 	x = SPACER;
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	//button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoCalendarRound:) forControlEvents:UIControlEventTouchUpInside];	
 	[mayaView addSubview:button];
@@ -828,9 +851,11 @@
 	// INFO BUTTON
 	y = 0.0;
 	x = SPACER;
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	//button.backgroundColor = [UIColor clearColor];
+    
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoMoon:) forControlEvents:UIControlEventTouchUpInside];	
 	[dreamspellView addSubview:button];
@@ -934,9 +959,11 @@
 	// INFO BUTTON
 	y += h + (SPACER/2);
 	x = SPACER;
-	button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	button.frame = CGRectMake(x, y, BUTTON_SIZE, BUTTON_SIZE);
-	button.backgroundColor = [UIColor clearColor];
+	button = [UIButton buttonWithType:UIButtonTypeCustom];
+	button.frame = CGRectMake(x, y, questionImg.size.width, questionImg.size.height);
+	
+    //button.backgroundColor = [UIColor clearColor];
+    //button.tintColor  =[UIColor whiteColor];
 	[button setImage:questionImg forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(infoTzolkin2:) forControlEvents:UIControlEventTouchUpInside];	
 	[dreamspellView addSubview:button];
@@ -1032,7 +1059,7 @@
 	//
 	// ROLLER
 	//
-	roller = [[AvanteRollerVertical alloc] init:0.0:(self.view.bounds.size.height-kRollerVerticalHeight)];
+	roller = [[AvanteRollerVertical alloc] init:0.0:(kActiveLessNavTab - kRollerVerticalHeight)];
 	[roller addCallback:self dragLeft:@selector(julianSub:) dragRight:@selector(julianAdd:)];
 	[self.view addSubview:roller];
 	[roller release];
@@ -1176,6 +1203,8 @@
 	// Create temporary vc
 	DateAddVC *vc = [[DateAddVC alloc] initAddItem:global.cal.julian];
 	vc.title = LOCAL(@"DATE_ADD_TITLE");
+    
+    [vc setPrevTitle:self.title];
 	vc.hidesBottomBarWhenPushed  = YES;
 	[[self navigationController] pushViewController:vc animated:YES];
 	[vc release];
@@ -1230,6 +1259,7 @@
 	[roller stop];
 	// Create temporary vc
 	DatePickerVC *vc = [[DatePickerVC alloc] initWithType:DATE_PICKER_GREGORIAN];
+    [vc setPrevTitle:self.title];
 	vc.hidesBottomBarWhenPushed  = YES;
 	[[self navigationController] pushViewController:vc animated:YES];
 	[vc release];
@@ -1239,6 +1269,7 @@
 	[roller stop];
 	// Create temporary vc
 	DatePickerVC *vc = [[DatePickerVC alloc] initWithType:DATE_PICKER_JULIAN];
+    [vc setPrevTitle:self.title];
 	vc.hidesBottomBarWhenPushed  = YES;
 	[[self navigationController] pushViewController:vc animated:YES];
 	[vc release];
@@ -1248,6 +1279,7 @@
 	[roller stop];
 	// Create temporary vc
 	DatePickerVC *vc = [[DatePickerVC alloc] initWithType:DATE_PICKER_LONG_COUNT];
+    [vc setPrevTitle:self.title];    
 	vc.hidesBottomBarWhenPushed  = YES;
 	[[self navigationController] pushViewController:vc animated:YES];
 	[vc release];

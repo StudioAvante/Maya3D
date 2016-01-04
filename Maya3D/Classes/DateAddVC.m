@@ -15,6 +15,8 @@
 @implementation DateAddVC
 
 @synthesize descField;
+@synthesize dateField;
+@synthesize noteField;
 
 // Destructor
 - (void)dealloc {
@@ -30,7 +32,20 @@
     // Release anything that's not essential, such as cached data
 }
 
-
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    TzDate *date = [[TzDate alloc] initJulian:julian];
+    
+    // Atualiza UI
+    //[dateField update:date.greg.dayNameFull];
+    dateField.text = date.greg.dayNameFull;
+    noteField.text = LOCAL(@"ENTER_DESCRIPTION");
+    descField.text = date.text;
+    
+    [date release];
+}
 //
 // EDIT
 //
@@ -50,8 +65,8 @@
 	TzDate *date = [[TzDate alloc] initJulian:julian];
 	
 	// Atualiza UI
-	[dateField update:date.greg.dayNameFull];
-	
+	//[dateField update:date.greg.dayNameFull];
+//    dateField.text = date.greg.dayNameFull;
 	// release
 	[date release];
 
@@ -77,7 +92,8 @@
 	TzDate *date = (TzDate*) [global.datebook objectAtIndex:editItem];
 	
 	// Atuializa UI
-	[dateField update:date.greg.dayNameFull];
+	//[dateField update:date.greg.dayNameFull];
+    dateField.text = date.greg.dayNameFull;
 	descField.text = date.text;
 	//AvLog(@"EDIT desc[%@]", date.text);
 
@@ -92,19 +108,26 @@
 	descField.font = [UIFont systemFontOfSize:16.0];
 	descField.clearsOnBeginEditing = NO;
 	
+    
 	// Data e hora atual
-	CGRect frame;
-	frame = CGRectMake(0.0, 10.0, 320.0, 24.0);
-	dateField = [[AvanteTextLabel alloc] init:@"gregname" frame:frame size:20.0 color:[UIColor whiteColor]];
-	[dateField setNavigationBarStyle];
-	[self.view addSubview:dateField];
-	[dateField release];
-	
-	// Prompt
-	frame = CGRectMake(0.0, 38.0, 320.0, 24.0);
-	AvanteTextLabel *label = [[AvanteTextLabel alloc] init:LOCAL(@"ENTER_DESCRIPTION") frame:frame size:14.0 color:[UIColor whiteColor]];
-	[self.view addSubview:label];
-	[label release];
+//	CGRect frame;
+//	frame = CGRectMake(0.0, 64+10.0, kscreenWidth, 24.0);
+//	dateField = [[AvanteTextLabel alloc] init:@"gregname" frame:frame size:20.0 color:[UIColor whiteColor]];
+//	//[dateField setNavigationBarStyle];
+//	[self.view addSubview:dateField];
+//	[dateField release];
+//
+//	// Prompt
+//	frame = CGRectMake(0.0, 64 + 38.0, kscreenWidth, 24.0);
+//	AvanteTextLabel *label = [[AvanteTextLabel alloc] init:LOCAL(@"ENTER_DESCRIPTION") frame:frame size:14.0 color:[UIColor whiteColor]];
+//	[self.view addSubview:label];
+//	[label release];
+    noteField.text = LOCAL(@"ENTER_DESCRIPTION");
+////
+//    frame = descField.frame;
+//    frame.origin.y = 104.0;
+//    [descField setFrame:frame];
+    
 }
 
 
@@ -116,8 +139,21 @@
 {
 	// Dá foco a descricao
 	[descField becomeFirstResponder];
+    
+    UIBarButtonItem *but;
+    but = [[UIBarButtonItem alloc] initWithTitle:self.prevTitle style:UIBarButtonItemStylePlain target:self action:@selector(goPrev:)];
+    
+    [but setTintColor:[UIColor whiteColor]];
+    self.navigationItem.leftBarButtonItem = but;
+    self.navigationItem.leftBarButtonItem.enabled = TRUE;
+    [but release];
+
 }
 
+- (IBAction)goPrev:(id)sender  
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark UITextFieldDelegate
 

@@ -177,7 +177,7 @@
 
 // Converte data GREGORIANA em memoria para JULIAN DAY NUMBER
 // http://en.wikipedia.org/wiki/Julian_date
-+ (int)convertGregToJulian:(int)d :(int)m: (int)y {
++ (int)convertGregToJulian:(int)d :(int)m :(int)y {
 	int aa = floor((14-m)/12);
 	int yy = y + 4800 - aa;
 	int mm = m + 12*aa - 3;
@@ -185,7 +185,7 @@
 }
 
 // Validate Gregorian Date
-+ (int)validateGreg:(int)d :(int)m: (int)y {
++ (int)validateGreg:(int)d :(int)m :(int)y {
 	
 	CFGregorianDate gdate;
 	gdate.day = d;
@@ -237,7 +237,7 @@
 // CLASS METHODS
 //
 // Make Gregorian Date: 21/march/2003
-+(NSString*) makeDayNameFull:(int)d :(int)m: (int)y {
++(NSString*) makeDayNameFull:(int)d :(int)m :(int)y {
 	if (global.prefDateFormat == GREG_MDY)
 		return [NSString stringWithFormat:@"%@/%02d/%04d",
 				[TzCalGreg constNameOfMonth:m], d, y];
@@ -246,7 +246,7 @@
 				d, [TzCalGreg constNameOfMonth:m], y];
 }
 // Make Gregorian Date: 21/mar/2003
-+(NSString*) makeDayNameShort:(int)d :(int)m: (int)y {
++(NSString*) makeDayNameShort:(int)d :(int)m :(int)y {
 	if (global.prefDateFormat == GREG_MDY)
 		return [NSString stringWithFormat:@"%@/%02d/%04d",
 				[self constNameOfMonthShort:m], d, y];
@@ -255,14 +255,14 @@
 				d, [self constNameOfMonthShort:m], y];
 }
 // Make Gregorian Date: 21/03/2003
-+(NSString*) makeDayNameNum:(int)d :(int)m: (int)y {
++(NSString*) makeDayNameNum:(int)d :(int)m :(int)y {
 	if (global.prefDateFormat == GREG_MDY)
 		return [NSString stringWithFormat:@"%02d/%02d/%d", m, d, y];
 	else
 		return [NSString stringWithFormat:@"%02d/%02d/%d", d, m,y];
 }
 // Make Hour string: 12:17:56
-+(NSString*) makeHourName:(int)h:(int)m:(int)s
++(NSString*) makeHourName:(int)h :(int)m :(int)s
 {
 	return [NSString stringWithFormat:@"%02d:%02d:%02d", h, m, s];
 }

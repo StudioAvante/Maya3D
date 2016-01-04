@@ -50,7 +50,7 @@
 - (id)init:(int)j;
 - (void)updateWithJulian:(int)j;
 // Conversores
-- (int)convertMayaToJulian:(int)b:(int)k:(int)t:(int)u:(int)i;
+- (int)convertMayaToJulian:(int)b :(int)k :(int)t :(int)u :(int)i;
 - (int)convertKinToJulian:(int)k;
 - (int)validateMayaKin:(int)k;
 

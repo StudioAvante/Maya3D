@@ -27,19 +27,22 @@
 	// Size frame with labels
 	drawLabels = l;
 	if (drawLabels)
-		frame = CGRectMake(x, y, 320.0, (kUIPickerHeight + HEIGHT_FOR_LINES(LABEL_FONT_SIZE,1)) );
+		frame = CGRectMake(x, y, kscreenWidth, (kUIPickerHeight + HEIGHT_FOR_LINES(LABEL_FONT_SIZE,1)) );
 	else
-		frame = CGRectMake(x, y, 320.0, kUIPickerHeight);
+		frame = CGRectMake(x, y, kscreenWidth, kUIPickerHeight);
 	
 	// super
 	if ( (self = [super initWithFrame:frame]) == nil)
 		return nil;
 	
 	// Configure UIPickerView
-	self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	self.showsSelectionIndicator = YES;	// note this is default to NO
-	self.delegate = self;
-	
+//	self.autoresizingMask =  UIViewAutoresizingFlexibleTopMargin |        UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    self.showsSelectionIndicator = YES;	// note this is default to NO
+    self.delegate = self;
+    self.dataSource = self;
+    
+    self.backgroundColor = [UIColor whiteColor];
 	// Inicializa os componentes
 	components = [[NSMutableArray alloc] init];
 	// ok!
@@ -100,7 +103,7 @@
 		return;
 	// Select row
 	NSInteger row = [comp indexOfData:dt];
-	if ( row >= 0)
+	if ( row >= 0) 
 		[self selectRow:row inComponent:component animated:anim];
 }
 - (void)selectRowWithDataCloser:(NSInteger)target inComponent:(NSInteger)component animated:(BOOL)anim
@@ -146,9 +149,19 @@
 // tell the picker how many components it will have (in our case we have one component)
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-	return [components count];
+    NSInteger count = [components count];
+    return count;//[components count];
 }
 
+// tell the picker how many rows are available for a given component (in our case we have one component)
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    AvantePickerComponent *comp = [components objectAtIndex:component];
+    if (comp == nil)
+        return 0;
+    else
+        return [comp count];
+}
 // tell the picker the width of each row for a given component (in our case we have one component)
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
 {
@@ -157,11 +170,15 @@
 		return 0;
 	else
 		return comp.width;
+//    return 100;
 }
 
 // tell the picker the height of each row for a given component (in our case we have one component)
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
 {
+    
+    if( component >= [components count] )
+        return 0.0;
 	AvantePickerComponent *comp = [components objectAtIndex:component];
 	if (comp == nil)
 		return 0;
@@ -169,15 +186,7 @@
 		return [comp smartHeight];
 }
 
-// tell the picker how many rows are available for a given component (in our case we have one component)
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-	AvantePickerComponent *comp = [components objectAtIndex:component];
-	if (comp == nil)
-		return 0;
-	else
-		return [comp count];
-}
+
 
 // tell the picker the title for a given component (in our case we have one component)
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
@@ -229,11 +238,11 @@
 		CGFloat wid = 0;
 		for (comp in components)
 			wid += comp.width;
-		if (wid > 290.0)
-			wid = 290.0;
+//		if (wid > 290.0)
+//			wid = 290.0;
 		//AvLog(@"LABELS widComps[%f]",wid);
 		// Cria os labels
-		CGFloat lx = ((320.0-wid)/2.0) - 2.0;
+		CGFloat lx = ((kscreenWidth-wid)/2.0) - 2.0;
 		CGFloat h = HEIGHT_FOR_LINES(LABEL_FONT_SIZE,1);
 		for (comp in components)
 		{

@@ -64,6 +64,8 @@
 	AvanteKinButton *oracleAnalogGlyph;
 	AvanteKinButton *oracleOccultGlyph;
 	AvanteTextLabel *affirmation1;
+    
+    int VIEW_HEIGHT;//				(kActiveLessNavTab - kRollerVerticalHeight)
 }
 
 - (void)createContentMaya;
@@ -77,7 +79,6 @@
 - (IBAction)julianSub:(id)sender;
 - (void)goDecode:(AvanteKinButton*)but;
 - (IBAction)share:(id)sender;
-- (void)shareScreenshotTo:(NSInteger)shareOption withText:(NSString*)text withBody:(NSString*)body;
 // Alert / Action Delegate
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)option;
+//-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)option;
 @end

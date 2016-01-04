@@ -32,6 +32,7 @@
 	// Render Timer
     NSTimer *glTimer;
     NSTimer *uiTimer;
+    int GL_VIEW_HEIGHT;
 }
 
 // IB
@@ -43,13 +44,13 @@
 - (void)draw3DView:(NSTimer*)theTimer;
 - (void)draw3DView;
 - (void)drawUI:(NSTimer*)theTimer;
-- (void)touchBegin:(CGPoint)pos:(NSString*)name;
-- (void)touchMove:(CGPoint)pos:(NSString*)name;
+- (void)touchBegin:(CGPoint)pos :(NSString*)name;
+- (void)touchMove:(CGPoint)pos :(NSString*)name;
 - (void)touchEnd;
 // actions
 - (IBAction)goSettings:(id)sender;
-- (IBAction)goClock:(id)sender;
-- (IBAction)goInfo:(id)sender;
+- (void)goClock:(id)sender;
+- (void)goInfo:(id)sender;
 - (IBAction)goFullScreen:(id)sender;
 - (IBAction)pickGregorian:(id)sender;
 // SCREENSHOT

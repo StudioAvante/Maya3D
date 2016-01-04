@@ -38,15 +38,17 @@
 	CGRect frame;
 	CGFloat y = 0.0;
 	
+    y = 20+44;
 	// Create Tool Bar estetico para o label
-	frame = CGRectMake(0.0, y, 320.0, kToolbarHeight);
+	frame = CGRectMake(0.0, y, kscreenWidth, kToolbarHeight);
 	toolBar = [[UIToolbar alloc] initWithFrame:frame];
 	toolBar.barStyle = UIBarStyleBlackOpaque;
 	[self.view addSubview:toolBar];
 	[toolBar release];
 	
 	// Create Label
-	frame = CGRectMake(0.0, 0.0, 320.0, kToolbarHeight);
+	//frame = CGRectMake(0.0, 0.0, kscreenWidth, kToolbarHeight);
+    frame = CGRectMake(0.0, y + 0.0, kscreenWidth, kToolbarHeight);
 	descLabel = [[AvanteTextLabel alloc] init:@"" frame:frame size:22.0 color:[UIColor whiteColor]];
 	[descLabel setNavigationBarStyle];
 	[self.view addSubview:descLabel];
@@ -58,7 +60,7 @@
 	// Cria picker correto
 	if ( type == DATE_PICKER_GREGORIAN )
 	{
-		y += 12.0;	// Labels
+		y += 30.0;	// 12.0 //Labels
 		self.title = LOCAL(@"GREGORIAN_PICKER");
 		gregPicker = [[AvantePicker alloc] init:0.0 y:y labels:YES];
 		[self initGregPicker];
@@ -73,7 +75,7 @@
 	}
 	else 	if ( type == DATE_PICKER_LONG_COUNT && global.prefNumbering == NUMBERING_123 )
 	{
-		y += 12.0;	// Labels
+		y += 30.0;	// 12.0 //Labels
 		self.title = LOCAL(@"LONG_COUNT_PICKER");
 		longCountPicker = [[AvantePicker alloc] init:0.0 y:y labels:YES];
 		[self initLongCountPicker];
@@ -81,7 +83,7 @@
 	}
 	else if ( type == DATE_PICKER_LONG_COUNT && global.prefNumbering == NUMBERING_MAYA )
 	{
-		y += 12.0;	// Labels
+        y += 30.0; //12.0;	// Labels
 		self.title = LOCAL(@"LONG_COUNT_PICKER");
 		longCountMayaPicker = [[AvantePickerImage alloc] init:0.0 y:y labels:YES];
 		[self initLongCountMayaPicker];
@@ -102,16 +104,22 @@
 	// Create ToolBar Items
 	// FLEX
 	UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    flex.tintColor = [UIColor whiteColor];
 	// TODAY button
     UIBarButtonItem *todayButton = [[UIBarButtonItem alloc]
 									initWithTitle:LOCAL(@"TODAY_BUTTON")
 									style:UIBarButtonItemStyleBordered
 									target:self action:@selector(actionToday:)];
+    
+    [todayButton setTintColor:[UIColor whiteColor]];
 	// SELECT button
     UIBarButtonItem *selectButton = [[UIBarButtonItem alloc]
 									 initWithTitle:LOCAL(@"SELECT")
-									 style:UIBarButtonSystemItemDone
+									 style:UIBarButtonItemStyleDone
 									 target:self action:@selector(actionSelect:)];
+    
+    [selectButton setTintColor:[UIColor whiteColor]];
 	selectButton.style = UIBarButtonItemStyleDone;
 	// Add Itens To Toolbar
 	NSArray *items = [NSArray arrayWithObjects: flex, todayButton, flex, selectButton, flex, nil];
@@ -120,7 +128,7 @@
 	[selectButton release];
 	
 	// Create the Tool Bar
-	frame = CGRectMake(0.0, y, 320.0, kToolbarHeight);
+	frame = CGRectMake(0.0, y, kscreenWidth, kToolbarHeight);
 	toolBar = [[UIToolbar alloc] initWithFrame:frame];
 	toolBar.barStyle = UIBarStyleBlackOpaque;
 	[toolBar setItems:items animated:NO];
@@ -129,11 +137,67 @@
 	[self.view addSubview:toolBar];
 	[toolBar release];
 	y+= kToolbarHeight;
-	
+
+    //////////////////////
+    // YEAR/CENTURY Label 1
+    
+    if ( type == DATE_PICKER_GREGORIAN )
+    {
+        AvanteTextLabel *label;
+        
+        //   y+= 15;
+        CGFloat y1 = y;
+        
+        
+        y+= 40;
+        label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS1")
+                                            x:0.0 y:y w:kscreenWidth h:12.0 size:12.0 color:[UIColor whiteColor]];
+        [self.view addSubview:label];
+        [label release];
+        // YEAR/CENTURY Label 2
+        y += 14.0;
+        label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS2")
+                                            x:0.0 y:y w:kscreenWidth h:12.0 size:12.0 color:[UIColor whiteColor]];
+        [self.view addSubview:label];
+        [label release];
+        
+        // YEAR/CENTURY help
+#ifndef LITE
+        UIButton *yearInfo = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        float x = 275.0 * kscreenWidth / 320;
+        yearInfo.frame = CGRectMake(x, y1+40, 25.0, 25.0);
+        //yearInfo.backgroundColor = [UIColor clearColor];
+        //yearInfo.tintColor = [UIColor whiteColor];
+        [yearInfo setImage:[UIImage imageNamed:@"icon_info3.png"] forState:UIControlStateNormal];
+        [yearInfo addTarget:self action:@selector(infoGreg:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:yearInfo];
+#endif
+    
+    }
+
+    //////////////////////
+    
+    
 	// Finito
 	return self;
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    UIBarButtonItem *but = [[UIBarButtonItem alloc] initWithTitle:self.prevTitle style:UIBarButtonItemStyleDone target:self action:@selector(goPrev:)];
+    [but setTintColor:[UIColor whiteColor]];
+    self.navigationItem.leftBarButtonItem = but;
+    self.navigationItem.leftBarButtonItem.enabled = TRUE;
+    [but release];
+    
+}
 
+-(IBAction)goPrev:(id)sender
+{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)viewDidAppear:(BOOL)animated {
 	// Title
 	[self navigationController].navigationBar.topItem.title = self.title;
@@ -160,33 +224,38 @@
 //
 - (void)initGregPicker
 {
-	AvanteTextLabel *label;
+//	AvanteTextLabel *label;
 	NSString *str, *dt;
-	CGFloat y;
+//	CGFloat y;
 	int n, comp;
 	
-	// YEAR/CENTURY Label 1
-	y = (self.view.frame.size.height - 35.0);
-	label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS1") 
-											x:0.0 y:y w:320.0 h:12.0 size:12.0 color:[UIColor whiteColor]];
-	[self.view addSubview:label];
-	[label release];
-	// YEAR/CENTURY Label 2
-	y += 14.0;
-	label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS2") 
-											x:0.0 y:y w:320.0 h:12.0 size:12.0 color:[UIColor whiteColor]];
-	[self.view addSubview:label];
-	[label release];
-	
-	// YEAR/CENTURY help
-#ifndef LITE
-	UIButton *yearInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	yearInfo.frame = CGRectMake(275.0, 380.0, 25.0, 25.0);
-	yearInfo.backgroundColor = [UIColor clearColor];
-	[yearInfo setImage:[global imageFromFile:@"icon_info2"] forState:UIControlStateNormal];
-	[yearInfo addTarget:self action:@selector(infoGreg:) forControlEvents:UIControlEventTouchUpInside];	
-	[self.view addSubview:yearInfo];
-#endif
+//	// YEAR/CENTURY Label 1
+//	y = (self.view.frame.size.height - 35.0);
+//    
+//    y+= 50;
+//	label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS1") 
+//											x:0.0 y:y w:kscreenWidth h:12.0 size:12.0 color:[UIColor whiteColor]];
+//	[self.view addSubview:label];
+//	[label release];
+//	// YEAR/CENTURY Label 2
+//	y += 14.0;
+//	label = [[AvanteTextLabel alloc] init:LOCAL(@"CENTURY_PS2") 
+//											x:0.0 y:y w:kscreenWidth h:12.0 size:12.0 color:[UIColor whiteColor]];
+//	[self.view addSubview:label];
+//	[label release];
+//	
+//	// YEAR/CENTURY help
+//#ifndef LITE
+//	UIButton *yearInfo = [UIButton buttonWithType:UIButtonTypeInfoLight];
+//    
+//    float x = 275.0 * kscreenWidth / 320;
+//	yearInfo.frame = CGRectMake(x, 430.0, 25.0, 25.0);
+//	yearInfo.backgroundColor = [UIColor clearColor];
+//    yearInfo.tintColor = [UIColor whiteColor];
+//	[yearInfo setImage:[global imageFromFile:@"icon_info3"] forState:UIControlStateNormal];
+//	[yearInfo addTarget:self action:@selector(infoGreg:) forControlEvents:UIControlEventTouchUpInside];	
+//	[self.view addSubview:yearInfo];
+//#endif
 	
 	// Monta D-M ou M-D ???
 	for ( comp = 0 ; comp <= 1 ; comp++)
@@ -333,8 +402,15 @@
 	{
 		dt = [NSString stringWithFormat:@"%d", n];
 		mayaView = [[AvanteMayaNum alloc] init:n x:0.0 y:0.0 size:IMAGE_SIZE_BIG];
-		[longCountMayaPicker addRowToComponent:comp view:mayaView data:dt];
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, IMAGE_SIZE_BIG, IMAGE_SIZE_BIG)];
+//        [view addSubview:mayaView];
+////		[longCountMayaPicker addRowToComponent:comp view:mayaView data:dt];
+//        [longCountMayaPicker addRowToComponent:comp view:view data:dt];
+        
+        [longCountMayaPicker addRowToComponent:comp imageName:mayaView.imageName data:dt];
 		[mayaView release];
+//        [view release];
+        
 	}
 	// KATUN
 	comp++;
@@ -343,10 +419,17 @@
 	for ( n = 0 ; n < 20 ; n++ )
 	{
 		dt = [NSString stringWithFormat:@"%d",n];
+        
 		mayaView = [[AvanteMayaNum alloc] init:n x:0.0 y:0.0 size:IMAGE_SIZE_BIG];
-		[longCountMayaPicker addRowToComponent:comp view:mayaView data:dt];
-		[mayaView release];
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, IMAGE_SIZE_BIG, IMAGE_SIZE_BIG)];
+//        [view addSubview:mayaView];
+//        
+//		[longCountMayaPicker addRowToComponent:comp view:view data:dt];
+        [longCountMayaPicker addRowToComponent:comp imageName:mayaView.imageName data:dt];
+        [mayaView release];
+//        [view release];
 	}
+    
 	// TUN
 	comp++;
 	[longCountMayaPicker addComponent:LOCAL(@"LONG_TUN") w:50 h:40];
@@ -355,8 +438,13 @@
 	{
 		dt = [NSString stringWithFormat:@"%d",n];
 		mayaView = [[AvanteMayaNum alloc] init:n x:0.0 y:0.0 size:IMAGE_SIZE_BIG];
-		[longCountMayaPicker addRowToComponent:comp view:mayaView data:dt];
-		[mayaView release];
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, IMAGE_SIZE_BIG, IMAGE_SIZE_BIG)];
+//        [view addSubview:mayaView];
+//
+//		[longCountMayaPicker addRowToComponent:comp view:view data:dt];
+        [longCountMayaPicker addRowToComponent:comp imageName:mayaView.imageName data:dt];
+        [mayaView release];
+//        [view release];
 	}
 	// UINAL
 	comp++;
@@ -366,8 +454,13 @@
 	{
 		dt = [NSString stringWithFormat:@"%d",n];
 		mayaView = [[AvanteMayaNum alloc] init:n x:0.0 y:0.0 size:IMAGE_SIZE_BIG];
-		[longCountMayaPicker addRowToComponent:comp view:mayaView data:dt];
-		[mayaView release];
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, IMAGE_SIZE_BIG, IMAGE_SIZE_BIG)];
+//        [view addSubview:mayaView];
+//
+//		[longCountMayaPicker addRowToComponent:comp view:view data:dt];
+        [longCountMayaPicker addRowToComponent:comp imageName:mayaView.imageName data:dt];
+        [mayaView release];
+        //[view release];
 	}
 	// KIN
 	comp++;
@@ -377,8 +470,13 @@
 	{
 		dt = [NSString stringWithFormat:@"%d",n];
 		mayaView = [[AvanteMayaNum alloc] init:n x:0.0 y:0.0 size:IMAGE_SIZE_BIG];
-		[longCountMayaPicker addRowToComponent:comp view:mayaView data:dt];
-		[mayaView release];
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, IMAGE_SIZE_BIG, IMAGE_SIZE_BIG)];
+//        [view addSubview:mayaView];
+
+//		[longCountMayaPicker addRowToComponent:comp view:view data:dt];
+        [longCountMayaPicker addRowToComponent:comp imageName:mayaView.imageName data:dt];
+        [mayaView release];
+  //      [view release];
 	}
 }
 
@@ -444,7 +542,7 @@
 // Mudou ano > Atualiza seculo
 - (void) didChangeYear
 {
-	int year = [[currentPicker selectedRowData:2] integerValue];
+	int year = (int)[[currentPicker selectedRowData:2] integerValue];
 	[self didChangeYear:year];
 }
 - (void) didChangeYear:(int)year
@@ -462,7 +560,7 @@
 // Mudou Seculo > Atualiza Ano
 - (void) didChangeCentury
 {
-	int century = [[currentPicker selectedRowData:3] integerValue];
+	int century = (int)[[currentPicker selectedRowData:3] integerValue];
 	NSString *year;
 	if ( century > 0 )
 		year = [NSString stringWithFormat:@"%d", ((century-1)*100) ];
@@ -493,7 +591,7 @@
 }
 - (void)updateLabel
 {
-	NSString *str;
+	NSString *str = @"";
 	BOOL valid = 0;
 	
 	// Usa data selecionada
@@ -502,8 +600,8 @@
 		NSInteger d = [[currentPicker selectedRowData:compDay] integerValue];
 		NSInteger m = [[currentPicker selectedRowData:compMonth] integerValue];
 		NSInteger y = [[currentPicker selectedRowData:2] integerValue];
-		str = [TzCalGreg makeDayNameShort:d:m:y];
-		valid = [TzCalGreg validateGreg:d:m:y];
+		str = [TzCalGreg makeDayNameShort:(int)d:(int)m:(int)y];
+		valid = [TzCalGreg validateGreg:(int)d:(int)m:(int)y];
 	}
 	else if ( type == DATE_PICKER_JULIAN )
 	{
@@ -514,7 +612,7 @@
 		NSInteger n3 = [[currentPicker selectedRowData:4] integerValue];
 		NSInteger n2 = [[currentPicker selectedRowData:5] integerValue];
 		NSInteger n1 = [[currentPicker selectedRowData:6] integerValue];
-		int j = n1 + n2*10 + n3*100 + n4*1000 + n5*10000 + n6*100000 + n7*1000000 ;
+		int j = (int)(n1 + n2*10 + n3*100 + n4*1000 + n5*10000 + n6*100000 + n7*1000000);
 		str = [NSString stringWithFormat:@"%07d",j];
 		valid = [global.cal validateJulian:j];
 	}
@@ -525,7 +623,7 @@
 		NSInteger t = [[currentPicker selectedRowData:2] integerValue];
 		NSInteger u = [[currentPicker selectedRowData:3] integerValue];
 		NSInteger i = [[currentPicker selectedRowData:4] integerValue];
-		str = [NSString stringWithFormat:@"%d.%d.%d.%d.%d",b,k,t,u,i];
+		str = [NSString stringWithFormat:@"%d.%d.%d.%d.%d",(int)b,(int)k,(int)t,(int)u,(int)i];
 	}
 	
 	// Atualiza label
@@ -563,7 +661,7 @@
 		NSInteger d = [[currentPicker selectedRowData:compDay] integerValue];
 		NSInteger m = [[currentPicker selectedRowData:compMonth] integerValue];
 		NSInteger y = [[currentPicker selectedRowData:2] integerValue];
-		valid = [global.cal updateWithGreg:d:m:y];
+		valid = [global.cal updateWithGreg:(int)d:(int)m:(int)y];
 		AvLog(@"PICKED GREG [%02d-%02d-%03d] valid[%d]",d,m,y,valid);
 	}
 	else if ( type == DATE_PICKER_JULIAN )
@@ -575,18 +673,18 @@
 		NSInteger n3 = [[currentPicker selectedRowData:4] integerValue];
 		NSInteger n2 = [[currentPicker selectedRowData:5] integerValue];
 		NSInteger n1 = [[currentPicker selectedRowData:6] integerValue];
-		int j = n1 + n2*10 + n3*100 + n4*1000 + n5*10000 + n6*100000 + n7*1000000 ;
+		int j = (int)(n1 + n2*10 + n3*100 + n4*1000 + n5*10000 + n6*100000 + n7*1000000);
 		valid = [global.cal updateWithJulian:j];
 		AvLog(@"PICKED JULIAN [%07d] valid[%d]",j,valid);
 	}
 	else if ( type == DATE_PICKER_LONG_COUNT )
 	{
 		valid = [global.cal updateWithMaya
-				 :[[currentPicker selectedRowData:0] integerValue]
-				 :[[currentPicker selectedRowData:1] integerValue]
-				 :[[currentPicker selectedRowData:2] integerValue]
-				 :[[currentPicker selectedRowData:3] integerValue]
-				 :[[currentPicker selectedRowData:4] integerValue] ];
+				 :(int)[[currentPicker selectedRowData:0] integerValue]
+				 :(int)[[currentPicker selectedRowData:1] integerValue]
+				 :(int)[[currentPicker selectedRowData:2] integerValue]
+				 :(int)[[currentPicker selectedRowData:3] integerValue]
+				 :(int)[[currentPicker selectedRowData:4] integerValue] ];
 		AvLog(@"PICKED LONG COUNT valid[%d]",valid);
 	}
 	

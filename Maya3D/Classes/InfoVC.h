@@ -24,8 +24,10 @@
 	int link;
 	// IB
 	UIPageControl *pageNumbering;
+    int  CONTENT_HEIGHT;
+    
 }
-
+@property(nonatomic,retain) NSString* prevTitle;
 // Estes metodos vao aparecer no Interface Builder para ligar no botao
 - (id)initWithPage:(int)pg;
 - (void)gotoPageLocal:(int)act;
@@ -72,4 +74,7 @@
 - (void)goLinkAppsTzolkin;
 - (void)goLinkAppsMaya;
 
+
+- (IBAction)goPrev:(id)sender;
+-(void)SetPrevTitle:(NSString *)title;
 @end

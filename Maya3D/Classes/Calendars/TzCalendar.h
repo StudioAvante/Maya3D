@@ -58,8 +58,8 @@
 - (int)validateJulian:(int)l secs:(int)s;
 - (int)addSeconds:(double)s;
 - (void)removeLeap;
-- (int)updateWithGreg:(int)d:(int)m:(int)y;
-- (int)updateWithMaya:(int)b:(int)k:(int)t:(int)u:(int)i;
+- (int)updateWithGreg:(int)d :(int)m :(int)y;
+- (int)updateWithMaya:(int)b :(int)k :(int)t :(int)u :(int)i;
 - (int)updateWithMayaKin:(int)k;
 
 @end
