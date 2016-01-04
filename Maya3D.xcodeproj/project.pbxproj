@@ -154,7 +154,6 @@
 		84024B881C2873E600046204 /* icon_link.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76CE1C24E6E8006FFB61 /* icon_link.png */; };
 		84024B891C2873E600046204 /* tab_explorer-pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77C21C24E6E8006FFB61 /* tab_explorer-pt.png */; };
 		84024B8A1C2873E600046204 /* thumbs_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77551C24E6E8006FFB61 /* thumbs_down.png */; };
-		84024B8B1C2873E600046204 /* icon_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76DB1C24E6E8006FFB61 /* icon_settings.png */; };
 		84024B8C1C2873E600046204 /* numside14.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77491C24E6E8006FFB61 /* numside14.png */; };
 		84024B8D1C2873E600046204 /* numbig09i.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77241C24E6E8006FFB61 /* numbig09i.png */; };
 		84024B8E1C2873E600046204 /* plasma1.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77EA1C24E6E9006FFB61 /* plasma1.png */; };
@@ -199,7 +198,6 @@
 		84024BB81C2873E600046204 /* numbig05.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C771B1C24E6E8006FFB61 /* numbig05.png */; };
 		84024BB91C2873E600046204 /* gregorian-en.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77851C24E6E8006FFB61 /* gregorian-en.png */; };
 		84024BBA1C2873E600046204 /* num09.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77031C24E6E8006FFB61 /* num09.png */; };
-		84024BBB1C2873E600046204 /* icon_info2.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76CD1C24E6E8006FFB61 /* icon_info2.png */; };
 		84024BBC1C2873E600046204 /* lord_G5.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C78271C24E6E9006FFB61 /* lord_G5.png */; };
 		84024BBD1C2873E600046204 /* num15.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77091C24E6E8006FFB61 /* num15.png */; };
 		84024BBE1C2873E600046204 /* tzolkin_mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77D71C24E6E8006FFB61 /* tzolkin_mini.png */; };
@@ -228,8 +226,6 @@
 		84024BD51C2873E600046204 /* tzday08.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C784E1C24E6E9006FFB61 /* tzday08.png */; };
 		84024BD61C2873E600046204 /* icon_clock_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76C21C24E6E7006FFB61 /* icon_clock_pause.png */; };
 		84024BD71C2873E600046204 /* maya_glyph-es.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C779E1C24E6E8006FFB61 /* maya_glyph-es.png */; };
-		84024BD81C2873E600046204 /* LaunchScreen_Maya3D.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B65351C272B850013B0B8 /* LaunchScreen_Maya3D.xib */; };
-		84024BD91C2873E600046204 /* icon_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76DA1C24E6E8006FFB61 /* icon_search.png */; };
 		84024BDA1C2873E600046204 /* numbig03i.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77181C24E6E8006FFB61 /* numbig03i.png */; };
 		84024BDB1C2873E600046204 /* seal10.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77FD1C24E6E9006FFB61 /* seal10.png */; };
 		84024BDC1C2873E600046204 /* buts_clock_play-es.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C776E1C24E6E8006FFB61 /* buts_clock_play-es.png */; };
@@ -456,12 +452,10 @@
 		84024CC61C2873E600046204 /* isig00.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C780B1C24E6E9006FFB61 /* isig00.png */; };
 		84024CC71C2873E600046204 /* long_tun.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C78211C24E6E9006FFB61 /* long_tun.png */; };
 		84024CC81C2873E600046204 /* tzday_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C785B1C24E6E9006FFB61 /* tzday_map.png */; };
-		84024CC91C2873E600046204 /* icon_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76CC1C24E6E8006FFB61 /* icon_info.png */; };
 		84024CCA1C2873E600046204 /* moon10.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76E71C24E6E8006FFB61 /* moon10.png */; };
 		84024CCB1C2873E600046204 /* gear_side.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76BF1C24E6E7006FFB61 /* gear_side.png */; };
 		84024CCC1C2873E600046204 /* icon_clock_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76C31C24E6E7006FFB61 /* icon_clock_play.png */; };
 		84024CCD1C2873E600046204 /* numglyph09.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C783C1C24E6E9006FFB61 /* numglyph09.png */; };
-		84024CCE1C2873E600046204 /* LaunchScreen_Kin3D.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B6BD31C27406E0013B0B8 /* LaunchScreen_Kin3D.xib */; };
 		84024CCF1C2873E600046204 /* news_maya_W.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C78321C24E6E9006FFB61 /* news_maya_W.png */; };
 		84024CD11C2873E600046204 /* tones-pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C77D51C24E6E8006FFB61 /* tones-pt.png */; };
 		84024CD21C2873E600046204 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C7A681C24E817006FFB61 /* MainWindow.xib */; };
@@ -602,8 +596,6 @@
 		842C78831C24E6E9006FFB61 /* icon_gear_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76C91C24E6E8006FFB61 /* icon_gear_big.png */; };
 		842C78841C24E6E9006FFB61 /* icon_glyph.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76CA1C24E6E8006FFB61 /* icon_glyph.png */; };
 		842C78851C24E6E9006FFB61 /* icon_hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76CB1C24E6E8006FFB61 /* icon_hand.png */; };
-		842C78861C24E6E9006FFB61 /* icon_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76CC1C24E6E8006FFB61 /* icon_info.png */; };
-		842C78871C24E6E9006FFB61 /* icon_info2.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76CD1C24E6E8006FFB61 /* icon_info2.png */; };
 		842C78881C24E6E9006FFB61 /* icon_link.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76CE1C24E6E8006FFB61 /* icon_link.png */; };
 		842C78891C24E6E9006FFB61 /* icon_next.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76CF1C24E6E8006FFB61 /* icon_next.png */; };
 		842C788A1C24E6E9006FFB61 /* icon_oracle.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76D01C24E6E8006FFB61 /* icon_oracle.png */; };
@@ -616,8 +608,6 @@
 		842C78911C24E6E9006FFB61 /* icon_prev.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76D71C24E6E8006FFB61 /* icon_prev.png */; };
 		842C78921C24E6E9006FFB61 /* icon_rewind.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76D81C24E6E8006FFB61 /* icon_rewind.png */; };
 		842C78931C24E6E9006FFB61 /* icon_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76D91C24E6E8006FFB61 /* icon_save.png */; };
-		842C78941C24E6E9006FFB61 /* icon_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76DA1C24E6E8006FFB61 /* icon_search.png */; };
-		842C78951C24E6E9006FFB61 /* icon_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76DB1C24E6E8006FFB61 /* icon_settings.png */; };
 		842C78961C24E6E9006FFB61 /* icon_signature.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76DC1C24E6E8006FFB61 /* icon_signature.png */; };
 		842C78971C24E6E9006FFB61 /* iphone_ruler.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76DD1C24E6E8006FFB61 /* iphone_ruler.png */; };
 		842C78981C24E6E9006FFB61 /* moon01.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C76DE1C24E6E8006FFB61 /* moon01.png */; };
@@ -1052,8 +1042,6 @@
 		842C7A991C24E8C0006FFB61 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842C7A981C24E8C0006FFB61 /* MessageUI.framework */; };
 		842C7A9B1C24E8CD006FFB61 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842C7A9A1C24E8CD006FFB61 /* Security.framework */; };
 		842C7A9D1C24E8DB006FFB61 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842C7A9C1C24E8DB006FFB61 /* SystemConfiguration.framework */; };
-		846B65371C272B850013B0B8 /* LaunchScreen_Maya3D.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B65351C272B850013B0B8 /* LaunchScreen_Maya3D.xib */; };
-		846B6BD71C27406E0013B0B8 /* LaunchScreen_Kin3D.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846B6BD31C27406E0013B0B8 /* LaunchScreen_Kin3D.xib */; };
 		DB88595C1C399AA9008EE7BD /* icon_info3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88595B1C399AA9008EE7BD /* icon_info3.png */; };
 		DB88595D1C399AA9008EE7BD /* icon_info3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88595B1C399AA9008EE7BD /* icon_info3.png */; };
 		DB8859601C399BF0008EE7BD /* icon_settings2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB88595F1C399BF0008EE7BD /* icon_settings2.png */; };
@@ -1092,10 +1080,6 @@
 		DB8859AB1C39CD32008EE7BD /* Maya3D_1242_2208_(5.5).png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859A61C39CD32008EE7BD /* Maya3D_1242_2208_(5.5).png */; };
 		DB8859AE1C39D880008EE7BD /* tabbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859AD1C39D880008EE7BD /* tabbar_bg.png */; };
 		DB8859AF1C39D880008EE7BD /* tabbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8859AD1C39D880008EE7BD /* tabbar_bg.png */; };
-		DB8859B11C39DF03008EE7BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8859B01C39DF03008EE7BD /* LaunchScreen.storyboard */; };
-		DB8859B21C39DF03008EE7BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8859B01C39DF03008EE7BD /* LaunchScreen.storyboard */; };
-		DBC649731C39EE8D00D3EE87 /* avante_1024_black.png in Resources */ = {isa = PBXBuildFile; fileRef = DBC649721C39EE8D00D3EE87 /* avante_1024_black.png */; };
-		DBC649741C39EE8D00D3EE87 /* avante_1024_black.png in Resources */ = {isa = PBXBuildFile; fileRef = DBC649721C39EE8D00D3EE87 /* avante_1024_black.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2794,7 +2778,6 @@
 				84024B881C2873E600046204 /* icon_link.png in Resources */,
 				84024B891C2873E600046204 /* tab_explorer-pt.png in Resources */,
 				84024B8A1C2873E600046204 /* thumbs_down.png in Resources */,
-				84024B8B1C2873E600046204 /* icon_settings.png in Resources */,
 				84024B8C1C2873E600046204 /* numside14.png in Resources */,
 				84024B8D1C2873E600046204 /* numbig09i.png in Resources */,
 				84024B8E1C2873E600046204 /* plasma1.png in Resources */,
@@ -2839,7 +2822,6 @@
 				84024BB81C2873E600046204 /* numbig05.png in Resources */,
 				84024BB91C2873E600046204 /* gregorian-en.png in Resources */,
 				84024BBA1C2873E600046204 /* num09.png in Resources */,
-				84024BBB1C2873E600046204 /* icon_info2.png in Resources */,
 				84024BBC1C2873E600046204 /* lord_G5.png in Resources */,
 				84024BBD1C2873E600046204 /* num15.png in Resources */,
 				84024BBE1C2873E600046204 /* tzolkin_mini.png in Resources */,
@@ -2868,8 +2850,6 @@
 				84024BD51C2873E600046204 /* tzday08.png in Resources */,
 				84024BD61C2873E600046204 /* icon_clock_pause.png in Resources */,
 				84024BD71C2873E600046204 /* maya_glyph-es.png in Resources */,
-				84024BD81C2873E600046204 /* LaunchScreen_Maya3D.xib in Resources */,
-				84024BD91C2873E600046204 /* icon_search.png in Resources */,
 				84024BDA1C2873E600046204 /* numbig03i.png in Resources */,
 				84024BDB1C2873E600046204 /* seal10.png in Resources */,
 				84024BDC1C2873E600046204 /* buts_clock_play-es.png in Resources */,
@@ -3020,7 +3000,6 @@
 				84024C721C2873E600046204 /* kin_affirm-es.png in Resources */,
 				84024C731C2873E600046204 /* iphone_ruler.png in Resources */,
 				84024C741C2873E600046204 /* numglyph19.png in Resources */,
-				DB8859B21C39DF03008EE7BD /* LaunchScreen.storyboard in Resources */,
 				84024C751C2873E600046204 /* oracle_color-es.png in Resources */,
 				84024C761C2873E600046204 /* numbig20.png in Resources */,
 				84024C771C2873E600046204 /* news_dreamspell_O.png in Resources */,
@@ -3107,12 +3086,10 @@
 				84024CC61C2873E600046204 /* isig00.png in Resources */,
 				84024CC71C2873E600046204 /* long_tun.png in Resources */,
 				84024CC81C2873E600046204 /* tzday_map.png in Resources */,
-				84024CC91C2873E600046204 /* icon_info.png in Resources */,
 				84024CCA1C2873E600046204 /* moon10.png in Resources */,
 				84024CCB1C2873E600046204 /* gear_side.png in Resources */,
 				84024CCC1C2873E600046204 /* icon_clock_play.png in Resources */,
 				84024CCD1C2873E600046204 /* numglyph09.png in Resources */,
-				84024CCE1C2873E600046204 /* LaunchScreen_Kin3D.xib in Resources */,
 				84024CCF1C2873E600046204 /* news_maya_W.png in Resources */,
 				84024CD11C2873E600046204 /* tones-pt.png in Resources */,
 				84024CD21C2873E600046204 /* MainWindow.xib in Resources */,
@@ -3171,7 +3148,6 @@
 				84024D041C2873E600046204 /* oracle_moon-en.png in Resources */,
 				84024D051C2873E600046204 /* numbig02i.png in Resources */,
 				84024D061C2873E600046204 /* tzday01.png in Resources */,
-				DBC649741C39EE8D00D3EE87 /* avante_1024_black.png in Resources */,
 				84024D071C2873E600046204 /* news_dreamspell_S.png in Resources */,
 				84024D081C2873E600046204 /* seal09.png in Resources */,
 				84024D091C2873E600046204 /* plasmas.png in Resources */,
@@ -3282,8 +3258,6 @@
 				842C78881C24E6E9006FFB61 /* icon_link.png in Resources */,
 				842C797B1C24E6E9006FFB61 /* tab_explorer-pt.png in Resources */,
 				842C790F1C24E6E9006FFB61 /* thumbs_down.png in Resources */,
-				842C78951C24E6E9006FFB61 /* icon_settings.png in Resources */,
-				DB8859B11C39DF03008EE7BD /* LaunchScreen.storyboard in Resources */,
 				842C79031C24E6E9006FFB61 /* numside14.png in Resources */,
 				842C78DE1C24E6E9006FFB61 /* numbig09i.png in Resources */,
 				842C79A21C24E6E9006FFB61 /* plasma1.png in Resources */,
@@ -3329,7 +3303,6 @@
 				DB88598F1C39BD29008EE7BD /* Icon-60@2x.png in Resources */,
 				842C793E1C24E6E9006FFB61 /* gregorian-en.png in Resources */,
 				842C78BD1C24E6E9006FFB61 /* num09.png in Resources */,
-				842C78871C24E6E9006FFB61 /* icon_info2.png in Resources */,
 				842C79DE1C24E6E9006FFB61 /* lord_G5.png in Resources */,
 				842C78C31C24E6E9006FFB61 /* num15.png in Resources */,
 				842C79901C24E6E9006FFB61 /* tzolkin_mini.png in Resources */,
@@ -3359,8 +3332,6 @@
 				842C7A051C24E6E9006FFB61 /* tzday08.png in Resources */,
 				842C787C1C24E6E9006FFB61 /* icon_clock_pause.png in Resources */,
 				842C79571C24E6E9006FFB61 /* maya_glyph-es.png in Resources */,
-				846B65371C272B850013B0B8 /* LaunchScreen_Maya3D.xib in Resources */,
-				842C78941C24E6E9006FFB61 /* icon_search.png in Resources */,
 				842C78D21C24E6E9006FFB61 /* numbig03i.png in Resources */,
 				DB8859A91C39CD32008EE7BD /* Maya3D_640_1136_(R4).png in Resources */,
 				DB8859831C39BB86008EE7BD /* Icon-Small@2x.png in Resources */,
@@ -3550,7 +3521,6 @@
 				842C79BC1C24E6E9006FFB61 /* seal17.png in Resources */,
 				842C79E71C24E6E9006FFB61 /* news_maya_O.png in Resources */,
 				842C79221C24E6E9006FFB61 /* but_settings.png in Resources */,
-				DBC649731C39EE8D00D3EE87 /* avante_1024_black.png in Resources */,
 				842C798B1C24E6E9006FFB61 /* tabs_maya-pt.png in Resources */,
 				842C78BC1C24E6E9006FFB61 /* num08.png in Resources */,
 				842C7A141C24E6E9006FFB61 /* uinal01.png in Resources */,
@@ -3597,12 +3567,10 @@
 				842C79C21C24E6E9006FFB61 /* isig00.png in Resources */,
 				842C79D81C24E6E9006FFB61 /* long_tun.png in Resources */,
 				842C7A121C24E6E9006FFB61 /* tzday_map.png in Resources */,
-				842C78861C24E6E9006FFB61 /* icon_info.png in Resources */,
 				842C78A11C24E6E9006FFB61 /* moon10.png in Resources */,
 				842C78791C24E6E9006FFB61 /* gear_side.png in Resources */,
 				842C787D1C24E6E9006FFB61 /* icon_clock_play.png in Resources */,
 				842C79F31C24E6E9006FFB61 /* numglyph09.png in Resources */,
-				846B6BD71C27406E0013B0B8 /* LaunchScreen_Kin3D.xib in Resources */,
 				842C79E91C24E6E9006FFB61 /* news_maya_W.png in Resources */,
 				842C798E1C24E6E9006FFB61 /* tones-pt.png in Resources */,
 				842C7A7D1C24E817006FFB61 /* MainWindow.xib in Resources */,
