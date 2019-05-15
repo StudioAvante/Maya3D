@@ -3905,6 +3905,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-Kin3D";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PREFIX_HEADER = Maya3D_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = KIN3D;
 				INFOPLIST_FILE = "$(SRCROOT)/Maya3D/Resources/Kin3D-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Kin3D;
